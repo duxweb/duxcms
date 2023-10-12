@@ -1,0 +1,15 @@
+{
+  "theme": {
+    "name": "Dux Guide",
+    "help": "This is a topic guide"
+  },
+  "page": {
+    "name": "Pages",
+    "fields": {
+      "title": {
+        "label": "Title",
+        "type": "text"
+      }
+    }
+  }
+}

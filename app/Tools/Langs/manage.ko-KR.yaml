@@ -1,0 +1,15 @@
+tools:
+  name: 도구
+  area:
+    name: 지역
+    import:
+      name: 가져오기
+    cascade:
+      name: 선택
+  magicGroup:
+    name: 데이터 관리
+
+extend:
+  name: 확장
+  magic:
+    name: 데이터 매직

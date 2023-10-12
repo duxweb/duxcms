@@ -1,0 +1,20 @@
+system:
+  name: 系統
+  login:
+    name: 登入
+  user:
+    name: 用戶管理
+    validator:
+      nickname: 請輸入暱稱
+      username: 請輸入用戶名
+      usernameExists: 該用戶已存在
+      password: 請輸入密碼
+      roles: 請選擇角色
+  role:
+    name: 角色管理
+  operate:
+    name: 操作記錄
+  api:
+    name: 接口授權
+    validator:
+      name: 請輸入名稱

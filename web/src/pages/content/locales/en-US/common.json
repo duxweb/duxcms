@@ -1,0 +1,36 @@
+{
+  "content": {
+    "name": "Content",
+    "articleGroup": {
+      "name": "Article"
+    },
+    "article": {
+      "name": "List",
+      "tab": {
+        "all": "All",
+        "published": "Published",
+        "unpublished": "Unpublished"
+      },
+      "validate": {
+        "title": "Please enter the title"
+      },
+      "fields": {
+        "title": "Title",
+        "subtitle": "Subtitle",
+        "image": "Cover Image",
+        "status": "Status",
+        "author": "Author",
+        "content": "Content",
+        "virtualView": "Virtual Views",
+        "createdAt": "Created At"
+      }
+    },
+    "category": {
+      "name": "Categories",
+      "fields": {
+        "parent": "Parent",
+        "name": "Name"
+      }
+    }
+  }
+}

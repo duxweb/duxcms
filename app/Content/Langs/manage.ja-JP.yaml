@@ -1,0 +1,14 @@
+content:
+  name: コンテンツ管理
+  article:
+    name: 記事
+    validator:
+      title: タイトルを入力してください
+      author: 著者を入力してください
+  category:
+    name: カテゴリー
+  page:
+    name: ページ
+    validator:
+      title: タイトルを入力してください
+      name: 呼び出し名を入力してください

@@ -1,0 +1,7 @@
+info: 你可以按照以下步驟客製化你的主題
+step1: 在目錄中建立你自己的主題
+step2: 使用 _code_ 模板引擎進行資料呼叫
+step3: 加入 _code_ 客製化模板參數
+description: DuxCMS 是一個基於 Headless CMS 理念的管理系統，透過不同的資料呼叫，可以實現您的使用需求。
+tips: 深入瞭解模板開發？
+doc: 閱讀文件

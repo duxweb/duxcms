@@ -1,0 +1,15 @@
+tools:
+  name: Tools
+  area:
+    name: Area
+    import:
+      name: Import
+    cascade:
+      name: Select
+  magicGroup:
+    name: Data Management
+
+extend:
+  name: Extend
+  magic:
+    name: Data Magic

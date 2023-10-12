@@ -1,0 +1,14 @@
+data:
+  name: Data
+  business:
+    name: Business
+  customer:
+    name: Customer
+  gas:
+    name: Gas
+  heat:
+    name: Heat
+  power:
+    name: Power
+  surety:
+    name: Surety

@@ -1,0 +1,15 @@
+tools:
+  name: 工具
+  area:
+    name: 地区
+    import:
+      name: 导入
+    cascade:
+      name: 选择
+  magicGroup:
+    name: 数据管理
+
+extend:
+  name: 扩展
+  magic:
+    name: 数据魔方

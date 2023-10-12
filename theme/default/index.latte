@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/theme/css/style.css" rel="stylesheet">
+    <title>{$theme['page']['title'] ?: 'DuxCMS Default'}</title>
+</head>
+<body>
+
+<div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+    <img src="/theme/images/beams.jpg" alt="" class="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
+    <div class="absolute inset-0 bg-[url(/theme/images/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+    <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+        <div class="mx-auto max-w-md">
+            <svg class='fill-black h-6' viewBox='0 0 400.893 121.787' version='1.1' xmlns='http://www.w3.org/2000/svg' >
+            <g transform='translate(-6545.000000, -3038.106602) translate(6345.000000, 2899.000000) translate(200.000000, 132.393398)' fill-rule='nonzero' stroke='none' stroke-width='1' fill='none'>
+                <path d='M0 62.607v50c0 8.284 6.716 15 15 15s15-6.716 15-15v-50c0-8.285-6.716-15-15-15s-15 6.715-15 15z' class='fill-black'></path>
+                <path d='M60 7.607c33.137 0 60 26.863 60 60s-26.863 60-60 60h-5c-8.284 0-15-6.716-15-15 0-8.285 6.716-15 15-15h5c16.57 0 30-13.432 30-30 0-16.57-13.43-30-30-30H15c-8.284 0-15-6.716-15-15 0-8.285 6.716-15 15-15h45z' class='fill-black'/>
+                <path d='M201 7.607c33.137 0 60 26.863 60 60s-26.863 60-60 60h-46c-8.284 0-15-6.716-15-15 0-8.285 6.716-15 15-15h46c16.57 0 30-13.432 30-30 0-16.57-13.43-30-30-30h-45.5c-8.284 0-15-6.716-15-15 0-8.285 6.716-15 15-15H201z' class='fill-black' transform='translate(200.500000, 67.606602) rotate(90.000000) translate(-200.500000, -67.606602) '/>
+                <g transform='translate(279.106602, 6.713203)'>
+                    <path d='M25.607 4.393 52.893 31.68c5.858 5.858 5.858 15.356 0 21.213-5.857 5.858-15.355 5.858-21.213 0L4.393 25.607c-5.857-5.858-5.857-15.356 0-21.214 5.858-5.857 15.356-5.857 21.214 0zm91.786 0c5.858 5.858 5.858 15.356 0 21.214L90.107 52.893c-5.858 5.858-15.356 5.858-21.214 0-5.857-5.857-5.857-15.355 0-21.213L96.18 4.393c5.858-5.857 15.356-5.857 21.213 0zm-64.5 64.5c5.858 5.858 5.858 15.356 0 21.214l-27.286 27.286c-5.858 5.858-15.356 5.858-21.214 0-5.857-5.857-5.857-15.355 0-21.213L31.68 68.893c5.858-5.857 15.356-5.857 21.213 0z' class='fill-black'/>
+                    <path d='m90.107 68.893 27.286 27.287c5.858 5.858 5.858 15.356 0 21.213-5.857 5.858-15.355 5.858-21.213 0L68.893 90.107c-5.857-5.858-5.857-15.356 0-21.214 5.858-5.857 15.356-5.857 21.214 0z' class='fill-blue-700'/>
+                </g>
+            </g>
+            </svg>
+            <div class="divide-y divide-gray-300/50">
+                <div class="space-y-6 py-8 text-base leading-7 text-gray-600">
+                    <p>{_'info'}:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="11" />
+                                <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                            </svg>
+                            <p class="ml-4">
+
+                                <code class="text-sm font-bold text-gray-900">Theme</code> {_'step1'}
+                            </p>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="11" />
+                                <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                            </svg>
+                            <p class="ml-4">
+                                {_'step2', _code_:  '<code class="text-sm font-bold text-gray-900">latte</code>' |noescape}
+                            </p>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="11" />
+                                <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                            </svg>
+                            <p class="ml-4">
+                                {_'step3', _code_:  '<code class="text-sm font-bold text-gray-900">config.json</code>' |noescape}
+                            </p>
+                        </li>
+                    </ul>
+                    <p>{_'description'}</p>
+                </div>
+                <div class="pt-8 text-base font-semibold leading-7">
+                    <p class="text-gray-900">{_'tips'}</p>
+                    <p>
+                        <a href="https://www.dux.plus" class="text-sky-500 hover:text-sky-600">{_'doc'} &rarr;</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

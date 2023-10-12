@@ -1,0 +1,11 @@
+app:
+    name: Dux
+    debug: true
+    cache: false
+    secret: 92f3560b90e72eb5315e3c817256fb83
+    domain: 'http://localhost'
+clock: false
+lang: en-US
+vite:
+    dev: false
+    port: 5173

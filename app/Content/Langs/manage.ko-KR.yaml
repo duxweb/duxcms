@@ -1,0 +1,14 @@
+content:
+  name: 컨텐츠 관리
+  article:
+    name: 글
+    validator:
+      title: 제목을 입력하세요
+      author: 작성자를 입력하세요
+  category:
+    name: 카테고리
+  page:
+    name: 페이지
+    validator:
+      title: 제목을 입력하세요
+      name: 호출 이름을 입력하세요

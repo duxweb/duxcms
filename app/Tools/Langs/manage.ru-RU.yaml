@@ -1,0 +1,15 @@
+tools:
+  name: Инструменты
+  area:
+    name: Область
+    import:
+      name: Импорт
+    cascade:
+      name: Выбор
+  magicGroup:
+    name: Управление данными
+
+extend:
+  name: Расширение
+  magic:
+    name: Магия данных

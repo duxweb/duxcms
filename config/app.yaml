@@ -1,0 +1,6 @@
+registers:
+    - \App\Cms\App
+    - \App\Content\App
+    - \App\System\App
+    - \App\Tools\App
+    - \App\Install\App

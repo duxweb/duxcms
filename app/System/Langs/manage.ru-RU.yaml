@@ -1,0 +1,20 @@
+system:
+  name: Система
+  login:
+    name: Вход
+  user:
+    name: Управление пользователями
+    validator:
+      nickname: Введите псевдоним
+      username: Введите имя пользователя
+      usernameExists: Пользователь с таким именем уже существует
+      password: Введите пароль
+      roles: Выберите роль
+  role:
+    name: Управление ролями
+  operate:
+    name: Журнал действий
+  api:
+    name: Авторизация API
+    validator:
+      name: Введите название

@@ -1,0 +1,29 @@
+{
+  "name": "duxweb/dixcms",
+  "type": "project",
+  "description": "Lightweight project development system",
+  "keywords": [
+    "duxphp",
+    "slimphp"
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "duxphp/lite": "2.0.x-dev",
+    "xantios/mimey": "^2.2",
+    "ext-fileinfo": "*",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Console\\": "console/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "duxphp/lite": true
+    }
+  },
+  "license": "MIT"
+}

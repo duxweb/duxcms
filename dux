@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+
+<?php
+
+
+require __DIR__ . '/vendor/autoload.php';
+
+$app = \Dux\App::createCli(__DIR__, 'zh');
+$app->run();

@@ -1,0 +1,7 @@
+info: You can customize your own theme by following these steps
+step1: Create your own theme in the directory
+step2: Use the _code_ template engine for data retrieval
+step3: Include _code_ custom template parameters
+description: DuxCMS is a management system based on the Headless CMS concept, and it can fulfill your usage needs through various data retrievals.
+tips: Want to delve deeper into template development?
+doc: Read Docs

@@ -1,0 +1,4 @@
+cms:
+  name: Content Management
+  template:
+    name: Template

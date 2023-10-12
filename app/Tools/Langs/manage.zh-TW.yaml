@@ -1,0 +1,15 @@
+tools:
+  name: 工具
+  area:
+    name: 地區
+    import:
+      name: 匯入
+    cascade:
+      name: 選擇
+  magicGroup:
+    name: 資料管理
+
+extend:
+  name: 擴展
+  magic:
+    name: 資料魔法

@@ -1,0 +1,18 @@
+system:
+  login:
+  user:
+    name: ユーザー
+    validator:
+      nickname: ニックネームを入力してください
+      username: ユーザー名を入力してください
+      usernameExists: このユーザーは既に存在します
+      password: パスワードを入力してください
+      roles: 役割を選択してください
+  role:
+    name: 役割
+  operate:
+    name: 操作
+  api:
+    name: API 認証
+    validator:
+      name: 名前を入力してください

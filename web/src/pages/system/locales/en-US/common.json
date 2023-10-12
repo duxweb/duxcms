@@ -1,0 +1,72 @@
+{
+  "copyright": "All rights reserved © duxweb 2023",
+  "userMenu": {
+    "setting": "Settings"
+  },
+  "admin": {
+    "title": "Management System"
+  },
+  "system": {
+    "name": "System",
+    "userGroup": {
+      "name": "User"
+    },
+    "user": {
+      "name": "User List",
+      "tabs": {
+        "all": "All",
+        "enabled": "Enabled",
+        "disabled": "Disabled"
+      },
+      "fields": {
+        "roles": "Roles",
+        "nickname": "Nickname",
+        "username": "Username",
+        "avatar": "Avatar",
+        "password": "Password",
+        "status": "Status"
+      }
+    },
+    "role": {
+      "name": "Role List",
+      "fields": {
+        "permission": "Permission",
+        "name": "Name"
+      }
+    },
+    "logGroup": {
+      "name": "System Logs"
+    },
+    "operate": {
+      "name": "Operation",
+      "fields": {
+        "user": "User",
+        "client": "Client",
+        "request": "Request",
+        "requestMethod": "Request Method",
+        "requestUrl": "Request Url",
+        "requestTime": "Request Time",
+        "requestParams": "Request Parameters"
+      },
+      "filters": {
+        "userPlaceholder": "Search and select user",
+        "method": {
+          "placeholder": "Select method",
+          "post": "Create",
+          "put": "Edit",
+          "patch": "Update",
+          "delete": "Delete"
+        }
+      }
+    },
+    "api": {
+      "name": "API",
+      "fields": {
+        "name": "Name",
+        "secretId": "Secret Id",
+        "secretKey": "Secret Key",
+        "status": "Status"
+      }
+    }
+  }
+}

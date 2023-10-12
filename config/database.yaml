@@ -1,0 +1,4 @@
+db:
+    drivers: { default: { driver: mysql, host: 101.34.64.147, database: dux_test, username: dux_test, password: 4BMwMrEY3LNpx34X, port: '3306', prefix: app_ } }
+redis:
+    drivers: { default: { host: 127.0.0.1, port: 6379, timeout: 2.5, auth: null } }

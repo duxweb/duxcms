@@ -1,0 +1,14 @@
+content:
+  name: Content Management
+  article:
+    name: Article
+    validator:
+      title: Please enter a title
+      author: Please enter an author
+  category:
+    name: Category
+  page:
+    name: Page
+    validator:
+      title: Please enter a title
+      name: Please enter a call name
