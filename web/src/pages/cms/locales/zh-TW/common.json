@@ -1,35 +1,58 @@
 {
   "cms": {
     "dashboard": {
-      "name": "概况",
-      "fields": {
-        "sourceRate": "来源占比",
-        "mallRate": "商品占比",
-        "saleValue": "销售额",
-        "userValue": "用户量",
-        "mallValue": "商品量",
-        "supplyValue": "供货量",
-        "userTrend": "用户趋势",
-        "saleTrend": "销售趋势",
-        "mallTotalRank": "商品总排名",
-        "mallDayRank": "商品日排名",
-        "mallMonthRank": "商品月排名"
-      }
+      "name": "概況",
+      "nums": {
+        "article": "文章數量",
+        "pv": "網站PV",
+        "uv": "網站UV",
+        "spider": "蜘蛛爬蟲"
+      },
+      "views": {
+        "name": "訪問統計",
+        "pv": "訪問量",
+        "uv": "訪客量"
+      },
+      "unknown": "未知",
+      "spider": "蜘蛛統計",
+      "source": "瀏覽器來源",
+      "area": "地區來源",
+      "article": {
+        "name": "近期文章",
+        "pv": "訪問量",
+        "date": "發布日期"
+      },
+      "push": {
+        "name": "發布統計",
+        "num": "數量"
+      },
+      "class": {
+        "name": "分類統計",
+        "num": "數量"
+      },
+      "noData": "暫無數據"
     },
-    "name": "站点管理",
+    "name": "站點管理",
     "setting": {
-      "name": "站点设置",
+      "name": "站點設置",
       "fields": {
-        "title": "站点标题",
-        "titleHelp": "站点头部标题",
-        "desc": "站点描述",
-        "descHelp": "站点描述信息",
-        "copyright": "版权信息",
-        "copyrightHelp": "站点版权信息"
+        "title": "站點標題",
+        "titleHelp": "站點頭部標題",
+        "desc": "站點描述",
+        "descHelp": "站點描述信息",
+        "copyright": "版權信息",
+        "copyrightHelp": "站點版權信息"
       }
     },
-    "template": {
-      "name": "模板管理"
+    "theme": {
+      "name": "模板管理",
+      "default": "默認",
+      "info": "主題說明",
+      "empty": "暫無",
+      "change": "主題切換",
+      "changeConfirm": "確認切換嗎",
+      "config": "主題配置",
+      "addField": "添加字段"
     }
   }
 }

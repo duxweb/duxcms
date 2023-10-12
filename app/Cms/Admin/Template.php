@@ -14,13 +14,13 @@ use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-#[Resource(app: 'admin',  route: '/cms/template', name: 'cms.template')]
+#[Resource(app: 'admin',  route: '/cms/theme', name: 'cms.theme')]
 class Template
 {
 
     public function list(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $configList = glob(base_path('template/*/config.json'));
+        $configList = glob(base_path('theme/*/config.json'));
         $list = [];
         foreach ($configList as $config) {
             $data = json_decode(file_get_contents($config), true);
@@ -38,7 +38,7 @@ class Template
     public function show(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $name = $args['id'];
-        $file = base_path('template/'.$name.'/config.json');
+        $file = base_path('theme/'.$name.'/config.json');
         $data = json_decode(file_get_contents($file), true);
         $config = Config::getJsonValue('theme_' . $name, []);
 
@@ -53,7 +53,7 @@ class Template
         Config::setValue('theme_' . $name, $data);
 
         return send($response, __("message.edit", [
-            "%name%" => __("cms.template.name", 'manage'),
+            "%name%" => __("cms.theme.name", 'manage'),
         ], "common"));
     }
 
@@ -64,7 +64,7 @@ class Template
         Config::setValue('theme', $name);
 
         return send($response, __("message.store", [
-            "%name%" => __("cms.template.name", 'manage'),
+            "%name%" => __("cms.theme.name", 'manage'),
         ], "common"));
     }
 

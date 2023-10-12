@@ -1,71 +1,71 @@
 {
   "copyright": "All rights reserved © duxweb 2023",
   "userMenu": {
-    "setting": "设置"
+    "setting": "設定"
   },
   "admin": {
-    "title": "中后台管理系统"
+    "title": "管理ダッシュボード"
   },
   "system": {
-    "name": "系统",
+    "name": "システム",
     "userGroup": {
-      "name": "用户管理"
+      "name": "ユーザー管理"
     },
     "user": {
-      "name": "用户列表",
+      "name": "ユーザーリスト",
       "tabs": {
-        "all": "全部",
-        "enabled": "启用",
-        "disabled": "禁用"
+        "all": "すべて",
+        "enabled": "有効",
+        "disabled": "無効"
       },
       "fields": {
-        "roles": "角色",
-        "nickname": "昵称",
-        "username": "用户名",
-        "avatar": "头像",
-        "password": "密码",
-        "status": "状态"
+        "roles": "ロール",
+        "nickname": "ニックネーム",
+        "username": "ユーザー名",
+        "avatar": "アバター",
+        "password": "パスワード",
+        "status": "ステータス"
       }
     },
     "role": {
-      "name": "角色列表",
+      "name": "ロールリスト",
       "fields": {
-        "permission": "权限",
-        "name": "名称"
+        "permission": "権限",
+        "name": "名前"
       }
     },
     "logGroup": {
-      "name": "系统日志"
+      "name": "システムログ"
     },
     "operate": {
-      "name": "操作记录",
+      "name": "操作履歴",
       "fields": {
-        "user": "用户",
-        "client": "客户端",
-        "request": "请求",
-        "requestMethod": "请求方法",
-        "requestUrl": "请求 Url",
-        "requestTime": "请求时间",
-        "requestParams": "请求参数"
+        "user": "ユーザー",
+        "client": "クライアント",
+        "request": "リクエスト",
+        "requestMethod": "リクエストメソッド",
+        "requestUrl": "リクエストURL",
+        "requestTime": "リクエスト時間",
+        "requestParams": "リクエストパラメータ"
       },
       "filters": {
-        "userPlaceholder": "请搜索选择用户",
+        "userPlaceholder": "ユーザーを検索して選択してください",
         "method": {
-          "placeholder": "请选择方法",
-          "post": "创建",
-          "put": "编辑",
+          "placeholder": "メソッドを選択してください",
+          "post": "作成",
+          "put": "編集",
           "patch": "更新",
-          "delete": "删除"
+          "delete": "削除"
         }
       }
     },
     "api": {
-      "name": "接口授权",
+      "name": "API認証",
       "fields": {
-        "name": "名称",
+        "name": "名前",
         "secretId": "Secret Id",
         "secretKey": "Secret Key",
-        "status": "状态"
+        "status": "ステータス"
       }
     }
   }

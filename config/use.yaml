@@ -2,7 +2,7 @@ app:
     name: Dux
     debug: true
     cache: false
-    secret: 92f3560b90e72eb5315e3c817256fb83
+    secret: 244ba98b69bb66ef0a28e3fbc01bb490
     domain: 'http://localhost'
 clock: false
 lang: en-US

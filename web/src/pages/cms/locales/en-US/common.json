@@ -1,88 +1,58 @@
 {
-  "copyright": "All rights reserved © duxweb 2023",
-  "userMenu": {
-    "setting": "Settings"
-  },
-  "admin": {
-    "title": "Management System"
-  },
-  "system": {
-    "name": "System",
+  "cms": {
     "dashboard": {
-      "name": "Overview",
-      "fields": {
-        "sourceRate": "Source Proportion",
-        "mallRate": "Product Proportion",
-        "saleValue": "Sales Value",
-        "userValue": "User Count",
-        "mallValue": "Product Count",
-        "supplyValue": "Supply Volume",
-        "userTrend": "User Trend",
-        "saleTrend": "Sales Trend",
-        "mallTotalRank": "Product Total Rank",
-        "mallDayRank": "Product Daily Rank",
-        "mallMonthRank": "Product Monthly Rank"
-      }
-    },
-    "userGroup": {
-      "name": "User"
-    },
-    "user": {
-      "name": "User List",
-      "tabs": {
-        "all": "All",
-        "enabled": "Enabled",
-        "disabled": "Disabled"
+      "name": "Dashboard",
+      "nums": {
+        "article": "Article Count",
+        "pv": "Site PV",
+        "uv": "Site UV",
+        "spider": "Spider Crawlers"
       },
-      "fields": {
-        "roles": "Roles",
-        "nickname": "Nickname",
-        "username": "Username",
-        "avatar": "Avatar",
-        "password": "Password",
-        "status": "Status"
-      }
-    },
-    "role": {
-      "name": "Role List",
-      "fields": {
-        "permission": "Permission",
-        "name": "Name"
-      }
-    },
-    "logGroup": {
-      "name": "System Logs"
-    },
-    "operate": {
-      "name": "Operation",
-      "fields": {
-        "user": "User",
-        "client": "Client",
-        "request": "Request",
-        "requestMethod": "Request Method",
-        "requestUrl": "Request Url",
-        "requestTime": "Request Time",
-        "requestParams": "Request Parameters"
+      "views": {
+        "name": "Visitor Statistics",
+        "pv": "Page Views",
+        "uv": "Unique Visitors"
       },
-      "filters": {
-        "userPlaceholder": "Search and select user",
-        "method": {
-          "placeholder": "Select method",
-          "post": "Create",
-          "put": "Edit",
-          "patch": "Update",
-          "delete": "Delete"
-        }
+      "unknown": "Unknown",
+      "spider": "Spider Statistics",
+      "source": "Browser Source",
+      "area": "Region Source",
+      "article": {
+        "name": "Recent Articles",
+        "pv": "Page Views",
+        "date": "Publication Date"
+      },
+      "push": {
+        "name": "Publishing Statistics",
+        "num": "Quantity"
+      },
+      "class": {
+        "name": "Category Statistics",
+        "num": "Quantity"
+      },
+      "noData": "No Data"
+    },
+    "name": "Site",
+    "setting": {
+      "name": "Site Settings",
+      "fields": {
+        "title": "Site Title",
+        "titleHelp": "Header Title for the Site",
+        "desc": "Site Description",
+        "descHelp": "Description Information for the Site",
+        "copyright": "Copyright Information",
+        "copyrightHelp": "Copyright Information for the Site"
       }
     },
-    "api": {
-      "name": "API",
-      "fields": {
-        "name": "Name",
-        "secretId": "Secret Id",
-        "secretKey": "Secret Key",
-        "status": "Status"
-      }
+    "theme": {
+      "name": "theme",
+      "default": "Default",
+      "info": "Theme Description",
+      "empty": "Empty",
+      "change": "Change Theme",
+      "changeConfirm": "Confirm Theme Change",
+      "config": "Theme Configuration",
+      "addField": "Add Field"
     }
   }
 }

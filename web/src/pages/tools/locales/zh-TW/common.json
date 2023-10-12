@@ -2,69 +2,69 @@
   "tools": {
     "name": "工具",
     "dataGroup": {
-      "name": "数据管理"
+      "name": "資料管理"
     },
     "area": {
-      "name": "地区管理",
+      "name": "地區管理",
       "fields": {
-        "code": "区号",
-        "name": "名称",
-        "level": "级别"
+        "code": "區號",
+        "name": "名稱",
+        "level": "級別"
       },
       "help": {
-        "import": "百度地图行政区划adcode映射表"
+        "import": "百度地圖行政區劃adcode映射表"
       }
     },
     "magic": {
-      "name": "数据魔方",
+      "name": "資料魔方",
       "fields": {
-        "group": "数据分组",
+        "group": "資料分組",
         "unknown": "未知",
-        "name": "数据名称",
-        "nameDesc": "数据调用名",
-        "label": "数据标签",
-        "labelDesc": "数据描述信息",
-        "type": "数据类型",
-        "typeDesc": "数据列表类型",
-        "external": "数据权限",
-        "externalDesc": "公开后外部接口可访问数据",
+        "name": "資料名稱",
+        "nameDesc": "資料調用名",
+        "label": "資料標籤",
+        "labelDesc": "資料描述資訊",
+        "type": "資料類型",
+        "typeDesc": "資料列表類型",
+        "external": "資料權限",
+        "externalDesc": "公開後外部介面可訪問資料",
         "list": "列表",
-        "pages": "分页",
-        "tree": "树形",
-        "public": "公开",
+        "pages": "分頁",
+        "tree": "樹形",
+        "public": "公開",
         "private": "私有",
         "option": "操作方式",
-        "optionDesc": "添加编辑操作数据方式",
-        "modal": "弹窗",
-        "page": "页面",
-        "fields": "数据字段",
-        "fieldsDesc": "切换类型后需重新设置类型",
-        "groupName": "分组名称",
-        "groupLabel": "分组标签",
-        "groupIcon": "分组图标",
-        "addGroup": "添加分组",
-        "editGroup": "编辑分组"
+        "optionDesc": "添加編輯操作資料方式",
+        "modal": "彈窗",
+        "page": "頁面",
+        "fields": "資料字段",
+        "fieldsDesc": "切換類型後需重新設置類型",
+        "groupName": "分組名稱",
+        "groupLabel": "分組標籤",
+        "groupIcon": "分組圖示",
+        "addGroup": "添加分組",
+        "editGroup": "編輯分組"
       },
       "validate": {
-        "label": "请输入数据标签",
-        "name": "请输入数据名称",
-        "class": "请选择分组"
+        "label": "請輸入資料標籤",
+        "name": "請輸入資料名稱",
+        "class": "請選擇分組"
       },
       "placeholder": {
-        "group": "请选择分组"
+        "group": "請選擇分組"
       },
       "help": {
-        "group": "数据菜单分组",
-        "groupName": "名称只能字母数字或下划线",
-        "groupIcon": "图标名参考",
-        "groupIconDoc": "参考文档"
+        "group": "資料菜單分組",
+        "groupName": "名稱只能是字母、數字或下劃線",
+        "groupIcon": "圖示名稱參考",
+        "groupIconDoc": "參考文件"
       }
     },
     "magicGroup": {
-      "name": "数据管理"
+      "name": "資料管理"
     }
   },
   "data": {
-    "name": "数据"
+    "name": "資料"
   }
 }

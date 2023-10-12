@@ -5,14 +5,14 @@
       "name": "Article"
     },
     "article": {
-      "name": "List",
+      "name": "Article List",
       "tab": {
         "all": "All",
         "published": "Published",
         "unpublished": "Unpublished"
       },
       "validate": {
-        "title": "Please enter the title"
+        "title": "Please enter a title"
       },
       "fields": {
         "title": "Title",
@@ -26,10 +26,48 @@
       }
     },
     "category": {
-      "name": "Categories",
+      "name": "Article Categories",
       "fields": {
-        "parent": "Parent",
+        "parent": "Parent Category",
         "name": "Name"
+      }
+    },
+    "page": {
+      "name": "Page",
+      "tab": {
+        "all": "All",
+        "published": "Published",
+        "unpublished": "Unpublished"
+      },
+      "validate": {
+        "title": "Please enter a title"
+      },
+      "fields": {
+        "name": "Call Name",
+        "title": "Title",
+        "subtitle": "Subtitle",
+        "image": "Cover Image",
+        "status": "Status",
+        "content": "Content",
+        "virtualView": "Virtual Views",
+        "createdAt": "Created At"
+      }
+    },
+    "menu": {
+      "name": "Menu",
+      "fields": {
+        "addGroup": "Create Group",
+        "editGroup": "Edit Group",
+        "title": "Menu Title",
+        "subtitle": "Menu Subtitle",
+        "image": "Menu Image",
+        "url": "Menu Link",
+        "parent": "Parent Menu",
+        "groupName": "Menu Group Name",
+        "groupTitle": "Menu Group Description"
+      },
+      "placeholder": {
+        "group": "Please select a menu group"
       }
     }
   }

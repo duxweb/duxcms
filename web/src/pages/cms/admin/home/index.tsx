@@ -32,25 +32,45 @@ const Index = () => {
     <Main title={translate('cms.dashboard.name')} icon='i-tabler:home'>
       <div className='flex flex-col gap-4 lg:flex-row'>
         <div className='grid grid-cols-2 flex-none gap-4'>
-          <CardItem color='brand' title='文章数量' num={nums?.article} icon='i-tabler:article' />
-          <CardItem color='success' title='站点 PV' num={nums?.pv} icon='i-tabler:eye' />
-          <CardItem color='error' title='站点 UV' num={nums?.uv} icon='i-tabler:user' />
-          <CardItem color='warning' title='蜘蛛爬虫' num={nums?.spider} icon='i-tabler:spider' />
+          <CardItem
+            color='brand'
+            title={translate('cms.dashboard.nums.article')}
+            num={nums?.article}
+            icon='i-tabler:article'
+          />
+          <CardItem
+            color='success'
+            title={translate('cms.dashboard.nums.pv')}
+            num={nums?.pv}
+            icon='i-tabler:eye'
+          />
+          <CardItem
+            color='error'
+            title={translate('cms.dashboard.nums.uv')}
+            num={nums?.uv}
+            icon='i-tabler:user'
+          />
+          <CardItem
+            color='warning'
+            title={translate('cms.dashboard.nums.spider')}
+            num={nums?.spider}
+            icon='i-tabler:spider'
+          />
         </div>
         <div className='grid-colos-1 grid gap-4 lg:grid-cols-2 lg:w-0 lg:flex-1'>
-          <Card title={'访问统计'}>
+          <Card title={translate('cms.dashboard.views.name')}>
             <div className='h-61 w-full'>
               <ChartLine
                 labels={views?.labels}
                 data={[
-                  { name: '访问量', data: views?.pvs || [] },
-                  { name: '访客量', data: views?.uvs || [] },
+                  { name: translate('cms.dashboard.views.pv'), data: views?.pvs || [] },
+                  { name: translate('cms.dashboard.views.uv'), data: views?.uvs || [] },
                 ]}
                 legend
               />
             </div>
           </Card>
-          <Card title={'蜘蛛统计'}>
+          <Card title={translate('cms.dashboard.spider')}>
             <div className='h-61 w-full'>
               <ChartLine labels={spider?.labels} data={spider?.data} legend />
             </div>
@@ -59,7 +79,7 @@ const Index = () => {
       </div>
       <div className='mt-4 flex flex-col gap-4 gap-4 lg:flex-row'>
         <div className='lg:w-84'>
-          <Card title='浏览器来源' headerBordered>
+          <Card title={translate('cms.dashboard.source')} headerBordered>
             <div className='w-full flex flex-col gap-4'>
               <Skeleton theme={'paragraph'} loading={!browsers}>
                 {(browsers &&
@@ -70,7 +90,7 @@ const Index = () => {
               </Skeleton>
             </div>
           </Card>
-          <Card title='地区来源' className='mt-4' headerBordered>
+          <Card title={translate('cms.dashboard.area')} className='mt-4' headerBordered>
             <div className='w-full flex flex-col gap-4'>
               <Skeleton theme={'paragraph'} loading={!ips}>
                 {(ips &&
@@ -79,8 +99,7 @@ const Index = () => {
                   ips?.map((item, key) => (
                     <City
                       key={key}
-                      province={item?.province || '未知'}
-                      city={item?.city || '未知'}
+                      city={item?.city || translate('cms.dashboard.unknown')}
                       num={item?.num}
                     />
                   ))) || <Empty />}
@@ -89,7 +108,7 @@ const Index = () => {
           </Card>
         </div>
         <div className='flex-grow'>
-          <Card title='近期文章' headerBordered className='mb-4'>
+          <Card title={translate('cms.dashboard.article.name')} headerBordered className='mb-4'>
             <div className='flex flex-col -my-3 divide-y divide-gray-3 dark:divide-gray-9'>
               <Skeleton theme={'paragraph'} loading={!data?.data} className='my-3'>
                 {(data?.data &&
@@ -110,16 +129,19 @@ const Index = () => {
           </Card>
 
           <div className='grid-colos-1 grid gap-4 lg:grid-cols-2'>
-            <Card title='发布统计'>
+            <Card title={translate('cms.dashboard.push.name')}>
               <div className='h-56 w-full'>
-                <ChartBar labels={push?.labels} data={[{ name: '数量', data: push?.nums }]} />
+                <ChartBar
+                  labels={push?.labels}
+                  data={[{ name: translate('cms.dashboard.push.num'), data: push?.nums }]}
+                />
               </div>
             </Card>
-            <Card title='分类统计'>
+            <Card title={translate('cms.dashboard.class.name')}>
               <div className='h-56 w-full'>
                 <ChartBar
                   labels={classify?.labels}
-                  data={[{ name: '数量', data: classify?.nums }]}
+                  data={[{ name: translate('cms.dashboard.class.num'), data: classify?.nums }]}
                 />
               </div>
             </Card>
@@ -131,21 +153,24 @@ const Index = () => {
 }
 
 const Empty = () => {
-  return <div className='h-40 flex items-center justify-center text-secondary'>暂无数据</div>
+  const translate = useTranslate()
+
+  return (
+    <div className='h-40 flex items-center justify-center text-secondary'>
+      {translate('cms.dashboard.noData')}
+    </div>
+  )
 }
 
 interface CityProps {
-  province: string
   city: string
   num?: number
 }
 
-const City = ({ province, city, num }: CityProps) => {
+const City = ({ city, num }: CityProps) => {
   return (
     <div className='flex justify-between'>
-      <div className='flex items-center gap-2'>
-        {province} - {city}
-      </div>
+      <div className='flex items-center gap-2'>{city}</div>
       <div>{num || 0}</div>
     </div>
   )
@@ -196,6 +221,7 @@ interface ListItemProps {
   view?: number
 }
 const ListItem = ({ id, title, time, view }: ListItemProps) => {
+  const translate = useTranslate()
   const go = useGo()
   return (
     <div className='flex flex-col gap-1 py-4'>
@@ -212,8 +238,12 @@ const ListItem = ({ id, title, time, view }: ListItemProps) => {
         </Link>
       </div>
       <div className='flex gap-2 text-xs text-secondary'>
-        <div>访问量 {view}</div>
-        <div>发布日期 {time}</div>
+        <div>
+          {translate('cms.dashboard.article.pv')} {view}
+        </div>
+        <div>
+          {translate('cms.dashboard.article.date')} {time}
+        </div>
       </div>
     </div>
   )

@@ -1,71 +1,71 @@
 {
   "copyright": "All rights reserved © duxweb 2023",
   "userMenu": {
-    "setting": "设置"
+    "setting": "設置"
   },
   "admin": {
-    "title": "中后台管理系统"
+    "title": "中後台管理系統"
   },
   "system": {
-    "name": "系统",
+    "name": "系統",
     "userGroup": {
-      "name": "用户管理"
+      "name": "用戶管理"
     },
     "user": {
-      "name": "用户列表",
+      "name": "用戶列表",
       "tabs": {
         "all": "全部",
-        "enabled": "启用",
+        "enabled": "啟用",
         "disabled": "禁用"
       },
       "fields": {
         "roles": "角色",
-        "nickname": "昵称",
-        "username": "用户名",
-        "avatar": "头像",
-        "password": "密码",
-        "status": "状态"
+        "nickname": "昵稱",
+        "username": "用戶名",
+        "avatar": "頭像",
+        "password": "密碼",
+        "status": "狀態"
       }
     },
     "role": {
       "name": "角色列表",
       "fields": {
-        "permission": "权限",
-        "name": "名称"
+        "permission": "權限",
+        "name": "名稱"
       }
     },
     "logGroup": {
-      "name": "系统日志"
+      "name": "系統日誌"
     },
     "operate": {
-      "name": "操作记录",
+      "name": "操作記錄",
       "fields": {
-        "user": "用户",
-        "client": "客户端",
-        "request": "请求",
-        "requestMethod": "请求方法",
-        "requestUrl": "请求 Url",
-        "requestTime": "请求时间",
-        "requestParams": "请求参数"
+        "user": "用戶",
+        "client": "客戶端",
+        "request": "請求",
+        "requestMethod": "請求方法",
+        "requestUrl": "請求 Url",
+        "requestTime": "請求時間",
+        "requestParams": "請求參數"
       },
       "filters": {
-        "userPlaceholder": "请搜索选择用户",
+        "userPlaceholder": "請搜索選擇用戶",
         "method": {
-          "placeholder": "请选择方法",
-          "post": "创建",
-          "put": "编辑",
+          "placeholder": "請選擇方法",
+          "post": "創建",
+          "put": "編輯",
           "patch": "更新",
-          "delete": "删除"
+          "delete": "刪除"
         }
       }
     },
     "api": {
-      "name": "接口授权",
+      "name": "接口授權",
       "fields": {
-        "name": "名称",
+        "name": "名稱",
         "secretId": "Secret Id",
         "secretKey": "Secret Key",
-        "status": "状态"
+        "status": "狀態"
       }
     }
   }

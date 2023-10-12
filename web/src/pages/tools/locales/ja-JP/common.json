@@ -1,70 +1,70 @@
 {
   "tools": {
-    "name": "工具",
+    "name": "ツール",
     "dataGroup": {
-      "name": "数据管理"
+      "name": "データ管理"
     },
     "area": {
-      "name": "地区管理",
+      "name": "地域管理",
       "fields": {
-        "code": "区号",
-        "name": "名称",
-        "level": "级别"
+        "code": "エリアコード",
+        "name": "名前",
+        "level": "レベル"
       },
       "help": {
-        "import": "百度地图行政区划adcode映射表"
+        "import": "百度地図の行政区域Adcodeマッピングテーブル"
       }
     },
     "magic": {
-      "name": "数据魔方",
+      "name": "データマジック",
       "fields": {
-        "group": "数据分组",
-        "unknown": "未知",
-        "name": "数据名称",
-        "nameDesc": "数据调用名",
-        "label": "数据标签",
-        "labelDesc": "数据描述信息",
-        "type": "数据类型",
-        "typeDesc": "数据列表类型",
-        "external": "数据权限",
-        "externalDesc": "公开后外部接口可访问数据",
-        "list": "列表",
-        "pages": "分页",
-        "tree": "树形",
-        "public": "公开",
-        "private": "私有",
-        "option": "操作方式",
-        "optionDesc": "添加编辑操作数据方式",
-        "modal": "弹窗",
-        "page": "页面",
-        "fields": "数据字段",
-        "fieldsDesc": "切换类型后需重新设置类型",
-        "groupName": "分组名称",
-        "groupLabel": "分组标签",
-        "groupIcon": "分组图标",
-        "addGroup": "添加分组",
-        "editGroup": "编辑分组"
+        "group": "データグループ",
+        "unknown": "不明",
+        "name": "データ名",
+        "nameDesc": "データ呼び出し名",
+        "label": "データラベル",
+        "labelDesc": "データ説明情報",
+        "type": "データタイプ",
+        "typeDesc": "データリストタイプ",
+        "external": "データ権限",
+        "externalDesc": "公開後、外部インターフェースからアクセス可能なデータ",
+        "list": "リスト",
+        "pages": "ページ",
+        "tree": "ツリー",
+        "public": "公開",
+        "private": "プライベート",
+        "option": "操作方法",
+        "optionDesc": "データ操作方法の追加または編集",
+        "modal": "モーダル",
+        "page": "ページ",
+        "fields": "データフィールド",
+        "fieldsDesc": "切り替え後にタイプを再設定",
+        "groupName": "グループ名",
+        "groupLabel": "グループラベル",
+        "groupIcon": "グループアイコン",
+        "addGroup": "グループを追加",
+        "editGroup": "グループを編集"
       },
       "validate": {
-        "label": "请输入数据标签",
-        "name": "请输入数据名称",
-        "class": "请选择分组"
+        "label": "データラベルを入力してください",
+        "name": "データ名を入力してください",
+        "class": "グループを選択してください"
       },
       "placeholder": {
-        "group": "请选择分组"
+        "group": "グループを選択してください"
       },
       "help": {
-        "group": "数据菜单分组",
-        "groupName": "名称只能字母数字或下划线",
-        "groupIcon": "图标名参考",
-        "groupIconDoc": "参考文档"
+        "group": "データメニューグループ",
+        "groupName": "名前は文字、数字、またはアンダースコアのみです",
+        "groupIcon": "アイコン名の参考",
+        "groupIconDoc": "参考文書"
       }
     },
     "magicGroup": {
-      "name": "数据管理"
+      "name": "データ管理"
     }
   },
   "data": {
-    "name": "数据"
+    "name": "データ"
   }
 }

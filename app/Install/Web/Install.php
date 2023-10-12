@@ -32,10 +32,8 @@ class Install
         $view = \Dux\App::view('web');
         $data = json_decode(file_get_contents(public_path('/web/manifest.json')) ?: '', true);
         $vite = App::config('use')->get('vite', []);
-        $lang = App::config('use')->get('lang', 'en-US');
         $html = $view->renderToString(dirname(__DIR__) . "/Views/Web/install.html", [
             "title" => App::config('use')->get('app.name'),
-            "lang" => $lang,
             'vite' => [
                 'dev' => (bool)$vite['dev'],
                 'port' => $vite['port'] ?: 5173,
@@ -149,7 +147,7 @@ class Install
         $use->set('app.name', $useData['name']);
         $use->set('app.domain', $useData['domain']);
         $use->set('app.secret', bin2hex(random_bytes(16)));
-        $use->set('app.lang', $useData['lang']);
+        $use->set('lang', $useData['lang']);
         $use->toFile(config_path('/use.yaml'));
 
         $output->writeln('config use success');
@@ -162,6 +160,7 @@ class Install
             $output = new BufferedOutput();
             App::dbMigrate()->migrate($output);
             $output->writeln('sync database success');
+            file_put_contents(data_path('/install.lock'), now()->format('Y-m-d H:i:s'));
         } catch (\Exception $e) {
             $error = true;
             $message = $e->getMessage();

@@ -4,7 +4,7 @@
     "setting": "Settings"
   },
   "admin": {
-    "title": "Management System"
+    "title": "Admin Dashboard"
   },
   "system": {
     "name": "System",
@@ -35,7 +35,7 @@
       }
     },
     "logGroup": {
-      "name": "System Logs"
+      "name": " Logs"
     },
     "operate": {
       "name": "Operation",
@@ -44,14 +44,14 @@
         "client": "Client",
         "request": "Request",
         "requestMethod": "Request Method",
-        "requestUrl": "Request Url",
+        "requestUrl": "Request URL",
         "requestTime": "Request Time",
         "requestParams": "Request Parameters"
       },
       "filters": {
-        "userPlaceholder": "Search and select user",
+        "userPlaceholder": "Please search and select a user",
         "method": {
-          "placeholder": "Select method",
+          "placeholder": "Please select a method",
           "post": "Create",
           "put": "Edit",
           "patch": "Update",

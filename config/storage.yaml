@@ -3,5 +3,5 @@ ext: []
 drivers:
   local:
     type: local
-    public_url: http://dux-admin-php.test/uploads/
+    public_url: http://localhost/uploads/
     path: public/uploads

@@ -1,6 +1,6 @@
 {
   "content": {
-    "name": "内容",
+    "name": "內容",
     "articleGroup": {
       "name": "文章管理"
     },
@@ -8,69 +8,67 @@
       "name": "文章列表",
       "tab": {
         "all": "全部",
-        "published": "已发布",
-        "unpublished": "未发布"
+        "published": "已發布",
+        "unpublished": "未發布"
       },
       "validate": {
-        "title": "请输入标题"
+        "title": "請輸入標題"
       },
       "fields": {
-        "title": "标题",
-        "subtitle": "子标题",
-        "image": "封面图",
-        "status": "状态",
+        "title": "標題",
+        "subtitle": "子標題",
+        "image": "封面圖",
+        "status": "狀態",
         "author": "作者",
-        "content": "内容",
-        "virtualView": "虚拟浏览量",
-        "createdAt": "创建时间"
+        "content": "內容",
+        "virtualView": "虛擬瀏覽量",
+        "createdAt": "創建時間"
       }
     },
     "category": {
-      "name": "文章分类",
+      "name": "文章分類",
       "fields": {
-        "parent": "上级分类",
-        "name": "名称"
+        "parent": "上級分類",
+        "name": "名稱"
       }
     },
     "page": {
-      "name": "页面管理",
+      "name": "頁面管理",
       "tab": {
         "all": "全部",
-        "published": "已发布",
-        "unpublished": "未发布"
+        "published": "已發布",
+        "unpublished": "未發布"
       },
       "validate": {
-        "title": "请输入标题"
+        "title": "請輸入標題"
       },
       "fields": {
-        "name": "调用名",
-        "title": "标题",
-        "subtitle": "子标题",
-        "image": "封面图",
-        "status": "状态",
-        "content": "内容",
-        "virtualView": "虚拟浏览量",
-        "createdAt": "创建时间"
+        "name": "調用名",
+        "title": "標題",
+        "subtitle": "子標題",
+        "image": "封面圖",
+        "status": "狀態",
+        "content": "內容",
+        "virtualView": "虛擬瀏覽量",
+        "createdAt": "創建時間"
       }
     },
     "menu": {
-      "name": "菜单管理",
+      "name": "菜單管理",
       "fields": {
-        "addGroup": "创建组",
-        "editGroup": "编辑组",
-        "title": "菜单标题",
-        "subtitle": "菜单副标题",
-        "image": "菜单图片",
-        "url": "菜单链接",
-        "parent": "上级菜单",
-        "groupName": "菜单组名",
-        "groupTitle": "菜单组描述"
-
+        "addGroup": "創建組",
+        "editGroup": "編輯組",
+        "title": "菜單標題",
+        "subtitle": "菜單副標題",
+        "image": "菜單圖片",
+        "url": "菜單鏈接",
+        "parent": "上級菜單",
+        "groupName": "菜單組名",
+        "groupTitle": "菜單組描述"
       },
       "placeholder": {
-        "group": "请选择菜单组"
+        "group": "請選擇菜單組"
       }
     }
   }
-  
 }

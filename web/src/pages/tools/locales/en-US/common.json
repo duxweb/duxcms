@@ -2,17 +2,17 @@
   "tools": {
     "name": "Tools",
     "dataGroup": {
-      "name": "Data Management"
+      "name": "Data"
     },
     "area": {
-      "name": "Area Management",
+      "name": "Area",
       "fields": {
         "code": "Area Code",
         "name": "Name",
         "level": "Level"
       },
       "help": {
-        "import": "Baidu Map Administrative Area Code Mapping Table"
+        "import": "Baidu Map Administrative Division Adcode Mapping Table"
       }
     },
     "magic": {
@@ -23,13 +23,13 @@
         "name": "Data Name",
         "nameDesc": "Data Invocation Name",
         "label": "Data Label",
-        "labelDesc": "Data Description",
+        "labelDesc": "Data Description Information",
         "type": "Data Type",
         "typeDesc": "Data List Type",
         "external": "Data Permission",
-        "externalDesc": "Data accessible through external interfaces when public",
+        "externalDesc": "Data accessible by external interfaces after being made public",
         "list": "List",
-        "pages": "Pagination",
+        "pages": "Pages",
         "tree": "Tree",
         "public": "Public",
         "private": "Private",
@@ -38,7 +38,7 @@
         "modal": "Modal",
         "page": "Page",
         "fields": "Data Fields",
-        "fieldsDesc": "Need to reset fields when changing the type",
+        "fieldsDesc": "Reset type after switching",
         "groupName": "Group Name",
         "groupLabel": "Group Label",
         "groupIcon": "Group Icon",
@@ -46,22 +46,22 @@
         "editGroup": "Edit Group"
       },
       "validate": {
-        "label": "Please enter a data label",
-        "name": "Please enter a data name",
-        "class": "Please select a group"
+        "label": "Please enter Data Label",
+        "name": "Please enter Data Name",
+        "class": "Please select a Group"
       },
       "placeholder": {
-        "group": "Please select a group"
+        "group": "Please select a Group"
       },
       "help": {
-        "group": "Data menu grouping",
-        "groupName": "Name can only contain letters, numbers, or underscores",
+        "group": "Data Menu Group",
+        "groupName": "Name can only be letters, numbers, or underscores",
         "groupIcon": "Icon name reference",
-        "groupIconDoc": "Reference documentation"
+        "groupIconDoc": "Reference document"
       }
     },
     "magicGroup": {
-      "name": "Data Management"
+      "name": "Data"
     }
   },
   "data": {

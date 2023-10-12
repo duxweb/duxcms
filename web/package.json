@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@duxweb/dux-extend": "^0.0.4",
+    "@duxweb/dux-extend": "^0.0.6",
     "@duxweb/dux-plugin": "^0.0.7",
     "@duxweb/dux-refine": "0.3.0",
     "@iconify-json/tabler": "^1.1.94",
