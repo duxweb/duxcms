@@ -1,0 +1,70 @@
+{
+  "tools": {
+    "name": "工具",
+    "dataGroup": {
+      "name": "数据管理"
+    },
+    "area": {
+      "name": "地区管理",
+      "fields": {
+        "code": "区号",
+        "name": "名称",
+        "level": "级别"
+      },
+      "help": {
+        "import": "百度地图行政区划adcode映射表"
+      }
+    },
+    "magic": {
+      "name": "数据魔方",
+      "fields": {
+        "group": "数据分组",
+        "unknown": "未知",
+        "name": "数据名称",
+        "nameDesc": "数据调用名",
+        "label": "数据标签",
+        "labelDesc": "数据描述信息",
+        "type": "数据类型",
+        "typeDesc": "数据列表类型",
+        "external": "数据权限",
+        "externalDesc": "公开后外部接口可访问数据",
+        "list": "列表",
+        "pages": "分页",
+        "tree": "树形",
+        "public": "公开",
+        "private": "私有",
+        "option": "操作方式",
+        "optionDesc": "添加编辑操作数据方式",
+        "modal": "弹窗",
+        "page": "页面",
+        "fields": "数据字段",
+        "fieldsDesc": "切换类型后需重新设置类型",
+        "groupName": "分组名称",
+        "groupLabel": "分组标签",
+        "groupIcon": "分组图标",
+        "addGroup": "添加分组",
+        "editGroup": "编辑分组"
+      },
+      "validate": {
+        "label": "请输入数据标签",
+        "name": "请输入数据名称",
+        "class": "请选择分组"
+      },
+      "placeholder": {
+        "group": "请选择分组"
+      },
+      "help": {
+        "group": "数据菜单分组",
+        "groupName": "名称只能字母数字或下划线",
+        "groupIcon": "图标名参考",
+        "groupIconDoc": "参考文档"
+      }
+    },
+    "magicGroup": {
+      "name": "数据管理"
+    }
+  },
+  "data": {
+    "name": "数据"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "cms": {
+    "dashboard": {
+      "name": "概况",
+      "fields": {
+        "sourceRate": "来源占比",
+        "mallRate": "商品占比",
+        "saleValue": "销售额",
+        "userValue": "用户量",
+        "mallValue": "商品量",
+        "supplyValue": "供货量",
+        "userTrend": "用户趋势",
+        "saleTrend": "销售趋势",
+        "mallTotalRank": "商品总排名",
+        "mallDayRank": "商品日排名",
+        "mallMonthRank": "商品月排名"
+      }
+    },
+    "name": "站点管理",
+    "setting": {
+      "name": "站点设置",
+      "fields": {
+        "title": "站点标题",
+        "titleHelp": "站点头部标题",
+        "desc": "站点描述",
+        "descHelp": "站点描述信息",
+        "copyright": "版权信息",
+        "copyrightHelp": "站点版权信息"
+      }
+    },
+    "template": {
+      "name": "模板管理"
+    }
+  }
+}
