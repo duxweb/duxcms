@@ -52,7 +52,7 @@ class Article extends Resources
     public function validator(array $data, ServerRequestInterface $request, array $args): array
     {
         return [
-            "title" => ["required", __('content.article.validator.title', 'admin')],
+            "title" => ["required", __('content.article.validator.title', 'manage')],
         ];
     }
 

@@ -34,7 +34,7 @@ class Category extends Resources
     public function validator(array $data, ServerRequestInterface $request, array $args): array
 	{
 		return [
-		    "name" => ["required", "请输入名称"],
+		    "name" => ["required", __('content.category.validator.name', 'manage')],
 		];
 	}
 

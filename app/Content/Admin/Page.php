@@ -48,8 +48,8 @@ class Page extends Resources
     public function validator(array $data, ServerRequestInterface $request, array $args): array
     {
         return [
-            "title" => ["required", __('content.page.validator.title', 'admin')],
-            "name" => ["required", __('content.page.validator.name', 'admin')],
+            "title" => ["required", __('content.page.validator.title', 'manage')],
+            "name" => ["required", __('content.page.validator.name', 'manage')],
         ];
     }
 

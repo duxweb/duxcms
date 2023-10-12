@@ -1,14 +1,21 @@
 content:
-  name: Content Management
+  name: 文章管理
   article:
-    name: Article
+    name: 文章
     validator:
-      title: Please enter a title
-      author: Please enter an author
+      title: 请输入标题
+      author: 请输入作者
   category:
-    name: Category
-  page:
-    name: Page
+    name: 分类
     validator:
-      title: Please enter a title
-      name: Please enter a call name
+      name: 请输入名称
+  page:
+    name: 文章
+    validator:
+      title: 请输入标题
+      name: 请输入调用名
+  menu:
+    name: 菜单
+    validator:
+      title: 请输入标题
+      name: 请输入调用名

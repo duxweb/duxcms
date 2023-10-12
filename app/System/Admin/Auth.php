@@ -22,12 +22,12 @@ class Auth
     public function login(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $data = Validator::parser([...$request->getParsedBody(), ...$args], [
-            "username" => ["required", "请输入账号"],
-            "password" => ["required", "请输入密码"],
+            "username" => ["required", __('system.auth.validator.username', 'manage')],
+            "password" => ["required", __('system.auth.validator.password', 'manage')],
         ]);
         $info = SystemUser::query()->where("username", $data->username)->first();
         if (!$info) {
-            throw new ExceptionBusiness("账号或密码错误");
+            throw new ExceptionBusiness(__('system.auth.error.login', 'manage'));
         }
 
         $this->loginCheck((int)$info->id);
@@ -46,7 +46,7 @@ class Auth
         if (!password_verify($data->password, $info->password)) {
             $logData['status'] = false;
             $loginModel->create($logData);
-            throw new ExceptionBusiness("账号或密码错误");
+            throw new ExceptionBusiness(__('system.auth.error.login', 'manage'));
         }
 
         $logData['status'] = true;
@@ -101,7 +101,7 @@ class Auth
         $loginStatus = $loginList->count();
         $time = now();
         if ($loginStatus >= 3 && $loginLast->created_at->addSeconds(60)->gt($time)) {
-            throw new ExceptionBusiness("三次登录密码错误，等待一分钟");
+            throw new ExceptionBusiness(__('system.auth.error.passwordCheck', 'manage'));
         }
     }
 

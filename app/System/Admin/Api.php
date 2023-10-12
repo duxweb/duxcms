@@ -30,7 +30,7 @@ class Api extends Resources
     public function validator(array $data, ServerRequestInterface $request, array $args): array
     {
         return [
-            "name" => ["required", __('system.api.validator.name', 'admin')],
+            "name" => ["required", __('system.api.validator.name', 'manage')],
         ];
     }
 

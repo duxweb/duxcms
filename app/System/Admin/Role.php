@@ -32,7 +32,7 @@ class Role extends Resources {
     public function validator(array $data, ServerRequestInterface $request, array $args): array
     {
         return [
-            "name" => ["required", "请输入名称"],
+            "name" => ["required", __('system.role.validator.name', 'manage')],
         ];
     }
 

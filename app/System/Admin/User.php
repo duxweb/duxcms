@@ -48,19 +48,19 @@ class User extends Resources {
     public function validator(array $data, ServerRequestInterface $request, array $args): array
     {
         return [
-            "nickname" => ["required", __('system.user.validator.nickname', 'admin')],
+            "nickname" => ["required", __('system.user.validator.nickname', 'manage')],
             "username" => [
-                ["required", __('system.user.validator.username', 'admin')],
+                ["required", __('system.user.validator.username', 'manage')],
                 [function($field, $value, $params, $fields) {
                     $model = SystemUser::query()->where('username', $fields['username']);
                     if ($fields['id']) {
                         $model->where("id", "<>", $fields['id']);
                     }
                     return !$model->exists();
-                }, __('system.user.validator.usernameExists', 'admin')]
+                }, __('system.user.validator.usernameExists', 'manage')]
             ],
-            "password" => ["requiredWithout", "id", __('system.user.validator.password', 'admin')],
-            "roles" => ["required", __('system.user.validator.roles', 'admin')],
+            "password" => ["requiredWithout", "id", __('system.user.validator.password', 'manage')],
+            "roles" => ["required", __('system.user.validator.roles', 'manage')],
         ];
     }
 

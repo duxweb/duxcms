@@ -8,7 +8,19 @@ tools:
       name: 选择
   magicGroup:
     name: 数据管理
-
+    validator:
+      name: 请输入名称
+      label: 请输入标签
+      icon: 请输入图标名
+  magic:
+    validator:
+      name: 数据名只能为英文数字和下划线
+      group: 请选择数据分组
+      label: 请输入数据标签
+      fields: 请配置数据字段
+      fieldsFull: 字段配置不完整
+      fieldsFormat: 字段名只能为英文数字和下划线
+      data: 数据不存在
 extend:
   name: 扩展
   magic:

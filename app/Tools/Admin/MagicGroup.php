@@ -28,9 +28,9 @@ class MagicGroup extends Resources
     public function validator(array $data, ServerRequestInterface $request, array $args): array
 	{
 		return [
-		    "name" => ["required", "请输入名称"],
-            "label" => ["required", "请输入标签"],
-            "icon" => ["required", "请输入图标名"],
+		    "name" => ["required", __('tools.magicGroup.validator.name', 'manage')],
+            "label" => ["required",__('tools.magicGroup.validator.label', 'manage')],
+            "icon" => ["required", __('tools.magicGroup.validator.icon', 'manage')],
 		];
 	}
 

@@ -62,23 +62,23 @@ class Magic extends Resources
 
         $fields = $data['fields'];
         if (!$fields) {
-            throw new ExceptionBusiness('请配置数据字段');
+            throw new ExceptionBusiness(__('tools.magic.validator.fields', 'manage'));
         }
 
         foreach ($fields as $field) {
             if (!$field['name'] || !$field['label']) {
-                throw new ExceptionBusiness('字段配置不完整');
+                throw new ExceptionBusiness(__('tools.magic.validator.fieldsFull', 'manage'));
             }
             if (!preg_match('/^[a-zA-Z][a-zA-Z0-9_]*$/', $field['name'])) {
-                throw new ExceptionBusiness('字段名只能为英文数字和下划线');
+                throw new ExceptionBusiness(__('tools.magic.validator.fieldsFormat', 'manage'));
             }
         }
 
         return [
-            "group_id" => ["required", '请选择数据分组'],
-            "name" => ['regex', '/^[a-zA-Z][a-zA-Z0-9_]*$/', '数据名只能为英文数字和下划线'],
-            "label" => ["required", '请输入数据标签'],
-            "fields" => ["required", '请配置数据字段'],
+            "group_id" => ["required", __('tools.magic.validator.group', 'manage')],
+            "name" => ['regex', '/^[a-zA-Z][a-zA-Z0-9_]*$/', __('tools.magic.validator.name', 'manage')],
+            "label" => ["required", __('tools.magic.validator.label', 'manage')],
+
         ];
     }
 
@@ -133,7 +133,7 @@ class Magic extends Resources
         $params = $request->getQueryParams();
         $info = ToolsMagic::query()->where('name', $params['magic'])->first();
         if (!$info) {
-            throw new ExceptionBusiness('数据不存在');
+            throw new ExceptionBusiness(__('tools.magic.validator.data', 'manage'));
         }
         $info->fields = array_map(function ($item) {
             $setting = $item['setting'];

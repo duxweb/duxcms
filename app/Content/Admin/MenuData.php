@@ -53,7 +53,7 @@ class MenuData extends Resources
     public function validator(array $data, ServerRequestInterface $request, array $args): array
 	{
 		return [
-            "title" => ["required", "请输入标题"],
+            "title" => ["required", __('content.menu.validator.title', 'manage')],
 		];
 	}
 
