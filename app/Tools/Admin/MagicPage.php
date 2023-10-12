@@ -35,7 +35,7 @@ class MagicPage
         $this->init($request, $response, $args);
         $info = ToolsMagicData::query()->where('magic_id', $this->info->id)->first();
 
-        return send($response, 'ok', $info?->data);
+        return send($response, 'ok', $info?->data ?: []);
     }
 
     #[Action(methods: ['POST', 'PUT'], route: '')]
