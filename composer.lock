@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c30eaf4400f8b293cf6d43ba6955ae6",
+    "content-hash": "3e622e895ff12fbdb83b7d5d6c5727f6",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -871,12 +871,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxphp/lite.git",
-                "reference": "d235220c1a5bd91bffd0273d4b240630cfb80b30"
+                "reference": "d81ec42a5c8215a769e9e249391497d99ffd7e77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxphp/lite/zipball/d235220c1a5bd91bffd0273d4b240630cfb80b30",
-                "reference": "d235220c1a5bd91bffd0273d4b240630cfb80b30",
+                "url": "https://api.github.com/repos/duxphp/lite/zipball/d81ec42a5c8215a769e9e249391497d99ffd7e77",
+                "reference": "d81ec42a5c8215a769e9e249391497d99ffd7e77",
                 "shasum": ""
             },
             "require": {
@@ -970,7 +970,7 @@
                 "issues": "https://github.com/duxphp/lite/issues",
                 "source": "https://github.com/duxphp/lite"
             },
-            "time": "2023-10-12T09:07:47+00:00"
+            "time": "2023-10-12T09:12:37+00:00"
         },
         {
             "name": "enqueue/dsn",
