@@ -18,11 +18,18 @@ class VisitorMiddleware {
         $url = $request->getUri();
         $path = $url->getPath();
 
-        if (!is_file(data_path('/install.lock')) && !str_contains($path, '/install')) {
-            $res = new \Slim\Psr7\Response(302);
-            return $res->withHeader('Location', '/install')
-                ->withStatus(301);
-        }else {
+        $hasInstallLock = is_file(data_path('/install.lock'));
+        $pathContainsInstall = str_contains($path, '/install');
+
+        if (!$hasInstallLock && !$pathContainsInstall) {
+            return (new \Slim\Psr7\Response(302))->withHeader('Location', '/install')->withStatus(302);
+        }
+
+        if ($hasInstallLock && $pathContainsInstall) {
+            return (new \Slim\Psr7\Response(302))->withHeader('Location', '/')->withStatus(302);
+        }
+
+        if (!$pathContainsInstall) {
             Visitor::increment($request, 'common');
         }
 

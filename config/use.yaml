@@ -2,10 +2,10 @@ app:
     name: Dux
     debug: true
     cache: false
-    secret: 244ba98b69bb66ef0a28e3fbc01bb490
+    secret: d3f853d6571f9c523d89279a73acc414
     domain: 'http://localhost'
 clock: false
-lang: en-US
+lang: zh-CN
 vite:
     dev: false
     port: 5173

@@ -1,4 +1,4 @@
 db:
-    drivers: { default: { driver: mysql, host: localhost, database: test, username: root, password: '', port: '3306', prefix: app_ } }
+    drivers: { default: { driver: mysql, host: localhost, database: dux, username: root, password: '', port: '3306', prefix: app_ } }
 redis:
     drivers: { default: { host: 127.0.0.1, port: 6379, timeout: 2.5, auth: null } }

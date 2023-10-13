@@ -152,6 +152,7 @@ class Install
 
         $output->writeln('config use success');
 
+
         App::db()->getDatabaseManager()->purge('default');
         App::db()->getDatabaseManager()->connection('default');
 
