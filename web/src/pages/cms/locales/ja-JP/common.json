@@ -1,35 +1,58 @@
 {
   "cms": {
     "dashboard": {
-      "name": "概况",
-      "fields": {
-        "sourceRate": "来源占比",
-        "mallRate": "商品占比",
-        "saleValue": "销售额",
-        "userValue": "用户量",
-        "mallValue": "商品量",
-        "supplyValue": "供货量",
-        "userTrend": "用户趋势",
-        "saleTrend": "销售趋势",
-        "mallTotalRank": "商品总排名",
-        "mallDayRank": "商品日排名",
-        "mallMonthRank": "商品月排名"
-      }
+      "name": "ダッシュボード",
+      "nums": {
+        "article": "記事数",
+        "pv": "サイトPV",
+        "uv": "サイトUV",
+        "spider": "クローラー"
+      },
+      "views": {
+        "name": "訪問統計",
+        "pv": "ページビュー",
+        "uv": "ユニークビジター"
+      },
+      "unknown": "不明",
+      "spider": "クローラー統計",
+      "source": "ブラウザソース",
+      "area": "地域ソース",
+      "article": {
+        "name": "最近の記事",
+        "pv": "ページビュー",
+        "date": "公開日"
+      },
+      "push": {
+        "name": "公開統計",
+        "num": "数量"
+      },
+      "class": {
+        "name": "カテゴリ統計",
+        "num": "数量"
+      },
+      "noData": "データなし"
     },
-    "name": "站点管理",
+    "name": "サイト管理",
     "setting": {
-      "name": "站点设置",
+      "name": "サイト設定",
       "fields": {
-        "title": "站点标题",
-        "titleHelp": "站点头部标题",
-        "desc": "站点描述",
-        "descHelp": "站点描述信息",
-        "copyright": "版权信息",
-        "copyrightHelp": "站点版权信息"
+        "title": "サイトタイトル",
+        "titleHelp": "サイトのヘッダータイトル",
+        "desc": "サイトの説明",
+        "descHelp": "サイトの説明情報",
+        "copyright": "著作権情報",
+        "copyrightHelp": "サイトの著作権情報"
       }
     },
-    "template": {
-      "name": "模板管理"
+    "theme": {
+      "name": "テンプレート管理",
+      "default": "デフォルト",
+      "info": "テーマ説明",
+      "empty": "空",
+      "change": "テーマ変更",
+      "changeConfirm": "テーマ変更の確認",
+      "config": "テーマ設定",
+      "addField": "フィールド追加"
     }
   }
 }

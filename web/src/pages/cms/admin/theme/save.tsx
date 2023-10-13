@@ -2,6 +2,7 @@ import { FormModal } from '@duxweb/dux-refine'
 import { Button, Form, Input, NamePath, Tabs, Textarea } from 'tdesign-react/esm'
 import { useState } from 'react'
 import { Icon } from 'tdesign-icons-react'
+import { useTranslate } from '@refinedev/core'
 
 const Page = (props: Record<string, any>) => {
   const [result, setResult] = useState<Record<string, any> | undefined>({})
@@ -34,7 +35,7 @@ const Page = (props: Record<string, any>) => {
                         </Form.FormItem>
                       )
                     }
-                    if (field?.type == 'input') {
+                    if (field?.type == 'text') {
                       return (
                         <Form.FormItem key={fieldIndex} name={[key, name]} label={field?.label}>
                           <Input />
@@ -60,6 +61,8 @@ interface ItemListProps {
   items?: Record<string, any>
 }
 const ItemList = ({ name, items }: ItemListProps) => {
+  const translate = useTranslate()
+
   return (
     <Form.FormList name={name}>
       {(fields, { add, remove }) => (
@@ -89,7 +92,7 @@ const ItemList = ({ name, items }: ItemListProps) => {
           ))}
           <Form.FormItem>
             <Button theme='default' variant='dashed' onClick={() => add({})}>
-              Add field
+              {translate('cms.theme.addField')}
             </Button>
           </Form.FormItem>
         </>

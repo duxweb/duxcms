@@ -118,7 +118,6 @@ class Stats
         // 地区来源
         $ips = LogVisitUv::query()
             ->select(
-                'province',
                 'city',
                 App::db()->getConnection()->raw('COUNT(*) as num'),
             )

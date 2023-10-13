@@ -77,7 +77,6 @@ const Page = () => {
         </Radio.Group>
       </FormPageItem>
 
-
       <FormPageItem
         name='external'
         label={translate('tools.magic.fields.external')}

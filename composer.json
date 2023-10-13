@@ -9,10 +9,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "duxphp/lite": "2.0.x-dev",
-    "xantios/mimey": "^2.2",
-    "ext-fileinfo": "*",
-    "ext-pdo": "*"
+    "duxphp/lite": "2.0.x-dev"
   },
   "autoload": {
     "psr-4": {

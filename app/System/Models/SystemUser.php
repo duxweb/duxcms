@@ -29,7 +29,7 @@ class SystemUser extends Model {
     public function seed(Connection $db) {
         $db->table($this->table)->insert([
             'username' => 'admin',
-            'nickname' => '管理员',
+            'nickname' => 'Admin',
             'password' => password_hash('admin', PASSWORD_DEFAULT),
             'created_at' => now(),
             'updated_at' => now(),

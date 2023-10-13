@@ -24,7 +24,7 @@ class SystemRole extends Model {
 
     public function seed(Connection $db) {
         $db->table($this->table)->insert([
-            'name' => '管理组',
+            'name' => 'Admins',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

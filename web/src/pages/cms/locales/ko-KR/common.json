@@ -1,35 +1,58 @@
 {
   "cms": {
     "dashboard": {
-      "name": "概况",
-      "fields": {
-        "sourceRate": "来源占比",
-        "mallRate": "商品占比",
-        "saleValue": "销售额",
-        "userValue": "用户量",
-        "mallValue": "商品量",
-        "supplyValue": "供货量",
-        "userTrend": "用户趋势",
-        "saleTrend": "销售趋势",
-        "mallTotalRank": "商品总排名",
-        "mallDayRank": "商品日排名",
-        "mallMonthRank": "商品月排名"
-      }
+      "name": "대시 보드",
+      "nums": {
+        "article": "글 수",
+        "pv": "사이트 PV",
+        "uv": "사이트 UV",
+        "spider": "스파이더 크롤러"
+      },
+      "views": {
+        "name": "방문 통해",
+        "pv": "페이지 뷰",
+        "uv": "고유 방문자"
+      },
+      "unknown": "알 수 없음",
+      "spider": "스파이더 통계",
+      "source": "브라우저 소스",
+      "area": "지역 소스",
+      "article": {
+        "name": "최근 글",
+        "pv": "페이지 뷰",
+        "date": "게시 날짜"
+      },
+      "push": {
+        "name": "게시 통계",
+        "num": "수량"
+      },
+      "class": {
+        "name": "카테고리 통계",
+        "num": "수량"
+      },
+      "noData": "데이터 없음"
     },
-    "name": "站点管理",
+    "name": "사이트 관리",
     "setting": {
-      "name": "站点设置",
+      "name": "사이트 설정",
       "fields": {
-        "title": "站点标题",
-        "titleHelp": "站点头部标题",
-        "desc": "站点描述",
-        "descHelp": "站点描述信息",
-        "copyright": "版权信息",
-        "copyrightHelp": "站点版权信息"
+        "title": "사이트 제목",
+        "titleHelp": "사이트 헤더 제목",
+        "desc": "사이트 설명",
+        "descHelp": "사이트 설명 정보",
+        "copyright": "저작권 정보",
+        "copyrightHelp": "사이트 저작권 정보"
       }
     },
-    "template": {
-      "name": "模板管理"
+    "theme": {
+      "name": "템플릿 관리",
+      "default": "기본",
+      "info": "테마 설명",
+      "empty": "비어 있음",
+      "change": "테마 변경",
+      "changeConfirm": "테마 변경 확인",
+      "config": "테마 설정",
+      "addField": "필드 추가"
     }
   }
 }

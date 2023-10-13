@@ -24,9 +24,5 @@ export const adminRouter = (app: App) => {
       path: 'system/api',
       element: lazyComponent(() => import('../admin/api/list')),
     },
-    {
-      path: 'system/setting',
-      element: lazyComponent(() => import('../admin/setting/page')),
-    },
   ])
 }

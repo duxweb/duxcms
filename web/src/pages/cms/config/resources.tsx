@@ -22,29 +22,11 @@ export const adminResources = (app: App) => {
       },
     },
     {
-      name: 'cms.setting',
-      list: 'cms/setting',
-      listElenemt: lazyComponent(() => import('../admin/setting/page')),
+      name: 'cms.theme',
+      list: 'cms/theme',
+      listElenemt: lazyComponent(() => import('../admin/theme/list')),
       meta: {
-        label: 'cms.setting',
-        parent: 'cms',
-      },
-    },
-    {
-      name: 'cms.setting',
-      list: 'cms/setting',
-      listElenemt: lazyComponent(() => import('../admin/setting/page')),
-      meta: {
-        label: 'cms.setting',
-        parent: 'cms',
-      },
-    },
-    {
-      name: 'cms.template',
-      list: 'cms/template',
-      listElenemt: lazyComponent(() => import('../admin/template/list')),
-      meta: {
-        label: 'cms.template',
+        label: 'cms.theme',
         parent: 'cms',
       },
     },

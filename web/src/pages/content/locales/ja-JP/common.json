@@ -1,76 +1,74 @@
 {
   "content": {
-    "name": "内容",
+    "name": "コンテンツ",
     "articleGroup": {
-      "name": "文章管理"
+      "name": "記事管理"
     },
     "article": {
-      "name": "文章列表",
+      "name": "記事リスト",
       "tab": {
-        "all": "全部",
-        "published": "已发布",
-        "unpublished": "未发布"
+        "all": "すべて",
+        "published": "公開済み",
+        "unpublished": "未公開"
       },
       "validate": {
-        "title": "请输入标题"
+        "title": "タイトルを入力してください"
       },
       "fields": {
-        "title": "标题",
-        "subtitle": "子标题",
-        "image": "封面图",
-        "status": "状态",
-        "author": "作者",
+        "title": "タイトル",
+        "subtitle": "サブタイトル",
+        "image": "カバー画像",
+        "status": "ステータス",
+        "author": "著者",
         "content": "内容",
-        "virtualView": "虚拟浏览量",
-        "createdAt": "创建时间"
+        "virtualView": "仮想閲覧数",
+        "createdAt": "作成日時"
       }
     },
     "category": {
-      "name": "文章分类",
+      "name": "記事カテゴリ",
       "fields": {
-        "parent": "上级分类",
-        "name": "名称"
+        "parent": "親カテゴリ",
+        "name": "名前"
       }
     },
     "page": {
-      "name": "页面管理",
+      "name": "ページ管理",
       "tab": {
-        "all": "全部",
-        "published": "已发布",
-        "unpublished": "未发布"
+        "all": "すべて",
+        "published": "公開済み",
+        "unpublished": "未公開"
       },
       "validate": {
-        "title": "请输入标题"
+        "title": "タイトルを入力してください"
       },
       "fields": {
-        "name": "调用名",
-        "title": "标题",
-        "subtitle": "子标题",
-        "image": "封面图",
-        "status": "状态",
+        "name": "呼び出し名",
+        "title": "タイトル",
+        "subtitle": "サブタイトル",
+        "image": "カバー画像",
+        "status": "ステータス",
         "content": "内容",
-        "virtualView": "虚拟浏览量",
-        "createdAt": "创建时间"
+        "virtualView": "仮想閲覧数",
+        "createdAt": "作成日時"
       }
     },
     "menu": {
-      "name": "菜单管理",
+      "name": "メニュー管理",
       "fields": {
-        "addGroup": "创建组",
-        "editGroup": "编辑组",
-        "title": "菜单标题",
-        "subtitle": "菜单副标题",
-        "image": "菜单图片",
-        "url": "菜单链接",
-        "parent": "上级菜单",
-        "groupName": "菜单组名",
-        "groupTitle": "菜单组描述"
-
+        "addGroup": "グループを作成",
+        "editGroup": "グループを編集",
+        "title": "メニュータイトル",
+        "subtitle": "メニューサブタイトル",
+        "image": "メニュー画像",
+        "url": "メニューリンク",
+        "parent": "親メニュー",
+        "groupName": "メニューグループ名",
+        "groupTitle": "メニューグループの説明"
       },
       "placeholder": {
-        "group": "请选择菜单组"
+        "group": "メニューグループを選択してください"
       }
     }
   }
-  
 }

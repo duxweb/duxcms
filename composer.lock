@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e622e895ff12fbdb83b7d5d6c5727f6",
+    "content-hash": "ae890604a81389b3edb7ad5cb1a6cec2",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -871,12 +871,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxphp/lite.git",
-                "reference": "d81ec42a5c8215a769e9e249391497d99ffd7e77"
+                "reference": "3027b8dd2085893c4204a5979875a6ee80bb7673"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxphp/lite/zipball/d81ec42a5c8215a769e9e249391497d99ffd7e77",
-                "reference": "d81ec42a5c8215a769e9e249391497d99ffd7e77",
+                "url": "https://api.github.com/repos/duxphp/lite/zipball/3027b8dd2085893c4204a5979875a6ee80bb7673",
+                "reference": "3027b8dd2085893c4204a5979875a6ee80bb7673",
                 "shasum": ""
             },
             "require": {
@@ -889,8 +889,10 @@
                 "enqueue/redis": "^0.10.9",
                 "ext-bcmath": "*",
                 "ext-curl": "*",
+                "ext-fileinfo": "*",
                 "ext-json": "*",
                 "ext-openssl": "*",
+                "ext-pdo": "*",
                 "ext-redis": "*",
                 "geoip2/geoip2": "^2.13",
                 "godruoyi/php-snowflake": "^2.2",
@@ -932,7 +934,8 @@
                 "workerman/channel": "^1.1",
                 "workerman/crontab": "^1.0",
                 "workerman/redis-queue": "^1.0",
-                "workerman/workerman": "^4.1"
+                "workerman/workerman": "^4.1",
+                "xantios/mimey": "^2.2"
             },
             "require-dev": {
                 "composer/composer": "^2.0",
@@ -970,7 +973,7 @@
                 "issues": "https://github.com/duxphp/lite/issues",
                 "source": "https://github.com/duxphp/lite"
             },
-            "time": "2023-10-12T09:12:37+00:00"
+            "time": "2023-10-12T12:13:00+00:00"
         },
         {
             "name": "enqueue/dsn",
@@ -8575,10 +8578,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {
-        "ext-fileinfo": "*",
-        "ext-pdo": "*"
-    },
+    "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

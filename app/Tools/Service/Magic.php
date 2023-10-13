@@ -26,27 +26,29 @@ class Magic
             return json_decode($data, true);
         }
 
-        $connect = App::db()->getConnection();
-        if ($connect->getSchemaBuilder()->hasTable( 'magic') && $connect->getSchemaBuilder()->hasTable( 'magic_group'))
-        {
-            $groupData = ToolsMagicGroup::query()->with(['magics'])->get();
-            $data = [];
-            foreach ($groupData as $group) {
-                $data[] = [
-                    'name' => $group->name,
-                    'label' => $group->label,
-                    'icon' => $group->icon,
-                    'children' => $group->magics->map(function ($item) {
-                        return [
-                            'name' => $item->name,
-                            'label' => $item->label
-                        ];
-                    })->toArray()
-                ];
-            }
+        try {
+            $connect = App::db()->getConnection();
+            if ($connect->getSchemaBuilder()->hasTable( 'magic') && $connect->getSchemaBuilder()->hasTable( 'magic_group'))
+            {
+                $groupData = ToolsMagicGroup::query()->with(['magics'])->get();
+                $data = [];
+                foreach ($groupData as $group) {
+                    $data[] = [
+                        'name' => $group->name,
+                        'label' => $group->label,
+                        'icon' => $group->icon,
+                        'children' => $group->magics->map(function ($item) {
+                            return [
+                                'name' => $item->name,
+                                'label' => $item->label
+                            ];
+                        })->toArray()
+                    ];
+                }
 
-            $cache->set(self::key(), json_encode($data), 2 * 60 * 60);
-        }
+                $cache->set(self::key(), json_encode($data), 2 * 60 * 60);
+            }
+        }catch (\Exception $e) {}
         return $data ?: [];
     }
 

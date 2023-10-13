@@ -1,76 +1,74 @@
 {
   "content": {
-    "name": "内容",
+    "name": "콘텐츠",
     "articleGroup": {
-      "name": "文章管理"
+      "name": "글 관리"
     },
     "article": {
-      "name": "文章列表",
+      "name": "글 목록",
       "tab": {
-        "all": "全部",
-        "published": "已发布",
-        "unpublished": "未发布"
+        "all": "모두",
+        "published": "게시됨",
+        "unpublished": "게시되지 않음"
       },
       "validate": {
-        "title": "请输入标题"
+        "title": "제목을 입력하세요"
       },
       "fields": {
-        "title": "标题",
-        "subtitle": "子标题",
-        "image": "封面图",
-        "status": "状态",
-        "author": "作者",
-        "content": "内容",
-        "virtualView": "虚拟浏览量",
-        "createdAt": "创建时间"
+        "title": "제목",
+        "subtitle": "부제목",
+        "image": "커버 이미지",
+        "status": "상태",
+        "author": "저자",
+        "content": "내용",
+        "virtualView": "가상 조회수",
+        "createdAt": "작성일"
       }
     },
     "category": {
-      "name": "文章分类",
+      "name": "글 분류",
       "fields": {
-        "parent": "上级分类",
-        "name": "名称"
+        "parent": "상위 분류",
+        "name": "이름"
       }
     },
     "page": {
-      "name": "页面管理",
+      "name": "페이지 관리",
       "tab": {
-        "all": "全部",
-        "published": "已发布",
-        "unpublished": "未发布"
+        "all": "모두",
+        "published": "게시됨",
+        "unpublished": "게시되지 않음"
       },
       "validate": {
-        "title": "请输入标题"
+        "title": "제목을 입력하세요"
       },
       "fields": {
-        "name": "调用名",
-        "title": "标题",
-        "subtitle": "子标题",
-        "image": "封面图",
-        "status": "状态",
-        "content": "内容",
-        "virtualView": "虚拟浏览量",
-        "createdAt": "创建时间"
+        "name": "호출 이름",
+        "title": "제목",
+        "subtitle": "부제목",
+        "image": "커버 이미지",
+        "status": "상태",
+        "content": "내용",
+        "virtualView": "가상 조회수",
+        "createdAt": "작성일"
       }
     },
     "menu": {
-      "name": "菜单管理",
+      "name": "메뉴 관리",
       "fields": {
-        "addGroup": "创建组",
-        "editGroup": "编辑组",
-        "title": "菜单标题",
-        "subtitle": "菜单副标题",
-        "image": "菜单图片",
-        "url": "菜单链接",
-        "parent": "上级菜单",
-        "groupName": "菜单组名",
-        "groupTitle": "菜单组描述"
-
+        "addGroup": "그룹 생성",
+        "editGroup": "그룹 편집",
+        "title": "메뉴 제목",
+        "subtitle": "메뉴 부제목",
+        "image": "메뉴 이미지",
+        "url": "메뉴 링크",
+        "parent": "상위 메뉴",
+        "groupName": "메뉴 그룹 이름",
+        "groupTitle": "메뉴 그룹 설명"
       },
       "placeholder": {
-        "group": "请选择菜单组"
+        "group": "메뉴 그룹을 선택하세요"
       }
     }
   }
-  
 }

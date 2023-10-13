@@ -84,7 +84,7 @@ const List = () => {
                 {translate('buttons.edit')}
               </Link>
               <Popconfirm
-                content='确认删除吗'
+                content={translate('buttons.confirm')}
                 destroyOnClose
                 placement='top'
                 showArrow

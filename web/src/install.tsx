@@ -18,7 +18,7 @@ root.render(
       config={config}
       pathDetection='/install/detection'
       pathConfig='/install/config'
-      pathComplete='/index/complete'
+      pathComplete='/install/complete'
       logo={<DuxLogo className='h-10' />}
     />
   </DuxApp>

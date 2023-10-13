@@ -1,76 +1,74 @@
 {
   "content": {
-    "name": "内容",
+    "name": "Контент",
     "articleGroup": {
-      "name": "文章管理"
+      "name": "Управление статьями"
     },
     "article": {
-      "name": "文章列表",
+      "name": "Список статей",
       "tab": {
-        "all": "全部",
-        "published": "已发布",
-        "unpublished": "未发布"
+        "all": "Все",
+        "published": "Опубликованные",
+        "unpublished": "Неопубликованные"
       },
       "validate": {
-        "title": "请输入标题"
+        "title": "Пожалуйста, введите заголовок"
       },
       "fields": {
-        "title": "标题",
-        "subtitle": "子标题",
-        "image": "封面图",
-        "status": "状态",
-        "author": "作者",
-        "content": "内容",
-        "virtualView": "虚拟浏览量",
-        "createdAt": "创建时间"
+        "title": "Заголовок",
+        "subtitle": "Подзаголовок",
+        "image": "Обложка",
+        "status": "Статус",
+        "author": "Автор",
+        "content": "Содержание",
+        "virtualView": "Виртуальные просмотры",
+        "createdAt": "Дата создания"
       }
     },
     "category": {
-      "name": "文章分类",
+      "name": "Категории статей",
       "fields": {
-        "parent": "上级分类",
-        "name": "名称"
+        "parent": "Родительская категория",
+        "name": "Название"
       }
     },
     "page": {
-      "name": "页面管理",
+      "name": "Управление страницами",
       "tab": {
-        "all": "全部",
-        "published": "已发布",
-        "unpublished": "未发布"
+        "all": "Все",
+        "published": "Опубликованные",
+        "unpublished": "Неопубликованные"
       },
       "validate": {
-        "title": "请输入标题"
+        "title": "Пожалуйста, введите заголовок"
       },
       "fields": {
-        "name": "调用名",
-        "title": "标题",
-        "subtitle": "子标题",
-        "image": "封面图",
-        "status": "状态",
-        "content": "内容",
-        "virtualView": "虚拟浏览量",
-        "createdAt": "创建时间"
+        "name": "Имя вызова",
+        "title": "Заголовок",
+        "subtitle": "Подзаголовок",
+        "image": "Обложка",
+        "status": "Статус",
+        "content": "Содержание",
+        "virtualView": "Виртуальные просмотры",
+        "createdAt": "Дата создания"
       }
     },
     "menu": {
-      "name": "菜单管理",
+      "name": "Управление меню",
       "fields": {
-        "addGroup": "创建组",
-        "editGroup": "编辑组",
-        "title": "菜单标题",
-        "subtitle": "菜单副标题",
-        "image": "菜单图片",
-        "url": "菜单链接",
-        "parent": "上级菜单",
-        "groupName": "菜单组名",
-        "groupTitle": "菜单组描述"
-
+        "addGroup": "Создать группу",
+        "editGroup": "Редактировать группу",
+        "title": "Заголовок меню",
+        "subtitle": "Подзаголовок меню",
+        "image": "Изображение меню",
+        "url": "Ссылка меню",
+        "parent": "Родительское меню",
+        "groupName": "Название группы меню",
+        "groupTitle": "Описание группы меню"
       },
       "placeholder": {
-        "group": "请选择菜单组"
+        "group": "Пожалуйста, выберите группу меню"
       }
     }
   }
-  
 }

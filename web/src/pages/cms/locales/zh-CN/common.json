@@ -2,19 +2,35 @@
   "cms": {
     "dashboard": {
       "name": "概况",
-      "fields": {
-        "sourceRate": "来源占比",
-        "mallRate": "商品占比",
-        "saleValue": "销售额",
-        "userValue": "用户量",
-        "mallValue": "商品量",
-        "supplyValue": "供货量",
-        "userTrend": "用户趋势",
-        "saleTrend": "销售趋势",
-        "mallTotalRank": "商品总排名",
-        "mallDayRank": "商品日排名",
-        "mallMonthRank": "商品月排名"
-      }
+      "nums": {
+        "article": "文章数量",
+        "pv": "站点 PV",
+        "uv": "站点 UV",
+        "spider": "蜘蛛爬虫"
+      },
+      "views": {
+        "name": "访问统计",
+        "pv": "访问量",
+        "uv": "访客量" 
+      },
+      "unknown": "未知",
+      "spider": "蜘蛛统计",
+      "source": "浏览器来源",
+      "area": "地区来源",
+      "article": {
+        "name": "近期文章",
+        "pv": "访问量",
+        "date": "发布日期"
+      },
+      "push": {
+        "name": "发布统计",
+        "num": "数量"
+      },
+      "class": {
+        "name": "分类统计",
+        "num": "数量"
+      },
+      "noData": "暂无数据"
     },
     "name": "站点管理",
     "setting": {
@@ -28,8 +44,15 @@
         "copyrightHelp": "站点版权信息"
       }
     },
-    "template": {
-      "name": "模板管理"
+    "theme": {
+      "name": "模板管理",
+      "default": "默认",
+      "info": "主题说明",
+      "empty": "暂无",
+      "change": "主题切换",
+      "changeConfirm": "确认切换吗",
+      "config": "主题配置",
+      "addField": "添加字段"
     }
   }
 }
