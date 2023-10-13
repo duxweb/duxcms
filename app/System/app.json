@@ -1,0 +1,7 @@
+{
+  "name": "system",
+  "description": "System Basic Application",
+  "version": "0.0.0",
+  "dependencies": [
+  ]
+}
