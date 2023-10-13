@@ -9,7 +9,8 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "duxphp/lite": "2.0.x-dev"
+    "duxphp/lite": "2.0.x-dev",
+    "maennchen/zipstream-php": "^3.1"
   },
   "autoload": {
     "psr-4": {
@@ -22,5 +23,15 @@
       "duxphp/lite": true
     }
   },
+
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/Volumes/Web/lite",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
   "license": "MIT"
 }
