@@ -871,12 +871,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxphp/lite.git",
-                "reference": "515d31fb8da03ef361e742dc7352b719ee34dfcd"
+                "reference": "3eac51dd3b75454624fab8d0966027e03c0f3baf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxphp/lite/zipball/515d31fb8da03ef361e742dc7352b719ee34dfcd",
-                "reference": "515d31fb8da03ef361e742dc7352b719ee34dfcd",
+                "url": "https://api.github.com/repos/duxphp/lite/zipball/3eac51dd3b75454624fab8d0966027e03c0f3baf",
+                "reference": "3eac51dd3b75454624fab8d0966027e03c0f3baf",
                 "shasum": ""
             },
             "require": {
@@ -973,7 +973,7 @@
                 "issues": "https://github.com/duxphp/lite/issues",
                 "source": "https://github.com/duxphp/lite"
             },
-            "time": "2023-10-14T06:44:16+00:00"
+            "time": "2023-10-14T06:52:31+00:00"
         },
         {
             "name": "enqueue/dsn",
