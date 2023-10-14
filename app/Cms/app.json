@@ -1,8 +1,7 @@
 {
     "name": "cms",
     "description": "CMS Basic Application",
-    "version": "0.0.6",
+    "version": "0.0.1",
     "dependencies": [
-        "article"
     ]
 }
