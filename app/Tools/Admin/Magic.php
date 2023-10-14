@@ -135,7 +135,14 @@ class Magic extends Resources
         if (!$info) {
             throw new ExceptionBusiness(__('tools.magic.validator.data', 'manage'));
         }
-        $info->fields = array_map(function ($item) {
+        $info->fields = $this->formatConfig($info->fields);
+
+        return send($response, 'ok', $info?->toArray());
+    }
+
+    public function formatConfig(array $fields): array
+    {
+        return array_map(function ($item) {
             $setting = $item['setting'];
             if ($setting['options'] && is_string($setting['options'])) {
                 $setting['options'] = json_decode($setting['options'], true);
@@ -144,10 +151,12 @@ class Magic extends Resources
                 $setting['rules'] = json_decode($setting['rules'], true);
             }
             $item['setting'] = $setting;
-            return $item;
-        }, $info->fields);
+            if ($item['child'] && is_array($item['child'])) {
+                $item['child'] = $this->formatConfig($item['child']);
+            }
 
-        return send($response, 'ok', $info?->toArray());
+            return $item;
+        }, $fields);
     }
 
 }
