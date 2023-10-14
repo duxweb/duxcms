@@ -23,15 +23,5 @@
       "duxphp/lite": true
     }
   },
-
-  "repositories": [
-    {
-      "type": "path",
-      "url": "/Volumes/Web/lite",
-      "options": {
-        "symlink": true
-      }
-    }
-  ],
   "license": "MIT"
 }

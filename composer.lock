@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db955e8e63a9506bc7ac0e5e1e3c09c1",
+    "content-hash": "11a0904a1ba910510781666dfbae3cfc",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -868,10 +868,16 @@
         {
             "name": "duxphp/lite",
             "version": "2.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/duxphp/lite.git",
+                "reference": "515d31fb8da03ef361e742dc7352b719ee34dfcd"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Volumes/Web/lite",
-                "reference": "3027b8dd2085893c4204a5979875a6ee80bb7673"
+                "type": "zip",
+                "url": "https://api.github.com/repos/duxphp/lite/zipball/515d31fb8da03ef361e742dc7352b719ee34dfcd",
+                "reference": "515d31fb8da03ef361e742dc7352b719ee34dfcd",
+                "shasum": ""
             },
             "require": {
                 "bluem/tree": "^3.2",
@@ -945,6 +951,7 @@
                     "Dux\\Tests\\": "tests"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -957,19 +964,16 @@
             "description": "The lightweight framework based on slim php",
             "homepage": "https://github.com/duxphp",
             "keywords": [
-                "PHP",
-                "PHP framework",
                 "duxphp",
+                "php",
+                "php framework",
                 "slim"
             ],
             "support": {
                 "issues": "https://github.com/duxphp/lite/issues",
                 "source": "https://github.com/duxphp/lite"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": false
-            }
+            "time": "2023-10-14T06:44:16+00:00"
         },
         {
             "name": "enqueue/dsn",
@@ -8576,5 +8580,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
