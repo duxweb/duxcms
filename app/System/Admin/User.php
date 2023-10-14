@@ -51,10 +51,10 @@ class User extends Resources {
             "nickname" => ["required", __('system.user.validator.nickname', 'manage')],
             "username" => [
                 ["required", __('system.user.validator.username', 'manage')],
-                [function($field, $value, $params, $fields) {
+                [function($field, $value, $params, $fields) use ($args) {
                     $model = SystemUser::query()->where('username', $fields['username']);
-                    if ($fields['id']) {
-                        $model->where("id", "<>", $fields['id']);
+                    if ($args['id']) {
+                        $model->where("id", "<>", $args['id']);
                     }
                     return !$model->exists();
                 }, __('system.user.validator.usernameExists', 'manage')]
