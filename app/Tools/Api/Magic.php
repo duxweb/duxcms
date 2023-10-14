@@ -99,7 +99,7 @@ class Magic
     private function cast($item, $type): array
     {
         $array = [
-            'id' => $item->id,
+            'id' => (int)$item->id,
             ...$item->data,
         ];
         if ($type == 'tree') {
