@@ -161,6 +161,10 @@ class CloudCommand extends Command
                         'name' => 'md5',
                         'contents' => md5_file($zipFile)
                     ],
+                    [
+                        'name' => 'app',
+                        'contents' => ucfirst($app)
+                    ],
                 ],
                 'on_stats' => function (\GuzzleHttp\TransferStats $stats) use ($progressBar) {
                     $uploadedBytes = $stats->getHandlerStats()['uploaded_bytes'] ?? 0;
