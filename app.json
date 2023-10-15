@@ -1,0 +1,7 @@
+{
+    "name": "project",
+    "description": "This is the dux application dependency configuration",
+    "dependencies": {
+        "cms": "release"
+    }
+}
