@@ -1,40 +1,43 @@
 {
     "_readme": [
         "This file relies on the Dux application to be in a locked state",
-        "Read more about it at https:\/\/dux.plus"
+        "Read more about it at https://dux.plus"
     ],
     "packages": [
         {
-            "name": "cms",
+            "name": "duxweb/cms",
             "description": "CMS Basic Application",
-            "version": "0.0.2",
-            "dependencies": {
-                "base": "release"
-            }
+            "version": "0.0.0",
+            "dependencies": [],
+            "app": "cms"
         },
         {
-            "name": "base",
-            "description": "CMS Basic Application",
-            "version": "0.0.2",
-            "dependencies": {
-            }
+            "name": "duxweb/content",
+            "description": "Content Management Applications",
+            "version": "0.0.0",
+            "dependencies": [],
+            "app": "content"
         },
         {
-            "name": "article",
-            "description": "CMS Basic Application",
-            "version": "0.0.2",
-            "dependencies": {
-                "cms": "release"
-            }
+            "name": "duxweb/install",
+            "description": "Installation Wizard Applications",
+            "version": "0.0.0",
+            "dependencies": [],
+            "app": "install"
         },
         {
-            "name": "tools",
-            "description": "CMS Basic Application",
-            "version": "0.0.2",
-            "dependencies": {
-                "base": "release",
-                "cms": "release"
-            }
+            "name": "duxweb/base",
+            "description": "System Base Applications",
+            "version": "0.0.0",
+            "dependencies": [],
+            "app": "system"
+        },
+        {
+            "name": "duxweb/tools",
+            "description": "System Tools Applications",
+            "version": "0.0.0",
+            "dependencies": [],
+            "app": "tools"
         }
     ]
 }

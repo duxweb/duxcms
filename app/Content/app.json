@@ -1,7 +1,6 @@
 {
-  "name": "content",
-  "description": "Content Basic Application",
-  "version": "0.0.0",
-  "dependencies": [
-  ]
+    "name": "duxweb/content",
+    "description": "Content Management Applications",
+    "version": "0.0.0",
+    "dependencies": []
 }

@@ -1,6 +1,6 @@
 {
-    "name": "cms",
+    "name": "duxweb/cms",
     "description": "CMS Basic Application",
-    "version": "0.0.2",
+    "version": "0.0.0",
     "dependencies": []
 }

@@ -2,6 +2,10 @@
     "name": "project",
     "description": "This is the dux application dependency configuration",
     "dependencies": {
-        "cms": "release"
+        "duxweb/cms": "release",
+        "duxweb/content": "release",
+        "duxweb/install": "release",
+        "duxweb/base": "release",
+        "duxweb/tools": "release"
     }
 }

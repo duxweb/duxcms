@@ -1,7 +1,6 @@
 {
-  "name": "system",
-  "description": "System Basic Application",
-  "version": "0.0.0",
-  "dependencies": [
-  ]
+    "name": "duxweb/base",
+    "description": "System Base Applications",
+    "version": "0.0.0",
+    "dependencies": []
 }

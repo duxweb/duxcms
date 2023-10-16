@@ -1,7 +1,6 @@
 {
-  "name": "tools",
-  "description": "Tools Basic Application",
-  "version": "0.0.0",
-  "dependencies": [
-  ]
+    "name": "duxweb/tools",
+    "description": "System Tools Applications",
+    "version": "0.0.0",
+    "dependencies": []
 }
