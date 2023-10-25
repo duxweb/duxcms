@@ -23,5 +23,13 @@
       "duxphp/lite": true
     }
   },
+  "repositories": [
+    {
+      "description": "aliyun",
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/",
+      "canonical": false
+    }
+  ],
   "license": "MIT"
 }
