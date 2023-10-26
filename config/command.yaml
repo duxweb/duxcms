@@ -1,3 +1,2 @@
 registers:
   - \Console\TestCommand
-  - \App\Cms\Command\CloudCommand

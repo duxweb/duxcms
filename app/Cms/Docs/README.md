@@ -1,2 +1,5 @@
-# duxcms
-💥  php content management system based on dux-refine and dux-lite
+# cms 模块
+
+- 提供基础的 web 站点模块
+- 提供基础内容相关统计信息
+- 提供主题加载机制

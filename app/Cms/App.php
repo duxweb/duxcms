@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Cms;
 
-use App\Cms\Command\CloudCommand;
 use App\Tools\Config\Menu;
 use App\Tools\Config\Route;
 use App\Tools\Scheduler\Test;
