@@ -1,6 +1,5 @@
 {
     "name": "duxweb/install",
     "description": "Installation Wizard Applications",
-    "version": "0.0.0",
-    "dependencies": []
+    "version": "0.0.0"
 }

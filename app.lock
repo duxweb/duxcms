@@ -5,13 +5,6 @@
     ],
     "packages": [
         {
-            "name": "duxweb/cms",
-            "description": "CMS Basic Application",
-            "version": "0.0.0",
-            "dependencies": [],
-            "app": "cms"
-        },
-        {
             "name": "duxweb/content",
             "description": "Content Management Applications",
             "version": "0.0.0",
@@ -38,6 +31,12 @@
             "version": "0.0.0",
             "dependencies": [],
             "app": "tools"
+        },
+        {
+            "name": "duxweb/cms",
+            "description": "CMS Basic Application",
+            "version": "0.0.1",
+            "app": "cms"
         }
     ]
 }
