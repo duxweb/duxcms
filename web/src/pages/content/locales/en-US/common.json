@@ -15,6 +15,7 @@
         "title": "Please enter a title"
       },
       "fields": {
+        "category": "Categories",
         "title": "Title",
         "subtitle": "Subtitle",
         "image": "Cover Image",

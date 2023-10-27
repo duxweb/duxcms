@@ -15,6 +15,7 @@
         "title": "제목을 입력하세요"
       },
       "fields": {
+        "category": "분류",
         "title": "제목",
         "subtitle": "부제목",
         "image": "커버 이미지",

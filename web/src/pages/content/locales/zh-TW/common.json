@@ -15,6 +15,7 @@
         "title": "請輸入標題"
       },
       "fields": {
+        "category": "分類",
         "title": "標題",
         "subtitle": "子標題",
         "image": "封面圖",

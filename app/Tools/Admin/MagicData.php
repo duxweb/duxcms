@@ -52,13 +52,31 @@ class MagicData extends Resources
         $query->where('magic_id', $this->info->id);
     }
 
+    public function queryMany(Builder $query, ServerRequestInterface $request, array $args): void
+    {
+        $params = $request->getQueryParams() ?: [];
+        $fields = [];
+        foreach ($this->info->fields as $field) {
+            $fields[] = $field['name'];
+        }
+        \App\Tools\Service\Magic::queryMany($query, $fields, $params);
+    }
+
     public function transform(object $item): array
     {
 
-        return [
+        $data = [
             "id" => $item->id,
             ...\App\Tools\Service\Magic::listTransform($this->info->id, $item->data, $this->info->fields)
         ];
+        if ($this->info->type == 'tree') {
+            $data['parent_id'] = $item->parent_id;
+
+            $data['children'] = $item->children ? $item->children->map(function ($vo) {
+                return $this->transform($vo);
+            }) : [];
+        }
+        return $data;
     }
 
     public function validator(array $data, ServerRequestInterface $request, array $args): array
@@ -69,9 +87,14 @@ class MagicData extends Resources
     public function format(Data $data, ServerRequestInterface $request, array $args): array
     {
 
+        $arr = $data->toArray();
+        if ($this->info->type == 'tree') {
+            unset($arr['parent_id']);
+        }
         return [
             "magic_id" => $this->info->id,
-            "data" => $data->toArray(),
+            "parent_id" => $data->parent_id,
+            "data" => $arr,
         ];
     }
 

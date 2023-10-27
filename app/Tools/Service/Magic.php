@@ -5,9 +5,9 @@ namespace App\Tools\Service;
 use App\Tools\Models\ToolsMagic;
 use App\Tools\Models\ToolsMagicGroup;
 use App\Tools\Models\ToolsMagicData;
-use App\Tools\Service\Data\Transform;
 use Dux\App;
 use Dux\Bootstrap;
+use Illuminate\Database\Eloquent\Builder;
 
 class Magic
 {
@@ -21,7 +21,6 @@ class Magic
     {
 
         $cache = $bootstrap?->cache ?: App::cache();
-
         $data = $cache->get(self::key());
         if ($data) {
             return json_decode($data, true);
@@ -93,7 +92,6 @@ class Magic
         return $data;
     }
 
-
     private static function fieldDataValue(int $magicId, $value, array $field, array $sources = [], bool $multi = false): array
     {
         if ($value == null) {
@@ -103,9 +101,14 @@ class Magic
             $source = collect($sources)->where('route', $field['setting']['source'])->first();
             if (!$source) {
                 return [];
-            }
+            };
             if ($source['model'] == ToolsMagicData::class) {
-                $data = ToolsMagicData::query()->where('magic_id', $magicId)->get()->map(function ($item) {
+                $urlQuery = parse_url($source['route'])['query'];
+                parse_str($urlQuery, $queryArr);
+                $magic = $queryArr['magic'];
+                $data = ToolsMagicData::query()->with('magic', function ($query) use($magic) {
+                    $query->where('name', $magic);
+                })->get()->map(function ($item) {
                     return [
                         'id' => $item->id,
                         ...$item->data,
@@ -131,6 +134,29 @@ class Magic
             }
         }
         return ($multi ? $result : $result[0]) ?: [];
+    }
+
+    public static function queryMany(Builder $query, array $fields = [], array $params = []): void
+    {
+        foreach ($params as $key => $vo) {
+            if (str_ends_with($key, "_sort")) {
+                $field = substr($key, 0, -5);
+                if (!in_array($field, $fields)) {
+                    continue;
+                }
+                if ($vo == 'desc') {
+                    $query->orderByDesc("data->$field");
+                }
+                if ($vo == 'asc') {
+                    $query->orderBy("data->$field");
+                }
+                continue;
+            }
+            if (!in_array($key, $fields) || $vo == '') {
+                continue;
+            }
+            $query->where("data->$key", $vo);
+        }
     }
 
 

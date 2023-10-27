@@ -15,6 +15,7 @@
         "title": "タイトルを入力してください"
       },
       "fields": {
+        "category": "カテゴリ",
         "title": "タイトル",
         "subtitle": "サブタイトル",
         "image": "カバー画像",

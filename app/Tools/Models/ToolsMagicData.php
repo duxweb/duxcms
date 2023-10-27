@@ -38,4 +38,9 @@ class ToolsMagicData extends \Dux\Database\Model
     protected $casts = [
         'data' => 'array',
     ];
+
+    public function magic(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ToolsMagic::class, 'id', 'magic_id');
+    }
 }

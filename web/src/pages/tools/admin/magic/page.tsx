@@ -58,7 +58,7 @@ const Page = () => {
       <FormPageItem
         name='name'
         label={translate('tools.magic.fields.name')}
-        help={translate('tools.magic.fields.labelDesc')}
+        help={translate('tools.magic.fields.nameDesc')}
       >
         <Input placeholder={translate('tools.magic.validate.name')} />
       </FormPageItem>

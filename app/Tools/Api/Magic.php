@@ -64,26 +64,7 @@ class Magic
             }
         }
 
-
-        foreach ($params as $key => $vo) {
-            if (str_ends_with($key, "_sort")) {
-                $field = substr($key, 0, -5);
-                if (!in_array($field, $fields)) {
-                    continue;
-                }
-                if ($vo == 'desc') {
-                    $query->orderByDesc("data->$field");
-                }
-                if ($vo == 'asc') {
-                    $query->orderBy("data->$field");
-                }
-                continue;
-            }
-            if (!in_array($key, $fields)) {
-                continue;
-            }
-            $query->where("data->$key", $vo);
-        }
+        \App\Tools\Service\Magic::queryMany($query, $fields, $params);
 
         $data = match ($info->type) {
             'tree' => $query->get()->toTree(),

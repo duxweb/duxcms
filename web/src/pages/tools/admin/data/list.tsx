@@ -33,12 +33,14 @@ const RenderList = ({ data }: any) => {
       config.pagination = undefined
     }
     if (data?.data?.type == 'tree') {
-      config.tree = { childrenKey: 'children', treeNodeColumnIndex: 1, defaultExpandAll: true }
+      config.tree = { childrenKey: 'children', treeNodeColumnIndex: 0, defaultExpandAll: true }
       config.pagination = undefined
     }
     return config
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
+
+  console.log(table)
 
   return (
     <PageTable
@@ -141,9 +143,9 @@ const List = () => {
   }
 
   if (data?.data.type === 'page') {
-    return <RenderPage />
+    return <RenderPage key={params?.name} />
   }
-  return <RenderList data={data} />
+  return <RenderList data={data} key={params?.name} />
 }
 
 export default List
