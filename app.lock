@@ -5,38 +5,34 @@
     ],
     "packages": [
         {
+            "name": "duxweb/cms",
+            "description": "CMS Basic Application",
+            "version": "0.0.2",
+            "app": "cms"
+        },
+        {
             "name": "duxweb/content",
             "description": "Content Management Applications",
-            "version": "0.0.0",
-            "dependencies": [],
+            "version": "0.0.1",
             "app": "content"
         },
         {
             "name": "duxweb/install",
             "description": "Installation Wizard Applications",
-            "version": "0.0.0",
-            "dependencies": [],
+            "version": "0.0.1",
             "app": "install"
         },
         {
             "name": "duxweb/base",
             "description": "System Base Applications",
-            "version": "0.0.0",
-            "dependencies": [],
+            "version": "0.0.1",
             "app": "system"
         },
         {
             "name": "duxweb/tools",
             "description": "System Tools Applications",
-            "version": "0.0.0",
-            "dependencies": [],
-            "app": "tools"
-        },
-        {
-            "name": "duxweb/cms",
-            "description": "CMS Basic Application",
             "version": "0.0.1",
-            "app": "cms"
+            "app": "tools"
         }
     ]
 }
