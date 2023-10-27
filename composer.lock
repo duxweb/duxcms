@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db4036ca832206f49848dbaa5f4fe084",
+    "content-hash": "8fc95ac7c9c72a16f04d204cd3025290",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -937,12 +937,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxphp/lite.git",
-                "reference": "0e282dea086f7fed3b8490a4baf8eaa50767045e"
+                "reference": "cb4b23ffe355783ca9e1148ee6d56528bf6d9a76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxphp/lite/zipball/0e282dea086f7fed3b8490a4baf8eaa50767045e",
-                "reference": "0e282dea086f7fed3b8490a4baf8eaa50767045e",
+                "url": "https://api.github.com/repos/duxphp/lite/zipball/cb4b23ffe355783ca9e1148ee6d56528bf6d9a76",
+                "reference": "cb4b23ffe355783ca9e1148ee6d56528bf6d9a76",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -979,6 +979,7 @@
                 "kalnoy/nestedset": "^6.0",
                 "latte/latte": "^3.0",
                 "league/flysystem": "^3.11",
+                "maennchen/zipstream-php": "^3.1",
                 "monolog/monolog": "^3.2",
                 "nette/finder": "^2.6",
                 "nette/php-generator": "^4.0",
@@ -1014,10 +1015,7 @@
                 "composer/composer": "^2.0",
                 "phpunit/phpunit": "^9.5"
             },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "\\Dux\\Composer\\Plugin"
-            },
+            "type": "library",
             "autoload": {
                 "psr-4": {
                     "Dux\\": "src/",
@@ -1046,7 +1044,7 @@
                 "issues": "https://github.com/duxphp/lite/issues",
                 "source": "https://github.com/duxphp/lite"
             },
-            "time": "2023-10-26T12:52:26+00:00"
+            "time": "2023-10-27T08:54:15+00:00"
         },
         {
             "name": "enqueue/dsn",
@@ -9283,5 +9281,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
