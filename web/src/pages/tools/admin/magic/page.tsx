@@ -37,7 +37,7 @@ const Page = () => {
       <FormPageItem
         name='group_id'
         label={translate('tools.magic.fields.group')}
-        help={'tools.magic.help.group'}
+        help={translate('tools.magic.help.group')}
       >
         <Select
           filterable

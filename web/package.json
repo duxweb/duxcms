@@ -3,15 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@duxweb/dux-extend": "^0.0.6",
+    "@duxweb/dux-extend": "^0.0.10",
     "@duxweb/dux-plugin": "^0.0.7",
-    "@duxweb/dux-refine": "0.3.0",
-    "@iconify-json/tabler": "^1.1.94",
-    "@refinedev/cli": "2.16.4",
-    "@refinedev/core": "4.44.0",
-    "@refinedev/react-router-v6": "4.5.4",
-    "tdesign-react": "^1.2.6",
-    "unocss": "^0.56.5"
+    "@duxweb/dux-refine": "0.3.2"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",

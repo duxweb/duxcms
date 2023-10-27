@@ -34,7 +34,7 @@ const Page = () => {
       }}
       settingRender={
         <>
-          <Form.FormItem label={translate('article.category.fields.parent')} name='class_id'>
+          <Form.FormItem label={translate('content.article.fields.category')} name='class_id'>
             <Cascader
               loading={isLoading}
               options={list}

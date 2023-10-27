@@ -15,6 +15,7 @@
         "title": "请输入标题"
       },
       "fields": {
+        "category": "分类",
         "title": "标题",
         "subtitle": "子标题",
         "image": "封面图",
