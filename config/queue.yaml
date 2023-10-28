@@ -1,7 +1,3 @@
-type: default
+type: redis
+driver: default
 retry: 3
-drivers:
-  default:
-    type: redis
-    host: 127.0.0.1
-    port: 6379

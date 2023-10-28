@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f17446dd9d1d848eb7b3a6e248b38c1",
+    "content-hash": "daafa103ace7e6d0ee13ca52b87ff8db",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -868,16 +868,10 @@
         {
             "name": "duxphp/lite",
             "version": "2.0.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/duxphp/lite.git",
-                "reference": "ad2aa5f59f4ca6715b7a56ded7274405ea07ba6f"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/duxphp/lite/zipball/ad2aa5f59f4ca6715b7a56ded7274405ea07ba6f",
-                "reference": "ad2aa5f59f4ca6715b7a56ded7274405ea07ba6f",
-                "shasum": ""
+                "type": "path",
+                "url": "/Volumes/Web/lite",
+                "reference": "79006e642a941c198a89de7d933cdb031089402d"
             },
             "require": {
                 "bluem/tree": "^3.2",
@@ -886,7 +880,7 @@
                 "doctrine/dbal": "^3.5",
                 "donatj/phpuseragentparser": "^1.7",
                 "enqueue/enqueue": "^0.10.16",
-                "enqueue/redis": "^0.10.9",
+                "enqueue/redis": "^0.10.19",
                 "ext-bcmath": "*",
                 "ext-curl": "*",
                 "ext-fileinfo": "*",
@@ -916,6 +910,7 @@
                 "orisai/scheduler": "^1.0",
                 "overtrue/flysystem-cos": "^5.1",
                 "overtrue/flysystem-qiniu": "^3.2",
+                "peppeocchi/php-cron-scheduler": "^4.0",
                 "php": ">=8.1",
                 "php-di/php-di": "^6.4.0",
                 "phpfastcache/phpfastcache": "^9.1",
@@ -950,7 +945,6 @@
                     "Dux\\Tests\\": "tests"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -963,16 +957,19 @@
             "description": "The lightweight framework based on slim php",
             "homepage": "https://github.com/duxphp",
             "keywords": [
+                "PHP",
+                "PHP framework",
                 "duxphp",
-                "php",
-                "php framework",
                 "slim"
             ],
             "support": {
                 "issues": "https://github.com/duxphp/lite/issues",
                 "source": "https://github.com/duxphp/lite"
             },
-            "time": "2023-10-27T16:59:21+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "enqueue/dsn",
@@ -4555,6 +4552,65 @@
                 }
             ],
             "time": "2023-08-16T08:56:32+00:00"
+        },
+        {
+            "name": "peppeocchi/php-cron-scheduler",
+            "version": "v4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/peppeocchi/php-cron-scheduler.git",
+                "reference": "0acfa032e60f0ea22a27b96a6b15a673a31d3448"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/peppeocchi/php-cron-scheduler/zipball/0acfa032e60f0ea22a27b96a6b15a673a31d3448",
+                "reference": "0acfa032e60f0ea22a27b96a6b15a673a31d3448",
+                "shasum": ""
+            },
+            "require": {
+                "dragonmantank/cron-expression": "^3.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.4",
+                "phpunit/phpunit": "~9.5",
+                "swiftmailer/swiftmailer": "~5.4 || ^6.0"
+            },
+            "suggest": {
+                "swiftmailer/swiftmailer": "Required to send the output of a job to email address/es (~5.4 || ^6.0)."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GO\\": "src/GO/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Giuseppe Occhipinti",
+                    "email": "peppeocchi@gmail.com"
+                },
+                {
+                    "name": "Carsten Windler",
+                    "email": "carsten@carstenwindler.de",
+                    "homepage": "http://carstenwindler.de",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "PHP Cron Job Scheduler",
+            "keywords": [
+                "cron job",
+                "scheduler"
+            ],
+            "support": {
+                "issues": "https://github.com/peppeocchi/php-cron-scheduler/issues",
+                "source": "https://github.com/peppeocchi/php-cron-scheduler/tree/v4.0"
+            },
+            "time": "2021-04-22T21:32:03+00:00"
         },
         {
             "name": "php-di/invoker",

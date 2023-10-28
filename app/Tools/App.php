@@ -18,13 +18,7 @@ class App extends AppExtend
     public function register(Bootstrap $app): void
     {
         \App\Tools\Config\Menu::Admin($app->getMenu()->get("admin"), $app);
-
-        $app->scheduler->add('* * * * *', function () {
-            \Dux\App::log('debug')->info('xxx');
-        });
-
-        $app->scheduler->add('* * * * *', [Test::class, 'hello']);
-
     }
+
 
 }
