@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee3fd3376b6217a55e33cf8be92d2676",
+    "content-hash": "5d97131b11979610baca11f361220ec0",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -799,10 +799,16 @@
         {
             "name": "duxweb/dux-lite",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/duxweb/dux-lite.git",
+                "reference": "22daa135732d3ba8935eed930f5da1cc3bf54edc"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Volumes/Web/duxlite",
-                "reference": "94ed340bdba2f40fbdbc66c76330297892b38250"
+                "type": "zip",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/22daa135732d3ba8935eed930f5da1cc3bf54edc",
+                "reference": "22daa135732d3ba8935eed930f5da1cc3bf54edc",
+                "shasum": ""
             },
             "require": {
                 "bluem/tree": "^3.2",
@@ -862,6 +868,7 @@
                 "composer/composer": "^2.0",
                 "phpunit/phpunit": "^9.5"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -869,6 +876,7 @@
                     "Dux\\Tests\\": "tests"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -881,19 +889,16 @@
             "description": "The lightweight framework based on slim php",
             "homepage": "https://github.com/duxphp",
             "keywords": [
-                "PHP",
-                "PHP framework",
                 "duxphp",
+                "php",
+                "php framework",
                 "slim"
             ],
             "support": {
                 "issues": "https://github.com/duxweb/dux-lite/issues",
                 "source": "https://github.com/duxweb/dux-lite"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": false
-            }
+            "time": "2023-10-29T13:34:42+00:00"
         },
         {
             "name": "enqueue/dsn",
