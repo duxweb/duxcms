@@ -19,10 +19,5 @@
   },
   "repositories": [
   ],
-  "license": "MIT",
-  "config": {
-    "allow-plugins": {
-      "duxphp/lite": true
-    }
-  }
+  "license": "MIT"
 }
