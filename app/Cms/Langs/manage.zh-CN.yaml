@@ -1,4 +1,4 @@
 cms:
   name: 内容管理
-  template:
-    name: 模板
+  theme:
+    name: 站点模板

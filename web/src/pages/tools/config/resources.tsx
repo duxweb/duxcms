@@ -1,7 +1,4 @@
 import { App, lazyComponent } from '@duxweb/dux-refine'
-import { useParsed } from '@refinedev/core'
-import { ComponentType, Suspense, lazy } from 'react'
-import { Loading } from 'tdesign-react/esm'
 
 export const adminResources = (app: App) => {
   app.addResources([

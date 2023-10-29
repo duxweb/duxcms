@@ -5,16 +5,12 @@ declare(strict_types=1);
 namespace App\Cms\Admin;
 
 use App\System\Service\Config;
-use Dux\Resources\Action\Resources;
 use Dux\Resources\Attribute\Action;
 use Dux\Resources\Attribute\Resource;
-use Dux\Route\Attribute\Route;
-use Dux\Validator\Data;
-use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-#[Resource(app: 'admin',  route: '/cms/theme', name: 'cms.theme')]
+#[Resource(app: 'admin',  route: '/cms/theme', name: 'cms.theme', actions: false)]
 class Template
 {
 

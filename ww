@@ -1,0 +1,458 @@
+ array:16 [
+  0 => array:4 [
+    "label" => "内容管理"
+    "name" => "group:cms"
+    "order" => 0
+    "children" => array:1 [
+      0 => array:2 [
+        "label" => "cms.index.name"
+        "name" => "cms.index"
+      ]
+    ]
+  ]
+  1 => array:4 [
+    "label" => "cms.theme.name"
+    "name" => "group:cms.theme"
+    "order" => 0
+    "children" => array:9 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "cms.theme.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "cms.theme.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "cms.theme.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "cms.theme.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "cms.theme.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "cms.theme.delete"
+      ]
+      6 => array:2 [
+        "label" => "详情"
+        "name" => "cms.theme.show"
+      ]
+      7 => array:2 [
+        "label" => "编辑"
+        "name" => "cms.theme.edit"
+      ]
+      8 => array:2 [
+        "label" => "更新"
+        "name" => "cms.theme.store"
+      ]
+    ]
+  ]
+  2 => array:4 [
+    "label" => "分类"
+    "name" => "group:content.category"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "content.category.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "content.category.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "content.category.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "content.category.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "content.category.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "content.category.delete"
+      ]
+    ]
+  ]
+  3 => array:4 [
+    "label" => "菜单"
+    "name" => "group:content.menu"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "content.menu.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "content.menu.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "content.menu.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "content.menu.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "content.menu.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "content.menu.delete"
+      ]
+    ]
+  ]
+  4 => array:4 [
+    "label" => "content.menuData.name"
+    "name" => "group:content.menuData"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "content.menuData.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "content.menuData.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "content.menuData.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "content.menuData.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "content.menuData.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "content.menuData.delete"
+      ]
+    ]
+  ]
+  5 => array:4 [
+    "label" => "文章"
+    "name" => "group:content.page"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "content.page.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "content.page.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "content.page.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "content.page.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "content.page.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "content.page.delete"
+      ]
+    ]
+  ]
+  6 => array:4 [
+    "label" => "文章"
+    "name" => "group:content.article"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "content.article.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "content.article.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "content.article.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "content.article.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "content.article.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "content.article.delete"
+      ]
+    ]
+  ]
+  7 => array:4 [
+    "label" => "用户管理"
+    "name" => "group:system.user"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "system.user.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "system.user.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "system.user.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "system.user.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "system.user.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "system.user.delete"
+      ]
+    ]
+  ]
+  8 => array:4 [
+    "label" => "角色管理"
+    "name" => "group:system.role"
+    "order" => 0
+    "children" => array:7 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "system.role.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "system.role.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "system.role.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "system.role.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "system.role.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "system.role.delete"
+      ]
+      6 => array:2 [
+        "label" => "system.role.permission.name"
+        "name" => "system.role.permission"
+      ]
+    ]
+  ]
+  9 => array:4 [
+    "label" => "接口授权"
+    "name" => "group:system.api"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "system.api.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "system.api.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "system.api.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "system.api.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "system.api.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "system.api.delete"
+      ]
+    ]
+  ]
+  10 => array:4 [
+    "label" => "操作记录"
+    "name" => "group:system.operate"
+    "order" => 0
+    "children" => array:2 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "system.operate.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "system.operate.show"
+      ]
+    ]
+  ]
+  11 => array:4 [
+    "label" => "地区"
+    "name" => "group:tools.area"
+    "order" => 0
+    "children" => array:3 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "tools.area.list"
+      ]
+      1 => array:2 [
+        "label" => "导入"
+        "name" => "tools.area.import"
+      ]
+      2 => array:2 [
+        "label" => "选择"
+        "name" => "tools.area.cascade"
+      ]
+    ]
+  ]
+  12 => array:4 [
+    "label" => "数据管理"
+    "name" => "group:tools.magicGroup"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "tools.magicGroup.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "tools.magicGroup.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "tools.magicGroup.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "tools.magicGroup.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "tools.magicGroup.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "tools.magicGroup.delete"
+      ]
+    ]
+  ]
+  13 => array:4 [
+    "label" => "tools.dataPage.name"
+    "name" => "group:tools.dataPage"
+    "order" => 0
+    "children" => array:2 [
+      0 => array:2 [
+        "label" => "tools.dataPage.info.name"
+        "name" => "tools.dataPage.info"
+      ]
+      1 => array:2 [
+        "label" => "tools.dataPage.save.name"
+        "name" => "tools.dataPage.save"
+      ]
+    ]
+  ]
+  14 => array:4 [
+    "label" => "tools.data.name"
+    "name" => "group:tools.data"
+    "order" => 0
+    "children" => array:6 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "tools.data.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "tools.data.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "tools.data.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "tools.data.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "tools.data.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "tools.data.delete"
+      ]
+    ]
+  ]
+  15 => array:4 [
+    "label" => "tools.magic.name"
+    "name" => "group:tools.magic"
+    "order" => 0
+    "children" => array:8 [
+      0 => array:2 [
+        "label" => "列表"
+        "name" => "tools.magic.list"
+      ]
+      1 => array:2 [
+        "label" => "详情"
+        "name" => "tools.magic.show"
+      ]
+      2 => array:2 [
+        "label" => "创建"
+        "name" => "tools.magic.create"
+      ]
+      3 => array:2 [
+        "label" => "编辑"
+        "name" => "tools.magic.edit"
+      ]
+      4 => array:2 [
+        "label" => "更新"
+        "name" => "tools.magic.store"
+      ]
+      5 => array:2 [
+        "label" => "删除"
+        "name" => "tools.magic.delete"
+      ]
+      6 => array:2 [
+        "label" => "tools.magic.source.name"
+        "name" => "tools.magic.source"
+      ]
+      7 => array:2 [
+        "label" => "tools.magic.config.name"
+        "name" => "tools.magic.config"
+      ]
+    ]
+  ]
+]

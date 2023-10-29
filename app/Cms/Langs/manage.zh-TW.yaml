@@ -1,4 +1,4 @@
 cms:
   name: 內容管理
-  template:
-    name: 範本
+  theme:
+    name: 網站範本

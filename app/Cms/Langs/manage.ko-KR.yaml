@@ -1,4 +1,4 @@
 cms:
-  name: 콘텐츠 관리
-  template:
-    name: 템플릿
+  name: 컨텐츠 관리
+  theme:
+    name: 사이트 템플릿

@@ -9,7 +9,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "duxphp/lite": "2.0.x-dev"
+    "duxweb/dux-lite": "main-dev"
   },
   "autoload": {
     "psr-4": {
@@ -19,10 +19,11 @@
   },
   "repositories": [
     {
-      "description": "aliyun",
-      "type": "composer",
-      "url": "https://mirrors.aliyun.com/composer/",
-      "canonical": false
+      "type": "path",
+      "url": "/Volumes/Web/duxlite",
+      "options": {
+        "symlink": true
+      }
     }
   ],
   "license": "MIT",
