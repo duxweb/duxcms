@@ -16,11 +16,11 @@ class Menu
             "label" => "data"
         ]);
 
-        $data = Magic::get($bootstrap);
+        $data = Magic::getMenu($bootstrap);
         foreach ($data as $vo) {
-            $group = $app->group("data." . $vo['name'], $vo['icon'], 80, $vo['label']);
+            $group = $app->group("tools.data." . $vo['name'], $vo['icon'], 80, $vo['label']);
             foreach ($vo['children'] as $item) {
-                $group->item(name: "data." . $item['name'], route: "data/" . $item['name'], label: $item['label']);
+                $group->item(name: "tools.data." . $vo['name'] . '.' . $item['name'], route: "data/" . $item['name'], label: $item['label']);
             }
         }
 

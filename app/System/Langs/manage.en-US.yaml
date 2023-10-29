@@ -1,19 +1,30 @@
 system:
-  name: System
-  login:
-    user:
-      name: User Management
-      validator:
-        nickname: Please enter a nickname
-        username: Please enter a username
-        usernameExists: This user already exists
-        password: Please enter a password
-        roles: Please select a role
+  name: system
+  auth:
+    validator:
+      nickname: Please enter an account
+      password: Please enter the password
+    error:
+      login: Account or password error
+      passwordCheck: Login password error three times, wait for one minute
+  user:
+    name: user management 
+    validator:
+      nickname: Please enter a nickname
+      username: enter one user name
+      usernameExists: The user already exists
+      password: Please enter the password
+      roles: Please select a role
   role:
     name: Role Management
-  operate:
-    name: Operation Records
-  api:
-    name: API Authorization
     validator:
       name: Please enter a name
+    permission:
+      name: authority
+  operate:
+    name: Operation records
+  api:
+    name: Interface Authorization
+    validator:
+      name: Please enter a name
+

@@ -1,4 +1,6 @@
 cms:
-  name: コンテンツ管理
+  name: サイト管理
+  index:
+    name: サイト統計
   theme:
     name: サイトテンプレート

@@ -25,7 +25,7 @@ class Role extends Resources {
         return [
             "id" => $item->id,
             "name" => $item->name,
-            "permission" => $item->permission
+            "permission" => array_keys(array_filter($item->permission))
         ];
     }
 
@@ -38,15 +38,23 @@ class Role extends Resources {
 
     public function format(Data $data, ServerRequestInterface $request, array $args): array
     {
+        $permissions = App::permission("admin")->getData();
+
         $permission = [];
         foreach ($data->permission as $vo) {
             if (!str_contains($vo, "group:")) {
                 $permission[] = $vo;
             }
         }
+
+        $permissionData = [];
+        foreach ($permissions as $item) {
+            $permissionData[$item] = in_array($item, $permission);
+        }
+
         return [
             "name" => $data->name,
-            "permission" => $permission,
+            "permission" => $permissionData,
         ];
     }
 

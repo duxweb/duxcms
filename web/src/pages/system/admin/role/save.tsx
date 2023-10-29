@@ -18,7 +18,14 @@ const Page = (props: Record<string, any>) => {
         <Input />
       </Form.FormItem>
       <Form.FormItem label={translate('system.role.fields.permission')} name='permission'>
-        <Tree checkable data={permissionData} />
+        <Tree
+          keys={{
+            value: 'name',
+            label: 'label',
+          }}
+          checkable
+          data={permissionData}
+        />
       </Form.FormItem>
     </FormModal>
   )

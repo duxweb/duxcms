@@ -1,4 +1,6 @@
 cms:
-  name: 内容管理
+  name: 站点管理
+  index:
+    name: 站点统计
   theme:
     name: 站点模板

@@ -1,4 +1,6 @@
 cms:
-  name: 컨텐츠 관리
+  name: 사이트 관리
+  index:
+    name: 사이트 통계
   theme:
     name: 사이트 템플릿

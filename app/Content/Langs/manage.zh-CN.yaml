@@ -1,16 +1,16 @@
 content:
   name: 文章管理
   article:
-    name: 文章
+    name: 文章内容
     validator:
       title: 请输入标题
       author: 请输入作者
   category:
-    name: 分类
+    name: 文章分类
     validator:
       name: 请输入名称
   page:
-    name: 文章
+    name: 页面内容
     validator:
       title: 请输入标题
       name: 请输入调用名
@@ -19,3 +19,7 @@ content:
     validator:
       title: 请输入标题
       name: 请输入调用名
+  menuData:
+    name: 菜单组
+    validator:
+      title: 请输入分组标题

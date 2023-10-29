@@ -1,14 +1,25 @@
 content:
-  name: コンテンツ管理
+  name: 記事の管理
   article:
-    name: 記事
+    name: 記事の内容
     validator:
       title: タイトルを入力してください
-      author: 著者を入力してください
+      author: 作者を入力してください
   category:
-    name: カテゴリー
+    name: 記事の分類
+    validator:
+      name: 名前を入力してください
   page:
-    name: ページ
+    name: ページの内容
     validator:
       title: タイトルを入力してください
       name: 呼び出し名を入力してください
+  menu:
+    name: メニュー
+    validator:
+      title: タイトルを入力してください
+      name: 呼び出し名を入力してください
+  menuData:
+    name: メニュー组
+    validator:
+      title: グループ化タイトルを入力してください

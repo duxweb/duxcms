@@ -802,7 +802,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Volumes/Web/duxlite",
-                "reference": "a452bac33bf437e7055dfe494a3a586b02d7949e"
+                "reference": "94ed340bdba2f40fbdbc66c76330297892b38250"
             },
             "require": {
                 "bluem/tree": "^3.2",

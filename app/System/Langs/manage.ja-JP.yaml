@@ -1,18 +1,30 @@
 system:
-  login:
+  name: システム
+  auth:
+    validator:
+      nickname: アカウントを入力してください
+      password: パスワードを入力してください
+    error:
+      login: アカウントまたはパスワードが間違っている
+      passwordCheck: 3回のログインパスワードエラー、1分待ち
   user:
-    name: ユーザー
+    name: ユーザー管理
     validator:
       nickname: ニックネームを入力してください
       username: ユーザー名を入力してください
-      usernameExists: このユーザーは既に存在します
+      usernameExists: ユーザーはすでに存在します
       password: パスワードを入力してください
       roles: 役割を選択してください
   role:
-    name: 役割
-  operate:
-    name: 操作
-  api:
-    name: API 認証
+    name: ロール管理
     validator:
       name: 名前を入力してください
+    permission:
+      name: アクセス権
+  operate:
+    name: オペレーションレコード
+  api:
+    name: インタフェース認証
+    validator:
+      name: 名前を入力してください
+

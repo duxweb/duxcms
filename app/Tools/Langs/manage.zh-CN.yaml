@@ -1,18 +1,19 @@
 tools:
   name: 工具
   area:
-    name: 地区
+    name: 地区数据
     import:
       name: 导入
     cascade:
       name: 选择
   magicGroup:
-    name: 数据管理
+    name: 数据分组
     validator:
       name: 请输入名称
       label: 请输入标签
       icon: 请输入图标名
   magic:
+    name: 数据魔方
     validator:
       name: 数据名只能为英文数字和下划线
       group: 请选择数据分组
@@ -21,6 +22,10 @@ tools:
       fieldsFull: 字段配置不完整
       fieldsFormat: 字段名只能为英文数字和下划线
       data: 数据不存在
+    source:
+      name: 数据源
+    config:
+      name: 配置
 extend:
   name: 扩展
   magic:

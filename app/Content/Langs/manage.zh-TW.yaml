@@ -1,14 +1,25 @@
 content:
   name: 文章管理
   article:
-    name: 文章
+    name: 文章內容
     validator:
       title: 請輸入標題
       author: 請輸入作者
   category:
-    name: 分類
+    name: 文章分類
+    validator:
+      name: 請輸入名稱
   page:
-    name: 頁面
+    name: 頁面內容
     validator:
       title: 請輸入標題
-      name: 請輸入呼叫名稱
+      name: 請輸入調用名
+  menu:
+    name: 選單
+    validator:
+      title: 請輸入標題
+      name: 請輸入調用名
+  menuData:
+    name: 選單组
+    validator:
+      title: 請輸入分組標題

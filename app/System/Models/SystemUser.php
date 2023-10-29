@@ -53,7 +53,7 @@ class SystemUser extends Model {
             }
             $data = [...$data, ...$item->permission];
         }
-        return array_filter($data);
+        return $data;
     }
 
 }

@@ -1,20 +1,30 @@
 system:
-  name: Система
-  login:
-    name: Вход
+  name: Системы
+  auth:
+    validator:
+      nickname: Введите номер счета.
+      password: Введите пароль.
+    error:
+      login: Ошибка аккаунта или пароля.
+      passwordCheck: Три ошибки в пароле входа, одна минута ожидания
   user:
     name: Управление пользователями
     validator:
       nickname: Введите псевдоним
       username: Введите имя пользователя
-      usernameExists: Пользователь с таким именем уже существует
-      password: Введите пароль
+      usernameExists: Этот пользователь уже существует
+      password: Введите пароль.
       roles: Выберите роль
   role:
     name: Управление ролями
-  operate:
-    name: Журнал действий
-  api:
-    name: Авторизация API
     validator:
-      name: Введите название
+      name: Введите имя
+    permission:
+      name: Полномочия
+  operate:
+    name: Записи операций
+  api:
+    name: Разрешение интерфейса
+    validator:
+      name: Введите имя
+

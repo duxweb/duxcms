@@ -1,18 +1,30 @@
 system:
-  login:
+  name: 시스템
+  auth:
+    validator:
+      nickname: 계정을 입력하세요
+      password: 암호를 입력하십시오.
+    error:
+      login: 아이디나 비밀번호 오류
+      passwordCheck: 로그인 암호 오류 세 번, 1분 대기
   user:
-    name: 사용자
+    name: 사용자 관리
     validator:
-      nickname: 닉네임을 입력하세요
-      username: 사용자 이름을 입력하세요
-      usernameExists: 이미 존재하는 사용자입니다
-      password: 비밀번호를 입력하세요
-      roles: 역할을 선택하세요
+      nickname: 닉네임을 입력하십시오.
+      username: 사용자 이름을 입력하십시오.
+      usernameExists: 사용자가 이미 있습니다.
+      password: 암호를 입력하십시오.
+      roles: 역할을 선택하십시오.
   role:
-    name: 역할
-  operate:
-    name: 동작
-  api:
-    name: API 권한
+    name: 역할 관리
     validator:
-      name: 이름을 입력하세요
+      name: 이름을 입력하십시오.
+    permission:
+      name: 권한
+  operate:
+    name: 작업 레코드
+  api:
+    name: 인터페이스 인증
+    validator:
+      name: 이름을 입력하십시오.
+

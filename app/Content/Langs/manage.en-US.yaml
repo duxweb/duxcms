@@ -1,14 +1,25 @@
-data:
-  name: Data
-  business:
-    name: Business
-  customer:
-    name: Customer
-  gas:
-    name: Gas
-  heat:
-    name: Heat
-  power:
-    name: Power
-  surety:
-    name: Surety
+content:
+  name: Article Management
+  article:
+    name: Article content
+    validator:
+      title: Please enter a title
+      author: Please enter the author
+  category:
+    name: Article classification
+    validator:
+      name: Please enter a name
+  page:
+    name: Page Content
+    validator:
+      title: Please enter a title
+      name: Please enter the call name
+  menu:
+    name: menu
+    validator:
+      title: Please enter a title
+      name: Please enter the call name
+  menuData:
+    name: menu组
+    validator:
+      title: Please enter the group title

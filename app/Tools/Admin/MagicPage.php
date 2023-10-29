@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-#[Resource(app: 'admin',  route: '/tools/dataPage',  name: 'tools.dataPage', actions: false)]
+#[Resource(app: 'admin', route: '/tools/dataPage', name: 'tools.dataPage', auth: false, actions: false)]
 class MagicPage
 {
     protected string $model = ToolsMagicData::class;

@@ -1,14 +1,25 @@
 content:
-  name: 컨텐츠 관리
+  name: 문서 관리
   article:
-    name: 글
+    name: 기사 내용
     validator:
-      title: 제목을 입력하세요
-      author: 작성자를 입력하세요
+      title: 제목을 입력하십시오.
+      author: 작성자를 입력하십시오.
   category:
-    name: 카테고리
-  page:
-    name: 페이지
+    name: 문장 분류
     validator:
-      title: 제목을 입력하세요
-      name: 호출 이름을 입력하세요
+      name: 이름을 입력하십시오.
+  page:
+    name: 페이지 내용
+    validator:
+      title: 제목을 입력하십시오.
+      name: 호출 이름을 입력하십시오.
+  menu:
+    name: 메뉴
+    validator:
+      title: 제목을 입력하십시오.
+      name: 호출 이름을 입력하십시오.
+  menuData:
+    name: 메뉴组
+    validator:
+      title: 그룹 제목을 입력하십시오.

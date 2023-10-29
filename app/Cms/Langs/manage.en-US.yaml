@@ -1,4 +1,6 @@
 cms:
-  name: Content Management
+  name: Site Management
+  index:
+    name: Site Statistics
   theme:
     name: Site template

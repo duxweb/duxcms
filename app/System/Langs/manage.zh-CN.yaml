@@ -19,6 +19,8 @@ system:
     name: 角色管理
     validator:
       name: 请输入名称
+    permission:
+      name: 权限
   operate:
     name: 操作记录
   api:

@@ -1,14 +1,25 @@
 content:
   name: Управление статьями
   article:
-    name: Статья
+    name: Статьи
     validator:
-      title: Пожалуйста, введите заголовок
-      author: Пожалуйста, введите автора
+      title: Введите заголовок
+      author: Введите автора
   category:
-    name: Категория
-  page:
-    name: Страница
+    name: Классификация статей
     validator:
-      title: Пожалуйста, введите заголовок
-      name: Пожалуйста, введите имя вызова
+      name: Введите имя
+  page:
+    name: Содержание страницы
+    validator:
+      title: Введите заголовок
+      name: Введите имя вызова
+  menu:
+    name: Меню
+    validator:
+      title: Введите заголовок
+      name: Введите имя вызова
+  menuData:
+    name: Меню组
+    validator:
+      title: Введите заголовок группы

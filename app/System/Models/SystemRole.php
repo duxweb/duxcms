@@ -13,14 +13,16 @@ class SystemRole extends Model {
 
     public $table = "system_role";
 
-    protected $casts = ['permission' => 'array'];
-
     public function migration(Blueprint $table) {
         $table->id();
         $table->string('name');
         $table->json('permission')->nullable();
         $table->timestamps();
     }
+
+    protected $casts = [
+        'permission' => 'array'
+    ];
 
     public function seed(Connection $db) {
         $db->table($this->table)->insert([

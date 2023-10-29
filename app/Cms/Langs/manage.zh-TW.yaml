@@ -1,4 +1,6 @@
 cms:
-  name: 內容管理
+  name: 網站管理
+  index:
+    name: 網站統計
   theme:
     name: 網站範本

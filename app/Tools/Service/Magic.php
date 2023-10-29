@@ -12,16 +12,20 @@ use Illuminate\Database\Eloquent\Builder;
 class Magic
 {
 
-    public static function key(): string
+    public static function keyMenu(): string
     {
         return 'magic.menus';
     }
 
-    public static function get(?Bootstrap $bootstrap): array
+    public static function keyPermission(): string
     {
+        return 'magic.permission';
+    }
 
+    public static function getMenu(?Bootstrap $bootstrap): array
+    {
         $cache = $bootstrap?->cache ?: App::cache();
-        $data = $cache->get(self::key());
+        $data = $cache->get(self::keyMenu());
         if ($data) {
             return json_decode($data, true);
         }
@@ -45,7 +49,40 @@ class Magic
                     ];
                 }
 
-                $cache->set(self::key(), json_encode($data), 2 * 60 * 60);
+                $cache->set(self::keyMenu(), json_encode($data), 2 * 60 * 60);
+            }
+        } catch (\Exception $e) {
+        }
+        return $data ?: [];
+    }
+
+    public static function getPermission(?Bootstrap $bootstrap): array
+    {
+        $cache = $bootstrap?->cache ?: App::cache();
+        $data = $cache->get(self::keyPermission());
+        if ($data) {
+            return json_decode($data, true);
+        }
+        try {
+            $connect = App::db()->getConnection();
+            if ($connect->getSchemaBuilder()->hasTable('magic') && $connect->getSchemaBuilder()->hasTable('magic_group')) {
+                $groupData = ToolsMagicGroup::query()->with(['magics'])->get();
+                $data = [];
+                foreach ($groupData as $group) {
+                    $data[] = [
+                        'name' => $group->name,
+                        'label' => $group->label,
+                        'icon' => $group->icon,
+                        'children' => $group->magics->map(function ($item) {
+                            return [
+                                'name' => $item->name,
+                                'label' => $item->label
+                            ];
+                        })->toArray()
+                    ];
+                }
+
+                $cache->set(self::keyMenu(), json_encode($data), 2 * 60 * 60);
             }
         } catch (\Exception $e) {
         }
@@ -54,7 +91,8 @@ class Magic
 
     public static function clean(): void
     {
-        App::cache()->delete(self::key());
+        App::cache()->delete(self::keyMenu());
+        App::cache()->delete(self::keyPermission());
     }
 
     public static function source(): array
