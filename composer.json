@@ -19,13 +19,6 @@
   },
 
   "repositories": [
-    {
-      "type": "path",
-      "url": "/Volumes/Web/duxlite",
-      "options": {
-        "symlink": true
-      }
-    }
   ],
   "license": "MIT"
 }
