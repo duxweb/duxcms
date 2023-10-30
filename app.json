@@ -2,13 +2,13 @@
     "name": "project",
     "description": "This is the dux application dependency configuration",
     "dependencies": {
-        "duxweb/cms": "release",
-        "duxweb/content": "release",
-        "duxweb/install": "release",
-        "duxweb/base": "release",
-        "duxweb/tools": "release"
+        "duxweb/cms": "0.0.3",
+        "duxweb/content": "0.0.2",
+        "duxweb/install": "0.0.2",
+        "duxweb/base": "0.0.2",
+        "duxweb/tools": "0.0.2"
     },
-    "apps": [
-        "dux/cms"
-    ]
+    "apps": {
+        "dux/cms": 1698670753
+    }
 }

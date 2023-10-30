@@ -57,7 +57,7 @@ const List = () => {
       },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [translate]
+    [translate],
   )
 
   return (

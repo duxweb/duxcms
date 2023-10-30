@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { useTranslate, useDelete } from '@refinedev/core'
 import { PrimaryTableCol, Button, Link, Popconfirm, Switch, Input } from 'tdesign-react/esm'
 import { PageTable, Modal, MediaText, FilterItem } from '@duxweb/dux-refine'
@@ -79,7 +79,7 @@ const List = () => {
       },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [translate]
+    [translate],
   )
 
   return (

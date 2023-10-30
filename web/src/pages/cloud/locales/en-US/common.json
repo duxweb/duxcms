@@ -1,0 +1,58 @@
+{
+  "cms": {
+    "dashboard": {
+      "name": "Dashboard",
+      "nums": {
+        "article": "Article Count",
+        "pv": "Site PV",
+        "uv": "Site UV",
+        "spider": "Spider Crawlers"
+      },
+      "views": {
+        "name": "Visitor Statistics",
+        "pv": "Page Views",
+        "uv": "Unique Visitors"
+      },
+      "unknown": "Unknown",
+      "spider": "Spider Statistics",
+      "source": "Browser Source",
+      "area": "Region Source",
+      "article": {
+        "name": "Recent Articles",
+        "pv": "Page Views",
+        "date": "Publication Date"
+      },
+      "push": {
+        "name": "Publishing Statistics",
+        "num": "Quantity"
+      },
+      "class": {
+        "name": "Category Statistics",
+        "num": "Quantity"
+      },
+      "noData": "No Data"
+    },
+    "name": "Site",
+    "setting": {
+      "name": "Site Settings",
+      "fields": {
+        "title": "Site Title",
+        "titleHelp": "Header Title for the Site",
+        "desc": "Site Description",
+        "descHelp": "Description Information for the Site",
+        "copyright": "Copyright Information",
+        "copyrightHelp": "Copyright Information for the Site"
+      }
+    },
+    "theme": {
+      "name": "theme",
+      "default": "Default",
+      "info": "Theme Description",
+      "empty": "Empty",
+      "change": "Change Theme",
+      "changeConfirm": "Confirm Theme Change",
+      "config": "Theme Configuration",
+      "addField": "Add Field"
+    }
+  }
+}

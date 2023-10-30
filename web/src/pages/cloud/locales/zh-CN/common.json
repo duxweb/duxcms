@@ -1,0 +1,13 @@
+{
+  "cloud": {
+    "name": "云平台",
+    "apps": {
+      "name": "应用中心",
+      "fields": {
+        "name": "应用",
+        "time": "版本",
+        "update": "更新"
+      }
+    }
+  }
+}

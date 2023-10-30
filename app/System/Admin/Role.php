@@ -54,7 +54,7 @@ class Role extends Resources {
 
         return [
             "name" => $data->name,
-            "permission" => $permissionData,
+            "permission" => $data->permission ? $permissionData : [],
         ];
     }
 

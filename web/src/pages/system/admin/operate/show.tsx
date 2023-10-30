@@ -1,13 +1,5 @@
-import { useOne, useShow, useTranslate } from '@refinedev/core'
-import {
-  FormModal,
-  useUpload,
-  useSelect,
-  formatUploadSingle,
-  getUploadSingle,
-  Descriptions,
-} from '@duxweb/dux-refine'
-import { Form, Input, Upload, Select, Switch } from 'tdesign-react/esm'
+import { useOne, useTranslate } from '@refinedev/core'
+import { Descriptions } from '@duxweb/dux-refine'
 
 const Page = (props: Record<string, any>) => {
   const id = props?.id
