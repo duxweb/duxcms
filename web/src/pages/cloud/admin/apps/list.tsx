@@ -104,7 +104,7 @@ const List = () => {
                 theme='default'
                 onConfirm={() => {
                   mutate({
-                    resource: 'system.role',
+                    resource: 'cloud.apps',
                     id: row.id,
                   })
                 }}
@@ -130,7 +130,7 @@ const List = () => {
             disabled: true,
           },
         }}
-        title={translate('system.role.name')}
+        title={translate('cloud.apps.name')}
       />
       <Dialog
         className='app-modal'
