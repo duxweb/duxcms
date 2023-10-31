@@ -668,19 +668,20 @@
         },
         {
             "name": "donatj/phpuseragentparser",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/donatj/PhpUserAgent.git",
-                "reference": "a35900b93530715f8669c10e49756adde5c8e6fc"
+                "reference": "b8c16fd6e963651c6d86f66cb782ce599d62418e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/donatj/PhpUserAgent/zipball/a35900b93530715f8669c10e49756adde5c8e6fc",
-                "reference": "a35900b93530715f8669c10e49756adde5c8e6fc",
+                "url": "https://api.github.com/repos/donatj/PhpUserAgent/zipball/b8c16fd6e963651c6d86f66cb782ce599d62418e",
+                "reference": "b8c16fd6e963651c6d86f66cb782ce599d62418e",
                 "shasum": ""
             },
             "require": {
+                "ext-ctype": "*",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -721,7 +722,7 @@
             ],
             "support": {
                 "issues": "https://github.com/donatj/PhpUserAgent/issues",
-                "source": "https://github.com/donatj/PhpUserAgent/tree/v1.7.0"
+                "source": "https://github.com/donatj/PhpUserAgent/tree/v1.8.0"
             },
             "funding": [
                 {
@@ -731,9 +732,13 @@
                 {
                     "url": "https://github.com/donatj",
                     "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/donatj",
+                    "type": "ko_fi"
                 }
             ],
-            "time": "2022-08-06T15:41:58+00:00"
+            "time": "2023-10-27T05:22:44+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -802,12 +807,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxweb/dux-lite.git",
-                "reference": "abfd77487f3036438f8ab68b8e3b92f6d7ce4786"
+                "reference": "52855ee0abfb48c146e00a4ac017bf34b2279104"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/abfd77487f3036438f8ab68b8e3b92f6d7ce4786",
-                "reference": "abfd77487f3036438f8ab68b8e3b92f6d7ce4786",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/52855ee0abfb48c146e00a4ac017bf34b2279104",
+                "reference": "52855ee0abfb48c146e00a4ac017bf34b2279104",
                 "shasum": ""
             },
             "require": {
@@ -898,7 +903,7 @@
                 "issues": "https://github.com/duxweb/dux-lite/issues",
                 "source": "https://github.com/duxweb/dux-lite"
             },
-            "time": "2023-10-30T14:46:22+00:00"
+            "time": "2023-10-31T07:06:16+00:00"
         },
         {
             "name": "enqueue/dsn",
@@ -8272,5 +8277,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

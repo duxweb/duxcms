@@ -22,24 +22,69 @@ class Magic
         if (!$table) {
             throw new ExceptionNotFound();
         }
-        $data = $this->one($table, $query ?: []);
-        return send($response, 'ok', $data);
+        $result = $this->list($table, $query ?: []);
+        return send($response, 'ok', $result['data'], $result['meta']);
     }
 
     #[Route(methods: 'POST', pattern: '')]
     public function listMany(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $params = $request->getParsedBody() ?: [];
-        $tables = array_keys($params);
         $data = [];
-        foreach ($tables as $vo) {
-            $data[$vo] = $this->one($vo, $params[$vo] ?: []);
+        foreach ($params as $vo) {
+            if (!$vo['_table']) {
+                continue;
+            }
+            $result = $this->list($vo['_table'], $vo ?: []);
+            $data[] = [
+                'table' => $vo['_table'],
+                'data' => $result['data'],
+                'meta' => $result['meta']
+            ];
         }
         return send($response, 'ok', $data);
     }
+    #[Route(methods: 'GET', pattern: '/config')]
+    public function config(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $query = $request->getQueryParams();
+        $table = $query['table'];
+        $info = ToolsMagic::query()->where('name', $table)->where('external', 0)->first();
+        if (!$info) {
+            throw new ExceptionNotFound();
+        }
+
+        $data = [
+            'label' => $info->label,
+            'type' => $info->type,
+            'fields' => $info->fields
+        ];
+
+        return send($response, 'ok', $data);
+    }
+
+    #[Route(methods: 'GET', pattern: '/{name}/{id}')]
+    public function info(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $query = $request->getQueryParams();
+        $name = $args['name'];
+        $magicInfo = ToolsMagic::query()->where('name', $name)->where('external', 0)->first();
+        if (!$magicInfo) {
+            throw new ExceptionNotFound();
+        }
+        $info = ToolsMagicData::query()->where('magic_id', $args['id'])->first();
+        if (!$info) {
+            throw new ExceptionNotFound();
+        }
+        $array = [
+            'id' => (int)$info->id,
+            ...$info->data,
+        ];
+        return send($response, 'ok', $array);
+    }
 
 
-    private function one(string $table, array $params = []): array
+    private function list(string $table, array $params = []): array
     {
         $page = $params['_page'] ?: 1;
         $limit = $params['_limit'];
@@ -68,7 +113,7 @@ class Magic
 
         $data = match ($info->type) {
             'tree' => $query->get()->toTree(),
-            'pages' => $query->paginate(perPage:$limit, page: $page),
+            'pages' => $query->paginate(perPage: $limit, page: $page),
             default => $query->get(),
         };
 
