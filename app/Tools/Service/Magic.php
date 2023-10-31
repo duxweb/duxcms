@@ -2,7 +2,6 @@
 
 namespace App\Tools\Service;
 
-use App\Member\Event\RegisterEvent;
 use App\Tools\Event\SourceEvent;
 use App\Tools\Models\ToolsMagic;
 use App\Tools\Models\ToolsMagicGroup;
@@ -10,6 +9,7 @@ use App\Tools\Models\ToolsMagicData;
 use Dux\App;
 use Dux\Bootstrap;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection;
 
 class Magic
 {
@@ -31,7 +31,6 @@ class Magic
         if ($data) {
             return json_decode($data, true);
         }
-
         try {
             $connect = App::db()->getConnection();
             if ($connect->getSchemaBuilder()->hasTable('magic') && $connect->getSchemaBuilder()->hasTable('magic_group')) {
@@ -97,6 +96,10 @@ class Magic
         App::cache()->delete(self::keyPermission());
     }
 
+    /**
+     * 获取数据源
+     * @return array
+     */
     public static function source(): array
     {
         $source = new SourceEvent();
@@ -105,73 +108,110 @@ class Magic
         return $source->data;
     }
 
-    public static function listTransform(int $magicId, array $data, array $fields): array
+    /**
+     * 提取源数据
+     * @param Collection $fields
+     * @param Collection $data
+     * @return Collection
+     */
+    public static function mergeData(Collection $fields, Collection $data): Collection
     {
-        $sourceList = self::source();
-        foreach ($fields as $field) {
-            $value = $data[$field['name']];
-            switch ($field['type']) {
-                case 'cascader':
-                case 'select':
-                    $dataValue = self::fieldDataValue($magicId, $value, $field, $sourceList);
-                    $data[$field['name'] . '_label'] = $dataValue[$field['setting']['keys_label'] ?: 'label'];
-                    break;
-                case 'cascader-multi':
-                case 'select-multi':
-                    $dataValue = self::fieldDataValue($magicId, $value, $field, $sourceList, true);
-                    $data[$field['name'] . '_label'] = array_map(function ($item) use ($field) {
-                        return $item[$field['setting']['keys_label'] ?: 'label'];
-                    }, $dataValue);
-                    break;
+        $optionsData = [];
+        $sourceFields = $fields->filter(function ($field) use (&$optionsData) {
+            if (!$field['setting']['source'] && $field['setting']['options']) {
+                $options = is_array($field['setting']['options']) ? $field['setting']['options'] : json_decode((string)$field['setting']['options'], true);
+                $optionsData[$field['name']][] = $options;
+                return false;
             }
-        }
-        return $data;
-    }
+            if (!$field['setting']['source']) {
+                return false;
+            }
+            return true;
+        })->values();
 
-    private static function fieldDataValue(int $magicId, $value, array $field, array $sources = [], bool $multi = false): array
-    {
-        if ($value == null) {
-            return [];
-        }
-        if ($field['setting']['source']) {
-            $source = collect($sources)->where('route', $field['setting']['source'])->first();
-            if (!$source) {
-                return [];
-            };
-            if ($source['model'] == ToolsMagicData::class) {
-                $urlQuery = parse_url($source['route'])['query'];
-                parse_str($urlQuery, $queryArr);
-                $magic = $queryArr['magic'];
-                $data = ToolsMagicData::query()->with('magic', function ($query) use($magic) {
-                    $query->where('name', $magic);
-                })->get()->map(function ($item) {
-                    return [
-                        'id' => $item->id,
-                        ...$item->data,
-                    ];
-                })->toArray();
-            } else {
-                $data = (new $source['model'])->query()->get()->toArray();
-            }
-        } else {
-            $data = is_array($field['setting']['options']) ? $field['setting']['options'] : json_decode((string)$field['setting']['options'], true);
-        }
-        $result = [];
-        foreach ($data as $vo) {
-            if (!$multi && $vo[$field['setting']['keys_value']] == $value) {
-                $result[] = $vo;
-                break;
-            }
-            if ($multi) {
-                if (in_array($vo[$field['setting']['keys_value'] ?: 'value'], (array)$value)) {
-                    $result[] = $vo;
+        $sourceIdMaps = [];
+        $data->map(function ($item) use (&$sourceIdMaps, $sourceFields) {
+            $sourceFields->map(function ($field) use ($item, &$sourceIdMaps) {
+                $name = $field['name'];
+                if (!isset($sourceIdMaps[$name])) {
+                    $sourceIdMaps[$name] = [];
                 }
+                if (is_array($item->data[$name])) {
+                    $sourceIdMaps[$name] = [...$sourceIdMaps[$name], $item->data[$name]];
+                } else {
+                    $sourceIdMaps[$name][] = $item->data[$name];
+                }
+            });
+        });
 
-            }
+        $sources = \App\Tools\Service\Magic::source();
+        $sourceData = [];
+        foreach ($sourceIdMaps as $field => $ids) {
+            $fieldInfo = $sourceFields->where('name', $field)->first();
+            $source = $sources[$fieldInfo['setting']['source']];
+            $sourceData[$field] = $source['data'](ids: $ids);
         }
-        return ($multi ? $result : $result[0]) ?: [];
+
+        return $data->map(function ($item) use ($sourceData, $fields) {
+            $arr = $item->data;
+            foreach ($item->data as $key => $value) {
+                if (isset($optionsData[$key])) {
+                    $options = collect($optionsData[$key]);
+                    if (is_array($value)) {
+                        $arr[$key . '_data'] = $options->whereIn('value', $value)->toArray();
+                    } else {
+                        $arr[$key . '_data'] = $options->where('value', $value)->first();
+                    }
+                }
+                if (isset($sourceData[$key])) {
+                    $source = collect($sourceData[$key]);
+                    if (is_array($value)) {
+                        $arr[$key . '_data'] = $source->whereIn('id', $value)->toArray();
+                    } else {
+                        $arr[$key . '_data'] = $source->where('id', $value)->first();
+                    }
+                }
+            }
+            $item->data = self::formatLabel($arr, $fields);
+            return $item;
+        });
     }
 
+
+    private static function formatLabel(array $itemData, Collection $fields): array
+    {
+        foreach ($itemData as $key => $value) {
+            if (!isset($itemData[$key . '_data'])) {
+                continue;
+            }
+            if (!is_array($value)) {
+                $value = [$value];
+                $data = collect([$itemData[$key . '_data']]);
+            }else {
+                $data = collect($itemData[$key . '_data']);
+            }
+
+            $field = $fields->where('name', $key)->first();
+
+            $label = [];
+            foreach ($value as $vo) {
+                $info = $data->where($field['setting']['keys_value'] ?: 'value', $vo)->first();
+                if ($info) {
+                    $label[] = $info[$field['setting']['keys_label'] ?: 'label'];
+                }
+            }
+            $itemData[$key . '_label'] = implode(',', $label);
+        }
+        return $itemData;
+    }
+
+    /**
+     * 条件查询处理
+     * @param Builder $query
+     * @param array $fields
+     * @param array $params
+     * @return void
+     */
     public static function queryMany(Builder $query, array $fields = [], array $params = []): void
     {
         foreach ($params as $key => $vo) {

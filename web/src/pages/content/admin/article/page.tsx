@@ -43,6 +43,7 @@ const Page = () => {
                 value: 'id',
               }}
               clearable
+              checkStrictly
             />
           </Form.FormItem>
           <Form.FormItem label={translate('content.article.fields.subtitle')} name='subtitle'>

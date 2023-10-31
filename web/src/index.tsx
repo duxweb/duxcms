@@ -15,5 +15,5 @@ const root = createRoot(container)
 root.render(
   <DuxApp config={config}>
     <AppProvider appsData={app} config={config} />
-  </DuxApp>
+  </DuxApp>,
 )

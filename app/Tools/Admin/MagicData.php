@@ -20,7 +20,7 @@ use Illuminate\Support\Collection;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-#[Resource(app: 'admin',  route: '/tools/data',  name: 'tools.data', can: false)]
+#[Resource(app: 'admin', route: '/tools/data', name: 'tools.data', can: false)]
 class MagicData extends Resources
 {
     protected string $model = ToolsMagicData::class;
@@ -37,7 +37,7 @@ class MagicData extends Resources
 
         if ($this->info->type == 'common') {
             $this->pagination = [
-              'status' => false
+                'status' => false
             ];
         }
         if ($this->info->type == 'pages') {
@@ -71,47 +71,30 @@ class MagicData extends Resources
 
     public function transformData(Model|LengthAwarePaginator|Collection|null $data, callable $callback): array
     {
-
-        $sourceTypes = ['cascader', 'select', 'cascader-multi', 'select-multi'];
-
-        $sourceFields = $this->info->fields->filter(function ($field) use ($sourceTypes) {
-            if (!in_array($field['type'], $sourceTypes)) {
-                return false;
-            }
-            if (!$field['setting']['source']) {
-                return false;
-            }
-            return true;
-        })->values();
-
-        $sources = \App\Tools\Service\Magic::source();
-
+        $fields = collect($this->info->fields);
         if ($data instanceof LengthAwarePaginator) {
-            $data = $data->getCollection();
-
-            // 获取数据值
-            $sourceData = [];
-            $data->map(function ($item) use ($sourceFields, &$sourceData) {
-                $sourceFields->map(function ($field) use ($item, &$sourceData) {
-                    $sourceData[$field['name']][] = $item->data[$field['name']];
-                });
+            $data->setCollection(\App\Tools\Service\Magic::mergeData($fields, $data->getCollection()));
+            return format_data($data, function ($item) {
+                return $this->transform($item);
             });
-
-            // 获取来源数据组
-            foreach ($sourceData as $field => $ids) {
-                $source = collect($sources)->where('route', $field['setting']['source'])->first();
-            }
-
-            $source = collect($sources)->where('route', $field['setting']['source'])->first();
         }
+        if ($data instanceof Model) {
+            $data = \App\Tools\Service\Magic::mergeData($fields, collect([$data]));
+            return format_data($data->first(), function ($item) {
+                return $this->transform($item);
+            });
+        }
+        $data = \App\Tools\Service\Magic::mergeData($fields, $data);
+        return format_data($data, function ($item) {
+            return $this->transform($item);
+        });
     }
 
     public function transform(object $item): array
     {
-
         $data = [
             "id" => $item->id,
-            ...\App\Tools\Service\Magic::listTransform($this->info->id, $item->data, $this->info->fields)
+            ...$item->data
         ];
         if ($this->info->type == 'tree') {
             $data['parent_id'] = $item->parent_id;
@@ -130,7 +113,6 @@ class MagicData extends Resources
 
     public function format(Data $data, ServerRequestInterface $request, array $args): array
     {
-
         $arr = $data->toArray();
         if ($this->info->type == 'tree') {
             unset($arr['parent_id']);

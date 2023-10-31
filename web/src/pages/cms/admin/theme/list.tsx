@@ -11,9 +11,7 @@ const List = () => {
       <div className='mb-4'>
         {data && data.length > 0 ? (
           <div className='grid grid-cols-2 gap-4 2xl:grid-cols-4 xl:grid-cols-3'>
-            {data?.map((item, key) => (
-              <CardItem key={key} item={item} refetch={refetch} />
-            ))}
+            {data?.map((item, key) => <CardItem key={key} item={item} refetch={refetch} />)}
           </div>
         ) : (
           <Card>

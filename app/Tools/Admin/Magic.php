@@ -121,9 +121,25 @@ class Magic extends Resources
         $list = array_map(function ($item) {
             return [
                 'label' => $item['label'],
-                'value' => $item['route']
+                'value' => $item['name']
             ];
         }, \App\Tools\Service\Magic::source());
+        return send($response, 'ok', array_values($list));
+    }
+
+    #[Action(methods: 'GET', route: '/sourceData')]
+    public function sourceData(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $params = $request->getQueryParams();
+        $name = $params['name'];
+        $keyword = $params['keyword'];
+        $ids = $params['ids'];
+        $sources = \App\Tools\Service\Magic::source();
+        $list = [];
+        $source = $sources[$name];
+        if ($source) {
+            $list = $source['data'](keyword: $keyword, ids: $ids);
+        }
         return send($response, 'ok', $list);
     }
 
