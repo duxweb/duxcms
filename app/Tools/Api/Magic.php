@@ -14,18 +14,6 @@ use Psr\Http\Message\ServerRequestInterface;
 class Magic
 {
 
-    #[Route(methods: 'GET', pattern: '')]
-    public function listOne(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $query = $request->getQueryParams();
-        $table = $query['_table'];
-        if (!$table) {
-            throw new ExceptionNotFound();
-        }
-        $result = $this->list($table, $query ?: []);
-        return send($response, 'ok', $result['data'], $result['meta']);
-    }
-
     #[Route(methods: 'POST', pattern: '')]
     public function listMany(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
@@ -35,7 +23,10 @@ class Magic
             if (!$vo['_table']) {
                 continue;
             }
-            $result = $this->list($vo['_table'], $vo ?: []);
+            $page = $vo['_page'] ?: 1;
+            $limit = $vo['_limit'];
+
+            $result = $this->list($vo['_table'], (int)$page, (int)$limit,$vo ?: []);
             $data[] = [
                 'table' => $vo['_table'],
                 'data' => $result['data'],
@@ -63,6 +54,21 @@ class Magic
         return send($response, 'ok', $data);
     }
 
+
+    #[Route(methods: 'GET', pattern: '/{name}')]
+    public function listOne(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?: 1;
+        $limit = $query['limit'] ?? 0;
+        $table = $args['name'];
+        if (!$table) {
+            throw new ExceptionNotFound();
+        }
+        $result = $this->list($table, (int)$page, (int)$limit, $query ?: []);
+        return send($response, 'ok', $result['data'], $result['meta']);
+    }
+
     #[Route(methods: 'GET', pattern: '/{name}/{id}')]
     public function info(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
@@ -83,11 +89,22 @@ class Magic
         return send($response, 'ok', $array);
     }
 
-
-    private function list(string $table, array $params = []): array
+    #[Route(methods: 'POST', pattern: '/{name}')]
+    public function create(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $page = $params['_page'] ?: 1;
-        $limit = $params['_limit'];
+        $query = $request->getParsedBody();
+        $name = $args['name'];
+        $magicInfo = ToolsMagic::query()->where('name', $name)->where('external', 0)->first();
+        if (!$magicInfo) {
+            throw new ExceptionNotFound();
+        }
+
+        return send($response, 'ok');
+    }
+
+
+    private function list(string $table, int $page, int $limit, array $params = []): array
+    {
         $info = ToolsMagic::query()->where('name', $table)->where('external', 0)->first();
         if (!$info) {
             throw new ExceptionNotFound();

@@ -2,6 +2,8 @@
 
 namespace App\Tools\Service;
 
+use App\Member\Event\RegisterEvent;
+use App\Tools\Event\SourceEvent;
 use App\Tools\Models\ToolsMagic;
 use App\Tools\Models\ToolsMagicGroup;
 use App\Tools\Models\ToolsMagicData;
@@ -97,14 +99,10 @@ class Magic
 
     public static function source(): array
     {
-        $list = ToolsMagic::query()->get()->map(function ($item) {
-            return [
-                'label' => $item->label,
-                'route' => 'tools/data?magic=' . $item->name,
-                'model' => ToolsMagicData::class,
-            ];
-        });
-        return $list->toArray();
+        $source = new SourceEvent();
+        // NOTE tools.magic.source
+        App::event()->dispatch($source, 'tools.magic.source');
+        return $source->data;
     }
 
     public static function listTransform(int $magicId, array $data, array $fields): array

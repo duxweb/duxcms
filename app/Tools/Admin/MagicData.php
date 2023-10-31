@@ -14,6 +14,9 @@ use Dux\Resources\Attribute\Resource;
 use Dux\Validator\Data;
 use Dux\Validator\Validator;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -64,6 +67,43 @@ class MagicData extends Resources
             $fields[] = $field['name'];
         }
         \App\Tools\Service\Magic::queryMany($query, $fields, $params);
+    }
+
+    public function transformData(Model|LengthAwarePaginator|Collection|null $data, callable $callback): array
+    {
+
+        $sourceTypes = ['cascader', 'select', 'cascader-multi', 'select-multi'];
+
+        $sourceFields = $this->info->fields->filter(function ($field) use ($sourceTypes) {
+            if (!in_array($field['type'], $sourceTypes)) {
+                return false;
+            }
+            if (!$field['setting']['source']) {
+                return false;
+            }
+            return true;
+        })->values();
+
+        $sources = \App\Tools\Service\Magic::source();
+
+        if ($data instanceof LengthAwarePaginator) {
+            $data = $data->getCollection();
+
+            // 获取数据值
+            $sourceData = [];
+            $data->map(function ($item) use ($sourceFields, &$sourceData) {
+                $sourceFields->map(function ($field) use ($item, &$sourceData) {
+                    $sourceData[$field['name']][] = $item->data[$field['name']];
+                });
+            });
+
+            // 获取来源数据组
+            foreach ($sourceData as $field => $ids) {
+                $source = collect($sources)->where('route', $field['setting']['source'])->first();
+            }
+
+            $source = collect($sources)->where('route', $field['setting']['source'])->first();
+        }
     }
 
     public function transform(object $item): array
