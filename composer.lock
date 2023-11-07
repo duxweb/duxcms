@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "957f9a77022f9071a9e6fdfe0fc2b40b",
+    "content-hash": "0f88f37422c6aff8e99a15413a194952",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -4556,6 +4556,84 @@
             "time": "2023-08-16T08:56:32+00:00"
         },
         {
+            "name": "pelago/emogrifier",
+            "version": "v7.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MyIntervals/emogrifier.git",
+                "reference": "1945460af992d0c14ad08e7b4567d7d0dd3a2f94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MyIntervals/emogrifier/zipball/1945460af992d0c14ad08e7b4567d7d0dd3a2f94",
+                "reference": "1945460af992d0c14ad08e7b4567d7d0dd3a2f94",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php": "~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
+                "sabberworm/php-css-parser": "^8.4.0",
+                "symfony/css-selector": "^4.4.23 || ^5.4.0 || ^6.0.0"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "1.3.2",
+                "phpunit/phpunit": "9.6.11",
+                "rawr/cross-data-providers": "2.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "8.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pelago\\Emogrifier\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Klee",
+                    "email": "github@oliverklee.de"
+                },
+                {
+                    "name": "Zoli Szabó",
+                    "email": "zoli.szabo+github@gmail.com"
+                },
+                {
+                    "name": "John Reeve",
+                    "email": "jreeve@pelagodesign.com"
+                },
+                {
+                    "name": "Jake Hotson",
+                    "email": "jake@qzdesign.co.uk"
+                },
+                {
+                    "name": "Cameron Brooks"
+                },
+                {
+                    "name": "Jaime Prado"
+                }
+            ],
+            "description": "Converts CSS styles into inline style attributes in your HTML code",
+            "homepage": "https://www.myintervals.com/emogrifier.php",
+            "keywords": [
+                "css",
+                "email",
+                "pre-processing"
+            ],
+            "support": {
+                "issues": "https://github.com/MyIntervals/emogrifier/issues",
+                "source": "https://github.com/MyIntervals/emogrifier"
+            },
+            "time": "2023-10-20T15:34:30+00:00"
+        },
+        {
             "name": "peppeocchi/php-cron-scheduler",
             "version": "v4.0",
             "source": {
@@ -6039,6 +6117,59 @@
                 }
             ],
             "time": "2023-04-15T23:01:58+00:00"
+        },
+        {
+            "name": "sabberworm/php-css-parser",
+            "version": "8.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+                "reference": "e41d2140031d533348b2192a83f02d8dd8a71d30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/e41d2140031d533348b2192a83f02d8dd8a71d30",
+                "reference": "e41d2140031d533348b2192a83f02d8dd8a71d30",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "php": ">=5.6.20"
+            },
+            "require-dev": {
+                "codacy/coverage": "^1.4",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "suggest": {
+                "ext-mbstring": "for parsing UTF-8 CSS"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sabberworm\\CSS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raphael Schweikert"
+                }
+            ],
+            "description": "Parser for CSS Files written in PHP",
+            "homepage": "https://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+            "keywords": [
+                "css",
+                "parser",
+                "stylesheet"
+            ],
+            "support": {
+                "issues": "https://github.com/sabberworm/PHP-CSS-Parser/issues",
+                "source": "https://github.com/sabberworm/PHP-CSS-Parser/tree/8.4.0"
+            },
+            "time": "2021-12-11T13:40:54+00:00"
         },
         {
             "name": "slim/psr7",
