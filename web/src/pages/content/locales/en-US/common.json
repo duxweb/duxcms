@@ -13,7 +13,10 @@
       },
       "validate": {
         "title": "Please enter a title",
-        "class": "Please select a classification"
+        "class": "Please select a classification",
+        "keywords": "Please enter keywords",
+        "descriptions": "Please enter the article description and do not fill in automatic extraction",
+        "activity": "Please select an activity"
       },
       "fields": {
         "category": "classification",
@@ -25,8 +28,10 @@
         "manual": "Manual",
         "status": "state",
         "source": "source",
+        "activity": "activity",
         "content": "content",
         "virtualView": "Virtual views",
+        "recommend": "recommendation",
         "createdAt": "Creation time"
       }
     },
@@ -38,12 +43,27 @@
         "createdAt": "Creation time"
       }
     },
+    "recommend": {
+      "name": "Recommended position",
+      "fields": {
+        "name": "name"
+      }
+    },
     "category": {
       "name": "Article classification",
       "fields": {
         "parent": "Category parent ",
         "magic": "Rubik's Cube Data",
         "name": "name"
+      }
+    },
+    "comment": {
+      "name": "Article comments",
+      "fields": {
+        "user": "user",
+        "title": "article",
+        "content": "comment",
+        "createdAt": "Creation time"
       }
     },
     "page": {

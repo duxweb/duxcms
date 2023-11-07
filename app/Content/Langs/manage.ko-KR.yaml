@@ -9,6 +9,7 @@ content:
     name: 문장 분류
     validator:
       name: 이름을 입력하십시오.
+      article: 먼저 이 분류 아래 글을 삭제하십시오
   source:
     name: 기사 출처
     validator:
@@ -27,3 +28,7 @@ content:
     name: 메뉴 그룹
     validator:
       title: 그룹 제목을 입력하십시오.
+  comment:
+    name: 코멘트
+  recommend:
+    name: 추천

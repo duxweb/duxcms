@@ -1,15 +1,32 @@
 tools:
   name: 도구
   area:
-    name: 지역
+    name: 지역 데이터
     import:
       name: 가져오기
     cascade:
       name: 선택
   magicGroup:
-    name: 데이터 관리
-
+    name: 데이터 그룹
+    validator:
+      name: 이름을 입력하십시오.
+      label: 태그를 입력하십시오.
+      icon: 아이콘 이름을 입력하십시오.
+  magic:
+    name: 데이터 큐브
+    validator:
+      name: 데이터 이름은 영숫자 및 밑줄만 가능합니다.
+      group: 데이터 그룹 선택
+      label: 데이터 레이블을 입력하십시오.
+      fields: 데이터 필드를 구성하십시오.
+      fieldsFull: 필드 구성이 불완전합니다.
+      fieldsFormat: 필드 이름은 영숫자와 밑줄만 가능합니다.
+      data: 데이터가 존재하지 않음
+    source:
+      name: 데이터 소스
+    config:
+      name: 구성
 extend:
   name: 확장
   magic:
-    name: 데이터 매직
+    name: 데이터 큐브

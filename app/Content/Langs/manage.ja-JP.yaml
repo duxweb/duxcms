@@ -9,6 +9,7 @@ content:
     name: 記事の分類
     validator:
       name: 名前を入力してください
+      article: まずこの分類の下の記事を削除してください
   source:
     name: 記事のソース
     validator:
@@ -27,3 +28,7 @@ content:
     name: メニューグループ
     validator:
       title: グループ化タイトルを入力してください
+  comment:
+    name: コメント
+  recommend:
+    name: 推奨

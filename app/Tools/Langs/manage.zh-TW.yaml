@@ -1,15 +1,32 @@
 tools:
   name: 工具
   area:
-    name: 地區
+    name: 地區數據
     import:
-      name: 匯入
+      name: 導入
     cascade:
       name: 選擇
   magicGroup:
-    name: 資料管理
-
+    name: 數據分組
+    validator:
+      name: 請輸入名稱
+      label: 請輸入標籤
+      icon: 請輸入圖標名
+  magic:
+    name: 數據魔方
+    validator:
+      name: 數據名只能為英文數位和底線
+      group: 請選擇數據分組
+      label: 請輸入數據標籤
+      fields: 請配寘數據欄位
+      fieldsFull: 欄位配寘不完整
+      fieldsFormat: 欄位名只能為英文數位和底線
+      data: 數據不存在
+    source:
+      name: 資料來源
+    config:
+      name: 配寘
 extend:
   name: 擴展
   magic:
-    name: 資料魔法
+    name: 數據魔方

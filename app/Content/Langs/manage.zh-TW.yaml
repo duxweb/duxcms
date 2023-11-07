@@ -9,6 +9,7 @@ content:
     name: 文章分類
     validator:
       name: 請輸入名稱
+      article: 請先删除該分類下文章
   source:
     name: 文章來源
     validator:
@@ -27,3 +28,7 @@ content:
     name: 選單組
     validator:
       title: 請輸入分組標題
+  comment:
+    name: 評論
+  recommend:
+    name: 推薦

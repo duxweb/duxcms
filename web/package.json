@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@duxweb/dux-extend": "^0.0.12",
+    "@duxweb/dux-extend": "^0.0.14",
     "@duxweb/dux-plugin": "^0.0.7",
-    "@duxweb/dux-refine": "0.4.1"
+    "@duxweb/dux-refine": "0.5.1"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",

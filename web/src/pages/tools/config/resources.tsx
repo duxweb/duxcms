@@ -30,7 +30,7 @@ export const adminResources = (app: App) => {
       name: 'data',
       meta: {
         label: 'data',
-        sort: 100,
+        sort: 800,
       },
     },
     {

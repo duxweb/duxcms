@@ -1,15 +1,32 @@
 tools:
   name: ツール
   area:
-    name: エリア
+    name: 地域データ
     import:
-      name: インポート
+      name: インポート＃インポート＃
     cascade:
-      name: 選択
+      name: せんたく
   magicGroup:
-    name: データ管理
-
+    name: データのグループ化
+    validator:
+      name: 名前を入力してください
+      label: ラベルを入力してください
+      icon: アイコン名を入力してください
+  magic:
+    name: データキューブ
+    validator:
+      name: データ名は英数字とアンダースコアのみ
+      group: データグループを選択してください
+      label: データラベルを入力してください
+      fields: データフィールドを設定してください
+      fieldsFull: フィールド構成が不完全です
+      fieldsFormat: フィールド名は英数字とアンダースコアのみです
+      data: データが存在しません
+    source:
+      name: データソース
+    config:
+      name: 構成
 extend:
   name: 拡張
   magic:
-    name: データマジック
+    name: データキューブ

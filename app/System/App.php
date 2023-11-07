@@ -18,7 +18,6 @@ use Dux\Menu\Menu as DuxMenu;
 use Dux\Permission\PermissionMiddleware;
 use Dux\Route\Route as DuxRoute;
 use Dux\Resources\Resource as DuxResource;
-use Dux\UI\UI;
 
 class App extends AppExtend
 {
@@ -62,6 +61,7 @@ class App extends AppExtend
 
         $commonRoute = $app->getRoute()->get("admin")->group('', ...$middleware);
         $commonRoute->post('/upload', Upload::class . ':upload', 'admin.upload');
+        $commonRoute->post('/upload/remote', Upload::class . ':remote', 'admin.remote');
 
 
         // 注册事件

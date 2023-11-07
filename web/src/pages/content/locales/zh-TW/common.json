@@ -13,7 +13,10 @@
       },
       "validate": {
         "title": "請輸入標題",
-        "class": "請選擇分類"
+        "class": "請選擇分類",
+        "keywords": "請輸入關鍵字",
+        "descriptions": "請輸入文章描述，不填寫自動選取",
+        "activity": "請選擇活動"
       },
       "fields": {
         "category": "分類",
@@ -25,8 +28,10 @@
         "manual": "手動",
         "status": "狀態",
         "source": "來源",
+        "activity": "活動",
         "content": "內容",
         "virtualView": "虛擬流覽量",
+        "recommend": "推薦",
         "createdAt": "創建時間"
       }
     },
@@ -38,12 +43,27 @@
         "createdAt": "創建時間"
       }
     },
+    "recommend": {
+      "name": "推薦比特",
+      "fields": {
+        "name": "名稱"
+      }
+    },
     "category": {
       "name": "文章分類",
       "fields": {
         "parent": "上級分類",
         "magic": "魔方數據",
         "name": "名稱"
+      }
+    },
+    "comment": {
+      "name": "文章評論",
+      "fields": {
+        "user": "用戶",
+        "title": "文章",
+        "content": "評論",
+        "createdAt": "創建時間"
       }
     },
     "page": {

@@ -1,14 +1,14 @@
 import { useTranslate, useList, useResource } from '@refinedev/core'
 import {
   FormPage,
-  formatUploadSingle,
-  getUploadSingle,
   Editor,
   useClient,
   UploadImage,
   useSelect,
+  SelectAsync,
+  FormPageItem,
 } from '@duxweb/dux-refine'
-import { Form, Input, Radio, Cascader, AutoComplete } from 'tdesign-react/esm'
+import { Form, Input, Radio, Cascader, AutoComplete, Textarea, Checkbox } from 'tdesign-react/esm'
 import { useEffect, useState } from 'react'
 import { MagicFormRender } from '@duxweb/dux-extend'
 
@@ -41,6 +41,12 @@ const Page = () => {
     optionValue: 'id',
   })
 
+  const { options: recommendData } = useSelect({
+    resource: 'content.recommend',
+    optionLabel: 'name',
+    optionValue: 'id',
+  })
+
   return (
     <FormPage
       formProps={{
@@ -49,14 +55,6 @@ const Page = () => {
       back
       form={form}
       id={id}
-      initFormat={(data) => {
-        data.image = formatUploadSingle(data.image)
-        return data
-      }}
-      saveFormat={(data) => {
-        data.image = getUploadSingle(data.image)
-        return data
-      }}
       settingRender={
         <>
           <Form.FormItem label={translate('content.article.fields.subtitle')} name='subtitle'>
@@ -77,8 +75,24 @@ const Page = () => {
             </Radio.Group>
           </Form.FormItem>
 
+          <Form.FormItem label={translate('content.article.fields.recommend')} name='recommend'>
+            <Checkbox.Group options={recommendData} />
+          </Form.FormItem>
+
           <Form.FormItem label={translate('content.article.fields.source')} name='source'>
             <AutoComplete options={sourceData} highlightKeyword filterable={false} clearable />
+          </Form.FormItem>
+
+          <Form.FormItem label={translate('content.article.fields.activity')} name='activity_id'>
+            <SelectAsync
+              url='activity/activity'
+              placeholder={translate('content.article.validate.activity')}
+              optionLabel='title'
+              optionValue='id'
+              clearable
+              filterable
+              pagination
+            />
           </Form.FormItem>
 
           {magic?.fields && <MagicFormRender fields={magic?.fields} prefix='extend' />}
@@ -96,7 +110,7 @@ const Page = () => {
         </>
       }
     >
-      <Form.FormItem name='class_id'>
+      <FormPageItem name='class_id'>
         <Cascader
           loading={isLoading}
           options={list}
@@ -108,15 +122,23 @@ const Page = () => {
           checkStrictly
           placeholder={translate('content.article.validate.class')}
         />
-      </Form.FormItem>
+      </FormPageItem>
 
-      <Form.FormItem name='title'>
+      <FormPageItem name='title'>
         <Input placeholder={translate('content.article.validate.title')} />
-      </Form.FormItem>
+      </FormPageItem>
 
-      <Form.FormItem name='content'>
-        <Editor className='max-h-100' />
-      </Form.FormItem>
+      <FormPageItem name='content'>
+        <Editor />
+      </FormPageItem>
+
+      <FormPageItem name='keyword'>
+        <Input placeholder={translate('content.article.validate.keywords')} />
+      </FormPageItem>
+
+      <FormPageItem name='descriptions'>
+        <Textarea placeholder={translate('content.article.validate.descriptions')} />
+      </FormPageItem>
     </FormPage>
   )
 }

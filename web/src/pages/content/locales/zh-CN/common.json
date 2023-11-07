@@ -13,7 +13,10 @@
       },
       "validate": {
         "title": "请输入标题",
-        "class": "请选择分类"
+        "class": "请选择分类",
+        "keywords": "请输入关键词",
+        "descriptions": "请输入文章描述，不填写自动提取",
+        "activity": "请选择活动"
       },
       "fields": {
         "category": "分类",
@@ -25,8 +28,10 @@
         "manual": "手动",
         "status": "状态",
         "source": "来源",
+        "activity": "活动",
         "content": "内容",
         "virtualView": "虚拟浏览量",
+        "recommend": "推荐",
         "createdAt": "创建时间"
       }
     },
@@ -38,12 +43,27 @@
         "createdAt": "创建时间"
       }
     },
+    "recommend": {
+      "name": "推荐位",
+      "fields": {
+        "name": "名称"
+      }
+    },
     "category": {
       "name": "文章分类",
       "fields": {
         "parent": "上级分类",
         "magic": "魔方数据",
         "name": "名称"
+      }
+    },
+    "comment": {
+      "name": "文章评论",
+      "fields": {
+        "user": "用户",
+        "title": "文章",
+        "content": "评论",
+        "createdAt": "创建时间"
       }
     },
     "page": {

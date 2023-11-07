@@ -1,15 +1,32 @@
 tools:
-  name: Tools
+  name: tool
   area:
-    name: Area
+    name: Regional data
     import:
       name: Import
     cascade:
-      name: Select
+      name: choice
   magicGroup:
-    name: Data Management
-
-extend:
-  name: Extend
+    name: Data grouping
+    validator:
+      name: Please enter a name
+      label: Please enter a label
+      icon: Please enter an icon name
   magic:
-    name: Data Magic
+    name: Data Cube
+    validator:
+      name: Data names can only be English numbers and underscores
+      group: Please select a data group
+      label: Please enter the data label
+      fields: Please configure data fields
+      fieldsFull: Incomplete field configuration
+      fieldsFormat: Field names can only be English numbers and underscores
+      data: Data does not exist
+    source:
+      name: data source
+    config:
+      name: allocation
+extend:
+  name: extend
+  magic:
+    name: Data Cube

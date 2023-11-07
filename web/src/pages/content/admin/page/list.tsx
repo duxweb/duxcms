@@ -1,11 +1,12 @@
 import React, { useRef } from 'react'
-import { useTranslate, useDelete, useNavigation } from '@refinedev/core'
+import { useTranslate, useDelete, useDeleteMany, useNavigation } from '@refinedev/core'
 import { PrimaryTableCol, Button, Input, Tag, Link, Popconfirm } from 'tdesign-react/esm'
-import { PageTable, FilterItem, MediaText } from '@duxweb/dux-refine'
+import { PageTable, FilterItem, MediaText, TableRef } from '@duxweb/dux-refine'
 
 const List = () => {
   const translate = useTranslate()
   const { mutate } = useDelete()
+  const { mutate: deleteMany } = useDeleteMany()
   const { create, edit } = useNavigation()
 
   const columns = React.useMemo<PrimaryTableCol[]>(
@@ -91,7 +92,7 @@ const List = () => {
                 theme='default'
                 onConfirm={() => {
                   mutate({
-                    resource: 'article',
+                    resource: 'content.page',
                     id: row.id,
                   })
                 }}
@@ -104,12 +105,15 @@ const List = () => {
       },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [translate]
+    [translate],
   )
+
+  const table = useRef<TableRef>(null)
 
   return (
     <PageTable
       columns={columns}
+      ref={table}
       tabs={[
         {
           label: translate('content.page.tab.all'),
@@ -124,6 +128,31 @@ const List = () => {
           value: '2',
         },
       ]}
+      batchRender={() => (
+        <>
+          <Popconfirm
+            content={translate('buttons.confirm')}
+            destroyOnClose
+            placement='top'
+            showArrow
+            theme='default'
+            onConfirm={() => {
+              deleteMany({
+                resource: 'content.article',
+                ids: table.current?.selecteds || [],
+              })
+            }}
+          >
+            <Button
+              variant='outline'
+              theme='danger'
+              icon={<div className='i-tabler:trash t-icon'></div>}
+            >
+              {translate('buttons.delete')}
+            </Button>
+          </Popconfirm>
+        </>
+      )}
       actionRender={() => (
         <Button
           icon={<div className='i-tabler:plus t-icon'></div>}

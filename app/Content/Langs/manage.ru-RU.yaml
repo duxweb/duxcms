@@ -9,6 +9,7 @@ content:
     name: Классификация статей
     validator:
       name: Введите имя
+      article: Пожалуйста, удалите статью из этой категории.
   source:
     name: Источник статьи
     validator:
@@ -27,3 +28,7 @@ content:
     name: Группа меню
     validator:
       title: Введите заголовок группы
+  comment:
+    name: Замечания
+  recommend:
+    name: Рекомендации

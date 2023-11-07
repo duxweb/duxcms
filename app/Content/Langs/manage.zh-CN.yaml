@@ -9,6 +9,7 @@ content:
     name: 文章分类
     validator:
       name: 请输入名称
+      article: 请先删除该分类下文章
   source:
     name: 文章来源
     validator:
@@ -27,3 +28,7 @@ content:
     name: 菜单组
     validator:
       title: 请输入分组标题
+  comment:
+    name: 评论
+  recommend:
+    name: 推荐

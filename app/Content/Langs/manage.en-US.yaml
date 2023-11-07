@@ -9,6 +9,7 @@ content:
     name: Article classification
     validator:
       name: Please enter a name
+      article: Please delete the article under this category first
   source:
     name: Article Source
     validator:
@@ -27,3 +28,7 @@ content:
     name: Menu group
     validator:
       title: Please enter the group title
+  comment:
+    name: comment
+  recommend:
+    name: recommendation

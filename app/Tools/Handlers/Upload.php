@@ -13,6 +13,7 @@ use Overtrue\Flysystem\Qiniu\QiniuAdapter;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UploadedFileInterface;
+use Dux\Utils\Content;
 
 class Upload
 {
@@ -68,6 +69,15 @@ class Upload
             ];
         }
         return send($response, "ok", $list);
+    }
+
+    public function remote(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $data = $request->getParsedBody() ?: [];
+        $imageMaps = Content::localImages([
+            $data['url']
+        ]);
+        return send($response, "ok", $imageMaps);
     }
 
     public function qiniu(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface

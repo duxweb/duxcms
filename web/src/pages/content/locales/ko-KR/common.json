@@ -13,7 +13,10 @@
       },
       "validate": {
         "title": "제목을 입력하십시오.",
-        "class": "분류를 선택하십시오."
+        "class": "분류를 선택하십시오.",
+        "keywords": "키워드를 입력하세요",
+        "descriptions": "기사 설명을 입력하십시오. 자동 추출을 기입하지 마십시오.",
+        "activity": "활동을 선택하십시오."
       },
       "fields": {
         "category": "분류",
@@ -25,8 +28,10 @@
         "manual": "수동",
         "status": "상태",
         "source": "출처",
+        "activity": "활동",
         "content": "내용",
         "virtualView": "가상 브라우징",
+        "recommend": "추천",
         "createdAt": "생성 시간"
       }
     },
@@ -38,12 +43,27 @@
         "createdAt": "생성 시간"
       }
     },
+    "recommend": {
+      "name": "추천 위치",
+      "fields": {
+        "name": "이름"
+      }
+    },
     "category": {
       "name": "문장 분류",
       "fields": {
         "parent": "상위 분류",
         "magic": "큐브 데이터",
         "name": "이름"
+      }
+    },
+    "comment": {
+      "name": "기사 리뷰",
+      "fields": {
+        "user": "사용자",
+        "title": "기사",
+        "content": "코멘트",
+        "createdAt": "생성 시간"
       }
     },
     "page": {

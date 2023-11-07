@@ -27,14 +27,6 @@ const register = (context: appContext) => {
 
   adminRouter(admin)
   adminResources(admin)
-
-  admin.setUserMenu([
-    {
-      label: 'setting',
-      icon: 'i-tabler:home',
-      route: 'index',
-    },
-  ])
 }
 
 const config: appConfig = {

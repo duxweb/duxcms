@@ -13,7 +13,10 @@
       },
       "validate": {
         "title": "タイトルを入力してください",
-        "class": "分類を選択してください"
+        "class": "分類を選択してください",
+        "keywords": "キーワードを入力してください",
+        "descriptions": "記事の説明を入力してください。自動抽出には記入しません",
+        "activity": "アクティビティを選択してください"
       },
       "fields": {
         "category": "分類",
@@ -25,8 +28,10 @@
         "manual": "手動",
         "status": "ステータス",
         "source": "ソース",
+        "activity": "アクティビティ",
         "content": "内容",
         "virtualView": "仮想ブラウズ",
+        "recommend": "推奨",
         "createdAt": "作成時間"
       }
     },
@@ -38,12 +43,27 @@
         "createdAt": "作成時間"
       }
     },
+    "recommend": {
+      "name": "推奨ビット",
+      "fields": {
+        "name": "の名前をあげる"
+      }
+    },
     "category": {
       "name": "記事の分類",
       "fields": {
         "parent": "親分類",
         "magic": "キューブデータ",
         "name": "の名前をあげる"
+      }
+    },
+    "comment": {
+      "name": "記事のコメント",
+      "fields": {
+        "user": "ユーザー",
+        "title": "文章",
+        "content": "コメント",
+        "createdAt": "作成時間"
       }
     },
     "page": {

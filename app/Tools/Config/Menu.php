@@ -12,8 +12,10 @@ class Menu
     static function Admin(\Dux\Menu\Menu $menu, Bootstrap $bootstrap): void
     {
         $app = $menu->add("data", [
-            "sort" => 800,
-            "label" => "data"
+            "label" => "data",
+            "meta" => [
+                "sort" => 100,
+            ]
         ]);
 
         $data = Magic::getMenu($bootstrap);

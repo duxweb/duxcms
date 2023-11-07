@@ -29,6 +29,7 @@ export const adminResources = (app: App) => {
       meta: {
         parent: 'content.articleGroup',
         label: 'content.article',
+        sort: 1,
       },
     },
     {
@@ -38,9 +39,9 @@ export const adminResources = (app: App) => {
       meta: {
         parent: 'content.articleGroup',
         label: 'content.category',
+        sort: 2,
       },
     },
-
     {
       name: 'content.source',
       list: 'content/source',
@@ -48,6 +49,27 @@ export const adminResources = (app: App) => {
       meta: {
         parent: 'content.articleGroup',
         label: 'content.source',
+        sort: 3,
+      },
+    },
+    {
+      name: 'content.comment',
+      list: 'content/comment',
+      listElenemt: lazyComponent(() => import('../admin/comment/list')),
+      meta: {
+        parent: 'content.articleGroup',
+        label: 'content.comment',
+        sort: 4,
+      },
+    },
+    {
+      name: 'content.recommend',
+      list: 'content/recommend',
+      listElenemt: lazyComponent(() => import('../admin/recommend/list')),
+      meta: {
+        parent: 'content.articleGroup',
+        label: 'content.recommend',
+        sort: 5,
       },
     },
     {

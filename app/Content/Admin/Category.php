@@ -6,6 +6,7 @@ namespace App\Content\Admin;
 
 use App\Content\Models\ArticleClass;
 use App\Tools\Models\ToolsMagic;
+use Dux\Handlers\ExceptionBusiness;
 use Dux\Resources\Action\Resources;
 use Dux\Resources\Attribute\Action;
 use Dux\Resources\Attribute\Resource;
@@ -63,5 +64,13 @@ class Category extends Resources
         }
         $magicInfo->fields = \App\Tools\Service\Magic::formatConfig($magicInfo->fields);
         return send($response, 'ok', $magicInfo->toArray());
+    }
+
+    public function delBefore(mixed $info): void
+    {
+        $ids = ArticleClass::descendantsAndSelf($info->id)->pluck('id');
+        if (\App\Content\Models\Article::query()->whereIn('class_id', $ids)->exists()) {
+            throw new ExceptionBusiness(__('content.category.validator.article', 'manage'));
+        }
     }
 }

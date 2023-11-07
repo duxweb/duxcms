@@ -44,7 +44,7 @@ const List = () => {
                 theme='default'
                 onConfirm={() => {
                   mutate({
-                    resource: 'article',
+                    resource: 'content.category',
                     id: row.id,
                   })
                 }}
@@ -57,7 +57,7 @@ const List = () => {
       },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [translate]
+    [translate],
   )
 
   return (
