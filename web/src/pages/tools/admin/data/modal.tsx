@@ -44,7 +44,7 @@ const Page = (props: Record<string, any>) => {
             loading={isLoading}
             options={treeData?.data}
             keys={{
-              label: 'name',
+              label: data?.data?.tree_label || 'name',
               value: 'id',
             }}
             clearable

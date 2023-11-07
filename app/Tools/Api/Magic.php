@@ -5,8 +5,10 @@ namespace App\Tools\Api;
 use App\Tools\Models\ToolsMagic;
 use App\Tools\Models\ToolsMagicData;
 use Dux\Handlers\ExceptionNotFound;
+use Dux\Resources\Attribute\Action;
 use Dux\Route\Attribute\Route;
 use Dux\Route\Attribute\RouteGroup;
+use Dux\Validator\Validator;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -35,23 +37,42 @@ class Magic
         }
         return send($response, 'ok', $data);
     }
+
     #[Route(methods: 'GET', pattern: '/config')]
     public function config(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $query = $request->getQueryParams();
         $table = $query['table'];
-        $info = ToolsMagic::query()->where('name', $table)->where('external', 0)->first();
+        $info = ToolsMagic::query()->where('name', $table)->first();
         if (!$info) {
             throw new ExceptionNotFound();
         }
-
+        if (!in_array('create', $info->external) && !in_array('edit', $info->external)) {
+            throw new ExceptionNotFound();
+        }
         $data = [
             'label' => $info->label,
             'type' => $info->type,
-            'fields' => $info->fields
+            'fields' => \App\Tools\Service\Magic::formatConfig($info->fields)
         ];
 
         return send($response, 'ok', $data);
+    }
+
+    #[Route(methods: 'GET', pattern: '/source')]
+    public function sourceData(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $params = $request->getQueryParams();
+        $name = $params['name'];
+        $keyword = $params['keyword'];
+        $ids = $params['ids'];
+        $sources = \App\Tools\Service\Magic::source();
+        $list = [];
+        $source = $sources[$name];
+        if ($source) {
+            $list = $source['data'](keyword: $keyword, ids: $ids);
+        }
+        return send($response, 'ok', $list);
     }
 
 
@@ -74,30 +95,103 @@ class Magic
     {
         $query = $request->getQueryParams();
         $name = $args['name'];
-        $magicInfo = ToolsMagic::query()->where('name', $name)->where('external', 0)->first();
+        $magicInfo = ToolsMagic::query()->where('name', $name)->first();
         if (!$magicInfo) {
+            throw new ExceptionNotFound();
+        }
+        if (!in_array('read', $magicInfo->external)) {
+            throw new ExceptionNotFound();
+        }
+
+        $info = ToolsMagicData::query()->where('magic_id', $args['id'])->first();
+        if (!$info) {
+            throw new ExceptionNotFound();
+        }
+        $fields = [];
+        foreach ($info->fields as $vo) {
+            if ($vo['external'] == 'read' || $vo['external'] == 'readWrite') {
+                $fields[] = $vo['name'];
+            }
+        }
+        $data = [
+            'id' => (int)$info->id,
+        ];
+        if ($magicInfo->type == 'tree') {
+            $data['parent_id'] = $info->parent_id;
+        }
+        foreach ($info->data as $key => $vo) {
+            if (in_array($key, $fields)) {
+                $data[$key] = $vo;
+            }
+        }
+
+        return send($response, 'ok', $data);
+    }
+
+    #[Route(methods: 'POST', pattern: '/{name}')]
+    public function create(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $params = $request->getParsedBody();
+        $name = $args['name'];
+        $magicInfo = ToolsMagic::query()->where('name', $name)->first();
+        if (!$magicInfo) {
+            throw new ExceptionNotFound();
+        }
+        if (!in_array('create', $magicInfo->external)) {
+            throw new ExceptionNotFound();
+        }
+
+        $fields = $magicInfo->fields->filter(function ($item) {
+            if ($item['external'] == 'write' || $item['external'] == 'readWrite') {
+                return true;
+            }
+            return false;
+        });
+
+        $data = \App\Tools\Service\Magic::formatData($fields, $params);
+
+        $saveData = [
+            'magic_id' => $magicInfo->id,
+            'data' => $data,
+        ];
+        if ($magicInfo->type == 'tree') {
+            $saveData['parent_id'] = $params['parent_id'];
+        }
+        ToolsMagicData::query()->create($saveData);
+        return send($response, 'ok');
+    }
+
+    #[Route(methods: 'PUT', pattern: '/{name}/{id}')]
+    public function edit(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $params = $request->getParsedBody();
+        $name = $args['name'];
+        $magicInfo = ToolsMagic::query()->where('name', $name)->first();
+        if (!$magicInfo) {
+            throw new ExceptionNotFound();
+        }
+        if (!in_array('edit', $magicInfo->external)) {
             throw new ExceptionNotFound();
         }
         $info = ToolsMagicData::query()->where('magic_id', $args['id'])->first();
         if (!$info) {
             throw new ExceptionNotFound();
         }
-        $array = [
-            'id' => (int)$info->id,
-            ...$info->data,
-        ];
-        return send($response, 'ok', $array);
-    }
 
-    #[Route(methods: 'POST', pattern: '/{name}')]
-    public function create(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $query = $request->getParsedBody();
-        $name = $args['name'];
-        $magicInfo = ToolsMagic::query()->where('name', $name)->where('external', 0)->first();
-        if (!$magicInfo) {
-            throw new ExceptionNotFound();
+        $fields = $magicInfo->fields->filter(function ($item) {
+            if ($item['external'] == 'write' || $item['external'] == 'readWrite') {
+                return true;
+            }
+            return false;
+        });
+
+        $data = \App\Tools\Service\Magic::formatData($fields, $params);
+
+        $info->data = $data;
+        if ($magicInfo->type == 'tree') {
+            $info->parent_id = $params['parent_id'];
         }
+        $info->save();
 
         return send($response, 'ok');
     }
@@ -111,7 +205,12 @@ class Magic
         }
         $fields = [];
         foreach ($info->fields as $vo) {
-            $fields[] = $vo['name'];
+            if ($vo['type'] == 'editor') {
+                continue;
+            }
+            if ($vo['external'] == 'read' || $vo['external'] == 'readWrite') {
+                $fields[] = $vo['name'];
+            }
         }
 
         $query = ToolsMagicData::query();
@@ -134,21 +233,29 @@ class Magic
             default => $query->get(),
         };
 
-        return format_data($data, function ($item) use ($info) {
-            return $this->cast($item, $info->type);
+        return format_data($data, function ($item) use ($info, $fields) {
+            return $this->cast($item, $info->type, $fields);
         });
     }
 
-    private function cast($item, $type): array
+    private function cast($item, $type, $fields): array
     {
+        $data = [];
+        foreach ($item->data as $key => $vo) {
+            if (!in_array($key, $fields)) {
+                continue;
+            }
+            $data[$key] = $vo;
+        }
+
         $array = [
             'id' => (int)$item->id,
-            ...$item->data,
+            ...$data,
         ];
         if ($type == 'tree') {
             $array['parent_id'] = $item->parent_id;
             if ($item->chlidren) {
-                $array['children'] = $this->cast($item->chlidren, $type);
+                $array['children'] = $this->cast($item->chlidren, $type, $fields);
             }
         }
         return $array;

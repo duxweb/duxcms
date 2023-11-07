@@ -1,6 +1,6 @@
 import { useTranslate, useList } from '@refinedev/core'
-import { FormModal } from '@duxweb/dux-refine'
-import { Form, Input, Cascader } from 'tdesign-react/esm'
+import { FormModal, useSelect } from '@duxweb/dux-refine'
+import { Form, Input, Cascader, Select } from 'tdesign-react/esm'
 
 const Page = (props: Record<string, any>) => {
   const translate = useTranslate()
@@ -9,6 +9,17 @@ const Page = (props: Record<string, any>) => {
     resource: 'content.category',
   })
   const list = data?.data || []
+
+  const { options, queryResult: magicResult } = useSelect({
+    resource: 'tools.magic',
+    meta: {
+      params: {
+        inline: 1,
+      },
+    },
+    optionLabel: 'label',
+    optionValue: 'id',
+  })
 
   return (
     <FormModal id={props?.id}>
@@ -26,6 +37,9 @@ const Page = (props: Record<string, any>) => {
       </Form.FormItem>
       <Form.FormItem label={translate('content.category.fields.name')} name='name'>
         <Input />
+      </Form.FormItem>
+      <Form.FormItem label={translate('content.category.fields.magic')} name='magic_id'>
+        <Select loading={magicResult.isLoading} options={options} clearable />
       </Form.FormItem>
     </FormModal>
   )

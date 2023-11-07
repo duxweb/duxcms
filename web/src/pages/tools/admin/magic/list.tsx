@@ -76,6 +76,11 @@ const List = () => {
                   {translate('tools.magic.fields.tree')}
                 </Tag>
               )}
+              {row.type === 'page' && (
+                <Tag variant='outline' theme='success'>
+                  {translate('tools.magic.fields.page')}
+                </Tag>
+              )}
             </>
           )
         },
@@ -85,18 +90,32 @@ const List = () => {
         title: translate('tools.magic.fields.external'),
         ellipsis: true,
         cell: ({ row }) => {
+          const external = row.external as string[]
           return (
-            <>
-              {row.external ? (
-                <Tag variant='outline' theme='danger'>
-                  {translate('tools.magic.fields.private')}
+            <div className='flex gap-2'>
+              {!external ? '-' : ''}
+              {external?.indexOf?.('read') ? (
+                <Tag variant='outline' theme='primary'>
+                  {translate('tools.magic.external.read')}
                 </Tag>
               ) : (
-                <Tag variant='outline' theme='primary'>
-                  {translate('tools.magic.fields.public')}
-                </Tag>
+                ''
               )}
-            </>
+              {external?.indexOf?.('create') ? (
+                <Tag variant='outline' theme='primary'>
+                  {translate('tools.magic.external.create')}
+                </Tag>
+              ) : (
+                ''
+              )}
+              {external?.indexOf?.('edit') ? (
+                <Tag variant='outline' theme='primary'>
+                  {translate('tools.magic.external.edit')}
+                </Tag>
+              ) : (
+                ''
+              )}
+            </div>
           )
         },
       },

@@ -17,6 +17,9 @@ class SourceListener
                 if (!$field['search']) {
                     continue;
                 }
+                if ($field['type'] == 'editor') {
+                    continue;
+                }
                 $fields[] = $field['name'];
             }
             $event->set(
@@ -33,13 +36,27 @@ class SourceListener
                             $query->where("data->$key", 'like', '%' . $keyword . '%');
                         }
                     }
-                    return $query->get()->map(function ($item) {
-                        return [
-                            'id' => $item->id,
-                            ...$item->data
-                        ];
-                    })->toArray();
+                    if ($item->type === 'tree') {
+                        $data = $query->get()->toTree();
+                    }else {
+                        $data = $query->get();
+                    }
+                    return $this->formatData($data);
                 });
         });
+    }
+
+    private function formatData($data) {
+        return $data->map(function ($item) {
+            $array = [
+                'id' => $item->id,
+                ...$item->data
+            ];
+            if ($item->children) {
+                $array['parent_id'] = $item->parent_id;
+                $array['children'] = $this->formatData($item->children);
+            }
+            return $array;
+        })->toArray();
     }
 }

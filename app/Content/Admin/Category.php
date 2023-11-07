@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace App\Content\Admin;
 
+use App\Content\Models\ArticleClass;
+use App\Tools\Models\ToolsMagic;
 use Dux\Resources\Action\Resources;
+use Dux\Resources\Attribute\Action;
 use Dux\Resources\Attribute\Resource;
 use Dux\Validator\Data;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 #[Resource(app: 'admin',  route: '/content/category', name: 'content.category')]
@@ -25,6 +29,7 @@ class Category extends Resources
             "id" => $item->id,
             "parent_id" => $item->parent_id,
             "name" => $item->name,
+            "magic_id" => $item->magic_id,
             "children" => $item->children ? $item->children->map(function ($vo) {
                 return $this->transform($vo);
             }) : []
@@ -43,6 +48,20 @@ class Category extends Resources
 		return [
 		    "name" => $data->name,
             "parent_id" => $data->parent_id ?: 0,
+            "magic_id" => $data->magic_id,
 		];
 	}
+
+    #[Action(methods: 'GET', route: '/{id}/magic')]
+    public function magic(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $id = $args['id'];
+        $info = ArticleClass::query()->find($id);
+        $magicInfo = ToolsMagic::query()->find($info->magic_id);
+        if (!$magicInfo) {
+            return send($response, 'ok');
+        }
+        $magicInfo->fields = \App\Tools\Service\Magic::formatConfig($magicInfo->fields);
+        return send($response, 'ok', $magicInfo->toArray());
+    }
 }

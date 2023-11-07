@@ -26,6 +26,12 @@
         "labelDesc": "数据描述信息",
         "type": "数据类型",
         "typeDesc": "数据列表类型",
+        "treeLabel": "标签字段",
+        "treeLabelDesc": "树形列表标签字段名",
+        "affiliate": "附属模型",
+        "affiliateDesc": "是否为其他功能的附属模型",
+        "independentType": "独立",
+        "inlineType": "附属",
         "external": "数据权限",
         "externalDesc": "公开后外部接口可访问数据",
         "list": "列表",
@@ -44,6 +50,11 @@
         "groupIcon": "分组图标",
         "addGroup": "添加分组",
         "editGroup": "编辑分组"
+      },
+      "external": {
+        "read": "读取",
+        "create": "创建",
+        "edit": "编辑"
       },
       "validate": {
         "label": "请输入数据标签",

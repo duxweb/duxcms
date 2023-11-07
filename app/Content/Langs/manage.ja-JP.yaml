@@ -4,9 +4,13 @@ content:
     name: 記事の内容
     validator:
       title: タイトルを入力してください
-      author: 作者を入力してください
+      source: 作者を入力してください
   category:
     name: 記事の分類
+    validator:
+      name: 名前を入力してください
+  source:
+    name: 記事のソース
     validator:
       name: 名前を入力してください
   page:
@@ -20,6 +24,6 @@ content:
       title: タイトルを入力してください
       name: 呼び出し名を入力してください
   menuData:
-    name: メニュー组
+    name: メニューグループ
     validator:
       title: グループ化タイトルを入力してください

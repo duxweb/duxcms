@@ -14,6 +14,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class Template
 {
 
+    #[Action(methods: 'GET', route: '')]
     public function list(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $configList = glob(base_path('theme/*/config.json'));

@@ -10,7 +10,6 @@ const List = () => {
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
-      { colKey: 'row-select', type: 'multiple' },
       {
         colKey: 'id',
         sorter: true,
@@ -25,7 +24,7 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <MediaText size='small'>
-              <MediaText.Image src={row.image}></MediaText.Image>
+              {row.images[0] && <MediaText.Image src={row.images[0]}></MediaText.Image>}
               <MediaText.Title>{row.title}</MediaText.Title>
               <MediaText.Desc>{row.subtitle}</MediaText.Desc>
             </MediaText>
@@ -33,8 +32,8 @@ const List = () => {
         },
       },
       {
-        colKey: 'author',
-        title: translate('content.article.fields.author'),
+        colKey: 'source',
+        title: translate('content.article.fields.source'),
         minWidth: 200,
       },
       {

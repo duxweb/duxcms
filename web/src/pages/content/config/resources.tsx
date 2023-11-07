@@ -40,6 +40,16 @@ export const adminResources = (app: App) => {
         label: 'content.category',
       },
     },
+
+    {
+      name: 'content.source',
+      list: 'content/source',
+      listElenemt: lazyComponent(() => import('../admin/source/list')),
+      meta: {
+        parent: 'content.articleGroup',
+        label: 'content.source',
+      },
+    },
     {
       name: 'content.page',
       list: 'content/page',

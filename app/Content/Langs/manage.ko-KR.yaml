@@ -4,9 +4,13 @@ content:
     name: 기사 내용
     validator:
       title: 제목을 입력하십시오.
-      author: 작성자를 입력하십시오.
+      source: 작성자를 입력하십시오.
   category:
     name: 문장 분류
+    validator:
+      name: 이름을 입력하십시오.
+  source:
+    name: 기사 출처
     validator:
       name: 이름을 입력하십시오.
   page:
@@ -20,6 +24,6 @@ content:
       title: 제목을 입력하십시오.
       name: 호출 이름을 입력하십시오.
   menuData:
-    name: 메뉴组
+    name: 메뉴 그룹
     validator:
       title: 그룹 제목을 입력하십시오.

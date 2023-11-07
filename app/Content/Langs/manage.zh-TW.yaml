@@ -4,9 +4,13 @@ content:
     name: 文章內容
     validator:
       title: 請輸入標題
-      author: 請輸入作者
+      source: 請輸入作者
   category:
     name: 文章分類
+    validator:
+      name: 請輸入名稱
+  source:
+    name: 文章來源
     validator:
       name: 請輸入名稱
   page:
@@ -20,6 +24,6 @@ content:
       title: 請輸入標題
       name: 請輸入調用名
   menuData:
-    name: 選單组
+    name: 選單組
     validator:
       title: 請輸入分組標題

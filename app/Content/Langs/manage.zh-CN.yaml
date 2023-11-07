@@ -4,9 +4,13 @@ content:
     name: 文章内容
     validator:
       title: 请输入标题
-      author: 请输入作者
+      source: 请输入作者
   category:
     name: 文章分类
+    validator:
+      name: 请输入名称
+  source:
+    name: 文章来源
     validator:
       name: 请输入名称
   page:

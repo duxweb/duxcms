@@ -11,7 +11,7 @@ class Permission
 
     static function Admin(\Dux\Permission\Permission $permission, Bootstrap $bootstrap): void
     {
-        $data = Magic::getPermission($bootstrap);
+        $data = Magic::getMenu($bootstrap);
         foreach ($data as $vo) {
             $group = $permission->group("tools.data." . $vo['name'])->label($vo['label']);
             foreach ($vo['children'] as $item) {

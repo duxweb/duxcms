@@ -25,7 +25,7 @@ class Role extends Resources {
         return [
             "id" => $item->id,
             "name" => $item->name,
-            "permission" => array_keys(array_filter($item->permission))
+            "permission" => array_keys(array_filter($item->permission ?: []))
         ];
     }
 

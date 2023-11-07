@@ -20,6 +20,7 @@ class ArticleClass extends \Dux\Database\Model
 	public function migration(Blueprint $table)
 	{
 		$table->id();
+        $table->bigInteger('magic_id')->nullable();
         $table->string('name');
         NestedSet::columns($table);
 		$table->timestamps();

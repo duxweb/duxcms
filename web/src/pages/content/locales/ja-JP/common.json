@@ -1,8 +1,8 @@
 {
   "content": {
-    "name": "コンテンツ",
+    "name": "内容",
     "articleGroup": {
-      "name": "記事管理"
+      "name": "記事の管理"
     },
     "article": {
       "name": "記事リスト",
@@ -12,25 +12,38 @@
         "unpublished": "未公開"
       },
       "validate": {
-        "title": "タイトルを入力してください"
+        "title": "タイトルを入力してください",
+        "class": "分類を選択してください"
       },
       "fields": {
-        "category": "カテゴリ",
+        "category": "分類",
         "title": "タイトル",
         "subtitle": "サブタイトル",
-        "image": "カバー画像",
+        "image": "表紙図",
+        "imagesAuto": "カバーの抽出",
+        "auto": "自動",
+        "manual": "手動",
         "status": "ステータス",
-        "author": "著者",
+        "source": "ソース",
         "content": "内容",
-        "virtualView": "仮想閲覧数",
-        "createdAt": "作成日時"
+        "virtualView": "仮想ブラウズ",
+        "createdAt": "作成時間"
+      }
+    },
+    "source": {
+      "name": "記事のソース",
+      "fields": {
+        "name": "の名前をあげる",
+        "avatar": "アイコン",
+        "createdAt": "作成時間"
       }
     },
     "category": {
-      "name": "記事カテゴリ",
+      "name": "記事の分類",
       "fields": {
-        "parent": "親カテゴリ",
-        "name": "名前"
+        "parent": "親分類",
+        "magic": "キューブデータ",
+        "name": "の名前をあげる"
       }
     },
     "page": {
@@ -47,29 +60,31 @@
         "name": "呼び出し名",
         "title": "タイトル",
         "subtitle": "サブタイトル",
-        "image": "カバー画像",
+        "image": "表紙図",
         "status": "ステータス",
         "content": "内容",
-        "virtualView": "仮想閲覧数",
-        "createdAt": "作成日時"
+        "virtualView": "仮想ブラウズ",
+        "createdAt": "作成時間"
       }
     },
     "menu": {
       "name": "メニュー管理",
       "fields": {
-        "addGroup": "グループを作成",
-        "editGroup": "グループを編集",
+        "addGroup": "グループの作成",
+        "editGroup": "グループの編集",
         "title": "メニュータイトル",
-        "subtitle": "メニューサブタイトル",
+        "subtitle": "メニューのサブタイトル",
         "image": "メニュー画像",
         "url": "メニューリンク",
         "parent": "親メニュー",
         "groupName": "メニューグループ名",
         "groupTitle": "メニューグループの説明"
+
       },
       "placeholder": {
         "group": "メニューグループを選択してください"
       }
     }
   }
+  
 }

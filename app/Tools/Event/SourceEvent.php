@@ -13,13 +13,14 @@ class SourceEvent extends Event
     {
     }
 
-    public function set(string $name, string $label, string $route, callable $data): void
+    public function set(string $name, string $label, string $route, callable $data, callable $format = null): void
     {
         $this->data[$name] = [
             'name' => $name,
             'label' => $label,
             'route' => $route,
-            'data' => $data
+            'data' => $data,
+            'format' => $format
         ];
     }
 

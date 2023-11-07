@@ -4,9 +4,13 @@ content:
     name: Статьи
     validator:
       title: Введите заголовок
-      author: Введите автора
+      source: Введите автора
   category:
     name: Классификация статей
+    validator:
+      name: Введите имя
+  source:
+    name: Источник статьи
     validator:
       name: Введите имя
   page:
@@ -20,6 +24,6 @@ content:
       title: Введите заголовок
       name: Введите имя вызова
   menuData:
-    name: Меню组
+    name: Группа меню
     validator:
       title: Введите заголовок группы

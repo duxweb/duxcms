@@ -6,7 +6,7 @@ import {
   FormPageItem,
   useSelect,
 } from '@duxweb/dux-refine'
-import { Input, Radio, Select } from 'tdesign-react/esm'
+import { Form, Input, Radio, Select, Checkbox } from 'tdesign-react/esm'
 import { MagicEditor } from '@duxweb/dux-extend'
 
 const Page = () => {
@@ -64,6 +64,18 @@ const Page = () => {
       </FormPageItem>
 
       <FormPageItem
+        name='page'
+        label={translate('tools.magic.fields.option')}
+        help={translate('tools.magic.fields.optionDesc')}
+        initialData={0}
+      >
+        <Radio.Group>
+          <Radio value={0}>{translate('tools.magic.fields.modal')}</Radio>
+          <Radio value={1}>{translate('tools.magic.fields.page')}</Radio>
+        </Radio.Group>
+      </FormPageItem>
+
+      <FormPageItem
         name='type'
         label={translate('tools.magic.fields.type')}
         help={translate('tools.magic.fields.typeDesc')}
@@ -77,28 +89,57 @@ const Page = () => {
         </Radio.Group>
       </FormPageItem>
 
+      <Form.FormItem shouldUpdate={(prev, next) => prev.type !== next.type}>
+        {({ getFieldValue }) => {
+          if (getFieldValue('type') === 'tree') {
+            return (
+              <FormPageItem
+                name='tree_label'
+                label={translate('tools.magic.fields.treeLabel')}
+                help={translate('tools.magic.fields.treeLabelDesc')}
+              >
+                <Input />
+              </FormPageItem>
+            )
+          }
+          return <></>
+        }}
+      </Form.FormItem>
+
+      <FormPageItem
+        name='inline'
+        label={translate('tools.magic.fields.affiliate')}
+        help={translate('tools.magic.fields.affiliateDesc')}
+        initialData={0}
+      >
+        <Radio.Group>
+          <Radio value={0}>{translate('tools.magic.fields.independentType')}</Radio>
+          <Radio value={1}>{translate('tools.magic.fields.inlineType')}</Radio>
+        </Radio.Group>
+      </FormPageItem>
+
       <FormPageItem
         name='external'
         label={translate('tools.magic.fields.external')}
         help={translate('tools.magic.fields.externalDesc')}
         initialData={0}
       >
-        <Radio.Group>
-          <Radio value={0}>{translate('tools.magic.fields.public')}</Radio>
-          <Radio value={1}>{translate('tools.magic.fields.private')}</Radio>
-        </Radio.Group>
-      </FormPageItem>
-
-      <FormPageItem
-        name='page'
-        label={translate('tools.magic.fields.option')}
-        help={translate('tools.magic.fields.optionDesc')}
-        initialData={0}
-      >
-        <Radio.Group>
-          <Radio value={0}>{translate('tools.magic.fields.modal')}</Radio>
-          <Radio value={1}>{translate('tools.magic.fields.page')}</Radio>
-        </Radio.Group>
+        <Checkbox.Group
+          options={[
+            {
+              value: 'read',
+              label: translate('tools.magic.external.read'),
+            },
+            {
+              value: 'create',
+              label: translate('tools.magic.external.create'),
+            },
+            {
+              value: 'edit',
+              label: translate('tools.magic.external.edit'),
+            },
+          ]}
+        />
       </FormPageItem>
 
       <FormPageItem

@@ -1,24 +1,24 @@
 {
-  "name": "duxweb/duxcms",
-  "type": "project",
-  "description": "Lightweight project development system",
-  "keywords": [
-    "duxphp",
-    "slimphp"
-  ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "require": {
-    "duxweb/dux-lite": "main-dev"
-  },
-  "autoload": {
-    "psr-4": {
-      "App\\": "app/",
-      "Console\\": "console/"
-    }
-  },
-
-  "repositories": [
-  ],
-  "license": "MIT"
+    "name": "duxweb/duxcms",
+    "type": "project",
+    "description": "Lightweight project development system",
+    "keywords": [
+        "duxphp",
+        "slimphp"
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "duxweb/dux-lite": "main-dev",
+        "overtrue/easy-sms": "^2.5",
+        "voku/simple_html_dom": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Console\\": "console/"
+        }
+    },
+    "repositories": [],
+    "license": "MIT"
 }

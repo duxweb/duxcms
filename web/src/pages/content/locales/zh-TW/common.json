@@ -8,21 +8,33 @@
       "name": "文章列表",
       "tab": {
         "all": "全部",
-        "published": "已發布",
-        "unpublished": "未發布"
+        "published": "已發佈",
+        "unpublished": "未發佈"
       },
       "validate": {
-        "title": "請輸入標題"
+        "title": "請輸入標題",
+        "class": "請選擇分類"
       },
       "fields": {
         "category": "分類",
         "title": "標題",
         "subtitle": "子標題",
         "image": "封面圖",
+        "imagesAuto": "選取封面",
+        "auto": "自動",
+        "manual": "手動",
         "status": "狀態",
-        "author": "作者",
+        "source": "來源",
         "content": "內容",
-        "virtualView": "虛擬瀏覽量",
+        "virtualView": "虛擬流覽量",
+        "createdAt": "創建時間"
+      }
+    },
+    "source": {
+      "name": "文章來源",
+      "fields": {
+        "name": "名稱",
+        "avatar": "頭像",
         "createdAt": "創建時間"
       }
     },
@@ -30,6 +42,7 @@
       "name": "文章分類",
       "fields": {
         "parent": "上級分類",
+        "magic": "魔方數據",
         "name": "名稱"
       }
     },
@@ -37,8 +50,8 @@
       "name": "頁面管理",
       "tab": {
         "all": "全部",
-        "published": "已發布",
-        "unpublished": "未發布"
+        "published": "已發佈",
+        "unpublished": "未發佈"
       },
       "validate": {
         "title": "請輸入標題"
@@ -50,26 +63,28 @@
         "image": "封面圖",
         "status": "狀態",
         "content": "內容",
-        "virtualView": "虛擬瀏覽量",
+        "virtualView": "虛擬流覽量",
         "createdAt": "創建時間"
       }
     },
     "menu": {
-      "name": "菜單管理",
+      "name": "選單管理",
       "fields": {
         "addGroup": "創建組",
         "editGroup": "編輯組",
-        "title": "菜單標題",
-        "subtitle": "菜單副標題",
-        "image": "菜單圖片",
-        "url": "菜單鏈接",
-        "parent": "上級菜單",
-        "groupName": "菜單組名",
-        "groupTitle": "菜單組描述"
+        "title": "選單標題",
+        "subtitle": "選單副標題",
+        "image": "選單圖片",
+        "url": "選單連結",
+        "parent": "上級選單",
+        "groupName": "選單組名",
+        "groupTitle": "選單組描述"
+
       },
       "placeholder": {
-        "group": "請選擇菜單組"
+        "group": "請選擇功能表組"
       }
     }
   }
+  
 }

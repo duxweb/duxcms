@@ -4,18 +4,13 @@ declare(strict_types=1);
 
 namespace App\Tools\Admin;
 
-use App\Tools\Models\ToolsArea;
 use App\Tools\Models\ToolsMagic;
 use Dux\App;
 use Dux\Handlers\ExceptionBusiness;
-use Dux\Manage\Manage;
 use Dux\Resources\Action\Resources;
 use Dux\Resources\Attribute\Resource;
 use Dux\Resources\Attribute\Action;
-use Dux\Route\Attribute\Route;
-use Dux\Utils\Excel;
 use Dux\Validator\Data;
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -39,6 +34,8 @@ class Magic extends Resources
             "type" => $item->type,
             'page' => $item->page,
             "external" => $item->external,
+            "tree_label" => $item->tree_label,
+            "inline" => (int)$item->inline,
             "fields" => $item->fields
         ];
     }
@@ -55,6 +52,12 @@ class Magic extends Resources
         if ($params['group']) {
             $query->where('group', $params['group']);
         }
+
+        if ($params['inline']) {
+            $query->where('inline', $params['inline']);
+        }
+
+        $query->orderByDesc('id');
     }
 
     public function validator(array $data, ServerRequestInterface $request, array $args): array
@@ -91,6 +94,7 @@ class Magic extends Resources
             'type' => $data->type,
             'page' => (int)$data->page,
             "external" => $data->external,
+            "inline" => $data->inline,
             "fields" => $data->fields,
         ];
     }
@@ -151,28 +155,11 @@ class Magic extends Resources
         if (!$info) {
             throw new ExceptionBusiness(__('tools.magic.validator.data', 'manage'));
         }
-        $info->fields = $this->formatConfig($info->fields);
+        $info->fields = \App\Tools\Service\Magic::formatConfig($info->fields);
 
         return send($response, 'ok', $info?->toArray());
     }
 
-    public function formatConfig(array $fields): array
-    {
-        return array_map(function ($item) {
-            $setting = $item['setting'];
-            if ($setting['options'] && is_string($setting['options'])) {
-                $setting['options'] = json_decode($setting['options'], true);
-            }
-            if ($setting['rules']) {
-                $setting['rules'] = json_decode($setting['rules'], true);
-            }
-            $item['setting'] = $setting;
-            if ($item['child'] && is_array($item['child'])) {
-                $item['child'] = $this->formatConfig($item['child']);
-            }
 
-            return $item;
-        }, $fields);
-    }
 
 }

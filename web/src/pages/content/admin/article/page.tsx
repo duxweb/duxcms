@@ -3,19 +3,43 @@ import {
   FormPage,
   formatUploadSingle,
   getUploadSingle,
-  useUpload,
   Editor,
+  useClient,
+  UploadImage,
+  useSelect,
 } from '@duxweb/dux-refine'
-import { Form, Input, Upload, Radio, Cascader } from 'tdesign-react/esm'
+import { Form, Input, Radio, Cascader, AutoComplete } from 'tdesign-react/esm'
+import { useEffect, useState } from 'react'
+import { MagicFormRender } from '@duxweb/dux-extend'
 
 const Page = () => {
-  const uploadParams = useUpload()
   const translate = useTranslate()
   const { id } = useResource()
   const { data, isLoading } = useList({
     resource: 'content.category',
   })
   const list = data?.data || []
+  const [form] = Form.useForm()
+  const classId = Form.useWatch('class_id', form)
+  const { request } = useClient()
+  const [magic, setMagic] = useState<Record<string, any>>()
+
+  useEffect(() => {
+    if (!classId) {
+      setMagic(undefined)
+      return
+    }
+    request(`content/category/${classId}/magic`, 'get').then((res) => {
+      setMagic(res?.data || {})
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [classId])
+
+  const { options: sourceData } = useSelect({
+    resource: 'content.source',
+    optionLabel: 'name',
+    optionValue: 'id',
+  })
 
   return (
     <FormPage
@@ -23,6 +47,7 @@ const Page = () => {
         labelAlign: 'top',
       }}
       back
+      form={form}
       id={id}
       initFormat={(data) => {
         data.image = formatUploadSingle(data.image)
@@ -34,27 +59,30 @@ const Page = () => {
       }}
       settingRender={
         <>
-          <Form.FormItem label={translate('content.article.fields.category')} name='class_id'>
-            <Cascader
-              loading={isLoading}
-              options={list}
-              keys={{
-                label: 'name',
-                value: 'id',
-              }}
-              clearable
-              checkStrictly
-            />
-          </Form.FormItem>
           <Form.FormItem label={translate('content.article.fields.subtitle')} name='subtitle'>
             <Input />
           </Form.FormItem>
-          <Form.FormItem label={translate('content.article.fields.image')} name='image'>
-            <Upload {...uploadParams} theme='image' accept='image/*' />
+          <Form.FormItem label={translate('content.article.fields.image')} name='images'>
+            <UploadImage multiple accept='image/*' />
           </Form.FormItem>
-          <Form.FormItem label={translate('content.article.fields.author')} name='author'>
-            <Input />
+
+          <Form.FormItem
+            label={translate('content.article.fields.imagesAuto')}
+            name='images_auto'
+            initialData={true}
+          >
+            <Radio.Group>
+              <Radio value={true}>{translate('content.article.fields.auto')}</Radio>
+              <Radio value={false}>{translate('content.article.fields.manual')}</Radio>
+            </Radio.Group>
           </Form.FormItem>
+
+          <Form.FormItem label={translate('content.article.fields.source')} name='source'>
+            <AutoComplete options={sourceData} highlightKeyword filterable={false} clearable />
+          </Form.FormItem>
+
+          {magic?.fields && <MagicFormRender fields={magic?.fields} prefix='extend' />}
+
           <Form.FormItem
             label={translate('content.article.fields.status')}
             name='status'
@@ -68,12 +96,26 @@ const Page = () => {
         </>
       }
     >
+      <Form.FormItem name='class_id'>
+        <Cascader
+          loading={isLoading}
+          options={list}
+          keys={{
+            label: 'name',
+            value: 'id',
+          }}
+          clearable
+          checkStrictly
+          placeholder={translate('content.article.validate.class')}
+        />
+      </Form.FormItem>
+
       <Form.FormItem name='title'>
-        <Input size='large' placeholder={translate('content.article.validate.title')} />
+        <Input placeholder={translate('content.article.validate.title')} />
       </Form.FormItem>
 
       <Form.FormItem name='content'>
-        <Editor />
+        <Editor className='max-h-100' />
       </Form.FormItem>
     </FormPage>
   )

@@ -4,9 +4,13 @@ content:
     name: Article content
     validator:
       title: Please enter a title
-      author: Please enter the author
+      source: Please enter the author
   category:
     name: Article classification
+    validator:
+      name: Please enter a name
+  source:
+    name: Article Source
     validator:
       name: Please enter a name
   page:
@@ -20,6 +24,6 @@ content:
       title: Please enter a title
       name: Please enter the call name
   menuData:
-    name: menu组
+    name: Menu group
     validator:
       title: Please enter the group title

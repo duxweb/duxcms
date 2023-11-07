@@ -22,8 +22,10 @@ class ToolsMagic extends \Dux\Database\Model
         $table->string("label")->comment('标签')->index();
         $table->string("name")->comment('数据名')->index();
         $table->string("type")->comment('数据类型')->default('common');
+        $table->string("tree_label")->comment('数据类型')->nullable();
+        $table->boolean("inline")->comment('附属模型')->nullable();
         $table->boolean("page")->comment('页面操作')->default(false);
-        $table->boolean("external")->comment('数据权限')->default(0);
+        $table->json("external")->comment('数据权限')->nullable();
         $table->json('fields')->comment('数据字段')->nullable();
         $table->timestamps();
     }
@@ -34,6 +36,7 @@ class ToolsMagic extends \Dux\Database\Model
 
     protected $casts = [
         'fields' => 'array',
+        'external' => 'array'
     ];
 
     public function group(): \Illuminate\Database\Eloquent\Relations\HasOne

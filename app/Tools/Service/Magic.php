@@ -8,6 +8,7 @@ use App\Tools\Models\ToolsMagicGroup;
 use App\Tools\Models\ToolsMagicData;
 use Dux\App;
 use Dux\Bootstrap;
+use Dux\Validator\Validator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
@@ -19,81 +20,54 @@ class Magic
         return 'magic.menus';
     }
 
-    public static function keyPermission(): string
-    {
-        return 'magic.permission';
-    }
-
     public static function getMenu(?Bootstrap $bootstrap): array
     {
+        $key = self::keyMenu();
         $cache = $bootstrap?->cache ?: App::cache();
-        $data = $cache->get(self::keyMenu());
-        if ($data) {
-            return json_decode($data, true);
+
+        if ($cache->has($key)) {
+            return json_decode($cache->get($key), true);
         }
         try {
             $connect = App::db()->getConnection();
             if ($connect->getSchemaBuilder()->hasTable('magic') && $connect->getSchemaBuilder()->hasTable('magic_group')) {
+
                 $groupData = ToolsMagicGroup::query()->with(['magics'])->get();
                 $data = [];
                 foreach ($groupData as $group) {
+                    $children = $group->magics->filter(function ($item) {
+                        if ($item->inline) {
+                            return false;
+                        }
+                        return true;
+                    })->map(function ($item) {
+                        return [
+                            'name' => $item->name,
+                            'label' => $item->label
+                        ];
+                    })->values()->toArray();
+
+                    if (!$children) {
+                        continue;
+                    }
                     $data[] = [
                         'name' => $group->name,
                         'label' => $group->label,
                         'icon' => $group->icon,
-                        'children' => $group->magics->map(function ($item) {
-                            return [
-                                'name' => $item->name,
-                                'label' => $item->label
-                            ];
-                        })->toArray()
+                        'children' => $children
                     ];
                 }
-
-                $cache->set(self::keyMenu(), json_encode($data), 2 * 60 * 60);
+                $cache->set($key, json_encode($data));
             }
         } catch (\Exception $e) {
         }
-        return $data ?: [];
-    }
 
-    public static function getPermission(?Bootstrap $bootstrap): array
-    {
-        $cache = $bootstrap?->cache ?: App::cache();
-        $data = $cache->get(self::keyPermission());
-        if ($data) {
-            return json_decode($data, true);
-        }
-        try {
-            $connect = App::db()->getConnection();
-            if ($connect->getSchemaBuilder()->hasTable('magic') && $connect->getSchemaBuilder()->hasTable('magic_group')) {
-                $groupData = ToolsMagicGroup::query()->with(['magics'])->get();
-                $data = [];
-                foreach ($groupData as $group) {
-                    $data[] = [
-                        'name' => $group->name,
-                        'label' => $group->label,
-                        'icon' => $group->icon,
-                        'children' => $group->magics->map(function ($item) {
-                            return [
-                                'name' => $item->name,
-                                'label' => $item->label
-                            ];
-                        })->toArray()
-                    ];
-                }
-
-                $cache->set(self::keyMenu(), json_encode($data), 2 * 60 * 60);
-            }
-        } catch (\Exception $e) {
-        }
         return $data ?: [];
     }
 
     public static function clean(): void
     {
         App::cache()->delete(self::keyMenu());
-        App::cache()->delete(self::keyPermission());
     }
 
     /**
@@ -235,5 +209,42 @@ class Magic
         }
     }
 
+
+    public static function formatData(array $fields, array $data): array
+    {
+        $data = Validator::parser($data, Validator::rule($fields));
+        $sources = \App\Tools\Service\Magic::source();
+        $saveData = [];
+        foreach ($fields as $item) {
+            $value = $data[$item['name']];
+            if ($item['setting']['source']) {
+                $format = $sources[$item['setting']['source']]['format'];
+                if ($format) {
+                    $value = $format($value);
+                }
+            }
+            $saveData[$item['name']] = $value;
+        }
+        return $saveData;
+    }
+
+    public static function formatConfig(array $fields): array
+    {
+        return array_map(function ($item) {
+            $setting = $item['setting'];
+            if ($setting['options'] && is_string($setting['options'])) {
+                $setting['options'] = json_decode($setting['options'], true);
+            }
+            if ($setting['rules']) {
+                $setting['rules'] = json_decode($setting['rules'], true);
+            }
+            $item['setting'] = $setting;
+            if ($item['child'] && is_array($item['child'])) {
+                $item['child'] = self::formatConfig($item['child']);
+            }
+
+            return $item;
+        }, $fields);
+    }
 
 }

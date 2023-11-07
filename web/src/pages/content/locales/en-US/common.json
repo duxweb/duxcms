@@ -1,42 +1,55 @@
 {
   "content": {
-    "name": "Content",
+    "name": "content",
     "articleGroup": {
-      "name": "Article"
+      "name": "Article Management"
     },
     "article": {
       "name": "Article List",
       "tab": {
-        "all": "All",
+        "all": "whole",
         "published": "Published",
         "unpublished": "Unpublished"
       },
       "validate": {
-        "title": "Please enter a title"
+        "title": "Please enter a title",
+        "class": "Please select a classification"
       },
       "fields": {
-        "category": "Categories",
-        "title": "Title",
-        "subtitle": "Subtitle",
-        "image": "Cover Image",
-        "status": "Status",
-        "author": "Author",
-        "content": "Content",
-        "virtualView": "Virtual Views",
-        "createdAt": "Created At"
+        "category": "classification",
+        "title": "title",
+        "subtitle": "subtitle",
+        "image": "Cover image",
+        "imagesAuto": "Extract Cover",
+        "auto": "automatic",
+        "manual": "Manual",
+        "status": "state",
+        "source": "source",
+        "content": "content",
+        "virtualView": "Virtual views",
+        "createdAt": "Creation time"
+      }
+    },
+    "source": {
+      "name": "Article Source",
+      "fields": {
+        "name": "name",
+        "avatar": "Avatar",
+        "createdAt": "Creation time"
       }
     },
     "category": {
-      "name": "Article Categories",
+      "name": "Article classification",
       "fields": {
-        "parent": "Parent Category",
-        "name": "Name"
+        "parent": "Category parent ",
+        "magic": "Rubik's Cube Data",
+        "name": "name"
       }
     },
     "page": {
-      "name": "Page",
+      "name": "Page Management",
       "tab": {
-        "all": "All",
+        "all": "whole",
         "published": "Published",
         "unpublished": "Unpublished"
       },
@@ -45,31 +58,33 @@
       },
       "fields": {
         "name": "Call Name",
-        "title": "Title",
-        "subtitle": "Subtitle",
-        "image": "Cover Image",
-        "status": "Status",
-        "content": "Content",
-        "virtualView": "Virtual Views",
-        "createdAt": "Created At"
+        "title": "title",
+        "subtitle": "subtitle",
+        "image": "Cover image",
+        "status": "state",
+        "content": "content",
+        "virtualView": "Virtual views",
+        "createdAt": "Creation time"
       }
     },
     "menu": {
-      "name": "Menu",
+      "name": "Menu management",
       "fields": {
         "addGroup": "Create Group",
         "editGroup": "Edit Group",
-        "title": "Menu Title",
-        "subtitle": "Menu Subtitle",
-        "image": "Menu Image",
+        "title": "menu title",
+        "subtitle": "Menu subtitle",
+        "image": "Menu image",
         "url": "Menu Link",
         "parent": "Parent Menu",
         "groupName": "Menu Group Name",
         "groupTitle": "Menu Group Description"
+
       },
       "placeholder": {
         "group": "Please select a menu group"
       }
     }
   }
+  
 }

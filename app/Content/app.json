@@ -1,5 +1,9 @@
 {
     "name": "duxweb/content",
     "description": "Content Management Applications",
-    "version": "0.0.2"
+    "version": "0.0.4",
+    "phpDependencies": {
+        "overtrue/easy-sms": "^2.5",
+        "voku/simple_html_dom": "^4.8"
+    }
 }
