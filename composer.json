@@ -10,8 +10,6 @@
     "prefer-stable": true,
     "require": {
         "duxweb/dux-lite": "main-dev",
-        "overtrue/easy-sms": "^2.5",
-        "voku/simple_html_dom": "^4.8",
         "pelago/emogrifier": "^7.1"
     },
     "autoload": {
