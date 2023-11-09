@@ -1,27 +1,52 @@
 import React, { useCallback, useState } from 'react'
-import { useTranslate, useDelete } from '@refinedev/core'
-import { PrimaryTableCol, Link, Popconfirm, Tag, Tooltip, Loading, Dialog } from 'tdesign-react/esm'
-import { PageTable, MediaText, useClient } from '@duxweb/dux-refine'
+import { useTranslate } from '@refinedev/core'
+import {
+  PrimaryTableCol,
+  Link,
+  Popconfirm,
+  Tag,
+  Tooltip,
+  Loading,
+  Dialog,
+  Button,
+  MessagePlugin,
+  Input,
+} from 'tdesign-react/esm'
+import { PageTable, MediaText, useClient, Modal } from '@duxweb/dux-refine'
+import { Icon } from 'tdesign-icons-react'
 import dayjs from 'dayjs'
+import clsx from 'clsx'
+
+export const colorStyle: Record<string, any> = {
+  blue: 'bg-blue-7',
+  purple: 'bg-pink-7',
+  red: 'bg-red-7',
+  yellow: 'bg-yellow-7',
+  green: 'bg-green-7',
+  gray: 'bg-gray-7',
+}
 
 const List = () => {
   const translate = useTranslate()
-  const { mutate } = useDelete()
   const [loading, setLoading] = useState(false)
-  const [open, setOpen] = useState(false)
   const [log, setLog] = useState('')
   const client = useClient()
+  const [uninstall, setUninstall] = useState('')
+  const [password, setPassword] = useState('')
 
   const update = useCallback((name: string) => {
     client
-      .request('cloud/apps', 'put', {
+      .request('cloud/apps/update', 'post', {
         data: {
           name: name,
         },
       })
       .then((res) => {
+        if (res.statusCode !== 200) {
+          MessagePlugin.error(res.message)
+          return
+        }
         setLog(res?.data?.content)
-        setOpen(true)
       })
       .finally(() => {
         setLoading(false)
@@ -37,7 +62,10 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <MediaText size='small'>
-              <MediaText.Image src={row.icon}></MediaText.Image>
+              <MediaText.Image
+                src={row.icon}
+                className={clsx([colorStyle[row.color], 'p-2'])}
+              ></MediaText.Image>
               <MediaText.Title>{row.title}</MediaText.Title>
               <MediaText.Desc>{row.desc}</MediaText.Desc>
             </MediaText>
@@ -93,24 +121,18 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Link theme='primary' href={`https://www.dux.plus/apps/` + row.id} target='_black'>
+              <Link theme='primary' href={`https://www.dux.cn/apps/` + row.id} target='_black'>
                 {translate('buttons.show')}
               </Link>
-              <Popconfirm
-                content={translate('buttons.confirm')}
-                destroyOnClose
-                placement='top'
-                showArrow
-                theme='default'
-                onConfirm={() => {
-                  mutate({
-                    resource: 'cloud.apps',
-                    id: row.id,
-                  })
+
+              <Link
+                theme='danger'
+                onClick={() => {
+                  setUninstall(row.name)
                 }}
               >
-                <Link theme='danger'>{translate('buttons.delete')}</Link>
-              </Popconfirm>
+                {translate('buttons.delete')}
+              </Link>
             </div>
           )
         },
@@ -119,7 +141,6 @@ const List = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [translate],
   )
-
   return (
     <>
       <PageTable
@@ -131,14 +152,37 @@ const List = () => {
           },
         }}
         title={translate('cloud.apps.name')}
+        actionRender={() => (
+          <>
+            <Modal
+              title={translate('cloud.apps.action.login')}
+              trigger={
+                <Button icon={<Icon name='user' />} variant='outline' theme='primary'>
+                  {translate('cloud.apps.action.login')}
+                </Button>
+              }
+              component={() => import('./login')}
+            ></Modal>
+            <Modal
+              title={translate('cloud.apps.action.install')}
+              trigger={
+                <Button icon={<Icon name='uninstall' />} variant='outline' theme='success'>
+                  {translate('cloud.apps.action.install')}
+                </Button>
+              }
+              component={() => import('./install')}
+            ></Modal>
+          </>
+        )}
       />
       <Dialog
         className='app-modal'
         header='日志'
         footer={false}
-        visible={open}
+        visible={!!log}
+        destroyOnClose
         onClose={() => {
-          setOpen(false)
+          setLog('')
           window.location.reload()
         }}
       >
@@ -146,11 +190,59 @@ const List = () => {
           <pre className='overflow-auto rounded-lg p-4 bg-component'>{log}</pre>
         </div>
       </Dialog>
+
+      <Dialog
+        className='app-modal'
+        header='确认卸载'
+        visible={!!uninstall}
+        onClose={() => {
+          setPassword('')
+          setUninstall('')
+        }}
+        destroyOnClose
+        onConfirm={() => {
+          console.log(password)
+          setLoading(true)
+          client
+            .request('cloud/apps/delete', 'post', {
+              data: {
+                name: uninstall,
+                password: password,
+              },
+            })
+            .then((res) => {
+              if (res.statusCode !== 200) {
+                MessagePlugin.error(res.message)
+                return
+              }
+              setUninstall('')
+              setLog(res?.data?.content)
+            })
+            .finally(() => {
+              setLoading(false)
+            })
+        }}
+      >
+        <div className='p-4'>
+          <div className='mb-2 text-error'>卸载该应用不可恢复，需验证用户密码，请谨慎操作</div>
+          <Input
+            type='password'
+            value={password}
+            onChange={(value) => {
+              setPassword(() => {
+                return value
+              })
+              console.log(value)
+            }}
+          />
+        </div>
+      </Dialog>
+
       <Loading
         loading={loading}
         fullscreen
         preventScrollThrough={true}
-        text='更新中，请稍等'
+        text='处理中，请稍等'
       ></Loading>
     </>
   )

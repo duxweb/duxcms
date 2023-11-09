@@ -1,0 +1,10 @@
+cloud:
+  name: 云平台
+  apps:
+    name: 应用中心
+    validator:
+      notLogin: 暂未登录，请先进行登录
+      username: 请输入用户名密码
+    alert:
+      login: 登录成功
+

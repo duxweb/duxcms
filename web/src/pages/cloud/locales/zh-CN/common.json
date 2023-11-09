@@ -3,10 +3,20 @@
     "name": "云平台",
     "apps": {
       "name": "应用中心",
+      "action": {
+        "login": "登录",
+        "install": "安装",
+        "uninstall": "卸载"
+      },
       "fields": {
         "name": "应用",
         "time": "版本",
-        "update": "更新"
+        "update": "更新",
+        "username": "用户名",
+        "password": "密码"
+      },
+      "validator": {
+        "url": "请输入安装的地址"
       }
     }
   }

@@ -807,12 +807,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxweb/dux-lite.git",
-                "reference": "6b797b3f6409a106fd978bd3cab739302f3a28f9"
+                "reference": "b8df494cfcbb3a437b85541d0dcef4a2aa166552"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/6b797b3f6409a106fd978bd3cab739302f3a28f9",
-                "reference": "6b797b3f6409a106fd978bd3cab739302f3a28f9",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/b8df494cfcbb3a437b85541d0dcef4a2aa166552",
+                "reference": "b8df494cfcbb3a437b85541d0dcef4a2aa166552",
                 "shasum": ""
             },
             "require": {
@@ -905,7 +905,7 @@
                 "issues": "https://github.com/duxweb/dux-lite/issues",
                 "source": "https://github.com/duxweb/dux-lite"
             },
-            "time": "2023-11-08T18:55:35+00:00"
+            "time": "2023-11-09T13:32:59+00:00"
         },
         {
             "name": "enqueue/dsn",

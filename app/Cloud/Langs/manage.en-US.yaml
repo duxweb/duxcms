@@ -1,0 +1,30 @@
+system:
+  name: system
+  auth:
+    validator:
+      nickname: Please enter an account
+      password: Please enter the password
+    error:
+      login: Account or password error
+      passwordCheck: Login password error three times, wait for one minute
+  user:
+    name: Administrator Management
+    validator:
+      nickname: Please enter a nickname
+      username: enter one user name
+      usernameExists: The user already exists
+      password: Please enter the password
+      roles: Please select a role
+  role:
+    name: Administrator Role
+    validator:
+      name: Please enter a name
+    permission:
+      name: authority
+  operate:
+    name: Operation records
+  api:
+    name: Interface Authorization
+    validator:
+      name: Please enter a name
+
