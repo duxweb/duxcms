@@ -13,13 +13,13 @@
         {
             "name": "duxweb/cms",
             "description": "CMS Basic Application",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "app": "cms"
         },
         {
             "name": "duxweb/content",
             "description": "Content Management Applications",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "phpDependencies": {
                 "pelago/emogrifier": "^7.1"
             },
@@ -28,13 +28,13 @@
         {
             "name": "duxweb/base",
             "description": "System Base Applications",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "app": "system"
         },
         {
             "name": "duxweb/tools",
             "description": "System Tools Applications",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "app": "tools"
         }
     ]

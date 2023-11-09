@@ -6,7 +6,6 @@ import {
   UploadImage,
   useSelect,
   FormPageItem,
-  appHook,
 } from '@duxweb/dux-refine'
 import { Form, Input, Radio, Cascader, AutoComplete, Textarea, Checkbox } from 'tdesign-react/esm'
 import { useEffect, useState } from 'react'
@@ -82,8 +81,6 @@ const Page = () => {
           <Form.FormItem label={translate('content.article.fields.source')} name='source'>
             <AutoComplete options={sourceData} highlightKeyword filterable={false} clearable />
           </Form.FormItem>
-
-          <appHook.Render mark='content.article.form' />
 
           {magic?.fields && <MagicFormRender fields={magic?.fields} prefix='extend' />}
 

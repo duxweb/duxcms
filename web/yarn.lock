@@ -478,10 +478,8 @@
   resolved "https://registry.yarnpkg.com/@duxweb/dux-plugin/-/dux-plugin-0.0.7.tgz#30d784422bef4eeb4ef36717ff830e8f8aad9c59"
   integrity sha512-S37n3FiOiXOPZjpUKZUAwrUlR/ttaUuNyrosy/uHtj7pY62tKtOu31I1D61B89NayUCJKM4WuEFq65iZoJiU3g==
 
-"@duxweb/dux-refine@0.5.6":
+"@duxweb/dux-refine@file:.yalc/@duxweb/dux-refine":
   version "0.5.6"
-  resolved "https://registry.npmmirror.com/@duxweb/dux-refine/-/dux-refine-0.5.6.tgz#0454fcc92bf80f404c7ee9626301025b44709aae"
-  integrity sha512-0Dk1BvO9a/Zaj0hWBzDnd6+CbeOhSC87Olod4o1gl4ZWxQ+UrhtYcX0Ow2FGxsQ1VBJXbypIOIuxqGhVowg1Wg==
   dependencies:
     "@iconify-json/tabler" "^1.1.96"
     "@refinedev/cli" "2.16.14"
