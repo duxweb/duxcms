@@ -1,10 +1,10 @@
 {
-  "copyright": "All rights reserved © duxweb 2023",
+  "copyright": "All rights reserved ©  duxweb 2023",
   "userMenu": {
-    "setting": "設置"
+    "setting": "設定"
   },
   "admin": {
-    "title": "中後台管理系統"
+    "title": "中後臺管理系統"
   },
   "system": {
     "name": "系統",
@@ -28,7 +28,7 @@
       }
     },
     "role": {
-      "name": "角色列表",
+      "name": "角色清單",
       "fields": {
         "permission": "權限",
         "name": "名稱"
@@ -41,26 +41,26 @@
       "name": "操作記錄",
       "fields": {
         "user": "用戶",
-        "client": "客戶端",
+        "client": "用戶端",
         "request": "請求",
         "requestMethod": "請求方法",
-        "requestUrl": "請求 Url",
+        "requestUrl": "請求Url",
         "requestTime": "請求時間",
         "requestParams": "請求參數"
       },
       "filters": {
-        "userPlaceholder": "請搜索選擇用戶",
+        "userPlaceholder": "請蒐索選擇用戶",
         "method": {
           "placeholder": "請選擇方法",
           "post": "創建",
           "put": "編輯",
           "patch": "更新",
-          "delete": "刪除"
+          "delete": "删除"
         }
       }
     },
     "api": {
-      "name": "接口授權",
+      "name": "介面授權",
       "fields": {
         "name": "名稱",
         "secretId": "Secret Id",

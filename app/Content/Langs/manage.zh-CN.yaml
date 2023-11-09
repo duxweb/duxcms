@@ -10,6 +10,8 @@ content:
     validator:
       name: 请输入名称
       article: 请先删除该分类下文章
+    magic:
+      name: 魔方数据
   source:
     name: 文章来源
     validator:
@@ -20,15 +22,15 @@ content:
       title: 请输入标题
       name: 请输入调用名
   menu:
-    name: 菜单
+    name: 菜单管理
     validator:
       title: 请输入标题
       name: 请输入调用名
   menuData:
-    name: 菜单组
+    name: 菜单组管理
     validator:
       title: 请输入分组标题
   comment:
-    name: 评论
+    name: 文章评论
   recommend:
-    name: 推荐
+    name: 文章推荐

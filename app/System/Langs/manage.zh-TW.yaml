@@ -8,7 +8,7 @@ system:
       login: 帳號或者密碼錯誤
       passwordCheck: 三次登入密碼錯誤，等待一分鐘
   user:
-    name: 用戶管理
+    name: 管理員管理
     validator:
       nickname: 請輸入昵稱
       username: 請輸入用戶名
@@ -16,7 +16,7 @@ system:
       password: 請輸入密碼
       roles: 請選擇角色
   role:
-    name: 角色管理
+    name: 管理員角色
     validator:
       name: 請輸入名稱
     permission:

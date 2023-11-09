@@ -26,6 +26,8 @@ tools:
       name: 数据源
     config:
       name: 配置
+    sourceData:
+      name: 数据
 extend:
   name: 扩展
   magic:

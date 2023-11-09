@@ -10,6 +10,8 @@ content:
     validator:
       name: 名前を入力してください
       article: まずこの分類の下の記事を削除してください
+    magic:
+      name: キューブデータ
   source:
     name: 記事のソース
     validator:
@@ -20,15 +22,15 @@ content:
       title: タイトルを入力してください
       name: 呼び出し名を入力してください
   menu:
-    name: メニュー
+    name: メニュー管理
     validator:
       title: タイトルを入力してください
       name: 呼び出し名を入力してください
   menuData:
-    name: メニューグループ
+    name: メニューグループ管理
     validator:
       title: グループ化タイトルを入力してください
   comment:
-    name: コメント
+    name: 記事のコメント
   recommend:
-    name: 推奨
+    name: 記事のおすすめ

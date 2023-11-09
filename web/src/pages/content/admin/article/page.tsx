@@ -5,8 +5,8 @@ import {
   useClient,
   UploadImage,
   useSelect,
-  SelectAsync,
   FormPageItem,
+  appHook,
 } from '@duxweb/dux-refine'
 import { Form, Input, Radio, Cascader, AutoComplete, Textarea, Checkbox } from 'tdesign-react/esm'
 import { useEffect, useState } from 'react'
@@ -83,17 +83,7 @@ const Page = () => {
             <AutoComplete options={sourceData} highlightKeyword filterable={false} clearable />
           </Form.FormItem>
 
-          <Form.FormItem label={translate('content.article.fields.activity')} name='activity_id'>
-            <SelectAsync
-              url='activity/activity'
-              placeholder={translate('content.article.validate.activity')}
-              optionLabel='title'
-              optionValue='id'
-              clearable
-              filterable
-              pagination
-            />
-          </Form.FormItem>
+          <appHook.Render mark='content.article.form' />
 
           {magic?.fields && <MagicFormRender fields={magic?.fields} prefix='extend' />}
 

@@ -2,8 +2,7 @@
 
 namespace App\Content\Api;
 
-use App\Content\Models\ArticleSource;
-use Dux\Auth\AuthService;
+use Dux\App;
 use Dux\Handlers\ExceptionNotFound;
 use Dux\Route\Attribute\Route;
 use Dux\Route\Attribute\RouteGroup;
@@ -73,12 +72,12 @@ class Article
         $info->view++;
         $info->save();
 
-
-
         $content = $info->content;
         $css = file_get_contents(__DIR__ . '/../Other/style.css');
 
         $visualHtml = CssInliner::fromHtml('<div class="typo">'.$content.'</div>')->inlineCss($css)->renderBodyContent();
+
+        $meta = App::apiEvent(self::class)->get('info.meta', $info, $request, $response, $args);
 
         return send($response, 'ok', [
             'id' => $info->id,
@@ -95,7 +94,7 @@ class Article
             'comment' => $info->comment,
             'praise' => $info->praise,
             'extend' => $info->extend
-        ]);
+        ], $meta);
     }
 
 }

@@ -1,57 +1,57 @@
 {
   "cms": {
     "dashboard": {
-      "name": "Dashboard",
+      "name": "general situation",
       "nums": {
-        "article": "Article Count",
+        "article": "Number of articles",
         "pv": "Site PV",
         "uv": "Site UV",
-        "spider": "Spider Crawlers"
+        "spider": "Spider reptile"
       },
       "views": {
-        "name": "Visitor Statistics",
-        "pv": "Page Views",
-        "uv": "Unique Visitors"
+        "name": "Access Statistics",
+        "pv": "Visits",
+        "uv": "Visitor volume" 
       },
-      "unknown": "Unknown",
+      "unknown": "unknown",
       "spider": "Spider Statistics",
       "source": "Browser Source",
-      "area": "Region Source",
+      "area": "Regional sources",
       "article": {
-        "name": "Recent Articles",
-        "pv": "Page Views",
-        "date": "Publication Date"
+        "name": "Recent articles",
+        "pv": "Visits",
+        "date": "Release date"
       },
       "push": {
-        "name": "Publishing Statistics",
-        "num": "Quantity"
+        "name": "Publish Statistics",
+        "num": "quantity"
       },
       "class": {
-        "name": "Category Statistics",
-        "num": "Quantity"
+        "name": "Classification statistics",
+        "num": "quantity"
       },
-      "noData": "No Data"
+      "noData": "There is currently no data available"
     },
-    "name": "Site",
+    "name": "Site Management",
     "setting": {
       "name": "Site Settings",
       "fields": {
         "title": "Site Title",
-        "titleHelp": "Header Title for the Site",
+        "titleHelp": "Site header title",
         "desc": "Site Description",
-        "descHelp": "Description Information for the Site",
+        "descHelp": "Site Description Information",
         "copyright": "Copyright Information",
-        "copyrightHelp": "Copyright Information for the Site"
+        "copyrightHelp": "Site copyright information"
       }
     },
     "theme": {
-      "name": "theme",
-      "default": "Default",
+      "name": "Template Management",
+      "default": "default",
       "info": "Theme Description",
-      "empty": "Empty",
-      "change": "Change Theme",
-      "changeConfirm": "Confirm Theme Change",
-      "config": "Theme Configuration",
+      "empty": "Currently unavailable",
+      "change": "Theme switching",
+      "changeConfirm": "Are you sure to switch",
+      "config": "Theme configuration",
       "addField": "Add Field"
     }
   }

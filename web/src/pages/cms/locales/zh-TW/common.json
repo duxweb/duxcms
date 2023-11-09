@@ -11,7 +11,7 @@
       "views": {
         "name": "訪問統計",
         "pv": "訪問量",
-        "uv": "訪客量"
+        "uv": "訪客量" 
       },
       "unknown": "未知",
       "spider": "蜘蛛統計",
@@ -20,10 +20,10 @@
       "article": {
         "name": "近期文章",
         "pv": "訪問量",
-        "date": "發布日期"
+        "date": "發佈日期"
       },
       "push": {
-        "name": "發布統計",
+        "name": "發佈統計",
         "num": "數量"
       },
       "class": {
@@ -32,27 +32,27 @@
       },
       "noData": "暫無數據"
     },
-    "name": "站點管理",
+    "name": "網站管理",
     "setting": {
-      "name": "站點設置",
+      "name": "網站設定",
       "fields": {
-        "title": "站點標題",
-        "titleHelp": "站點頭部標題",
-        "desc": "站點描述",
-        "descHelp": "站點描述信息",
-        "copyright": "版權信息",
-        "copyrightHelp": "站點版權信息"
+        "title": "網站標題",
+        "titleHelp": "網站頭部標題",
+        "desc": "網站描述",
+        "descHelp": "網站描述資訊",
+        "copyright": "版權資訊",
+        "copyrightHelp": "網站版權資訊"
       }
     },
     "theme": {
-      "name": "模板管理",
+      "name": "範本管理",
       "default": "默認",
       "info": "主題說明",
       "empty": "暫無",
       "change": "主題切換",
       "changeConfirm": "確認切換嗎",
-      "config": "主題配置",
-      "addField": "添加字段"
+      "config": "主題配寘",
+      "addField": "添加欄位"
     }
   }
 }

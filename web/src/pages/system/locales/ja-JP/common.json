@@ -1,10 +1,10 @@
 {
   "copyright": "All rights reserved © duxweb 2023",
   "userMenu": {
-    "setting": "設定"
+    "setting": "設定＃セッテイ＃"
   },
   "admin": {
-    "title": "管理ダッシュボード"
+    "title": "ミッドステージ管理システム"
   },
   "system": {
     "name": "システム",
@@ -15,54 +15,54 @@
       "name": "ユーザーリスト",
       "tabs": {
         "all": "すべて",
-        "enabled": "有効",
-        "disabled": "無効"
+        "enabled": "有効化",
+        "disabled": "無効化"
       },
       "fields": {
-        "roles": "ロール",
+        "roles": "ロール＃ロール＃",
         "nickname": "ニックネーム",
         "username": "ユーザー名",
-        "avatar": "アバター",
+        "avatar": "アイコン",
         "password": "パスワード",
         "status": "ステータス"
       }
     },
     "role": {
-      "name": "ロールリスト",
+      "name": "ロールのリスト",
       "fields": {
-        "permission": "権限",
-        "name": "名前"
+        "permission": "アクセス権",
+        "name": "の名前をあげる"
       }
     },
     "logGroup": {
       "name": "システムログ"
     },
     "operate": {
-      "name": "操作履歴",
+      "name": "オペレーションレコード",
       "fields": {
         "user": "ユーザー",
         "client": "クライアント",
         "request": "リクエスト",
-        "requestMethod": "リクエストメソッド",
-        "requestUrl": "リクエストURL",
-        "requestTime": "リクエスト時間",
-        "requestParams": "リクエストパラメータ"
+        "requestMethod": "要求方法",
+        "requestUrl": "リクエストUrl",
+        "requestTime": "要求時間",
+        "requestParams": "要求パラメータ"
       },
       "filters": {
-        "userPlaceholder": "ユーザーを検索して選択してください",
+        "userPlaceholder": "選択ユーザーを検索してください",
         "method": {
-          "placeholder": "メソッドを選択してください",
-          "post": "作成",
+          "placeholder": "方法を選択してください",
+          "post": "作成＃サクセイ＃",
           "put": "編集",
           "patch": "更新",
-          "delete": "削除"
+          "delete": "削除＃サクジョ＃"
         }
       }
     },
     "api": {
-      "name": "API認証",
+      "name": "インタフェース認証",
       "fields": {
-        "name": "名前",
+        "name": "の名前をあげる",
         "secretId": "Secret Id",
         "secretKey": "Secret Key",
         "status": "ステータス"

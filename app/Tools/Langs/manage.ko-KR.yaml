@@ -26,6 +26,8 @@ tools:
       name: 데이터 소스
     config:
       name: 구성
+    sourceData:
+      name: 데이터
 extend:
   name: 확장
   magic:

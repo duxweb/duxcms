@@ -10,6 +10,8 @@ content:
     validator:
       name: Введите имя
       article: Пожалуйста, удалите статью из этой категории.
+    magic:
+      name: Данные кубика Рубика
   source:
     name: Источник статьи
     validator:
@@ -20,15 +22,15 @@ content:
       title: Введите заголовок
       name: Введите имя вызова
   menu:
-    name: Меню
+    name: Меню Управление
     validator:
       title: Введите заголовок
       name: Введите имя вызова
   menuData:
-    name: Группа меню
+    name: Управление группами меню
     validator:
       title: Введите заголовок группы
   comment:
-    name: Замечания
+    name: Статьи
   recommend:
-    name: Рекомендации
+    name: Статья рекомендует

@@ -15,7 +15,7 @@ use Dux\Validator\Validator;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-#[Resource(app: 'admin', route: '/', name: 'auth', auth: false,actions: false)]
+#[Resource(app: 'admin', route: '/', name: 'auth', auth: false, actions: false)]
 class Auth
 {
     #[Action(methods: 'POST', route: 'login')]
@@ -71,14 +71,32 @@ class Auth
     public function check(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $data = Validator::parser([...$request->getParsedBody(), ...$args], [
-            "token" => ["required", "缺少 Token"],
+            "token" => ["required", "token does not exist"],
         ]);
         $request = $request->withHeader('Authorization', $data->token);
         $auth = new AuthService('admin');
         if (!$auth->check($request)) {
             throw new ExceptionBusiness('Expired or incorrect token');
         }
-        return send($response, 'ok');
+        $id = $auth->id($request);
+        $info = SystemUser::query()->find($id);
+        if (!$info->status) {
+            throw new ExceptionBusiness('User Disabled');
+        }
+
+        return send($response, 'ok', [
+            "userInfo" => [
+                "id" => $info->id,
+                "avatar" => $info->avatar,
+                "username" => $info->username,
+                "nickname" => $info->nickname,
+                "rolename" => $info->roles[0]->name,
+            ],
+            "token" => "Bearer " . \Dux\Auth\Auth::token("admin", [
+                    'id' => $info->id,
+                ]),
+            'permission' => $info->permission
+        ]);
     }
 
     #[Action(methods: 'GET', route: 'menu', auth: true)]

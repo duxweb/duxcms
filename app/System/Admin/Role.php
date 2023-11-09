@@ -49,7 +49,7 @@ class Role extends Resources {
 
         $permissionData = [];
         foreach ($permissions as $item) {
-            $permissionData[$item] = in_array($item, $permission);
+            $permissionData[$item] = !$permission || in_array($item, $permission);
         }
 
         return [

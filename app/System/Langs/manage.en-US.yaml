@@ -8,7 +8,7 @@ system:
       login: Account or password error
       passwordCheck: Login password error three times, wait for one minute
   user:
-    name: user management 
+    name: Administrator Management
     validator:
       nickname: Please enter a nickname
       username: enter one user name
@@ -16,7 +16,7 @@ system:
       password: Please enter the password
       roles: Please select a role
   role:
-    name: Role Management
+    name: Administrator Role
     validator:
       name: Please enter a name
     permission:

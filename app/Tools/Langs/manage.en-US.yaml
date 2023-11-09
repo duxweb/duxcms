@@ -26,6 +26,8 @@ tools:
       name: data source
     config:
       name: allocation
+    sourceData:
+      name: data
 extend:
   name: extend
   magic:

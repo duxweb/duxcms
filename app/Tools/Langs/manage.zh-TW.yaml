@@ -26,6 +26,8 @@ tools:
       name: 資料來源
     config:
       name: 配寘
+    sourceData:
+      name: 數據
 extend:
   name: 擴展
   magic:

@@ -26,6 +26,8 @@ tools:
       name: Источник данных
     config:
       name: Настройка
+    sourceData:
+      name: Данные
 extend:
   name: Расширение
   magic:

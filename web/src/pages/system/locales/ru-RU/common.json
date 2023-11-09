@@ -1,70 +1,70 @@
 {
-  "copyright": "All rights reserved © duxweb 2023",
+  "copyright": "Все права защищены ©  Duxweb 2023",
   "userMenu": {
-    "setting": "Настройки"
+    "setting": "Настройка"
   },
   "admin": {
-    "title": "Панель управления администратора"
+    "title": "Вспомогательная система управления"
   },
   "system": {
-    "name": "Система",
+    "name": "Системы",
     "userGroup": {
       "name": "Управление пользователями"
     },
     "user": {
       "name": "Список пользователей",
       "tabs": {
-        "all": "Все",
-        "enabled": "Включенные",
-        "disabled": "Отключенные"
+        "all": "Все.",
+        "enabled": "Включить",
+        "disabled": "Запретить"
       },
       "fields": {
-        "roles": "Роли",
-        "nickname": "Псевдоним",
+        "roles": "Роль",
+        "nickname": "Прозвище",
         "username": "Имя пользователя",
-        "avatar": "Аватар",
+        "avatar": "Голова",
         "password": "Пароль",
         "status": "Статус"
       }
     },
     "role": {
-      "name": "Список ролей",
+      "name": "Список персонажей",
       "fields": {
-        "permission": "Разрешения",
-        "name": "Название"
+        "permission": "Полномочия",
+        "name": "Имя"
       }
     },
     "logGroup": {
-      "name": "Логи системы"
+      "name": "Системный журнал"
     },
     "operate": {
-      "name": "Журнал операций",
+      "name": "Записи операций",
       "fields": {
-        "user": "Пользователь",
+        "user": "Пользователи",
         "client": "Клиент",
-        "request": "Запрос",
+        "request": "Просьбы",
         "requestMethod": "Метод запроса",
-        "requestUrl": "URL запроса",
+        "requestUrl": "Запросить URL",
         "requestTime": "Время запроса",
         "requestParams": "Параметры запроса"
       },
       "filters": {
-        "userPlaceholder": "Пожалуйста, выполните поиск и выберите пользователя",
+        "userPlaceholder": "Поиск Выберите пользователя",
         "method": {
-          "placeholder": "Пожалуйста, выберите метод",
-          "post": "Создать",
-          "put": "Редактировать",
-          "patch": "Обновить",
+          "placeholder": "Выберите метод",
+          "post": "Создание",
+          "put": "Редактирование",
+          "patch": "Обновление",
           "delete": "Удалить"
         }
       }
     },
     "api": {
-      "name": "Авторизация API",
+      "name": "Разрешение интерфейса",
       "fields": {
-        "name": "Название",
-        "secretId": "Идентификатор ключа",
-        "secretKey": "Секретный ключ",
+        "name": "Имя",
+        "secretId": "Секрет Ид",
+        "secretKey": "Секрет Кей",
         "status": "Статус"
       }
     }

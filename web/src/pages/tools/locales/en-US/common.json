@@ -1,70 +1,84 @@
 {
   "tools": {
-    "name": "Tools",
+    "name": "tool",
     "dataGroup": {
-      "name": "Data"
+      "name": "data management"
     },
     "area": {
-      "name": "Area",
+      "name": "Regional management",
       "fields": {
-        "code": "Area Code",
-        "name": "Name",
-        "level": "Level"
+        "code": "Area code",
+        "name": "name",
+        "level": "level"
       },
       "help": {
         "import": "Baidu Map Administrative Division Adcode Mapping Table"
       }
     },
     "magic": {
-      "name": "Data Magic",
+      "name": "Data Cube",
       "fields": {
-        "group": "Data Group",
-        "unknown": "Unknown",
+        "group": "Data grouping",
+        "unknown": "unknown",
         "name": "Data Name",
-        "nameDesc": "Data Invocation Name",
-        "label": "Data Label",
-        "labelDesc": "Data Description Information",
-        "type": "Data Type",
+        "nameDesc": "Data Call Name",
+        "label": "Data labels",
+        "labelDesc": "Data description information",
+        "type": "data type",
         "typeDesc": "Data List Type",
-        "external": "Data Permission",
-        "externalDesc": "Data accessible by external interfaces after being made public",
-        "list": "List",
-        "pages": "Pages",
-        "tree": "Tree",
-        "public": "Public",
-        "private": "Private",
-        "option": "Operation Method",
-        "optionDesc": "Add or edit data operation method",
-        "modal": "Modal",
-        "page": "Page",
+        "treeLabel": "Label Field",
+        "treeLabelDesc": "Tree List Label Field Name",
+        "affiliate": "Affiliated model",
+        "affiliateDesc": "Is it a subsidiary model of other functions",
+        "independentType": "independent",
+        "inlineType": "subsidiary",
+        "external": "Data permissions",
+        "externalDesc": "External interfaces can access data after disclosure",
+        "list": "list",
+        "pages": "paging",
+        "tree": "Tree shape",
+        "public": "open",
+        "private": "private",
+        "option": "Operation mode",
+        "optionDesc": "Add editing operation data method",
+        "modal": "pop-up notification",
+        "page": "page",
         "fields": "Data Fields",
-        "fieldsDesc": "Reset type after switching",
+        "fieldsDesc": "Type needs to be reset after switching",
         "groupName": "Group Name",
-        "groupLabel": "Group Label",
-        "groupIcon": "Group Icon",
+        "groupLabel": "Group labels",
+        "groupIcon": "Group icon",
         "addGroup": "Add Group",
         "editGroup": "Edit Group"
       },
+      "external": {
+        "read": "read",
+        "create": "establish",
+        "edit": "edit"
+      },
       "validate": {
-        "label": "Please enter Data Label",
-        "name": "Please enter Data Name",
-        "class": "Please select a Group"
+        "label": "Please enter the data label",
+        "name": "Please enter a data name",
+        "class": "Please select a group"
       },
       "placeholder": {
-        "group": "Please select a Group"
+        "group": "Please select a group"
       },
       "help": {
-        "group": "Data Menu Group",
-        "groupName": "Name can only be letters, numbers, or underscores",
-        "groupIcon": "Icon name reference",
-        "groupIconDoc": "Reference document"
+        "group": "Data menu grouping",
+        "groupName": "Names can only be alphanumeric or underlined",
+        "groupIcon": "Icon Name Reference",
+        "groupIconDoc": "Reference Documents"
       }
     },
     "magicGroup": {
-      "name": "Data"
+      "name": "data management"
     }
   },
   "data": {
-    "name": "Data"
+    "name": "data",
+    "fields": {
+      "parent": "Superior"
+    }
   }
 }

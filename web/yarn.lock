@@ -468,20 +468,20 @@
   resolved "https://registry.npmjs.org/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@duxweb/dux-extend@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.npmmirror.com/@duxweb/dux-extend/-/dux-extend-0.0.14.tgz#72514f3fe04051698809f01b26102e22e32f98bd"
-  integrity sha512-lKtuocRF6v/ggSD0NV5DTjQoddR6pvsE2pmLc8FYCPAt9oxaIBJ6M7H0ur1tHgeGnoAt5X8l4JAc3cTXiv9EXw==
+"@duxweb/dux-extend@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.npmmirror.com/@duxweb/dux-extend/-/dux-extend-0.0.15.tgz#0edab27cd16baf6742fef77468e9ac6aa7918229"
+  integrity sha512-A8t51R5ITsuoguYx9re9SYpl78Aqc6aeQXkY6OcU2tCl3Th49LSqesRn6eEM8vd+1jPZGrJYgUs3mFruqdfYJQ==
 
 "@duxweb/dux-plugin@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@duxweb/dux-plugin/-/dux-plugin-0.0.7.tgz#30d784422bef4eeb4ef36717ff830e8f8aad9c59"
   integrity sha512-S37n3FiOiXOPZjpUKZUAwrUlR/ttaUuNyrosy/uHtj7pY62tKtOu31I1D61B89NayUCJKM4WuEFq65iZoJiU3g==
 
-"@duxweb/dux-refine@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.npmmirror.com/@duxweb/dux-refine/-/dux-refine-0.5.1.tgz#6934c96405a54d2ff8e4face63a78a6732197348"
-  integrity sha512-Wna63MxnubdDs+sNerKKCpsAdf/QIv0qvfobqhPrULERzlNOuv0+KAGCKo3j/mZWfgDJTNmb5DXepWuGBCKXow==
+"@duxweb/dux-refine@0.5.6":
+  version "0.5.6"
+  resolved "https://registry.npmmirror.com/@duxweb/dux-refine/-/dux-refine-0.5.6.tgz#0454fcc92bf80f404c7ee9626301025b44709aae"
+  integrity sha512-0Dk1BvO9a/Zaj0hWBzDnd6+CbeOhSC87Olod4o1gl4ZWxQ+UrhtYcX0Ow2FGxsQ1VBJXbypIOIuxqGhVowg1Wg==
   dependencies:
     "@iconify-json/tabler" "^1.1.96"
     "@refinedev/cli" "2.16.14"

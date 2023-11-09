@@ -1,33 +1,33 @@
 {
   "cms": {
     "dashboard": {
-      "name": "대시 보드",
+      "name": "개요",
       "nums": {
-        "article": "글 수",
+        "article": "기사 수",
         "pv": "사이트 PV",
         "uv": "사이트 UV",
-        "spider": "스파이더 크롤러"
+        "spider": "거미 파충류"
       },
       "views": {
-        "name": "방문 통해",
-        "pv": "페이지 뷰",
-        "uv": "고유 방문자"
+        "name": "액세스 통계",
+        "pv": "액세스",
+        "uv": "방문객 수" 
       },
       "unknown": "알 수 없음",
-      "spider": "스파이더 통계",
+      "spider": "거미 통계",
       "source": "브라우저 소스",
-      "area": "지역 소스",
+      "area": "지역 출처",
       "article": {
-        "name": "최근 글",
-        "pv": "페이지 뷰",
+        "name": "최근 기사",
+        "pv": "액세스",
         "date": "게시 날짜"
       },
       "push": {
-        "name": "게시 통계",
+        "name": "통계 게시",
         "num": "수량"
       },
       "class": {
-        "name": "카테고리 통계",
+        "name": "분류 통계",
         "num": "수량"
       },
       "noData": "데이터 없음"
@@ -37,7 +37,7 @@
       "name": "사이트 설정",
       "fields": {
         "title": "사이트 제목",
-        "titleHelp": "사이트 헤더 제목",
+        "titleHelp": "사이트 헤드 제목",
         "desc": "사이트 설명",
         "descHelp": "사이트 설명 정보",
         "copyright": "저작권 정보",
@@ -47,11 +47,11 @@
     "theme": {
       "name": "템플릿 관리",
       "default": "기본",
-      "info": "테마 설명",
-      "empty": "비어 있음",
-      "change": "테마 변경",
-      "changeConfirm": "테마 변경 확인",
-      "config": "테마 설정",
+      "info": "주제 설명",
+      "empty": "잠시 없다",
+      "change": "테마 전환",
+      "changeConfirm": "전환 확인",
+      "config": "주제 구성",
       "addField": "필드 추가"
     }
   }

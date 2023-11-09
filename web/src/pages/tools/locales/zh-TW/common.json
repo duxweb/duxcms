@@ -12,52 +12,63 @@
         "level": "級別"
       },
       "help": {
-        "import": "百度地圖行政區劃adcode映射表"
+        "import": "百度地圖行政區劃adcode映射錶"
       }
     },
     "magic": {
-      "name": "資料魔方",
+      "name": "數據魔方",
       "fields": {
-        "group": "資料分組",
+        "group": "數據分組",
         "unknown": "未知",
-        "name": "資料名稱",
-        "nameDesc": "資料調用名",
-        "label": "資料標籤",
-        "labelDesc": "資料描述資訊",
+        "name": "數據名稱",
+        "nameDesc": "數據調用名",
+        "label": "數據標籤",
+        "labelDesc": "數據描述資訊",
         "type": "資料類型",
-        "typeDesc": "資料列表類型",
-        "external": "資料權限",
+        "typeDesc": "數據清單類型",
+        "treeLabel": "標籤欄位",
+        "treeLabelDesc": "樹形清單標籤欄位名",
+        "affiliate": "附屬模型",
+        "affiliateDesc": "是否為其他功能的附屬模型",
+        "independentType": "獨立",
+        "inlineType": "附屬",
+        "external": "數據許可權",
         "externalDesc": "公開後外部介面可訪問資料",
-        "list": "列表",
+        "list": "清單",
         "pages": "分頁",
         "tree": "樹形",
         "public": "公開",
         "private": "私有",
-        "option": "操作方式",
-        "optionDesc": "添加編輯操作資料方式",
+        "option": "操作管道",
+        "optionDesc": "添加編輯操作數據管道",
         "modal": "彈窗",
         "page": "頁面",
-        "fields": "資料字段",
-        "fieldsDesc": "切換類型後需重新設置類型",
+        "fields": "數據欄位",
+        "fieldsDesc": "切換類型後需重新設定類型",
         "groupName": "分組名稱",
         "groupLabel": "分組標籤",
         "groupIcon": "分組圖示",
         "addGroup": "添加分組",
         "editGroup": "編輯分組"
       },
+      "external": {
+        "read": "讀取",
+        "create": "創建",
+        "edit": "編輯"
+      },
       "validate": {
-        "label": "請輸入資料標籤",
-        "name": "請輸入資料名稱",
+        "label": "請輸入數據標籤",
+        "name": "請輸入數據名稱",
         "class": "請選擇分組"
       },
       "placeholder": {
         "group": "請選擇分組"
       },
       "help": {
-        "group": "資料菜單分組",
-        "groupName": "名稱只能是字母、數字或下劃線",
-        "groupIcon": "圖示名稱參考",
-        "groupIconDoc": "參考文件"
+        "group": "數據選單分組",
+        "groupName": "名稱只能字母數位或底線",
+        "groupIcon": "圖標名參攷",
+        "groupIconDoc": "參攷檔案"
       }
     },
     "magicGroup": {
@@ -65,6 +76,9 @@
     }
   },
   "data": {
-    "name": "資料"
+    "name": "數據",
+    "fields": {
+      "parent": "上級"
+    }
   }
 }

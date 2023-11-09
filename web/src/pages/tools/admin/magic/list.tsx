@@ -139,7 +139,7 @@ const List = () => {
                 theme='default'
                 onConfirm={() => {
                   mutate({
-                    resource: 'article',
+                    resource: 'tools.magic',
                     id: row.id,
                   })
                 }}

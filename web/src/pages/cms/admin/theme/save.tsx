@@ -9,8 +9,8 @@ const Page = (props: Record<string, any>) => {
   return (
     <FormModal
       id={props?.id}
-      onRef={(ref) => {
-        setResult(ref.current?.result?.queryResult?.data)
+      onResult={({ formData }) => {
+        setResult(formData?.data)
       }}
       padding={false}
     >

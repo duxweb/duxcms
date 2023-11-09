@@ -4,8 +4,6 @@ import { MagicFormRender } from '@duxweb/dux-extend'
 import { Form, Cascader } from 'tdesign-react/esm'
 
 const Page = (props: Record<string, any>) => {
-  const magic = props.magic
-
   const translate = useTranslate()
 
   const { data } = useCustom<Record<string, any>>({
@@ -13,7 +11,7 @@ const Page = (props: Record<string, any>) => {
     method: 'get',
     meta: {
       params: {
-        magic: magic,
+        magic: props.magic,
       },
     },
   })
@@ -22,7 +20,7 @@ const Page = (props: Record<string, any>) => {
     resource: 'tools.data',
     meta: {
       params: {
-        magic: magic,
+        magic: props.magic,
       },
     },
     pagination: {
@@ -33,7 +31,7 @@ const Page = (props: Record<string, any>) => {
   return (
     <FormModal
       queryParams={{
-        magic: magic,
+        magic: props.magic,
       }}
       id={props?.id}
     >

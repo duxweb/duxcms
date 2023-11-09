@@ -10,6 +10,8 @@ content:
     validator:
       name: 이름을 입력하십시오.
       article: 먼저 이 분류 아래 글을 삭제하십시오
+    magic:
+      name: 큐브 데이터
   source:
     name: 기사 출처
     validator:
@@ -20,15 +22,15 @@ content:
       title: 제목을 입력하십시오.
       name: 호출 이름을 입력하십시오.
   menu:
-    name: 메뉴
+    name: 메뉴 관리
     validator:
       title: 제목을 입력하십시오.
       name: 호출 이름을 입력하십시오.
   menuData:
-    name: 메뉴 그룹
+    name: 메뉴 그룹 관리
     validator:
       title: 그룹 제목을 입력하십시오.
   comment:
-    name: 코멘트
+    name: 기사 리뷰
   recommend:
-    name: 추천
+    name: 기사 추천

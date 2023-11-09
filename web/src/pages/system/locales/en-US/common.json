@@ -1,71 +1,71 @@
 {
-  "copyright": "All rights reserved © duxweb 2023",
+  "copyright": "All rights reserved ©  Duxweb 2023",
   "userMenu": {
-    "setting": "Settings"
+    "setting": "set up"
   },
   "admin": {
-    "title": "Admin Dashboard"
+    "title": "Middle and backend management system"
   },
   "system": {
-    "name": "System",
+    "name": "system",
     "userGroup": {
-      "name": "User"
+      "name": "user management "
     },
     "user": {
       "name": "User List",
       "tabs": {
-        "all": "All",
-        "enabled": "Enabled",
+        "all": "whole",
+        "enabled": "Enable",
         "disabled": "Disabled"
       },
       "fields": {
-        "roles": "Roles",
-        "nickname": "Nickname",
-        "username": "Username",
+        "roles": "role",
+        "nickname": "nickname",
+        "username": "user name",
         "avatar": "Avatar",
-        "password": "Password",
-        "status": "Status"
+        "password": "password",
+        "status": "state"
       }
     },
     "role": {
       "name": "Role List",
       "fields": {
-        "permission": "Permission",
-        "name": "Name"
+        "permission": "authority",
+        "name": "name"
       }
     },
     "logGroup": {
-      "name": " Logs"
+      "name": "system log"
     },
     "operate": {
-      "name": "Operation",
+      "name": "Operation records",
       "fields": {
-        "user": "User",
-        "client": "Client",
-        "request": "Request",
+        "user": "user",
+        "client": "client",
+        "request": "request",
         "requestMethod": "Request Method",
-        "requestUrl": "Request URL",
-        "requestTime": "Request Time",
-        "requestParams": "Request Parameters"
+        "requestUrl": "Request Url",
+        "requestTime": "Request time",
+        "requestParams": "Request parameters"
       },
       "filters": {
         "userPlaceholder": "Please search and select a user",
         "method": {
           "placeholder": "Please select a method",
-          "post": "Create",
-          "put": "Edit",
-          "patch": "Update",
-          "delete": "Delete"
+          "post": "establish",
+          "put": "edit",
+          "patch": "update",
+          "delete": "delete"
         }
       }
     },
     "api": {
-      "name": "API",
+      "name": "Interface Authorization",
       "fields": {
-        "name": "Name",
+        "name": "name",
         "secretId": "Secret Id",
         "secretKey": "Secret Key",
-        "status": "Status"
+        "status": "state"
       }
     }
   }

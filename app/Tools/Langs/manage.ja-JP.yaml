@@ -26,6 +26,8 @@ tools:
       name: データソース
     config:
       name: 構成
+    sourceData:
+      name: データ＃データ＃
 extend:
   name: 拡張
   magic:

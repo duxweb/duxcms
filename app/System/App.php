@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\System;
 
-use App\System\Event\AppEvent;
 use App\System\Middleware\OperateMiddleware;
 use App\System\Middleware\VisitorMiddleware;
 use App\System\Models\SystemApi;
@@ -62,19 +61,6 @@ class App extends AppExtend
         $commonRoute = $app->getRoute()->get("admin")->group('', ...$middleware);
         $commonRoute->post('/upload', Upload::class . ':upload', 'admin.upload');
         $commonRoute->post('/upload/remote', Upload::class . ':remote', 'admin.remote');
-
-
-        // 注册事件
-        $app->getEvent()->addListener("system.app", function (AppEvent $event) {
-            $event->label([
-                'label' => 'system',
-                'name' => '系统工具'
-            ]);
-            $event->label([
-                'label' => 'show',
-                'name' => '展示模块'
-            ]);
-        });
     }
 
 

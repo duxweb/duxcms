@@ -5,45 +5,56 @@
       "name": "データ管理"
     },
     "area": {
-      "name": "地域管理",
+      "name": "ちいきかんり",
       "fields": {
-        "code": "エリアコード",
-        "name": "名前",
-        "level": "レベル"
+        "code": "エリア番号",
+        "name": "の名前をあげる",
+        "level": "レベル＃レベル＃"
       },
       "help": {
-        "import": "百度地図の行政区域Adcodeマッピングテーブル"
+        "import": "百度地図行政区画adcodeマッピングシート"
       }
     },
     "magic": {
-      "name": "データマジック",
+      "name": "データキューブ",
       "fields": {
-        "group": "データグループ",
+        "group": "データのグループ化",
         "unknown": "不明",
         "name": "データ名",
         "nameDesc": "データ呼び出し名",
         "label": "データラベル",
-        "labelDesc": "データ説明情報",
-        "type": "データタイプ",
-        "typeDesc": "データリストタイプ",
+        "labelDesc": "データ記述情報",
+        "type": "データ型",
+        "typeDesc": "データ・リスト・タイプ",
+        "treeLabel": "ラベルフィールド",
+        "treeLabelDesc": "ツリー・リストのラベル・フィールド名",
+        "affiliate": "サブモデル",
+        "affiliateDesc": "他の機能の付属モデルかどうか",
+        "independentType": "スタンドアロン",
+        "inlineType": "付属",
         "external": "データ権限",
-        "externalDesc": "公開後、外部インターフェースからアクセス可能なデータ",
+        "externalDesc": "公開後の外部インタフェースはデータにアクセス可能",
         "list": "リスト",
-        "pages": "ページ",
-        "tree": "ツリー",
+        "pages": "改ページ",
+        "tree": "じゅけい",
         "public": "公開",
-        "private": "プライベート",
+        "private": "プライベート＃プライベート＃",
         "option": "操作方法",
-        "optionDesc": "データ操作方法の追加または編集",
-        "modal": "モーダル",
+        "optionDesc": "操作データの編集方法の追加",
+        "modal": "だんまど",
         "page": "ページ",
         "fields": "データフィールド",
-        "fieldsDesc": "切り替え後にタイプを再設定",
+        "fieldsDesc": "タイプを切り替えたらタイプを再設定する必要があります",
         "groupName": "グループ名",
-        "groupLabel": "グループラベル",
-        "groupIcon": "グループアイコン",
-        "addGroup": "グループを追加",
-        "editGroup": "グループを編集"
+        "groupLabel": "グループ化ラベル",
+        "groupIcon": "グループ化アイコン",
+        "addGroup": "グループの追加",
+        "editGroup": "グループの編集"
+      },
+      "external": {
+        "read": "読み取り",
+        "create": "作成＃サクセイ＃",
+        "edit": "編集"
       },
       "validate": {
         "label": "データラベルを入力してください",
@@ -54,10 +65,10 @@
         "group": "グループを選択してください"
       },
       "help": {
-        "group": "データメニューグループ",
-        "groupName": "名前は文字、数字、またはアンダースコアのみです",
-        "groupIcon": "アイコン名の参考",
-        "groupIconDoc": "参考文書"
+        "group": "データメニューのグループ化",
+        "groupName": "名前は英数字またはアンダースコアのみです",
+        "groupIcon": "アイコン名リファレンス",
+        "groupIconDoc": "参照ドキュメント"
       }
     },
     "magicGroup": {
@@ -65,6 +76,9 @@
     }
   },
   "data": {
-    "name": "データ"
+    "name": "データ＃データ＃",
+    "fields": {
+      "parent": "親"
+    }
   }
 }

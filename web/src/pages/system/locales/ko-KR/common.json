@@ -1,10 +1,10 @@
 {
   "copyright": "All rights reserved © duxweb 2023",
   "userMenu": {
-    "setting": "설정"
+    "setting": "설치"
   },
   "admin": {
-    "title": "관리자 대시보드"
+    "title": "중간 백그라운드 관리 시스템"
   },
   "system": {
     "name": "시스템",
@@ -22,8 +22,8 @@
         "roles": "역할",
         "nickname": "닉네임",
         "username": "사용자 이름",
-        "avatar": "아바타",
-        "password": "비밀번호",
+        "avatar": "프로필 사진",
+        "password": "암호",
         "status": "상태"
       }
     },
@@ -38,21 +38,21 @@
       "name": "시스템 로그"
     },
     "operate": {
-      "name": "작업 기록",
+      "name": "작업 레코드",
       "fields": {
         "user": "사용자",
         "client": "클라이언트",
         "request": "요청",
         "requestMethod": "요청 방법",
-        "requestUrl": "요청 URL",
+        "requestUrl": "Url 요청",
         "requestTime": "요청 시간",
         "requestParams": "요청 매개변수"
       },
       "filters": {
-        "userPlaceholder": "사용자를 검색하고 선택하세요",
+        "userPlaceholder": "사용자 선택 검색",
         "method": {
-          "placeholder": "방법을 선택하세요",
-          "post": "생성",
+          "placeholder": "방법을 선택하십시오.",
+          "post": "작성",
           "put": "편집",
           "patch": "업데이트",
           "delete": "삭제"
@@ -60,7 +60,7 @@
       }
     },
     "api": {
-      "name": "API 인증",
+      "name": "인터페이스 인증",
       "fields": {
         "name": "이름",
         "secretId": "Secret Id",
