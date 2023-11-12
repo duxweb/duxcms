@@ -3,19 +3,23 @@ import { useTranslate } from '@refinedev/core'
 import { Input, Button, MessagePlugin, Loading } from 'tdesign-react/esm'
 import { Modal, useClient } from '@duxweb/dux-refine'
 
-const Page = () => {
+interface PageProps {
+  name: string
+}
+const Page = ({ name }: PageProps) => {
   const translate = useTranslate()
-  const [url, setUrl] = useState('')
+  const [password, setPassword] = useState('')
   const client = useClient()
   const [loading, setLoading] = useState(false)
   const [log, setLog] = useState('')
 
-  const submit = useCallback((url: string) => {
+  const submit = useCallback(() => {
     setLoading(true)
     client
-      .request('cloud/apps/install', 'post', {
+      .request('cloud/apps/delete', 'post', {
         data: {
-          url: url,
+          name: name,
+          password: password,
         },
       })
       .then((res) => {
@@ -33,13 +37,13 @@ const Page = () => {
   return (
     <>
       <div className='p-4'>
-        <div className='mb-2'>{translate('cloud.apps.validator.url')}</div>
+        <div className='mb-2 text-error'>{translate('cloud.apps.tips.uninstall')}</div>
         <Input
-          value={url}
-          placeholder='dux://'
+          type='password'
+          value={password}
           disabled={!!log}
           onChange={(value) => {
-            setUrl(() => {
+            setPassword(() => {
               return value
             })
           }}
@@ -54,10 +58,10 @@ const Page = () => {
         <Modal.Footer>
           <Button
             onClick={() => {
-              submit(url)
+              submit()
             }}
           >
-            {translate('cloud.apps.action.install')}
+            {translate('cloud.apps.action.uninstall')}
           </Button>
         </Modal.Footer>
       )}

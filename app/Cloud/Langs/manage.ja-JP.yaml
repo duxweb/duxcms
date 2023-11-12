@@ -1,30 +1,10 @@
-system:
-  name: システム
-  auth:
+cloud:
+  name: クラウドプラットフォーム
+  apps:
+    name: アプリケーションセンター
     validator:
-      nickname: アカウントを入力してください
-      password: パスワードを入力してください
-    error:
-      login: アカウントまたはパスワードが間違っている
-      passwordCheck: 3回のログインパスワードエラー、1分待ち
-  user:
-    name: 管理者管理
-    validator:
-      nickname: ニックネームを入力してください
-      username: ユーザー名を入力してください
-      usernameExists: ユーザーはすでに存在します
-      password: パスワードを入力してください
-      roles: 役割を選択してください
-  role:
-    name: 管理者ロール
-    validator:
-      name: 名前を入力してください
-    permission:
-      name: アクセス権
-  operate:
-    name: オペレーションレコード
-  api:
-    name: インタフェース認証
-    validator:
-      name: 名前を入力してください
+      notLogin: ログインしていませんので、先にログインしてください
+      username: ユーザー名パスワードを入力してください
+    alert:
+      login: ログイン成功
 

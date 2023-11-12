@@ -27,9 +27,12 @@ class MagicData extends Resources
 
     private ?object $info = null;
 
+    private string $action = '';
+
     public function init(ServerRequestInterface $request, ResponseInterface $response, array $args): void
     {
         $params = $request->getQueryParams();
+        $this->action = $params['action'] ?: '';
         $this->info = ToolsMagic::query()->where('name', $params['magic'])->first();
         $this->label = $this->info->label;
 
@@ -71,20 +74,37 @@ class MagicData extends Resources
 
     public function transformData(Model|LengthAwarePaginator|Collection|null $data, callable $callback): array
     {
-        $fields = collect($this->info->fields);
+        $fields = $this->info->fields;
         if ($data instanceof LengthAwarePaginator) {
-            $data->setCollection(\App\Tools\Service\Magic::mergeData($fields, $data->getCollection()));
+            $list = $data->getCollection();
+            if ($this->action == 'show') {
+                $array = \App\Tools\Service\Magic::showData($fields, $data->pluck('data')->toArray());
+                $list = $list->map(function ($item, $key) use ($array) {
+                    $item->data = $array[$key];
+                });
+            }
+            $data->setCollection($list);
             return format_data($data, function ($item) {
                 return $this->transform($item);
             });
         }
         if ($data instanceof Model) {
-            $data = \App\Tools\Service\Magic::mergeData($fields, collect([$data]));
-            return format_data($data->first(), function ($item) {
+            if ($this->action == 'show') {
+                $data->data = \App\Tools\Service\Magic::showData($fields, [$data->data])[0];
+            }
+            return format_data($data, function ($item) {
                 return $this->transform($item);
             });
         }
-        $data = \App\Tools\Service\Magic::mergeData($fields, $data);
+
+
+        if ($this->action == 'show') {
+            $array = \App\Tools\Service\Magic::showData($fields, $data->pluck('data')->toArray());
+            $data = $data->map(function ($item, $key) use ($array) {
+                $item->data = $array[$key];
+                return $item;
+            });
+        }
         return format_data($data, function ($item) {
             return $this->transform($item);
         });
@@ -98,7 +118,6 @@ class MagicData extends Resources
         ];
         if ($this->info->type == 'tree') {
             $data['parent_id'] = $item->parent_id;
-
             $data['children'] = $item->children ? $item->children->map(function ($vo) {
                 return $this->transform($vo);
             }) : [];

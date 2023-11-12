@@ -108,7 +108,7 @@ class Magic
             throw new ExceptionNotFound();
         }
         $fields = [];
-        foreach ($info->fields as $vo) {
+        foreach ($magicInfo->fields as $vo) {
             if ($vo['external'] == 'read' || $vo['external'] == 'readWrite') {
                 $fields[] = $vo['name'];
             }

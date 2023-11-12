@@ -1,58 +1,30 @@
 {
-  "cms": {
-    "dashboard": {
-      "name": "ダッシュボード",
-      "nums": {
-        "article": "記事数",
-        "pv": "サイトPV",
-        "uv": "サイトUV",
-        "spider": "クローラー"
+  "cloud": {
+    "name": "クラウドプラットフォーム",
+    "apps": {
+      "name": "アプリケーションセンター",
+      "action": {
+        "login": "ログイン＃ログイン＃",
+        "install": "インストール",
+        "uninstall": "アンインストール",
+        "update": "更新",
+        "close": "キャンセル"
       },
-      "views": {
-        "name": "訪問統計",
-        "pv": "ページビュー",
-        "uv": "ユニークビジター"
-      },
-      "unknown": "不明",
-      "spider": "クローラー統計",
-      "source": "ブラウザソース",
-      "area": "地域ソース",
-      "article": {
-        "name": "最近の記事",
-        "pv": "ページビュー",
-        "date": "公開日"
-      },
-      "push": {
-        "name": "公開統計",
-        "num": "数量"
-      },
-      "class": {
-        "name": "カテゴリ統計",
-        "num": "数量"
-      },
-      "noData": "データなし"
-    },
-    "name": "サイト管理",
-    "setting": {
-      "name": "サイト設定",
       "fields": {
-        "title": "サイトタイトル",
-        "titleHelp": "サイトのヘッダータイトル",
-        "desc": "サイトの説明",
-        "descHelp": "サイトの説明情報",
-        "copyright": "著作権情報",
-        "copyrightHelp": "サイトの著作権情報"
+        "name": "適用＃テキヨウ＃",
+        "time": "バージョン",
+        "update": "更新",
+        "username": "ユーザー名",
+        "password": "パスワード"
+      },
+      "tips": {
+        "uninstall": "アプリケーションをアンインストールするにはリカバリできません。ユーザーパスワードを検証する必要があります。注意してください",
+        "update": "新しいバージョンが見つかりました。更新が必要ですか？",
+        "loading": "処理中、後でログを表示してください"
+      },
+      "validator": {
+        "url": "インストール先住所を入力してください"
       }
-    },
-    "theme": {
-      "name": "テンプレート管理",
-      "default": "デフォルト",
-      "info": "テーマ説明",
-      "empty": "空",
-      "change": "テーマ変更",
-      "changeConfirm": "テーマ変更の確認",
-      "config": "テーマ設定",
-      "addField": "フィールド追加"
     }
   }
 }

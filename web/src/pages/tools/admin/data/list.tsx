@@ -14,7 +14,8 @@ const RenderList = ({ data }: any) => {
     fields: data?.data?.fields,
     magic: params?.name,
     editResource: data?.data?.page ? 'tools.data' : undefined,
-    component: () => import('./modal'),
+    componentShow: () => import('./show'),
+    componentEdit: () => import('./modal'),
   })
 
   useEffect(() => {
@@ -40,8 +41,6 @@ const RenderList = ({ data }: any) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
-  console.log(table)
-
   return (
     <PageTable
       columns={columns}
@@ -49,6 +48,7 @@ const RenderList = ({ data }: any) => {
         meta: {
           params: {
             magic: params?.name,
+            action: 'show',
           },
         },
       }}

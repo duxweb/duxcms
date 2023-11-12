@@ -82,19 +82,41 @@ class Magic
         return $source->data;
     }
 
+
+    /**
+     * 拼接展示数据
+     * @param array $fields
+     * @param array $data
+     * @return array
+     */
+    public static function showData(array $fields, array $data): array
+    {
+        $extendData = self::extendData($fields, $data);
+        foreach ($data as $key => $vo) {
+            $data[$key] = self::formatItem($vo, $extendData[$key]);
+        }
+        return $data;
+    }
+
+
     /**
      * 提取源数据
-     * @param Collection $fields
-     * @param Collection $data
-     * @return Collection
+     * @param array $fields
+     * @param array $data
+     * @return array
      */
-    public static function mergeData(Collection $fields, Collection $data): Collection
+    public static function extendData(array $fields, array $data): array
     {
+        $fields = collect($fields);
         $optionsData = [];
         $sourceFields = $fields->filter(function ($field) use (&$optionsData) {
             if (!$field['setting']['source'] && $field['setting']['options']) {
                 $options = is_array($field['setting']['options']) ? $field['setting']['options'] : json_decode((string)$field['setting']['options'], true);
-                $optionsData[$field['name']][] = $options;
+                $optionsData[$field['name']] = [
+                    'key' => 'value',
+                    'type' => $field['type'],
+                    'data' => $options
+                ];
                 return false;
             }
             if (!$field['setting']['source']) {
@@ -104,79 +126,110 @@ class Magic
         })->values();
 
         $sourceIdMaps = [];
-        $data->map(function ($item) use (&$sourceIdMaps, $sourceFields) {
+        foreach ($data as $item) {
             $sourceFields->map(function ($field) use ($item, &$sourceIdMaps) {
                 $name = $field['name'];
                 if (!isset($sourceIdMaps[$name])) {
                     $sourceIdMaps[$name] = [];
                 }
-                if (is_array($item->data[$name])) {
-                    $sourceIdMaps[$name] = [...$sourceIdMaps[$name], $item->data[$name]];
+                if (is_array($item[$name])) {
+                    $sourceIdMaps[$name] = [...$sourceIdMaps[$name], $item[$name]];
                 } else {
-                    $sourceIdMaps[$name][] = $item->data[$name];
+                    $sourceIdMaps[$name][] = $item[$name];
                 }
             });
-        });
+        }
 
         $sources = \App\Tools\Service\Magic::source();
-        $sourceData = [];
         foreach ($sourceIdMaps as $field => $ids) {
             $fieldInfo = $sourceFields->where('name', $field)->first();
             $source = $sources[$fieldInfo['setting']['source']];
-            $sourceData[$field] = $source['data'](ids: $ids);
+            $optionsData[$field] = [
+                'key' => 'id',
+                'type' => $field['type'],
+                'data' => $source['data'](ids: $ids)
+            ];
         }
 
-        return $data->map(function ($item) use ($sourceData, $fields) {
-            $arr = $item->data;
-            foreach ($item->data as $key => $value) {
+
+
+        $treeType = ['cascader', 'cascader-multi'];
+
+        $hasData = [];
+        foreach ($data as $item) {
+            $arr = [];
+            foreach ($item as $key => $value) {
+
                 if (isset($optionsData[$key])) {
-                    $options = collect($optionsData[$key]);
-                    if (is_array($value)) {
-                        $arr[$key . '_data'] = $options->whereIn('value', $value)->toArray();
+                    $options = $optionsData[$key];
+                    $tmp = is_array($value) ? $value : [$value];
+
+                    if (in_array($options['type'], $treeType)) {
+                        $paths = [];
+                        foreach ($tmp as $v) {
+                            $paths[] = self::findTreePath($options['data'], $v, $options['key']);
+                        }
+                        if (is_array($value)) {
+                            $arr[$key] = $paths;
+                        }else {
+                            $arr[$key] = $paths[0];
+                        }
                     } else {
-                        $arr[$key . '_data'] = $options->where('value', $value)->first();
+                        $paths = [];
+                        foreach ($options['data'] as $vo) {
+                            if (in_array($vo[$options['key']], $tmp)) {
+                                $paths[] = $vo;
+                            }
+                        }
+                        if (is_array($value)) {
+                            $arr[$key] = $paths;
+                        }else {
+                            $arr[$key] = $paths[0];
+                        }
                     }
                 }
-                if (isset($sourceData[$key])) {
-                    $source = collect($sourceData[$key]);
-                    if (is_array($value)) {
-                        $arr[$key . '_data'] = $source->whereIn('id', $value)->toArray();
-                    } else {
-                        $arr[$key . '_data'] = $source->where('id', $value)->first();
-                    }
-                }
+
             }
-            $item->data = self::formatLabel($arr, $fields);
-            return $item;
-        });
+            $hasData[] = $arr;
+        }
+        return $hasData;
     }
 
 
-    private static function formatLabel(array $itemData, Collection $fields): array
-    {
-        foreach ($itemData as $key => $value) {
-            if (!isset($itemData[$key . '_data'])) {
-                continue;
-            }
-            if (!is_array($value)) {
-                $value = [$value];
-                $data = collect([$itemData[$key . '_data']]);
-            }else {
-                $data = collect($itemData[$key . '_data']);
+    private static function findTreePath($array, $target, $key, $path = []) {
+
+        foreach ($array as $element) {
+            $newElement = $element;
+            unset($newElement['children']);
+
+            if ($element[$key] === $target) {
+                $path[] = $newElement;
+                return $path;
             }
 
-            $field = $fields->where('name', $key)->first();
-
-            $label = [];
-            foreach ($value as $vo) {
-                $info = $data->where($field['setting']['keys_value'] ?: 'value', $vo)->first();
-                if ($info) {
-                    $label[] = $info[$field['setting']['keys_label'] ?: 'label'];
+            if (isset($element['children']) && is_array($element['children'])) {
+                $newPath = $path;
+                $newPath[] = $newElement;
+                $result = self::findTreePath($element['children'], $target, $key, $newPath);
+                if ($result !== null) {
+                    return $result;
                 }
             }
-            $itemData[$key . '_label'] = implode(',', $label);
         }
-        return $itemData;
+
+        return null;
+    }
+
+
+    private static function formatItem(array $data, array $extendData): array
+    {
+        foreach ($data as $key => $value) {
+            if (!$extendData[$key]) {
+                continue;
+            }
+            $data[$key] = $extendData[$key];
+        }
+        return $data;
     }
 
     /**

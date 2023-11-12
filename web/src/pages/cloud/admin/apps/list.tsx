@@ -1,18 +1,7 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import { useTranslate } from '@refinedev/core'
-import {
-  PrimaryTableCol,
-  Link,
-  Popconfirm,
-  Tag,
-  Tooltip,
-  Loading,
-  Dialog,
-  Button,
-  MessagePlugin,
-  Input,
-} from 'tdesign-react/esm'
-import { PageTable, MediaText, useClient, Modal } from '@duxweb/dux-refine'
+import { PrimaryTableCol, Link, Tag, Button } from 'tdesign-react/esm'
+import { PageTable, MediaText, Modal } from '@duxweb/dux-refine'
 import { Icon } from 'tdesign-icons-react'
 import dayjs from 'dayjs'
 import clsx from 'clsx'
@@ -28,30 +17,6 @@ export const colorStyle: Record<string, any> = {
 
 const List = () => {
   const translate = useTranslate()
-  const [loading, setLoading] = useState(false)
-  const [log, setLog] = useState('')
-  const client = useClient()
-  const [uninstall, setUninstall] = useState('')
-  const [password, setPassword] = useState('')
-
-  const update = useCallback((name: string) => {
-    client
-      .request('cloud/apps/update', 'post', {
-        data: {
-          name: name,
-        },
-      })
-      .then((res) => {
-        if (res.statusCode !== 200) {
-          MessagePlugin.error(res.message)
-          return
-        }
-        setLog(res?.data?.content)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [])
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
@@ -76,7 +41,7 @@ const List = () => {
         colKey: 'time',
         title: translate('cloud.apps.fields.time'),
         cell: ({ row }) => {
-          return <>{dayjs(row.time * 1000).format('YYYY-MM-DD HH:mm')}</>
+          return <>{dayjs(row.local_time * 1000).format('YYYY-MM-DD HH:mm:ss')}</>
         },
       },
       {
@@ -88,25 +53,16 @@ const List = () => {
               {!row?.update ? (
                 <Tag variant='outline'>暂无更新</Tag>
               ) : (
-                <Popconfirm
-                  content={translate('buttons.confirm')}
-                  destroyOnClose
-                  placement='top'
-                  showArrow
-                  theme='default'
-                  onConfirm={() => {
-                    setLoading(true)
-                    update(row.name)
-                  }}
-                >
-                  <span>
-                    <Tooltip content={dayjs(row.time * 1000).format('YYYY-MM-DD HH:mm')}>
-                      <Tag theme='warning' variant='outline' className='cursor-pointer'>
-                        有更新
-                      </Tag>
-                    </Tooltip>
-                  </span>
-                </Popconfirm>
+                <Modal
+                  title={translate('cloud.apps.action.update')}
+                  trigger={
+                    <Tag theme='warning' variant='outline' className='cursor-pointer'>
+                      有更新
+                    </Tag>
+                  }
+                  component={() => import('./update')}
+                  componentProps={{ data: row }}
+                ></Modal>
               )}
             </>
           )
@@ -125,14 +81,12 @@ const List = () => {
                 {translate('buttons.show')}
               </Link>
 
-              <Link
-                theme='danger'
-                onClick={() => {
-                  setUninstall(row.name)
-                }}
-              >
-                {translate('buttons.delete')}
-              </Link>
+              <Modal
+                title={translate('cloud.apps.action.uninstall')}
+                trigger={<Link theme='danger'>{translate('cloud.apps.action.uninstall')}</Link>}
+                component={() => import('./uninstall')}
+                componentProps={{ name: row.name }}
+              ></Modal>
             </div>
           )
         },
@@ -175,75 +129,6 @@ const List = () => {
           </>
         )}
       />
-      <Dialog
-        className='app-modal'
-        header='日志'
-        footer={false}
-        visible={!!log}
-        destroyOnClose
-        onClose={() => {
-          setLog('')
-          window.location.reload()
-        }}
-      >
-        <div className='p-4'>
-          <pre className='overflow-auto rounded-lg p-4 bg-component'>{log}</pre>
-        </div>
-      </Dialog>
-
-      <Dialog
-        className='app-modal'
-        header='确认卸载'
-        visible={!!uninstall}
-        onClose={() => {
-          setPassword('')
-          setUninstall('')
-        }}
-        destroyOnClose
-        onConfirm={() => {
-          console.log(password)
-          setLoading(true)
-          client
-            .request('cloud/apps/delete', 'post', {
-              data: {
-                name: uninstall,
-                password: password,
-              },
-            })
-            .then((res) => {
-              if (res.statusCode !== 200) {
-                MessagePlugin.error(res.message)
-                return
-              }
-              setUninstall('')
-              setLog(res?.data?.content)
-            })
-            .finally(() => {
-              setLoading(false)
-            })
-        }}
-      >
-        <div className='p-4'>
-          <div className='mb-2 text-error'>卸载该应用不可恢复，需验证用户密码，请谨慎操作</div>
-          <Input
-            type='password'
-            value={password}
-            onChange={(value) => {
-              setPassword(() => {
-                return value
-              })
-              console.log(value)
-            }}
-          />
-        </div>
-      </Dialog>
-
-      <Loading
-        loading={loading}
-        fullscreen
-        preventScrollThrough={true}
-        text='处理中，请稍等'
-      ></Loading>
     </>
   )
 }

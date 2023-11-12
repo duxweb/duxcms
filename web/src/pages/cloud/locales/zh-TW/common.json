@@ -1,58 +1,30 @@
 {
-  "cms": {
-    "dashboard": {
-      "name": "概況",
-      "nums": {
-        "article": "文章數量",
-        "pv": "網站PV",
-        "uv": "網站UV",
-        "spider": "蜘蛛爬蟲"
+  "cloud": {
+    "name": "雲平臺",
+    "apps": {
+      "name": "應用中心",
+      "action": {
+        "login": "登入",
+        "install": "安裝",
+        "uninstall": "卸載",
+        "update": "更新",
+        "close": "取消"
       },
-      "views": {
-        "name": "訪問統計",
-        "pv": "訪問量",
-        "uv": "訪客量"
-      },
-      "unknown": "未知",
-      "spider": "蜘蛛統計",
-      "source": "瀏覽器來源",
-      "area": "地區來源",
-      "article": {
-        "name": "近期文章",
-        "pv": "訪問量",
-        "date": "發布日期"
-      },
-      "push": {
-        "name": "發布統計",
-        "num": "數量"
-      },
-      "class": {
-        "name": "分類統計",
-        "num": "數量"
-      },
-      "noData": "暫無數據"
-    },
-    "name": "站點管理",
-    "setting": {
-      "name": "站點設置",
       "fields": {
-        "title": "站點標題",
-        "titleHelp": "站點頭部標題",
-        "desc": "站點描述",
-        "descHelp": "站點描述信息",
-        "copyright": "版權信息",
-        "copyrightHelp": "站點版權信息"
+        "name": "應用",
+        "time": "版本",
+        "update": "更新",
+        "username": "用戶名",
+        "password": "密碼"
+      },
+      "tips": {
+        "uninstall": "卸載該應用不可恢復，需驗證使用者密碼，請謹慎操作",
+        "update": "發現新版本，是否需要更新？",
+        "loading": "處理中，請稍後查看日誌"
+      },
+      "validator": {
+        "url": "請輸入安裝的地址"
       }
-    },
-    "theme": {
-      "name": "模板管理",
-      "default": "默認",
-      "info": "主題說明",
-      "empty": "暫無",
-      "change": "主題切換",
-      "changeConfirm": "確認切換嗎",
-      "config": "主題配置",
-      "addField": "添加字段"
     }
   }
 }

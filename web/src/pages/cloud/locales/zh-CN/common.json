@@ -6,7 +6,9 @@
       "action": {
         "login": "登录",
         "install": "安装",
-        "uninstall": "卸载"
+        "uninstall": "卸载",
+        "update": "更新",
+        "close": "取消"
       },
       "fields": {
         "name": "应用",
@@ -14,6 +16,11 @@
         "update": "更新",
         "username": "用户名",
         "password": "密码"
+      },
+      "tips": {
+        "uninstall": "卸载该应用不可恢复，需验证用户密码，请谨慎操作",
+        "update": "发现新版本，是否需要更新？",
+        "loading": "处理中，请稍后查看日志"
       },
       "validator": {
         "url": "请输入安装的地址"
