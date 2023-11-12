@@ -6,9 +6,9 @@
         "duxweb/content": "0.1.1",
         "duxweb/install": "0.0.2",
         "duxweb/base": "0.0.5",
-        "duxweb/tools": "0.0.5"
+        "duxweb/tools": "0.1.0"
     },
     "apps": {
-        "dux/cms": 1699532121
+        "dux/cms": 1699772194
     }
 }
