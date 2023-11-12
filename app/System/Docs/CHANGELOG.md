@@ -1,3 +1,7 @@
+# 0.0.6
+## Feature
+- 增加 composer 与 yarn 依赖，可随应用更新
+
 # 0.0.5
 ## Feature
 - 清理过时代码，优化响应速度

@@ -1,40 +1,40 @@
 {
-  "name": "refine-project",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@duxweb/dux-extend": "^0.0.18",
-    "@duxweb/dux-plugin": "^0.0.7",
-    "@duxweb/dux-refine": "0.5.9"
-  },
-  "devDependencies": {
-    "@faker-js/faker": "^8.0.2",
-    "@types/node": "^20.8.9",
-    "@types/react": "^18.2.33",
-    "@types/react-dom": "^18.2.14",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "@unocss/eslint-config": "^0.57.1",
-    "@vitejs/plugin-react": "^4.1.0",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-mdx": "^2.2.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "lowdb": "^6.1.1",
-    "prettier": "^3.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.69.5",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0"
-  },
-  "scripts": {
-    "dev": "refine dev --host",
-    "build": "rm -rf ../public/web/ && tsc && refine build",
-    "preview": "refine start",
-    "refine": "refine"
-  }
+    "name": "refine-project",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@duxweb/dux-extend": "^0.0.18",
+        "@duxweb/dux-plugin": "^0.0.7",
+        "@duxweb/dux-refine": "0.5.9"
+    },
+    "devDependencies": {
+        "@faker-js/faker": "^8.0.2",
+        "@types/node": "^20.8.9",
+        "@types/react": "^18.2.33",
+        "@types/react-dom": "^18.2.14",
+        "@typescript-eslint/eslint-plugin": "^6.9.0",
+        "@typescript-eslint/parser": "^6.9.0",
+        "@unocss/eslint-config": "^0.57.1",
+        "@vitejs/plugin-react": "^4.1.0",
+        "eslint": "^8.52.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-mdx": "^2.2.0",
+        "eslint-plugin-prettier": "^5.0.1",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.3",
+        "lowdb": "^6.1.1",
+        "prettier": "^3.0.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "sass": "^1.69.5",
+        "typescript": "^5.2.2",
+        "vite": "^4.5.0"
+    },
+    "scripts": {
+        "dev": "refine dev --host",
+        "build": "rm -rf ../public/web/ && tsc && refine build",
+        "preview": "refine start",
+        "refine": "refine"
+    }
 }

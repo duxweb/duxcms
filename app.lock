@@ -26,16 +26,24 @@
             "app": "content"
         },
         {
-            "name": "duxweb/base",
-            "description": "System Base Applications",
-            "version": "0.0.5",
-            "app": "system"
-        },
-        {
             "name": "duxweb/tools",
             "description": "System Tools Applications",
             "version": "0.1.0",
             "app": "tools"
+        },
+        {
+            "name": "duxweb/base",
+            "description": "System Base Applications",
+            "version": "0.0.6",
+            "phpDependencies": {
+                "duxweb/dux-lite": "main-dev"
+            },
+            "jsDependencies": {
+                "@duxweb/dux-extend": "^0.0.18",
+                "@duxweb/dux-plugin": "^0.0.7",
+                "@duxweb/dux-refine": "0.5.9"
+            },
+            "app": "system"
         }
     ]
 }
