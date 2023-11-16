@@ -123,7 +123,7 @@ const Page = () => {
         <Input placeholder={translate('content.article.validate.keywords')} />
       </FormPageItem>
 
-      <FormPageItem name='descriptions'>
+      <FormPageItem name='descriptions' initialData=''>
         <Textarea placeholder={translate('content.article.validate.descriptions')} />
       </FormPageItem>
     </FormPage>

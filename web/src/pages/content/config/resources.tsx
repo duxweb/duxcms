@@ -53,16 +53,6 @@ export const adminResources = (app: App) => {
       },
     },
     {
-      name: 'content.comment',
-      list: 'content/comment',
-      listElenemt: lazyComponent(() => import('../admin/comment/list')),
-      meta: {
-        parent: 'content.articleGroup',
-        label: 'content.comment',
-        sort: 4,
-      },
-    },
-    {
       name: 'content.recommend',
       list: 'content/recommend',
       listElenemt: lazyComponent(() => import('../admin/recommend/list')),

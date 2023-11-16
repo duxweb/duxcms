@@ -26,7 +26,7 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <MediaText size='small'>
-              {row.images[0] && <MediaText.Image src={row.images[0]}></MediaText.Image>}
+              {row.images?.[0] && <MediaText.Image src={row.images}></MediaText.Image>}
               <MediaText.Title>{row.title}</MediaText.Title>
               <MediaText.Desc>{row.subtitle}</MediaText.Desc>
             </MediaText>

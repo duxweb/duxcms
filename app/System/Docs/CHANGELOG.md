@@ -1,3 +1,7 @@
+# 0.0.7
+## Feature
+- 更新前端依赖，增加 Kbar 组件
+
 # 0.0.6
 ## Feature
 - 增加 composer 与 yarn 依赖，可随应用更新
