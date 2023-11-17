@@ -75,5 +75,15 @@ export const adminResources = (app: App) => {
     {
       name: 'tools.dataPage',
     },
+    {
+      name: 'tools.file',
+      list: 'tools/file',
+      listElenemt: lazyComponent(() => import('../admin/file/list')),
+      meta: {
+        label: 'tools.file',
+        icon: 'link',
+        parent: 'tools',
+      },
+    },
   ])
 }

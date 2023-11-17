@@ -73,6 +73,20 @@
     },
     "magicGroup": {
       "name": "数据管理"
+    },
+    "file": {
+      "name": "附件管理",
+      "fields": {
+        "addDir": "添加目录",
+        "name": "文件",
+        "driver": "驱动",
+        "time": "时间",
+        "size": "大小",
+        "dirName": "目录名称"
+      },
+      "placeholder": {
+        "dir": "请选择目录"
+      }
     }
   },
   "data": {
