@@ -1,0 +1,1 @@
+import{U as t,j as e,bJ as m,O as n,P as i}from"./modulepreload-polyfill-bcbe5797.js";const r=a=>{const s=t();return e.jsx(m,{id:a==null?void 0:a.id,children:e.jsx(n.FormItem,{label:s("system.api.fields.name"),name:"name",children:e.jsx(i,{})})})};export{r as default};

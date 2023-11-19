@@ -17,15 +17,9 @@
             "app": "cms"
         },
         {
-            "name": "duxweb/tools",
-            "description": "System Tools Applications",
-            "version": "0.1.0",
-            "app": "tools"
-        },
-        {
             "name": "duxweb/content",
             "description": "Content Management Applications",
-            "version": "0.1.3",
+            "version": "0.1.4",
             "phpDependencies": {
                 "pelago/emogrifier": "^7.1"
             },
@@ -34,16 +28,22 @@
         {
             "name": "duxweb/base",
             "description": "System Base Applications",
-            "version": "0.0.7",
+            "version": "0.0.8",
             "phpDependencies": {
                 "duxweb/dux-lite": "main-dev"
             },
             "jsDependencies": {
                 "@duxweb/dux-extend": "^0.0.18",
                 "@duxweb/dux-plugin": "^0.0.7",
-                "@duxweb/dux-refine": "0.6.0"
+                "@duxweb/dux-refine": "0.7.3"
             },
             "app": "system"
+        },
+        {
+            "name": "duxweb/tools",
+            "description": "System Tools Applications",
+            "version": "0.1.1",
+            "app": "tools"
         }
     ]
 }
