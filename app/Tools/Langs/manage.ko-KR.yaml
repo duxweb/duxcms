@@ -28,6 +28,12 @@ tools:
       name: 구성
     sourceData:
       name: 데이터
+  file:
+    name: 첨부 관리
+  fileDir:
+    name: 첨부 파일 디렉토리
+    validator:
+      name: 디렉토리 이름을 입력하십시오.
 extend:
   name: 확장
   magic:

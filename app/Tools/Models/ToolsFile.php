@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tools\Models;
 
+use App\Content\Models\ArticleClass;
 use Dux\Database\Attribute\AutoMigrate;
 
 #[AutoMigrate]
@@ -15,7 +16,7 @@ class ToolsFile extends \Dux\Database\Model
 	public function migration(\Illuminate\Database\Schema\Blueprint $table)
 	{
 		$table->id();
-        $table->char('dir_id')->nullable();
+        $table->bigInteger('dir_id')->nullable();
         $table->char('has_type');
         $table->char('driver');
         $table->string('url');
@@ -26,4 +27,9 @@ class ToolsFile extends \Dux\Database\Model
         $table->string('mime')->nullable();
 		$table->timestamps();
 	}
+
+    public function dir(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ToolsFileDir::class, 'id', 'dir_id');
+    }
 }

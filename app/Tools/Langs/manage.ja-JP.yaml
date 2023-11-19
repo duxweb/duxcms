@@ -28,6 +28,12 @@ tools:
       name: 構成
     sourceData:
       name: データ＃データ＃
+  file:
+    name: 添付ファイルの管理
+  fileDir:
+    name: 添付ディレクトリ
+    validator:
+      name: ディレクトリ名を入力してください
 extend:
   name: 拡張
   magic:

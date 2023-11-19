@@ -73,6 +73,23 @@
     },
     "magicGroup": {
       "name": "데이터 관리"
+    },
+    "file": {
+      "name": "첨부 관리",
+      "fields": {
+        "dir": "목차",
+        "addDir": "디렉토리 추가",
+        "editDir": "디렉토리 편집",
+        "name": "파일",
+        "driver": "구동",
+        "time": "시간",
+        "size": "크기",
+        "dirName": "디렉토리 이름",
+        "upload": "파일 업로드"
+      },
+      "placeholder": {
+        "dir": "디렉토리를 선택하십시오."
+      }
     }
   },
   "data": {

@@ -1,5 +1,5 @@
 import { useTranslate } from '@refinedev/core'
-import { FormModal, UploadImage } from '@duxweb/dux-refine'
+import { FormModal, UploadImageManage } from '@duxweb/dux-refine'
 import { Form, Input } from 'tdesign-react/esm'
 
 const Page = (props: Record<string, any>) => {
@@ -11,7 +11,7 @@ const Page = (props: Record<string, any>) => {
         <Input />
       </Form.FormItem>
       <Form.FormItem label={translate('content.source.fields.avatar')} name='avatar'>
-        <UploadImage />
+        <UploadImageManage accept='image/*' />
       </Form.FormItem>
     </FormModal>
   )

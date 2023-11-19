@@ -28,6 +28,12 @@ tools:
       name: Настройка
     sourceData:
       name: Данные
+  file:
+    name: Управление приложениями
+  fileDir:
+    name: Содержание
+    validator:
+      name: Введите имя каталога
 extend:
   name: Расширение
   magic:

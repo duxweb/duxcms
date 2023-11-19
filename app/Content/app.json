@@ -1,7 +1,7 @@
 {
     "name": "duxweb/content",
     "description": "Content Management Applications",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "phpDependencies": {
         "pelago/emogrifier": "^7.1"
     }

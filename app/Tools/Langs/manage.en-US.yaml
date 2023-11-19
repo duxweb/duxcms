@@ -28,6 +28,12 @@ tools:
       name: allocation
     sourceData:
       name: data
+  file:
+    name: Attachment Management
+  fileDir:
+    name: Attachment Table of Contents
+    validator:
+      name: Please enter a directory name
 extend:
   name: extend
   magic:

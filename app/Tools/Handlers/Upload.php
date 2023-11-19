@@ -98,18 +98,19 @@ class Upload
     {
         $this->hasType = $request->getAttribute('app');
         $query = $request->getQueryParams();
+        $params = $request->getParsedBody();
         $type = $query['type'];
         $id = $query['id'];
-        $name = $query['name'];
-        $query = $query['query'];
-        $filter = $query['filter'];
+        $accept = $query['accept'];
+        $keyword = $query['keyword'];
+        $name = $params['name'];
 
         $data = [];
         if ($type == 'folder') {
             $data = $this->getFolder();
         }
         if ($type == 'files') {
-            $data = $this->getFile($id, $query, $filter);
+            $data = $this->getFile($id, $keyword, $accept);
         }
         if ($type == 'files-delete') {
             $data = $this->deleteFile($id);
@@ -121,7 +122,7 @@ class Upload
             $data = $this->deleteFolder($id);
         }
 
-        return send($response, 'ok', $data);
+        return send($response, 'ok', ...$data);
     }
 
     /**
@@ -129,84 +130,31 @@ class Upload
      */
     private function getFolder()
     {
-        return ToolsFileDir::query()->where('has_type', $this->hasType)->get()->toArray();
+        $list = ToolsFileDir::query()->where('has_type', $this->hasType)->get()->toArray();
+        return [$list];
     }
 
-    private function getFile($dirId, $query = '', $filter = 'all'): array
+    private function getFile($dirId, $keyword = '', $accept = ''): array
     {
-        $totalPage = 1;
-        $page = 1;
-        $format = [
-            'image' => 'jpg,png,bmp,jpeg,gif',
-            'audio' => 'wav,mp3,acc,ogg',
-            'video' => 'mp4,ogv,webm,ogm',
-            'document' => 'doc,docx,xls,xlsx,pptx,ppt,csv,pdf',
-        ];
-
+        $query = ToolsFile::query()->where('has_type', $this->hasType);
         if ($dirId) {
-            $data = ToolsFile::where('has_type', $this->hasType)->where('dir_id', $dirId);
-            if ($query) {
-                $data = $data->where('name', 'like', '%' . $query . '%');
-            }
-            if ($filter <> 'all') {
-                if ($filter === 'other') {
-
-                    $data->whereNotIn('ext', explode(',', implode(',', $format)));
-                } else {
-
-                    $filterData = explode(',', $filter);
-                    $exts = [];
-                    foreach ($filterData as $vo) {
-                        $exts[] = $format[$vo];
-                    }
-                    $exts = array_filter($exts);
-                    $data->whereIn('ext', explode(',', implode(',', $exts)));
-                }
-            }
-            $data = $data->orderBy('id', 'desc')->paginate(16, [
-                'id', 'dir_id', 'url', 'name', 'ext', 'size', 'created_at'
-            ]);
-            $total = $data->total();
-            $page = $data->currentPage();
-            $data = $data->map(function ($item) use ($format) {
-                $item->size = $item['size'];
-                $item->time = $item->created_at ? $item->created_at->format('Y-m-d H:i:s') : '';
-                if (in_array($item->ext, explode(',', $format['image']))) {
-                    $item->cover = $item->url;
-                } else {
-                    $type = 'other';
-                    foreach ($format as $key => $vo) {
-                        if (in_array($item->ext, explode(',', $vo))) {
-                            $type = $key;
-                            break;
-                        }
-                    }
-                    switch ($type) {
-                        case 'audio':
-                            $item->cover = '/static/system/img/icon/audio.svg';
-                            break;
-                        case 'video':
-                            $item->cover = '/static/system/img/icon/video.svg';
-                            break;
-                        case 'document':
-                            $item->cover = '/static/system/img/icon/doc.svg';
-                            break;
-                        default:
-                            $item->cover = '/static/system/img/icon/other.svg';
-                            break;
-                    }
-                }
-                return $item;
-            })->toArray();
-        } else {
-            $data = [];
+            $query->where('dir_id', $dirId);
         }
-        return [
-            'data' => $data,
-            'total' => $total ?: 0,
-            'page' => $page,
-            'pageSize' => 16
-        ];
+        if ($keyword) {
+            $query->where('name', 'like', '%' . $keyword . '%');
+        }
+        if ($accept) {
+            $accept = str_replace('*', '%', $accept);
+            $query->where('mime', 'like', $accept);
+        }
+        $data = $query->orderBy('id', 'desc')->paginate(12, [
+            'id', 'dir_id', 'url', 'name', 'ext', 'size', 'mime', 'created_at'
+        ]);
+
+        return format_data($data, function ($item) {
+            $item['size'] = human_filesize($item->size);
+            return $item;
+        });
     }
 
     /**
@@ -243,8 +191,10 @@ class Upload
         $file->has_type = $this->hasType;
         $file->save();
         return [
-            'id' => $file->id,
-            'name' => $name,
+            [
+                'id' => $file->id,
+                'name' => $name,
+            ]
         ];
     }
 

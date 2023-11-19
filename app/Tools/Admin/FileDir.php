@@ -33,7 +33,7 @@ class FileDir extends Resources
     public function validator(array $data, ServerRequestInterface $request, array $args): array
 	{
 		return [
-		    "name" => ["required", __('content.menu.validator.name', 'manage')],
+		    "name" => ["required", __('tools.fileDir.validator.name', 'manage')],
 		];
 	}
 

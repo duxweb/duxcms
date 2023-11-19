@@ -3,9 +3,9 @@ import {
   FormPage,
   Editor,
   useClient,
-  UploadImage,
   useSelect,
   FormPageItem,
+  UploadImageManage,
 } from '@duxweb/dux-refine'
 import { Form, Input, Radio, Cascader, AutoComplete, Textarea, Checkbox } from 'tdesign-react/esm'
 import { useEffect, useState } from 'react'
@@ -60,7 +60,7 @@ const Page = () => {
             <Input />
           </Form.FormItem>
           <Form.FormItem label={translate('content.article.fields.image')} name='images'>
-            <UploadImage multiple accept='image/*' />
+            <UploadImageManage accept='image/*' />
           </Form.FormItem>
 
           <Form.FormItem

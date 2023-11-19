@@ -28,6 +28,12 @@ tools:
       name: 配置
     sourceData:
       name: 数据
+  file:
+    name: 附件管理
+  fileDir:
+    name: 附件目录
+    validator:
+      name: 请输入目录名
 extend:
   name: 扩展
   magic:

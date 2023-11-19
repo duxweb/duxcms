@@ -77,12 +77,15 @@
     "file": {
       "name": "附件管理",
       "fields": {
+        "dir": "目录",
         "addDir": "添加目录",
+        "editDir": "编辑目录",
         "name": "文件",
         "driver": "驱动",
         "time": "时间",
         "size": "大小",
-        "dirName": "目录名称"
+        "dirName": "目录名称",
+        "upload": "上传文件"
       },
       "placeholder": {
         "dir": "请选择目录"

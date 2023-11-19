@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-#[Resource(app: 'admin',  route: '/tools/file', name: 'tools.file')]
+#[Resource(app: 'admin',  route: '/tools/file', name: 'tools.file', actions: ['list', 'delete'])]
 class File extends Resources
 {
 	protected string $model = ToolsFile::class;
@@ -25,33 +25,21 @@ class File extends Resources
         if ($params['dir_id']) {
             $query->where('dir_id', $params['dir_id']);
         }
+        $query->orderByDesc('id');
     }
 
     public function transform(object $item): array
     {
         return [
             "id" => $item->id,
+            "dir_name" => $item->dir->name,
             "name" => $item->name,
             "ext" => $item->ext,
             "url" => $item->url,
-            "size" => $item->size,
+            "size" => human_filesize($item->size),
             "mime" => $item->mime,
             "driver" => $item->driver,
             "time" => $item->created_at->format('Y-m-d H:i:s'),
         ];
     }
-
-    public function validator(array $data, ServerRequestInterface $request, array $args): array
-	{
-		return [
-            "name" => ["required", __('tools.file.validator.name', 'manage')],
-		];
-	}
-
-    public function format(Data $data, ServerRequestInterface $request, array $args): array
-	{
-		return [
-            "name" => $data->name,
-		];
-	}
 }

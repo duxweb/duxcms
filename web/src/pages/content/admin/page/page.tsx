@@ -1,21 +1,10 @@
-import { useTranslate, useList, useResource } from '@refinedev/core'
-import {
-  FormPage,
-  formatUploadSingle,
-  getUploadSingle,
-  useUpload,
-  Editor,
-} from '@duxweb/dux-refine'
-import { Form, Input, Upload, Radio, Cascader } from 'tdesign-react/esm'
+import { useTranslate, useResource } from '@refinedev/core'
+import { FormPage, Editor, UploadImageManage, FormPageItem } from '@duxweb/dux-refine'
+import { Form, Input, Radio } from 'tdesign-react/esm'
 
 const Page = () => {
-  const uploadParams = useUpload()
   const translate = useTranslate()
   const { id } = useResource()
-  const { data, isLoading } = useList({
-    resource: 'content.category',
-  })
-  const list = data?.data || []
 
   return (
     <FormPage
@@ -24,14 +13,6 @@ const Page = () => {
       }}
       back
       id={id}
-      initFormat={(data) => {
-        data.image = formatUploadSingle(data.image)
-        return data
-      }}
-      saveFormat={(data) => {
-        data.image = getUploadSingle(data.image)
-        return data
-      }}
       settingRender={
         <>
           <Form.FormItem label={translate('content.page.fields.name')} name='name'>
@@ -41,7 +22,7 @@ const Page = () => {
             <Input />
           </Form.FormItem>
           <Form.FormItem label={translate('content.page.fields.image')} name='image'>
-            <Upload {...uploadParams} theme='image' accept='image/*' />
+            <UploadImageManage accept='image/*' />
           </Form.FormItem>
           <Form.FormItem
             label={translate('content.page.fields.status')}
@@ -56,13 +37,13 @@ const Page = () => {
         </>
       }
     >
-      <Form.FormItem name='title'>
-        <Input size='large' placeholder={translate('content.page.validate.title')} />
-      </Form.FormItem>
+      <FormPageItem name='title'>
+        <Input placeholder={translate('content.page.validate.title')} />
+      </FormPageItem>
 
-      <Form.FormItem name='content'>
+      <FormPageItem name='content'>
         <Editor />
-      </Form.FormItem>
+      </FormPageItem>
     </FormPage>
   )
 }

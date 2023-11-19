@@ -60,7 +60,8 @@ class App extends AppExtend
 
         $commonRoute = $app->getRoute()->get("admin")->group('', ...$middleware);
         $commonRoute->post('/upload', Upload::class . ':upload', 'admin.upload');
-        $commonRoute->post('/upload/remote', Upload::class . ':remote', 'admin.remote');
+        $commonRoute->map(['GET', 'POST', 'DELETE'],'/upload/manage', Upload::class . ':manage', 'admin.upload.manage');
+        $commonRoute->post('/upload/remote', Upload::class . ':remote', 'admin.upload.remote');
     }
 
 

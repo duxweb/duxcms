@@ -73,6 +73,23 @@
     },
     "magicGroup": {
       "name": "data management"
+    },
+    "file": {
+      "name": "Attachment Management",
+      "fields": {
+        "dir": "catalogue",
+        "addDir": "Add Catalog",
+        "editDir": "Edit Catalog",
+        "name": "file",
+        "driver": "drive",
+        "time": "time",
+        "size": "size",
+        "dirName": "Directory Name",
+        "upload": "Upload files"
+      },
+      "placeholder": {
+        "dir": "Please select a directory"
+      }
     }
   },
   "data": {

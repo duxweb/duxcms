@@ -73,6 +73,23 @@
     },
     "magicGroup": {
       "name": "資料管理"
+    },
+    "file": {
+      "name": "附件管理",
+      "fields": {
+        "dir": "目錄",
+        "addDir": "添加目錄",
+        "editDir": "編輯目錄",
+        "name": "文件",
+        "driver": "驅動",
+        "time": "時間",
+        "size": "大小",
+        "dirName": "目錄名稱",
+        "upload": "上傳文件"
+      },
+      "placeholder": {
+        "dir": "請選擇目錄"
+      }
     }
   },
   "data": {

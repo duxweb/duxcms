@@ -73,6 +73,23 @@
     },
     "magicGroup": {
       "name": "データ管理"
+    },
+    "file": {
+      "name": "添付ファイルの管理",
+      "fields": {
+        "dir": "ディレクトリ",
+        "addDir": "ディレクトリの追加",
+        "editDir": "ディレクトリの編集",
+        "name": "ファイル",
+        "driver": "ドライブ",
+        "time": "時間",
+        "size": "サイズ",
+        "dirName": "ディレクトリ名",
+        "upload": "ファイルのアップロード"
+      },
+      "placeholder": {
+        "dir": "ディレクトリを選択してください"
+      }
     }
   },
   "data": {
