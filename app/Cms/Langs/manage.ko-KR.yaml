@@ -4,3 +4,9 @@ cms:
     name: 사이트 통계
   theme:
     name: 사이트 템플릿
+  setting:
+    name: 사이트 설정
+    show:
+      name: 설정 정보
+    edit:
+      name: 설정 저장

@@ -30,5 +30,14 @@ export const adminResources = (app: App) => {
         parent: 'cms',
       },
     },
+    {
+      name: 'cms.setting',
+      list: 'cms/setting',
+      listElenemt: lazyComponent(() => import('../admin/setting/page')),
+      meta: {
+        label: 'cms.setting',
+        parent: 'cms',
+      },
+    },
   ])
 }

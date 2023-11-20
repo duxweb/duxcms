@@ -4,3 +4,9 @@ cms:
     name: サイト統計
   theme:
     name: サイトテンプレート
+  setting:
+    name: サイトの設定
+    show:
+      name: 設定情報
+    edit:
+      name: 設定の保存

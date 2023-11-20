@@ -4,3 +4,9 @@ cms:
     name: Site Statistics
   theme:
     name: Site template
+  setting:
+    name: Site Settings
+    show:
+      name: set information
+    edit:
+      name: Save Settings

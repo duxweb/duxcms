@@ -4,3 +4,9 @@ cms:
     name: 網站統計
   theme:
     name: 網站範本
+  setting:
+    name: 網站設定
+    show:
+      name: 設定資訊
+    edit:
+      name: 保存設置

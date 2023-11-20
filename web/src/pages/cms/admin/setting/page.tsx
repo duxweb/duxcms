@@ -24,8 +24,16 @@ const Index = () => {
       </FormPageItem>
 
       <FormPageItem
+        label={translate('cms.setting.fields.keyword')}
+        name='keyword'
+        help={translate('cms.setting.fields.keywordHelp')}
+      >
+        <Input />
+      </FormPageItem>
+
+      <FormPageItem
         label={translate('cms.setting.fields.desc')}
-        name='desc'
+        name='description'
         help={translate('cms.setting.fields.descHelp')}
       >
         <Input />

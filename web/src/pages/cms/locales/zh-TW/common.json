@@ -40,6 +40,8 @@
         "titleHelp": "網站頭部標題",
         "desc": "網站描述",
         "descHelp": "網站描述資訊",
+        "keyword": "關鍵字",
+        "keywordHelp": "網站關鍵字資訊",
         "copyright": "版權資訊",
         "copyrightHelp": "網站版權資訊"
       }

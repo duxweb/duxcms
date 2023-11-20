@@ -14,7 +14,7 @@
         "uv": "Visitor volume" 
       },
       "unknown": "unknown",
-      "spider": "Spider Statistics",
+      "spider": "Spider statistics",
       "source": "Browser Source",
       "area": "Regional sources",
       "article": {
@@ -40,6 +40,8 @@
         "titleHelp": "Site header title",
         "desc": "Site Description",
         "descHelp": "Site Description Information",
+        "keyword": "keyword",
+        "keywordHelp": "Site keyword information",
         "copyright": "Copyright Information",
         "copyrightHelp": "Site copyright information"
       }

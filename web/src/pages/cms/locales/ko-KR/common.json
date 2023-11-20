@@ -40,6 +40,8 @@
         "titleHelp": "사이트 헤드 제목",
         "desc": "사이트 설명",
         "descHelp": "사이트 설명 정보",
+        "keyword": "키워드",
+        "keywordHelp": "사이트 키워드 정보",
         "copyright": "저작권 정보",
         "copyrightHelp": "사이트 저작권 정보"
       }

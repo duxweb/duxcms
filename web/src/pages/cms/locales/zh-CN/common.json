@@ -40,6 +40,8 @@
         "titleHelp": "站点头部标题",
         "desc": "站点描述",
         "descHelp": "站点描述信息",
+        "keyword": "关键词",
+        "keywordHelp": "站点关键词信息",
         "copyright": "版权信息",
         "copyrightHelp": "站点版权信息"
       }

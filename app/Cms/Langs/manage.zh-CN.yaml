@@ -4,3 +4,9 @@ cms:
     name: 站点统计
   theme:
     name: 站点模板
+  setting:
+    name: 站点设置
+    show:
+      name: 设置信息
+    edit:
+      name: 保存设置

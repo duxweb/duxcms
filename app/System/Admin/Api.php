@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\System\Admin;
 
 use App\System\Models\SystemApi;
-use Dux\Manage\Manage;
 use Dux\Resources\Action\Resources;
 use Dux\Resources\Attribute\Resource;
 use Dux\Validator\Data;

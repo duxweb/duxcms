@@ -40,6 +40,8 @@
         "titleHelp": "サイトヘッダヘッダ",
         "desc": "サイトの説明",
         "descHelp": "サイト記述情報",
+        "keyword": "キーワード",
+        "keywordHelp": "サイトキーワード情報",
         "copyright": "著作権情報",
         "copyrightHelp": "サイト著作権情報"
       }
