@@ -11,12 +11,6 @@
             "app": "install"
         },
         {
-            "name": "duxweb/cms",
-            "description": "CMS Basic Application",
-            "version": "0.0.5",
-            "app": "cms"
-        },
-        {
             "name": "duxweb/content",
             "description": "Content Management Applications",
             "version": "0.1.4",
@@ -44,6 +38,12 @@
             "description": "System Tools Applications",
             "version": "0.1.1",
             "app": "tools"
+        },
+        {
+            "name": "duxweb/cms",
+            "description": "CMS Basic Application",
+            "version": "0.0.6",
+            "app": "cms"
         }
     ]
 }

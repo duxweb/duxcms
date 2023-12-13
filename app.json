@@ -2,7 +2,7 @@
     "name": "project",
     "description": "This is the dux application dependency configuration",
     "dependencies": {
-        "duxweb/cms": "0.0.5",
+        "duxweb/cms": "0.0.6",
         "duxweb/content": "0.1.4",
         "duxweb/install": "0.0.2",
         "duxweb/base": "0.0.8",
