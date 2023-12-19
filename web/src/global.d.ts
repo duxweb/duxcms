@@ -1,8 +1,9 @@
-import { lang } from '@duxweb/dux-refine'
+import { lang, siderType } from '@duxweb/dux-refine'
 
 declare global {
   interface Window {
     lang?: lang
+    sideType?: siderType
   }
 }
 

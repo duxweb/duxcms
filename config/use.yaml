@@ -6,6 +6,7 @@ app:
     domain: 'http://localhost'
 clock: false
 lang: zh-CN
+sideType: app
 vite:
     dev: false
     port: 5173

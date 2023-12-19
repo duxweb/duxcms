@@ -28,7 +28,6 @@ const List = () => {
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
-      { colKey: 'row-select', type: 'multiple' },
       {
         colKey: 'id',
         sorter: true,

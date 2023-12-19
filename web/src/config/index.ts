@@ -20,7 +20,7 @@ const config: Config = {
       forgotPassword: false,
     },
   },
-  sideType: 'app',
+  sideType: window?.sideType || 'level',
   lang: window?.lang,
 }
 export default config

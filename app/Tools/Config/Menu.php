@@ -13,6 +13,7 @@ class Menu
     {
         $app = $menu->add("data", [
             "label" => "data",
+            "icon" => 'data',
             "meta" => [
                 "sort" => 100,
             ]

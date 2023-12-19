@@ -146,7 +146,7 @@ class Magic
             $source = $sources[$fieldInfo['setting']['source']];
             $optionsData[$field] = [
                 'key' => 'id',
-                'type' => $field['type'],
+                'type' => $fieldInfo['type'],
                 'data' => $source['data'](ids: $ids)
             ];
         }

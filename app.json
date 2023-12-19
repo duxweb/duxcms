@@ -9,7 +9,7 @@
         "duxweb/tools": "0.1.1"
     },
     "apps": {
-        "dux/cms": 1700386246,
-        "dux/base": 1700386276
+        "dux/base": 1700386276,
+        "dux/cms": 1700484690
     }
 }

@@ -22,7 +22,6 @@ class App extends AppExtend
 {
     public function init(Bootstrap $app): void
     {
-
         // 初始化资源
         $app->getResource()->set(
             "admin",

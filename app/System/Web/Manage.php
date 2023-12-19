@@ -26,10 +26,12 @@ class Manage
         $data = json_decode(file_get_contents(public_path('/web/manifest.json')) ?: '', true);
         $vite = App::config('use')->get('vite', []);
         $lang = App::config('use')->get('lang', 'en-US');
+        $sideType = App::config('use')->get('sideType', 'app');
 
         $assign = [
             "title" => App::config('use')->get('app.name'),
             "lang" => $lang,
+            "sideType" => $sideType,
             'vite' => [
                 'dev' => (bool)$vite['dev'],
                 'port' => $vite['port'] ?: 5173,

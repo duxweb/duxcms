@@ -7,6 +7,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'tools',
         sort: 90,
+        icon: 'tools',
       },
     },
     {
@@ -31,6 +32,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'data',
         sort: 800,
+        icon: 'data',
       },
     },
     {

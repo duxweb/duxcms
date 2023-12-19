@@ -7,6 +7,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'content',
         sort: 20,
+        icon: 'article',
       },
     },
     {
@@ -73,7 +74,7 @@ export const adminResources = (app: App) => {
       meta: {
         parent: 'content',
         label: 'content.page',
-        icon: 'file-1',
+        icon: 'flag',
         sort: 2,
       },
     },

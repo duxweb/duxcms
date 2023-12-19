@@ -137,7 +137,7 @@ class Magic extends Resources
         $params = $request->getQueryParams();
         $name = $params['name'];
         $keyword = $params['keyword'];
-        $ids = $params['ids'];
+        $ids = $params['ids'] ? explode(',', $params['ids']) : null;
         $sources = \App\Tools\Service\Magic::source();
         $list = [];
         $source = $sources[$name];

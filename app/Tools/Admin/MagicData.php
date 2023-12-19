@@ -81,6 +81,7 @@ class MagicData extends Resources
                 $array = \App\Tools\Service\Magic::showData($fields, $data->pluck('data')->toArray());
                 $list = $list->map(function ($item, $key) use ($array) {
                     $item->data = $array[$key];
+                    return $item;
                 });
             }
             $data->setCollection($list);
