@@ -1,1 +1,0 @@
-import{U as t,j as a,bJ as l,O as r,P as i}from"./modulepreload-polyfill-bcbe5797.js";const m=e=>{const s=t();return a.jsx(l,{id:e==null?void 0:e.id,resource:"tools.fileDir",children:a.jsx(r.FormItem,{label:s("tools.file.fields.dirName"),name:"name",children:a.jsx(i,{})})})};export{m as default};
