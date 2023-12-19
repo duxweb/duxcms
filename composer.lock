@@ -226,16 +226,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.3.7",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "76e46335014860eec1aa5a724799a00a2e47cc85"
+                "reference": "b66d11b7479109ab547f9405b97205640b17d385"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/76e46335014860eec1aa5a724799a00a2e47cc85",
-                "reference": "76e46335014860eec1aa5a724799a00a2e47cc85",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/b66d11b7479109ab547f9405b97205640b17d385",
+                "reference": "b66d11b7479109ab547f9405b97205640b17d385",
                 "shasum": ""
             },
             "require": {
@@ -247,7 +247,7 @@
                 "phpstan/phpstan": "^0.12.55",
                 "psr/log": "^1.0",
                 "symfony/phpunit-bridge": "^4.2 || ^5",
-                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0 || ^6.0"
+                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "type": "library",
             "extra": {
@@ -282,7 +282,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.3.7"
+                "source": "https://github.com/composer/ca-bundle/tree/1.4.0"
             },
             "funding": [
                 {
@@ -298,7 +298,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-30T09:31:38+00:00"
+            "time": "2023-12-18T12:05:55+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -2040,16 +2040,16 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
-                "reference": "3ea2df73e01cf29598b7aecc2ed3b18660a1a9d6"
+                "reference": "cb5e55e701a530222f62968086973bf70b2552e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/bus/zipball/3ea2df73e01cf29598b7aecc2ed3b18660a1a9d6",
-                "reference": "3ea2df73e01cf29598b7aecc2ed3b18660a1a9d6",
+                "url": "https://api.github.com/repos/illuminate/bus/zipball/cb5e55e701a530222f62968086973bf70b2552e8",
+                "reference": "cb5e55e701a530222f62968086973bf70b2552e8",
                 "shasum": ""
             },
             "require": {
@@ -2089,11 +2089,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-12-11T02:35:54+00:00"
+            "time": "2023-12-12T20:04:59+00:00"
         },
         {
             "name": "illuminate/collections",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -2148,7 +2148,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -2194,7 +2194,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -2245,7 +2245,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -2293,16 +2293,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "2cce84c568b21d81e5d686e9bb3a6a97b92bb924"
+                "reference": "dff792e535f4a581d89b027bed5bb26972a5c056"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/2cce84c568b21d81e5d686e9bb3a6a97b92bb924",
-                "reference": "2cce84c568b21d81e5d686e9bb3a6a97b92bb924",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/dff792e535f4a581d89b027bed5bb26972a5c056",
+                "reference": "dff792e535f4a581d89b027bed5bb26972a5c056",
                 "shasum": ""
             },
             "require": {
@@ -2358,11 +2358,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-12-12T16:36:26+00:00"
+            "time": "2023-12-13T12:12:40+00:00"
         },
         {
             "name": "illuminate/events",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -2417,7 +2417,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -2463,7 +2463,7 @@
         },
         {
             "name": "illuminate/pagination",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
@@ -2513,7 +2513,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -2561,16 +2561,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v10.37.1",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "dca44e5edd36a98a51fa3b4e63578e345b77ff3d"
+                "reference": "c28657bdda8014017197e2a40edd7d162ce03e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/dca44e5edd36a98a51fa3b4e63578e345b77ff3d",
-                "reference": "dca44e5edd36a98a51fa3b4e63578e345b77ff3d",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/c28657bdda8014017197e2a40edd7d162ce03e8a",
+                "reference": "c28657bdda8014017197e2a40edd7d162ce03e8a",
                 "shasum": ""
             },
             "require": {
@@ -2628,7 +2628,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-12-12T16:36:26+00:00"
+            "time": "2023-12-12T19:36:09+00:00"
         },
         {
             "name": "intervention/image",
@@ -4149,21 +4149,21 @@
         },
         {
             "name": "overtrue/flysystem-cos",
-            "version": "5.1.6",
+            "version": "5.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/flysystem-cos.git",
-                "reference": "c5a1a144017b68181846c854e2f5d8a7a736eb28"
+                "reference": "9a8f2eba21d7c869b7f53798a5329f55e0a7e42f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/flysystem-cos/zipball/c5a1a144017b68181846c854e2f5d8a7a736eb28",
-                "reference": "c5a1a144017b68181846c854e2f5d8a7a736eb28",
+                "url": "https://api.github.com/repos/overtrue/flysystem-cos/zipball/9a8f2eba21d7c869b7f53798a5329f55e0a7e42f",
+                "reference": "9a8f2eba21d7c869b7f53798a5329f55e0a7e42f",
                 "shasum": ""
             },
             "require": {
                 "league/flysystem": "^3.0",
-                "overtrue/qcloud-cos-client": "^2.1",
+                "overtrue/qcloud-cos-client": "^2.1.4",
                 "php": ">=8.0.2"
             },
             "require-dev": {
@@ -4204,7 +4204,7 @@
             "description": "Flysystem adapter for the QCloud COS storage.",
             "support": {
                 "issues": "https://github.com/overtrue/flysystem-cos/issues",
-                "source": "https://github.com/overtrue/flysystem-cos/tree/5.1.6"
+                "source": "https://github.com/overtrue/flysystem-cos/tree/5.1.8"
             },
             "funding": [
                 {
@@ -4212,7 +4212,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-15T11:08:25+00:00"
+            "time": "2023-12-18T06:08:54+00:00"
         },
         {
             "name": "overtrue/flysystem-qiniu",
@@ -4279,16 +4279,16 @@
         },
         {
             "name": "overtrue/qcloud-cos-client",
-            "version": "2.1.2",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/qcloud-cos-client.git",
-                "reference": "e210652d0dcecf60b6b0c2b57b3883ac754120e1"
+                "reference": "7d4fe598cb81e588b7735a32762c4fa2b47f9492"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/qcloud-cos-client/zipball/e210652d0dcecf60b6b0c2b57b3883ac754120e1",
-                "reference": "e210652d0dcecf60b6b0c2b57b3883ac754120e1",
+                "url": "https://api.github.com/repos/overtrue/qcloud-cos-client/zipball/7d4fe598cb81e588b7735a32762c4fa2b47f9492",
+                "reference": "7d4fe598cb81e588b7735a32762c4fa2b47f9492",
                 "shasum": ""
             },
             "require": {
@@ -4340,7 +4340,7 @@
             "description": "Client of QCloud.com COS",
             "support": {
                 "issues": "https://github.com/overtrue/qcloud-cos-client/issues",
-                "source": "https://github.com/overtrue/qcloud-cos-client/tree/2.1.2"
+                "source": "https://github.com/overtrue/qcloud-cos-client/tree/2.1.4"
             },
             "funding": [
                 {
@@ -4348,7 +4348,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-20T08:51:48+00:00"
+            "time": "2023-12-18T06:07:39+00:00"
         },
         {
             "name": "pelago/emogrifier",
@@ -8547,5 +8547,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
