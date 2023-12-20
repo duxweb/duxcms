@@ -21,13 +21,13 @@ const Page = (props: Record<string, any>) => {
       const info = (queryResult?.data?.data as Record<string, any>[])?.find?.(
         (item: Record<string, any>) => item.value == method,
       )
-      console.log('info', info)
       return info?.type
     },
     [queryResult?.data],
   )
 
   const [form] = Form.useForm()
+  const method = Form.useWatch('method', form)
 
   return (
     <FormModal id={props?.id} form={form}>
@@ -37,7 +37,7 @@ const Page = (props: Record<string, any>) => {
       <Form.FormItem label={translate('sms.tpl.fields.method')} name='method'>
         <Select filterable onSearch={onSearch} options={options} />
       </Form.FormItem>
-      {getType(form?.getFieldValue?.('method')) ? (
+      {getType(method) ? (
         <>
           <Form.FormItem
             name='tpl'

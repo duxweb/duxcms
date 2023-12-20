@@ -6,6 +6,8 @@ use App\Sms\Models\SmsTpl;
 use App\Sms\Service\Gateways\Unisms;
 use App\Sms\Service\Gateways\Vaptcha;
 use App\System\Service\Config;
+use DI\DependencyException;
+use DI\NotFoundException;
 use Dux\App;
 use Dux\Handlers\ExceptionBusiness;
 use Overtrue\EasySms\EasySms;
@@ -36,7 +38,7 @@ class Sms
      * @return int
      * @throws RedisException
      */
-    public static function code(int|string $label, string $tel, int $channel = 0, $extend = []): int
+    public static function code(int|string $label, string $tel, int $channel = 0, array $extend = []): int
     {
         $redis = App::redis();
         $redisKey = "sms.code.$channel.value.$tel";
@@ -76,7 +78,9 @@ class Sms
      * @param string $tel
      * @param string $code
      * @param int $channel
+     * @param bool $delete
      * @return void
+     * @throws RedisException
      */
     public static function verify(string $tel, string $code, int $channel = 0, bool $delete = true): void
     {
@@ -157,6 +161,8 @@ class Sms
      * @param string $tel
      * @param array $params
      * @return void
+     * @throws DependencyException
+     * @throws NotFoundException
      */
     public static function sendQueue(int $id, string $tel, array $params = []): void
     {
