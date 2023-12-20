@@ -1,0 +1,13 @@
+timeout: 5.0
+default:
+  strategy: \Overtrue\EasySms\Strategies\OrderStrategy
+  gateways:
+    - qcloud
+gateways:
+  errorlog:
+    file: %data_path%/logs/sms.log
+  qcloud:
+    sdk_app_id: ''
+    secret_id: ''
+    secret_key: ''
+    sign_name: ''

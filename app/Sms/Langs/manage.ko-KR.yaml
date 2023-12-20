@@ -1,0 +1,8 @@
+sms:
+  name: 문자 메시지
+  tpl:
+    name: 템플릿
+    validator:
+      name: 이름을 입력하십시오.
+  setting:
+    name: 구성

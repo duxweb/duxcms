@@ -1,0 +1,17 @@
+member:
+  name: member
+  user:
+    name: user
+    fields:
+      loginTime: login time
+    validator:
+      nickname: Please enter the user nickname
+      tel: Please enter the user's phone number
+      email: Please enter the user's email address
+      exists: The user already exists
+  level:
+    name: grade
+    validator:
+      name: Please enter a name
+  setting:
+    name: allocation

@@ -1,0 +1,8 @@
+sms:
+  name: ショートメッセージ
+  tpl:
+    name: テンプレート
+    validator:
+      name: 名前を入力してください
+  setting:
+    name: 構成

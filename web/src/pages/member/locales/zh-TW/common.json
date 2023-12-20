@@ -1,0 +1,66 @@
+{
+  "member": {
+    "name": "用戶",
+    "userGroup": {
+      "name": "用戶管理"
+    },
+    "user": {
+      "name": "用戶列表",
+      "tabs": {
+        "all": "全部",
+        "enabled": "啟用",
+        "disabled": "禁用"
+      },
+      "fields": {
+        "level": "等級",
+        "nickname": "昵稱",
+        "email": "郵箱",
+        "tel": "電話",
+        "growth": "成長值",
+        "avatar": "頭像",
+        "sex": "性別",
+        "privacy": "保密",
+        "man": "男",
+        "woman": "女",
+        "birthday": "生日",
+        "password": "密碼",
+        "status": "狀態"
+      }
+    },
+    "level": {
+      "name": "等級清單",
+      "fields": {
+        "name": "名稱",
+        "growth": "成長值",
+        "type": "類型",
+        "common": "普通",
+        "recruit": "招募"
+      }
+    },
+    "setting": {
+      "name": "用戶設置",
+      "tabs": {
+        "base": "基本設定",
+        "text": "文字協定"
+      },
+      "fields": {
+        "register": "開放註冊",
+        "level": "默認等級",
+        "about": "關於我們",
+        "agreement": "使用者協定",
+        "privacy": "隱私政策",
+        "code": "簡訊驗證碼",
+        "tel": "客服電話"
+      },
+      "help": {
+        "register": "開放後用戶可在前臺自由注册",
+        "level": "用戶註冊後的默認使用者等級",
+        "about": "平臺系統相關介紹",
+        "agreement": "用戶註冊使用者協定",
+        "privacy": "用戶隱私政策",
+        "code": "用戶簡訊驗證碼範本",
+        "tel": "平臺客服電話"
+      }
+    }
+  }
+}

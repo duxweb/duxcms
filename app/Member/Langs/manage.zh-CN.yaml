@@ -1,0 +1,21 @@
+member:
+  name: 会员
+  user:
+    name: 用户管理
+    fields:
+      loginTime: 登录时间
+    validator:
+      nickname: 请输入用户昵称
+      tel: 请输入用户电话
+      email: 请输入用户邮箱
+      exists: 该用户已存在
+  level:
+    name: 用户等级
+    validator:
+      name: 请输入名称
+  setting:
+    name: 用户配置
+    info:
+      name: 详情
+    save:
+      name: 保存

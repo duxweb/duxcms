@@ -1,0 +1,8 @@
+sms:
+  name: 簡訊
+  tpl:
+    name: 範本
+    validator:
+      name: 請輸入名稱
+  setting:
+    name: 配寘

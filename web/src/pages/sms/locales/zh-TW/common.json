@@ -1,0 +1,35 @@
+{
+  "sms": {
+    "name": "簡訊管理",
+    "setting": {
+      "name": "簡訊設定",
+      "fields": {
+        "interval": "發送間隔",
+        "time": "頻率限制時間",
+        "num": "頻率限制次數",
+        "expire": "驗證碼時效"
+      },
+      "help": {
+        "interval": "同一客戶收訊號碼獲取簡訊間隔，默認 1 分鐘",
+        "time": "同一客戶端獲取簡訊的時間頻率，默認 5 分鐘 3 次",
+        "num": "同一客戶端獲取簡訊限制時間內最大次數",
+        "expire": "驗證碼發送成功後的驗證時效，默認 30 分鐘"
+      }
+    },
+    "tpl": {
+      "name": "簡訊模板",
+      "fields": {
+        "name": "名稱",
+        "method": "平台",
+        "type": "類型",
+        "typeTpl": "模板簡訊",
+        "typeContent": "內容簡訊",
+        "content": "模板內容",
+        "tpl": "模板 ID",
+        "params": "模板參數",
+        "paramsName": "參數名稱",
+        "paramsValue": "參數值"
+      }
+    }
+  }
+}

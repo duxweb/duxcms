@@ -1,0 +1,35 @@
+{
+  "sms": {
+    "name": "SMS 관리",
+    "setting": {
+      "name": "SMS 설정",
+      "fields": {
+        "interval": "전송 간격",
+        "time": "빈도 제한 시간",
+        "num": "빈도 제한 횟수",
+        "expire": "인증 코드 유효 시간"
+      },
+      "help": {
+        "interval": "동일한 고객 번호로 SMS 수신 간격, 기본값 1 분",
+        "time": "동일한 클라이언트에서 SMS 수신 빈도 제한 시간, 기본값 5 분 3 회",
+        "num": "빈도 제한 시간 내에 동일한 클라이언트에서 SMS 수신 최대 회수",
+        "expire": "전송 성공 후 인증 코드 유효 기간, 기본값 30 분"
+      }
+    },
+    "tpl": {
+      "name": "SMS 템플릿",
+      "fields": {
+        "name": "이름",
+        "method": "플랫폼",
+        "type": "유형",
+        "typeTpl": "템플릿 SMS",
+        "typeContent": "내용 SMS",
+        "content": "템플릿 내용",
+        "tpl": "템플릿 ID",
+        "params": "템플릿 매개 변수",
+        "paramsName": "매개 변수 이름",
+        "paramsValue": "매개 변수 값"
+      }
+    }
+  }
+}

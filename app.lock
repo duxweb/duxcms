@@ -44,6 +44,21 @@
             "description": "System Tools Applications",
             "version": "0.1.2",
             "app": "tools"
+        },
+        {
+            "name": "duxweb/sms",
+            "description": "Sms Basic Application",
+            "version": "0.0.2",
+            "phpDependencies": {
+                "overtrue/easy-sms": "^2.5"
+            },
+            "app": "sms"
+        },
+        {
+            "name": "duxweb/member",
+            "description": "User Basic Application",
+            "version": "0.0.0",
+            "app": "member"
         }
     ]
 }

@@ -1,0 +1,8 @@
+sms:
+  name: СМС
+  tpl:
+    name: Шаблоны
+    validator:
+      name: Введите имя
+  setting:
+    name: Настройка

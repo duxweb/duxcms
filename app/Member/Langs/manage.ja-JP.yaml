@@ -1,0 +1,17 @@
+member:
+  name: 会員
+  user:
+    name: ユーザー
+    fields:
+      loginTime: ログイン時間
+    validator:
+      nickname: ユーザーのニックネームを入力してください
+      tel: ユーザ電話番号を入力してください
+      email: ユーザーメールアドレスを入力してください
+      exists: ユーザーはすでに存在します
+  level:
+    name: 等級
+    validator:
+      name: 名前を入力してください
+  setting:
+    name: 構成

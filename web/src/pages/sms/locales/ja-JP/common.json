@@ -1,0 +1,35 @@
+{
+  "sms": {
+    "name": "SMS 管理",
+    "setting": {
+      "name": "SMS 設定",
+      "fields": {
+        "interval": "送信間隔",
+        "time": "頻度制限時間",
+        "num": "頻度制限回数",
+        "expire": "認証コード有効期間"
+      },
+      "help": {
+        "interval": "同じ顧客番号に対するSMS受信間隔、デフォルト1分",
+        "time": "同じクライアントでのSMS受信の頻度制限時間、デフォルト5分3回",
+        "num": "制限時間内の同じクライアントでの最大SMS受信回数",
+        "expire": "送信成功後の認証コード有効期間、デフォルト30分"
+      }
+    },
+    "tpl": {
+      "name": "SMS テンプレート",
+      "fields": {
+        "name": "名前",
+        "method": "プラットフォーム",
+        "type": "タイプ",
+        "typeTpl": "テンプレートSMS",
+        "typeContent": "コンテンツSMS",
+        "content": "テンプレートコンテンツ",
+        "tpl": "テンプレートID",
+        "params": "テンプレートパラメータ",
+        "paramsName": "パラメータ名",
+        "paramsValue": "パラメータ値"
+      }
+    }
+  }
+}

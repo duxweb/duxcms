@@ -1,0 +1,66 @@
+{
+  "member": {
+    "name": "用户",
+    "userGroup": {
+      "name": "用户管理"
+    },
+    "user": {
+      "name": "用户列表",
+      "tabs": {
+        "all": "全部",
+        "enabled": "启用",
+        "disabled": "禁用"
+      },
+      "fields": {
+        "level": "等级",
+        "nickname": "昵称",
+        "email": "邮箱",
+        "tel": "电话",
+        "growth": "成长值",
+        "avatar": "头像",
+        "sex": "性别",
+        "privacy": "保密",
+        "man": "男",
+        "woman": "女",
+        "birthday": "生日",
+        "password": "密码",
+        "status": "状态"
+      }
+    },
+    "level": {
+      "name": "等级列表",
+      "fields": {
+        "name": "名称",
+        "growth": "成长值",
+        "type": "类型",
+        "common": "普通",
+        "recruit": "招募"
+      }
+    },
+    "setting": {
+      "name": "用户设置",
+      "tabs": {
+        "base": "基本设置",
+        "text": "文本协议"
+      },
+      "fields": {
+        "register": "开放注册",
+        "level": "默认等级",
+        "about": "关于我们",
+        "agreement": "用户协议",
+        "privacy": "隐私政策",
+        "code": "短信验证码",
+        "tel": "客服电话"
+      },
+      "help": {
+        "register": "开放后用户可在前台自由注册",
+        "level": "用户注册后的默认用户等级",
+        "about": "平台系统相关介绍",
+        "agreement": "用户注册用户协议",
+        "privacy": "用户隐私政策",
+        "code": "用户短信验证码模板",
+        "tel": "平台客服电话"
+      }
+    }
+  }
+}

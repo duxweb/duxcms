@@ -1,0 +1,17 @@
+member:
+  name: 회원
+  user:
+    name: 사용자
+    fields:
+      loginTime: 로그인 시간
+    validator:
+      nickname: 사용자 닉네임을 입력하십시오.
+      tel: 사용자 전화를 입력하십시오.
+      email: 사용자 사서함을 입력하십시오.
+      exists: 사용자가 이미 있습니다.
+  level:
+    name: 등급
+    validator:
+      name: 이름을 입력하십시오.
+  setting:
+    name: 구성

@@ -1,0 +1,8 @@
+sms:
+  name: message
+  tpl:
+    name: Template
+    validator:
+      name: Please enter a name
+  setting:
+    name: allocation

@@ -1,0 +1,35 @@
+{
+  "sms": {
+    "name": "SMS Management",
+    "setting": {
+      "name": "SMS Settings",
+      "fields": {
+        "interval": "Send Interval",
+        "time": "Frequency Limit Time",
+        "num": "Frequency Limit Count",
+        "expire": "Verification Code Expiry"
+      },
+      "help": {
+        "interval": "Interval for receiving SMS on the same customer number, default 1 minute",
+        "time": "Frequency limit time for receiving SMS on the same client, default 5 minutes 3 times",
+        "num": "Maximum count of receiving SMS on the same client within the limit time",
+        "expire": "Verification code validity after successful sending, default 30 minutes"
+      }
+    },
+    "tpl": {
+      "name": "SMS Templates",
+      "fields": {
+        "name": "Name",
+        "method": "Platform",
+        "type": "Type",
+        "typeTpl": "Template SMS",
+        "typeContent": "Content SMS",
+        "content": "Template Content",
+        "tpl": "Template ID",
+        "params": "Template Parameters",
+        "paramsName": "Parameter Name",
+        "paramsValue": "Parameter Value"
+      }
+    }
+  }
+}

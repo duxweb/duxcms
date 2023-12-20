@@ -1,0 +1,8 @@
+{
+    "name": "duxweb/sms",
+    "description": "Sms Basic Application",
+    "version": "0.0.2",
+    "phpDependencies": {
+        "overtrue/easy-sms": "^2.5"
+    }
+}

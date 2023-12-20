@@ -1,0 +1,66 @@
+{
+  "member": {
+    "name": "사용자",
+    "userGroup": {
+      "name": "사용자 관리"
+    },
+    "user": {
+      "name": "사용자 목록",
+      "tabs": {
+        "all": "모두",
+        "enabled": "활성화",
+        "disabled": "비활성화"
+      },
+      "fields": {
+        "level": "등급",
+        "nickname": "닉네임",
+        "email": "메일박스",
+        "tel": "전화기",
+        "growth": "성장치",
+        "avatar": "프로필 사진",
+        "sex": "성별",
+        "privacy": "비밀",
+        "man": "남자",
+        "woman": "여자",
+        "birthday": "생일",
+        "password": "암호",
+        "status": "상태"
+      }
+    },
+    "level": {
+      "name": "등급 목록",
+      "fields": {
+        "name": "이름",
+        "growth": "성장치",
+        "type": "유형",
+        "common": "보통",
+        "recruit": "모집"
+      }
+    },
+    "setting": {
+      "name": "사용자 설정",
+      "tabs": {
+        "base": "기본 설정",
+        "text": "텍스트 프로토콜"
+      },
+      "fields": {
+        "register": "오픈 등록",
+        "level": "기본 수준",
+        "about": "우리에 대해",
+        "agreement": "사용자 프로토콜",
+        "privacy": "개인 정보 보호 정책",
+        "code": "문자 인증 코드",
+        "tel": "고객 서비스 전화"
+      },
+      "help": {
+        "register": "오픈 후 사용자는 프론트 데스크에서 자유롭게 등록할 수 있다",
+        "level": "사용자 등록 후 기본 사용자 수준",
+        "about": "플랫폼 시스템 소개",
+        "agreement": "사용자 등록 사용자 계약",
+        "privacy": "사용자 개인 정보 보호 정책",
+        "code": "사용자 문자 메시지 인증 코드 템플릿",
+        "tel": "플랫폼 고객 서비스 전화"
+      }
+    }
+  }
+}

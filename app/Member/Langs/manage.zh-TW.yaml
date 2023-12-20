@@ -1,0 +1,17 @@
+member:
+  name: 會員
+  user:
+    name: 用戶
+    fields:
+      loginTime: 登入時間
+    validator:
+      nickname: 請輸入用戶昵稱
+      tel: 請輸入用戶電話
+      email: 請輸入用戶郵箱
+      exists: 該用戶已存在
+  level:
+    name: 等級
+    validator:
+      name: 請輸入名稱
+  setting:
+    name: 配寘

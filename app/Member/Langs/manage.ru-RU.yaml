@@ -1,0 +1,17 @@
+member:
+  name: Членство
+  user:
+    name: Пользователи
+    fields:
+      loginTime: Время входа
+    validator:
+      nickname: Введите имя пользователя
+      tel: Введите телефон пользователя
+      email: Введите почтовый ящик пользователя
+      exists: Этот пользователь уже существует
+  level:
+    name: Класс
+    validator:
+      name: Введите имя
+  setting:
+    name: Настройка

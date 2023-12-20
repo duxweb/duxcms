@@ -1,0 +1,66 @@
+{
+  "member": {
+    "name": "user",
+    "userGroup": {
+      "name": "user management "
+    },
+    "user": {
+      "name": "User List",
+      "tabs": {
+        "all": "whole",
+        "enabled": "Enable",
+        "disabled": "Disabled"
+      },
+      "fields": {
+        "level": "grade",
+        "nickname": "nickname",
+        "email": "mailbox",
+        "tel": "telephone",
+        "growth": "Growth value",
+        "avatar": "Avatar",
+        "sex": "Gender",
+        "privacy": "secrecy",
+        "man": "male",
+        "woman": "female",
+        "birthday": "birthday",
+        "password": "password",
+        "status": "state"
+      }
+    },
+    "level": {
+      "name": "Level List",
+      "fields": {
+        "name": "name",
+        "growth": "Growth value",
+        "type": "type",
+        "common": "ordinary",
+        "recruit": "recruit"
+      }
+    },
+    "setting": {
+      "name": "User settings",
+      "tabs": {
+        "base": "Basic Settings",
+        "text": "Text Protocol"
+      },
+      "fields": {
+        "register": "Open Registration",
+        "level": "Default level",
+        "about": "About us",
+        "agreement": "User Agreement",
+        "privacy": "Privacy Policy",
+        "code": "SMS verification code",
+        "tel": "customer service telephone numbers"
+      },
+      "help": {
+        "register": "After opening, users can freely register at the front desk",
+        "level": "Default user level after user registration",
+        "about": "Introduction to Platform Systems",
+        "agreement": "User Registration User Agreement",
+        "privacy": "User Privacy Policy",
+        "code": "User SMS verification code template",
+        "tel": "Platform customer service hotline"
+      }
+    }
+  }
+}
