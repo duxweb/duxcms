@@ -7,6 +7,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'member',
         sort: 80,
+        icon: 'user',
       },
     },
     {

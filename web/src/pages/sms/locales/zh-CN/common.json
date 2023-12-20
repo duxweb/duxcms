@@ -21,6 +21,7 @@
       "fields": {
         "name": "名称",
         "method": "平台",
+        "label": "标签",
         "type": "类型",
         "typeTpl": "模板短信",
         "typeContent": "内容短信",
@@ -29,6 +30,21 @@
         "params": "模板参数",
         "paramsName": "参数名",
         "paramsValue": "参数值"
+      },
+      "help": {
+        "label": "可选, 短信模板调用标签"
+      }
+    },
+    "email": {
+      "name": "邮件模板",
+      "fields": {
+        "label": "标签",
+        "name": "标题",
+        "content": "模板"
+      },
+      "help": {
+        "label": "可选, 邮件模板调用标签",
+        "content": "邮件模板使用html语法，可使用变量：站点名 {site} 邮件标题 {title} 邮件内容 {content} "
       }
     }
   }

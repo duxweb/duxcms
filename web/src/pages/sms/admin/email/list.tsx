@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslate, useDelete } from '@refinedev/core'
-import { PrimaryTableCol, Button, Link, Popconfirm, Tag } from 'tdesign-react/esm'
+import { PrimaryTableCol, Button, Link, Popconfirm } from 'tdesign-react/esm'
 import { PageTable, Modal } from '@duxweb/dux-refine'
 
 const List = () => {
@@ -18,37 +18,13 @@ const List = () => {
       },
       {
         colKey: 'name',
-        title: translate('sms.tpl.fields.name'),
+        title: translate('sms.email.fields.name'),
         ellipsis: true,
       },
       {
         colKey: 'label',
-        title: translate('sms.tpl.fields.label'),
+        title: translate('sms.email.fields.label'),
         ellipsis: true,
-      },
-      {
-        colKey: 'method',
-        title: translate('sms.tpl.fields.method'),
-        ellipsis: true,
-      },
-      {
-        colKey: 'type',
-        title: translate('sms.tpl.fields.type'),
-        cell: ({ row }) => {
-          return (
-            <>
-              {!row.type ? (
-                <Tag theme='warning' variant='outline'>
-                  {translate('sms.tpl.fields.typeTpl')}
-                </Tag>
-              ) : (
-                <Tag theme='success' variant='outline'>
-                  {translate('sms.tpl.fields.typeContent')}
-                </Tag>
-              )}
-            </>
-          )
-        },
       },
       {
         colKey: 'link',
@@ -64,7 +40,6 @@ const List = () => {
                 trigger={<Link theme='primary'>{translate('buttons.edit')}</Link>}
                 component={() => import('./save')}
                 componentProps={{ id: row.id }}
-                width={800}
               />
               <Popconfirm
                 content={translate('buttons.confirm')}
@@ -74,7 +49,7 @@ const List = () => {
                 theme='default'
                 onConfirm={() => {
                   mutate({
-                    resource: 'sms.tpl',
+                    resource: 'sms.email',
                     id: row.id,
                   })
                 }}
@@ -96,7 +71,7 @@ const List = () => {
       table={{
         rowKey: 'id',
       }}
-      title={translate('sms.tpl.name')}
+      title={translate('sms.email.name')}
       actionRender={() => (
         <Modal
           title={translate('buttons.create')}
@@ -106,6 +81,7 @@ const List = () => {
             </Button>
           }
           component={() => import('./save')}
+          width={800}
         ></Modal>
       )}
     />

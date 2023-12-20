@@ -11,7 +11,8 @@
     "require": {
         "duxweb/dux-lite": "main-dev",
         "pelago/emogrifier": "^7.1",
-        "overtrue/easy-sms": "^2.5"
+        "overtrue/easy-sms": "^2.5",
+        "nette/mail": "^3.1"
     },
     "autoload": {
         "psr-4": {

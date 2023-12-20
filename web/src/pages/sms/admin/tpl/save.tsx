@@ -34,6 +34,13 @@ const Page = (props: Record<string, any>) => {
       <Form.FormItem label={translate('sms.tpl.fields.name')} name='name'>
         <Input />
       </Form.FormItem>
+      <Form.FormItem
+        label={translate('sms.tpl.fields.label')}
+        name='label'
+        help={translate('sms.tpl.help.label')}
+      >
+        <Input />
+      </Form.FormItem>
       <Form.FormItem label={translate('sms.tpl.fields.method')} name='method'>
         <Select filterable onSearch={onSearch} options={options} />
       </Form.FormItem>

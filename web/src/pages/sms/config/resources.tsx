@@ -21,6 +21,15 @@ export const adminResources = (app: App) => {
       },
     },
     {
+      name: 'sms.email',
+      list: 'sms/email',
+      listElenemt: lazyComponent(() => import('../admin/email/list')),
+      meta: {
+        label: 'sms.email',
+        parent: 'sms',
+      },
+    },
+    {
       name: 'sms.tpl.method',
     },
     {

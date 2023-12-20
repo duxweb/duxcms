@@ -13,9 +13,8 @@ use Dux\Handlers\ExceptionBusiness;
 use Overtrue\EasySms\EasySms;
 use Overtrue\EasySms\Exceptions\InvalidArgumentException;
 use Overtrue\EasySms\Exceptions\NoGatewayAvailableException;
-use RedisException;
 
-class Sms
+class Email
 {
     public static array $config = [];
 
@@ -32,16 +31,16 @@ class Sms
     /**
      * 获取验证码
      * @param int|string $label
-     * @param string $tel
+     * @param string $mail
      * @param int $channel
      * @param array $extend
      * @return int
      * @throws InvalidArgumentException
      */
-    public static function code(int|string $label, string $tel, int $channel = 0, array $extend = []): int
+    public static function code(int|string $label, string $mail, int $channel = 0, array $extend = []): int
     {
-        $code = Utils::getCode($channel, $tel);
-        self::send($label, $tel, [
+        $code = Utils::getCode($channel, $mail);
+        self::send($label, $mail, [
             'code' => $code,
             'expire' => Config::getValue('sms_expire', 30),
         ], $extend);
@@ -50,15 +49,15 @@ class Sms
 
     /**
      * 验证验证码
-     * @param string $tel
+     * @param string $mail
      * @param string $code
      * @param int $channel
      * @param bool $delete
      * @return void
      */
-    public static function verify(string $tel, string $code, int $channel = 0, bool $delete = true): void
+    public static function verify(string $mail, string $code, int $channel = 0, bool $delete = true): void
     {
-        Utils::verifyCode($tel, $code, $channel, $delete);
+        Utils::verifyCode($mail, $code, $channel, $delete);
     }
 
     /**
@@ -72,15 +71,6 @@ class Sms
      */
     public static function send(int|string $label, string $tel, array $params = [], array $extend = []): void
     {
-        $easySms = new EasySms(self::$config);
-
-        $easySms->extend('vaptcha', function ($gatewayConfig) {
-            return new Vaptcha($gatewayConfig);
-        });
-        $easySms->extend('unisms', function ($gatewayConfig) {
-            return new Unisms($gatewayConfig);
-        });
-
         if (is_int($label)) {
             $info = SmsTpl::query()->find($label);
         } else {
@@ -89,6 +79,24 @@ class Sms
         if (!$info) {
             throw new ExceptionBusiness('短信模板不存在');
         }
+
+        $mailer = new \Nette\Mail\SmtpMailer([
+            'host' => '',
+            'port' => '',
+            'username' => '',
+            'password' => '',
+            'secure' => '',
+            'timeout' => '',
+        ]);
+
+        $easySms = new EasySms(self::$config);
+
+        $easySms->extend('vaptcha', function ($gatewayConfig) {
+            return new Vaptcha($gatewayConfig);
+        });
+        $easySms->extend('unisms', function ($gatewayConfig) {
+            return new Unisms($gatewayConfig);
+        });
 
         $sendData = [];
         if (!$info->type) {
