@@ -8,12 +8,12 @@ use Illuminate\Support\Collection;
 
 class Category
 {
-    private static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
+    public static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
     {
         return \App\Content\Models\Article::query()->where($where);
     }
 
-    public static function list(array $where = [])
+    public static function lists(array $where = [])
     {
         return self::query($where)->get()->toTree();
     }

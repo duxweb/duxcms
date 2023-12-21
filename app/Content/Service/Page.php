@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 class Page
 {
-    private static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
+    public static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
     {
         return \App\Content\Models\Page::query()->where($where);
     }

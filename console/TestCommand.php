@@ -1,6 +1,6 @@
 <?php
 
-namespace console;
+namespace Console;
 
 use Dux\App;
 use Symfony\Component\Console\Command\Command;

@@ -8,12 +8,12 @@ use Illuminate\Support\Collection;
 
 class Article
 {
-    private static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
+    public static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
     {
         return \App\Content\Models\Article::query()->where($where);
     }
 
-    public static function list(array $where = [], int $limit = 20): Collection
+    public static function lists(array $where = [], int $limit = 20): \Illuminate\Database\Eloquent\Collection|array
     {
         return self::query($where)->limit($limit)->get();
     }
