@@ -13,8 +13,9 @@ class Setting {
 
     #[Action(methods: 'GET', route: '')]
     public function info(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        $config = \App\System\Service\Config::getValue("sms_*", []);
-        return send($response, "ok", $config);
+        $smsConfig = \App\System\Service\Config::getValue("sms_*", []);
+        $emailConfig = \App\System\Service\Config::getValue("email_*", []);
+        return send($response, "ok", [...$smsConfig, ...$emailConfig]);
     }
 
     #[Action(methods: 'PUT', route: '')]

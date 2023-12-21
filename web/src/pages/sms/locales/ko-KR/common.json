@@ -1,34 +1,66 @@
 {
   "sms": {
-    "name": "SMS 관리",
+    "name": "메시지 관리",
     "setting": {
-      "name": "SMS 설정",
+      "name": "전송 설정",
       "fields": {
+        "sms": "문자 설정",
+        "email": "메시지 설정",
         "interval": "전송 간격",
-        "time": "빈도 제한 시간",
-        "num": "빈도 제한 횟수",
-        "expire": "인증 코드 유효 시간"
+        "time": "주파수 제한 시간",
+        "num": "주파수 제한 횟수",
+        "expire": "인증 코드 사용 기간",
+        "emailHost": "STMP 주소",
+        "emailPort": "STMP 포트",
+        "emailName": "보낸 사람",
+        "emailUsername": "사용자 이름",
+        "emailPassword": "암호",
+        "emailSecure": "보안 유형",
+        "emailTimeout": "발송 시간 초과"
       },
       "help": {
-        "interval": "동일한 고객 번호로 SMS 수신 간격, 기본값 1 분",
-        "time": "동일한 클라이언트에서 SMS 수신 빈도 제한 시간, 기본값 5 분 3 회",
-        "num": "빈도 제한 시간 내에 동일한 클라이언트에서 SMS 수신 최대 회수",
-        "expire": "전송 성공 후 인증 코드 유효 기간, 기본값 30 분"
+        "interval": "동일한 고객 수신 번호 수신 간격, 기본 1분",
+        "time": "같은 클라이언트가 문자를 받는 시간 빈도, 기본 5분 3회",
+        "num": "동일한 클라이언트에서 최대 문자 제한 시간",
+        "expire": "인증 코드 발송 성공 후 인증 시효, 기본 30분",
+        "emailHost": "STMP 메일 서버 주소",
+        "emailPort": "STMP 메일 서버 포트",
+        "emailName": "보낸 사람 이름",
+        "emailUsername": "메시지 발송 사용자 이름",
+        "emailPassword": "메시지 전송 비밀번호",
+        "emailSecure": "none tls ssl 지원",
+        "emailTimeout": "메시지 발송 제한 시간 (초)"
       }
     },
     "tpl": {
-      "name": "SMS 템플릿",
+      "name": "메시지 템플릿",
       "fields": {
         "name": "이름",
         "method": "플랫폼",
+        "label": "레이블",
         "type": "유형",
-        "typeTpl": "템플릿 SMS",
-        "typeContent": "내용 SMS",
-        "content": "템플릿 내용",
+        "typeTpl": "템플릿 문자 메시지",
+        "typeContent": "내용 문자",
+        "content": "템플릿 컨텐트",
         "tpl": "템플릿 ID",
         "params": "템플릿 매개 변수",
-        "paramsName": "매개 변수 이름",
-        "paramsValue": "매개 변수 값"
+        "paramsName": "매개변수 이름",
+        "paramsValue": "매개변수 값"
+      },
+      "help": {
+        "label": "옵션, 메시지 템플릿 호출 레이블"
+      }
+    },
+    "email": {
+      "name": "메시지 템플릿",
+      "fields": {
+        "label": "레이블",
+        "name": "제목",
+        "content": "템플릿"
+      },
+      "help": {
+        "label": "선택 사항, 메일 템플릿 호출 태그",
+        "content": "메일 템플릿은 html 문법을 사용하고 변수를 사용할 수 있습니다: 사이트 이름 {site} 메일 제목 {title} 메일 내용 {content}"
       }
     }
   }

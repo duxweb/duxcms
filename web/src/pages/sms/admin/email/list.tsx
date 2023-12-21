@@ -40,6 +40,7 @@ const List = () => {
                 trigger={<Link theme='primary'>{translate('buttons.edit')}</Link>}
                 component={() => import('./save')}
                 componentProps={{ id: row.id }}
+                width={800}
               />
               <Popconfirm
                 content={translate('buttons.confirm')}

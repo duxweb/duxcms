@@ -1,8 +1,12 @@
 sms:
   name: ショートメッセージ
   tpl:
-    name: テンプレート
+    name: メッセージテンプレート
+    validator:
+      name: 名前を入力してください
+  email:
+    name: メールテンプレート
     validator:
       name: 名前を入力してください
   setting:
-    name: 構成
+    name: 構成の送信

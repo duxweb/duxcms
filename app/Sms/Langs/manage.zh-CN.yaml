@@ -1,8 +1,12 @@
 sms:
   name: 短信
   tpl:
-    name: 模板
+    name: 短信模板
+    validator:
+      name: 请输入名称
+  email:
+    name: 邮件模板
     validator:
       name: 请输入名称
   setting:
-    name: 配置
+    name: 发送配置

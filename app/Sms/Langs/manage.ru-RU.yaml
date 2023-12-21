@@ -1,8 +1,12 @@
 sms:
   name: СМС
   tpl:
-    name: Шаблоны
+    name: Шаблоны текстовых сообщений
+    validator:
+      name: Введите имя
+  email:
+    name: Шаблоны сообщений
     validator:
       name: Введите имя
   setting:
-    name: Настройка
+    name: Настройка отправки

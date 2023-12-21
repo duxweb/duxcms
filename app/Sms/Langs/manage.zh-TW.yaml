@@ -1,8 +1,12 @@
 sms:
   name: 簡訊
   tpl:
-    name: 範本
+    name: 簡訊範本
+    validator:
+      name: 請輸入名稱
+  email:
+    name: 郵件範本
     validator:
       name: 請輸入名稱
   setting:
-    name: 配寘
+    name: 發送配寘

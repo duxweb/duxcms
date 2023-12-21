@@ -1,34 +1,66 @@
 {
   "sms": {
-    "name": "簡訊管理",
+    "name": "消息管理",
     "setting": {
-      "name": "簡訊設定",
+      "name": "發送設定",
       "fields": {
+        "sms": "簡訊設定",
+        "email": "郵件設定",
         "interval": "發送間隔",
         "time": "頻率限制時間",
         "num": "頻率限制次數",
-        "expire": "驗證碼時效"
+        "expire": "驗證碼時效",
+        "emailHost": "STMP地址",
+        "emailPort": "STMP埠",
+        "emailName": "發件人",
+        "emailUsername": "用戶名",
+        "emailPassword": "密碼",
+        "emailSecure": "安全類型",
+        "emailTimeout": "發送超時"
       },
       "help": {
-        "interval": "同一客戶收訊號碼獲取簡訊間隔，默認 1 分鐘",
-        "time": "同一客戶端獲取簡訊的時間頻率，默認 5 分鐘 3 次",
-        "num": "同一客戶端獲取簡訊限制時間內最大次數",
-        "expire": "驗證碼發送成功後的驗證時效，默認 30 分鐘"
+        "interval": "同一客戶收信號碼獲取簡訊間隔，默認1分鐘",
+        "time": "同一用戶端獲取簡訊的時間頻率，默認5分鐘3次",
+        "num": "同一用戶端獲取簡訊限制時間內最大次數",
+        "expire": "驗證碼發送成功後的驗證時效，默認30分鐘",
+        "emailHost": "STMP郵件伺服器地址",
+        "emailPort": "STMP郵件伺服器埠",
+        "emailName": "發件人名稱",
+        "emailUsername": "郵件發送用戶名",
+        "emailPassword": "郵件發送密碼",
+        "emailSecure": "支持none tls ssl",
+        "emailTimeout": "郵件發送超時時間（秒）"
       }
     },
     "tpl": {
-      "name": "簡訊模板",
+      "name": "簡訊範本",
       "fields": {
         "name": "名稱",
-        "method": "平台",
+        "method": "平臺",
+        "label": "標籤",
         "type": "類型",
-        "typeTpl": "模板簡訊",
+        "typeTpl": "範本簡訊",
         "typeContent": "內容簡訊",
-        "content": "模板內容",
-        "tpl": "模板 ID",
-        "params": "模板參數",
-        "paramsName": "參數名稱",
+        "content": "範本內容",
+        "tpl": "範本ID",
+        "params": "範本參數",
+        "paramsName": "參數名",
         "paramsValue": "參數值"
+      },
+      "help": {
+        "label": "可選，簡訊範本調用標籤"
+      }
+    },
+    "email": {
+      "name": "郵件範本",
+      "fields": {
+        "label": "標籤",
+        "name": "標題",
+        "content": "範本"
+      },
+      "help": {
+        "label": "可選，郵件範本調用標籤",
+        "content": "郵件範本使用html語法，可使用變數：網站名{site}郵件標題{title}郵件內容{content}"
       }
     }
   }

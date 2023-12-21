@@ -13,7 +13,6 @@ use Dux\Handlers\ExceptionBusiness;
 use Overtrue\EasySms\EasySms;
 use Overtrue\EasySms\Exceptions\InvalidArgumentException;
 use Overtrue\EasySms\Exceptions\NoGatewayAvailableException;
-use RedisException;
 
 class Sms
 {

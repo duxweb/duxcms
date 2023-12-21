@@ -1,8 +1,6 @@
 import { useTranslate } from '@refinedev/core'
-import { CodeEditor, Editor, FormModal, useSelect } from '@duxweb/dux-refine'
-import { Button, Form, Input, Select, Textarea } from 'tdesign-react/esm'
-import { MinusCircleIcon } from 'tdesign-icons-react'
-import { useCallback } from 'react'
+import { CodeEditor, FormModal } from '@duxweb/dux-refine'
+import { Form, Input } from 'tdesign-react/esm'
 
 const Page = (props: Record<string, any>) => {
   const translate = useTranslate()

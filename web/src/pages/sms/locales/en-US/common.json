@@ -1,34 +1,66 @@
 {
   "sms": {
-    "name": "SMS Management",
+    "name": "Message Management",
     "setting": {
-      "name": "SMS Settings",
+      "name": "Sending Settings",
       "fields": {
-        "interval": "Send Interval",
-        "time": "Frequency Limit Time",
-        "num": "Frequency Limit Count",
-        "expire": "Verification Code Expiry"
+        "sms": "SMS settings",
+        "email": "Email settings",
+        "interval": "Sending interval",
+        "time": "Frequency limit time",
+        "num": "Frequency limit times",
+        "expire": "Verification code timeliness",
+        "emailHost": "STMP address",
+        "emailPort": "STMP port",
+        "emailName": "From",
+        "emailUsername": "user name",
+        "emailPassword": "password",
+        "emailSecure": "Security type",
+        "emailTimeout": "Send Timeout"
       },
       "help": {
-        "interval": "Interval for receiving SMS on the same customer number, default 1 minute",
-        "time": "Frequency limit time for receiving SMS on the same client, default 5 minutes 3 times",
-        "num": "Maximum count of receiving SMS on the same client within the limit time",
-        "expire": "Verification code validity after successful sending, default 30 minutes"
+        "interval": "The interval between receiving SMS from the same customer's receiving number is 1 minute by default",
+        "time": "The frequency of receiving text messages from the same client is 5 minutes and 3 times by default",
+        "num": "The maximum number of times the same client can obtain SMS within the time limit",
+        "expire": "The verification time after successfully sending the verification code is 30 minutes by default",
+        "emailHost": "STMP mail server address",
+        "emailPort": "STMP Mail Server Port",
+        "emailName": "Sender's name",
+        "emailUsername": "Email sending username",
+        "emailPassword": "Email sending password",
+        "emailSecure": "Supports none tls ssl",
+        "emailTimeout": "Email sending timeout (seconds)"
       }
     },
     "tpl": {
-      "name": "SMS Templates",
+      "name": "SMS template",
       "fields": {
-        "name": "Name",
-        "method": "Platform",
-        "type": "Type",
+        "name": "name",
+        "method": "platform",
+        "label": "label",
+        "type": "type",
         "typeTpl": "Template SMS",
         "typeContent": "Content SMS",
-        "content": "Template Content",
+        "content": "Template content",
         "tpl": "Template ID",
-        "params": "Template Parameters",
+        "params": "Template parameters",
         "paramsName": "Parameter Name",
-        "paramsValue": "Parameter Value"
+        "paramsValue": "Parameter values"
+      },
+      "help": {
+        "label": "Optional, SMS template call label"
+      }
+    },
+    "email": {
+      "name": "Email template",
+      "fields": {
+        "label": "label",
+        "name": "title",
+        "content": "Template"
+      },
+      "help": {
+        "label": "Optional, email template call label",
+        "content": "The email template uses HTML syntax and can use variables: site name {site} email title {title} email content {content}"
       }
     }
   }

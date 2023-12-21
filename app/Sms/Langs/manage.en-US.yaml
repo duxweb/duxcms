@@ -1,8 +1,12 @@
 sms:
   name: message
   tpl:
-    name: Template
+    name: SMS template
+    validator:
+      name: Please enter a name
+  email:
+    name: Email template
     validator:
       name: Please enter a name
   setting:
-    name: allocation
+    name: Send Configuration

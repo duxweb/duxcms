@@ -1,19 +1,35 @@
 {
   "sms": {
-    "name": "短信管理",
+    "name": "消息管理",
     "setting": {
-      "name": "短信设置",
+      "name": "发送设置",
       "fields": {
+        "sms": "短信设置",
+        "email": "邮件设置",
         "interval": "发送间隔",
         "time": "频率限制时间",
         "num": "频率限制次数",
-        "expire": "验证码时效"
+        "expire": "验证码时效",
+        "emailHost": "STMP 地址",
+        "emailPort": "STMP 端口",
+        "emailName": "发件人",
+        "emailUsername": "用户名",
+        "emailPassword": "密码",
+        "emailSecure": "安全类型",
+        "emailTimeout": "发送超时"
       },
       "help": {
         "interval": "同一客户收信号码获取短信间隔，默认 1 分钟",
         "time": "同一客户端获取短信的时间频率，默认 5 分钟 3 次",
         "num": "同一客户端获取短信限制时间内最大次数",
-        "expire": "验证码发送成功后的验证时效，默认 30 分钟"
+        "expire": "验证码发送成功后的验证时效，默认 30 分钟",
+        "emailHost": "STMP 邮件服务器地址",
+        "emailPort": "STMP 邮件服务器端口",
+        "emailName": "发件人名称",
+        "emailUsername": "邮件发送用户名",
+        "emailPassword": "邮件发送密码",
+        "emailSecure": "支持 none  tls ssl",
+        "emailTimeout": "邮件发送超时时间(秒)"
       }
     },
     "tpl": {
