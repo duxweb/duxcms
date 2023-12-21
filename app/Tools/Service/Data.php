@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 class Data
 {
-    private static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
+    public static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
     {
         return ToolsMagicData::query()->where($where);
     }
