@@ -8,11 +8,6 @@
     <title>{$theme['page']['title'] ?: 'DuxCMS Default'}</title>
 </head>
 <body>
-{var $list = \App\Content\Service\Article::lists()}
-
-{foreach $list as $vo}
-	<div>文章标题：{$vo->title}</div>
-{/foreach}
 
 
 <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
