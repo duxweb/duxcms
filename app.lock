@@ -46,19 +46,19 @@
             "app": "tools"
         },
         {
-            "name": "duxweb/sms",
-            "description": "Sms Basic Application",
-            "version": "0.0.2",
-            "phpDependencies": {
-                "overtrue/easy-sms": "^2.5"
-            },
-            "app": "sms"
-        },
-        {
             "name": "duxweb/member",
             "description": "User Basic Application",
             "version": "0.0.0",
             "app": "member"
+        },
+        {
+            "name": "duxweb/sms",
+            "description": "Sms Basic Application",
+            "version": "0.0.5",
+            "phpDependencies": {
+                "overtrue/easy-sms": "^2.5"
+            },
+            "app": "sms"
         }
     ]
 }
