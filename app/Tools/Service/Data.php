@@ -13,7 +13,7 @@ class Data
         return ToolsMagicData::query()->where($where);
     }
 
-    public static function list(array $where = [], int $limit = 20): Collection
+    public static function lists(array $where = [], int $limit = 20): Collection
     {
         return self::query($where)->limit($limit)->get()->map(function ($item) {
             return [
