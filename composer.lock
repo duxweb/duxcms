@@ -6305,16 +6305,16 @@
         },
         {
             "name": "stevebauman/hypertext",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stevebauman/hypertext.git",
-                "reference": "5211caa0e42eeafa686301de9e2128393b8de44a"
+                "reference": "fab77cc43a4bb9397ee3e1f1dc1a31c18b8d8d50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stevebauman/hypertext/zipball/5211caa0e42eeafa686301de9e2128393b8de44a",
-                "reference": "5211caa0e42eeafa686301de9e2128393b8de44a",
+                "url": "https://api.github.com/repos/stevebauman/hypertext/zipball/fab77cc43a4bb9397ee3e1f1dc1a31c18b8d8d50",
+                "reference": "fab77cc43a4bb9397ee3e1f1dc1a31c18b8d8d50",
                 "shasum": ""
             },
             "require": {
@@ -6343,9 +6343,9 @@
             "description": "The best HTML to text transformer",
             "support": {
                 "issues": "https://github.com/stevebauman/hypertext/issues",
-                "source": "https://github.com/stevebauman/hypertext/tree/v1.0.0"
+                "source": "https://github.com/stevebauman/hypertext/tree/v1.0.1"
             },
-            "time": "2023-10-22T16:35:22+00:00"
+            "time": "2023-12-21T12:23:33+00:00"
         },
         {
             "name": "symfony/clock",
