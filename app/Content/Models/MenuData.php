@@ -38,4 +38,9 @@ class MenuData extends \Dux\Database\Model
 	public function seed(Connection $db)
 	{
 	}
+
+    public function menu(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Menu::class, 'id', 'menu_id');
+    }
 }

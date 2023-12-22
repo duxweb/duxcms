@@ -8,14 +8,20 @@ use Illuminate\Support\Collection;
 
 class Menu
 {
-    public static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
+    public static function query(string $name = '', array $where = []): \Illuminate\Database\Eloquent\Builder
     {
-        return \App\Content\Models\MenuData::query()->where($where);
+        $query = \App\Content\Models\MenuData::query()->where($where);
+        if ($name) {
+            $query->whereHas('menu', function ($query) use ($name) {
+                $query->where('name', $name);
+            });
+        }
+        return $query;
     }
 
-    public static function lists(array $where = [])
+    public static function lists(string $name = '', array $where = [])
     {
-        return self::query($where)->get()->toTree();
+        return self::query($name, $where)->get()->toTree();
     }
 
 }
