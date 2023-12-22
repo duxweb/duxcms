@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Tools\Service;
+namespace App\Tools\Service;
 
 use App\Tools\Models\ToolsDownload;
 

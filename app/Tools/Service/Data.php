@@ -8,14 +8,20 @@ use Illuminate\Support\Collection;
 
 class Data
 {
-    private static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
+    public static function query(string $name = '', array $where = []): \Illuminate\Database\Eloquent\Builder
     {
-        return ToolsMagicData::query()->where($where);
+        $query = ToolsMagicData::query()->where($where);
+        if ($name) {
+            $query->whereHas('magic', function ($query) use ($name) {
+                $query->where('name', $name);
+            });
+        }
+        return $query;
     }
 
-    public static function list(array $where = [], int $limit = 20): Collection
+    public static function lists(string $name = '', array $where = [], int $limit = 20): Collection
     {
-        return self::query($where)->limit($limit)->get()->map(function ($item) {
+        return self::query($name, $where)->limit($limit)->get()->map(function ($item) {
             return [
               'id' => $item->id,
               ...$item->data,
@@ -23,9 +29,9 @@ class Data
         });
     }
 
-    public static function page(array $where = [], int $limit = 20): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    public static function page(string $name = '', array $where = [], int $limit = 20): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
-        $data = self::query($where)->paginate($limit);
+        $data = self::query($name, $where)->paginate($limit);
         $list = $data->getCollection()->map(function ($item) {
             return [
                 'id' => $item->id,
@@ -36,9 +42,9 @@ class Data
         return $data;
     }
 
-    public static function info(int $id, array $where = []): Collection
+    public static function info(int $id, string $name = '', array $where = []): Collection
     {
-        $info = self::query($where)->find($id);
+        $info = self::query($name, $where)->find($id);
         if (!$info) {
             throw new ExceptionNotFound();
         }

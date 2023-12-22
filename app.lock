@@ -17,15 +17,6 @@
             "app": "cms"
         },
         {
-            "name": "duxweb/content",
-            "description": "Content Management Applications",
-            "version": "0.1.5",
-            "phpDependencies": {
-                "pelago/emogrifier": "^7.1"
-            },
-            "app": "content"
-        },
-        {
             "name": "duxweb/base",
             "description": "System Base Applications",
             "version": "0.0.9",
@@ -40,9 +31,18 @@
             "app": "system"
         },
         {
+            "name": "duxweb/content",
+            "description": "Content Management Applications",
+            "version": "0.1.7",
+            "phpDependencies": {
+                "pelago/emogrifier": "^7.1"
+            },
+            "app": "content"
+        },
+        {
             "name": "duxweb/tools",
             "description": "System Tools Applications",
-            "version": "0.1.2",
+            "version": "0.1.5",
             "app": "tools"
         }
     ]
