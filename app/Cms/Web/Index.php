@@ -37,8 +37,8 @@ class Index
         if (str_contains($args['path'], '..')) {
             throw new ExceptionNotFound();
         }
-        $theme = Config::getValue('theme');
-        $filePath = base_path('theme/' . ($theme ?: 'default') . '/' . $args['path']);
+        $theme = Config::getValue('theme', 'default');
+        $filePath = base_path('theme/' . $theme . '/' . $args['path']);
         if (!file_exists($filePath)) {
             throw new ExceptionNotFound();
         }
@@ -57,7 +57,7 @@ class Index
     {
         $params = $request->getQueryParams();
         $name = $args['name'];
-        $theme = Config::getValue('theme');
+        $theme = Config::getValue('theme', 'default');
         $filePath = base_path('theme/' . $theme . '/' . $name . '.latte');
         if (!file_exists($filePath)) {
             throw new ExceptionNotFound();
@@ -79,7 +79,7 @@ class Index
         $params = $request->getQueryParams();
         $id = $args['id'];
         $name = $args['name'];
-        $theme = Config::getValue('theme');
+        $theme = Config::getValue('theme', 'default');
         $filePath = base_path('theme/' . $theme . '/' . $name . '-info.latte');
         if (!file_exists($filePath)) {
             throw new ExceptionNotFound();

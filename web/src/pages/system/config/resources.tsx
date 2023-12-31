@@ -7,7 +7,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'system',
         sort: 1000,
-        icon: 'system-2',
+        icon: 'i-tabler:settings',
       },
     },
     {
@@ -17,7 +17,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'system.api',
         parent: 'system',
-        icon: 'api',
+        icon: 'i-tabler:api',
       },
     },
     {
@@ -25,7 +25,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'system.userGroup',
         parent: 'system',
-        icon: 'user',
+        icon: 'i-tabler:users',
       },
     },
     {
@@ -51,7 +51,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'system.logGroup',
         parent: 'system',
-        icon: 'certificate',
+        icon: 'i-tabler:list',
       },
     },
     {

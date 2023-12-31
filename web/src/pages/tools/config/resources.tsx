@@ -7,14 +7,14 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'tools',
         sort: 90,
-        icon: 'tools',
+        icon: 'i-tabler:tools',
       },
     },
     {
       name: 'tools.dataGroup',
       meta: {
         label: 'tools.dataGroup',
-        icon: 'system-application',
+        icon: 'i-tabler:database',
         parent: 'tools',
       },
     },
@@ -32,7 +32,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'data',
         sort: 800,
-        icon: 'data',
+        icon: 'i-tabler:database',
       },
     },
     {
@@ -45,7 +45,7 @@ export const adminResources = (app: App) => {
       editElenemt: lazyComponent(() => import('../admin/magic/page')),
       meta: {
         label: 'tools.magic',
-        icon: 'system-sum',
+        icon: 'i-tabler:template',
         parent: 'data',
         sort: 0,
       },
@@ -54,7 +54,7 @@ export const adminResources = (app: App) => {
       name: 'tools.magicGroup',
       meta: {
         label: 'tools.magicGroup',
-        icon: 'system-application',
+        icon: 'i-tabler:database',
         parent: 'data',
       },
     },
@@ -83,7 +83,7 @@ export const adminResources = (app: App) => {
       listElenemt: lazyComponent(() => import('../admin/file/list')),
       meta: {
         label: 'tools.file',
-        icon: 'link',
+        icon: 'i-tabler:link',
         parent: 'tools',
       },
     },

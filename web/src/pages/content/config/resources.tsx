@@ -7,7 +7,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'content',
         sort: 20,
-        icon: 'article',
+        icon: 'i-tabler:article',
       },
     },
     {
@@ -15,7 +15,7 @@ export const adminResources = (app: App) => {
       meta: {
         parent: 'content',
         label: 'content.articleGroup',
-        icon: 'book',
+        icon: 'i-tabler:book',
         sort: 1,
       },
     },
@@ -74,7 +74,7 @@ export const adminResources = (app: App) => {
       meta: {
         parent: 'content',
         label: 'content.page',
-        icon: 'flag',
+        icon: 'i-tabler:flag',
         sort: 2,
       },
     },
@@ -85,7 +85,7 @@ export const adminResources = (app: App) => {
       meta: {
         parent: 'content',
         label: 'content.menu',
-        icon: 'collection',
+        icon: 'i-tabler:menu-2',
         sort: 10,
       },
     },

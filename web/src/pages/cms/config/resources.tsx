@@ -8,7 +8,7 @@ export const adminResources = (app: App) => {
       listElenemt: lazyComponent(() => import('../admin/home/index')),
       meta: {
         label: 'cms.dashboard',
-        icon: 'home',
+        icon: 'i-tabler:home',
         sort: 0,
       },
     },
@@ -16,7 +16,7 @@ export const adminResources = (app: App) => {
       name: 'cms',
       meta: {
         label: 'cms',
-        icon: 'system-application',
+        icon: 'i-tabler:sitemap',
         parent: 'system',
         sort: 50,
       },

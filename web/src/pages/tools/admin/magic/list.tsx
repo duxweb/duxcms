@@ -17,12 +17,12 @@ const List = () => {
   })
 
   useEffect(() => {
-    if (!options.length && !init) {
+    if (!options.length && init) {
       return
     }
     setInit(() => true)
     table.current?.form?.setFieldsValue({
-      menu_id: options[0]?.value,
+      group_id: options[0]?.value,
     })
   }, [init, options])
 
