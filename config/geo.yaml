@@ -1,1 +1,1 @@
-db: %config_path%/geo/GeoLite2-City.mmdb
+db: %config_path%/geo/ip2region.xdb
