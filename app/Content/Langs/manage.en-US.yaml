@@ -9,15 +9,15 @@ content:
     name: Article classification
     validator:
       name: Please enter a name
-      article: Please delete the article under this category first
+      article: Please delete articles under this category first
     magic:
-      name: Rubik's Cube Data
+      name: Rubik's cube data
   source:
-    name: Article Source
+    name: Article source
     validator:
       name: Please enter a name
   page:
-    name: Page Content
+    name: Page content
     validator:
       title: Please enter a title
       name: Please enter the call name
@@ -30,7 +30,15 @@ content:
     name: Menu Group Management
     validator:
       title: Please enter the group title
+  attr:
+    name: Article attributes
+    validator:
+      name: Please enter a name
+  replace:
+    name: Content replacement
+  tags:
+    name: Article tags
   comment:
     name: Article comments
   recommend:
-    name: Article Recommendation
+    name: Article recommendation

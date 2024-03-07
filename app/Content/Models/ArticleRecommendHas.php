@@ -21,6 +21,7 @@ class ArticleRecommendHas extends \Dux\Database\Model
     {
         $table->bigInteger('article_id')->index();
         $table->bigInteger('recommend_id')->index();
+        $table->bigInteger('sort')->index();
     }
 
 }

@@ -7,7 +7,16 @@ import {
   FormPageItem,
   UploadImageManage,
 } from '@duxweb/dux-refine'
-import { Form, Input, Radio, Cascader, AutoComplete, Textarea, Checkbox } from 'tdesign-react/esm'
+import {
+  Form,
+  Input,
+  TagInput,
+  Radio,
+  Cascader,
+  AutoComplete,
+  Textarea,
+  Checkbox,
+} from 'tdesign-react/esm'
 import { useEffect, useState } from 'react'
 import { MagicFormRender } from '@duxweb/dux-extend'
 
@@ -40,8 +49,8 @@ const Page = () => {
     optionValue: 'id',
   })
 
-  const { options: recommendData } = useSelect({
-    resource: 'content.recommend',
+  const { options: attrData } = useSelect({
+    resource: 'content.attr',
     optionLabel: 'name',
     optionValue: 'id',
   })
@@ -60,7 +69,7 @@ const Page = () => {
             <Input />
           </Form.FormItem>
           <Form.FormItem label={translate('content.article.fields.image')} name='images'>
-            <UploadImageManage accept='image/*' />
+            <UploadImageManage accept='image/*' multiple />
           </Form.FormItem>
 
           <Form.FormItem
@@ -74,9 +83,11 @@ const Page = () => {
             </Radio.Group>
           </Form.FormItem>
 
-          <Form.FormItem label={translate('content.article.fields.recommend')} name='recommend'>
-            <Checkbox.Group options={recommendData} />
-          </Form.FormItem>
+          {attrData?.length > 0 && (
+            <Form.FormItem label={translate('content.article.fields.attrs')} name='attrs'>
+              <Checkbox.Group options={attrData} />
+            </Form.FormItem>
+          )}
 
           <Form.FormItem label={translate('content.article.fields.source')} name='source'>
             <AutoComplete options={sourceData} highlightKeyword filterable={false} clearable />
@@ -119,8 +130,8 @@ const Page = () => {
         <Editor />
       </FormPageItem>
 
-      <FormPageItem name='keyword'>
-        <Input placeholder={translate('content.article.validate.keywords')} />
+      <FormPageItem name='keywords'>
+        <TagInput placeholder={translate('content.article.validate.keywords')} />
       </FormPageItem>
 
       <FormPageItem name='descriptions' initialData=''>

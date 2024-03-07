@@ -35,11 +35,9 @@ class Upload
         foreach ($uploads as $key => $vo) {
             $content = $vo->getStream()->getContents();
             $extension = pathinfo($vo->getClientFilename(), PATHINFO_EXTENSION);
+            $mime = $vo->getClientMediaType();
             if (!$extension) {
-                $mime = $vo->getClientMediaType();
                 $extension = $mimes->getExtension($mime);
-            } else {
-                $mime = $mimes->getMimeType($extension);
             }
             if ($ext && !in_array($extension, $ext)) {
                 throw new ExceptionBusiness('文件格式不支持');

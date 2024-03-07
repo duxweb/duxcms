@@ -1,7 +1,26 @@
-import { App, lazyComponent } from '@duxweb/dux-refine'
+import { App, appContext, lazyComponent } from '@duxweb/dux-refine'
 
-export const adminResources = (app: App) => {
+export const adminResources = (app: App, context: appContext) => {
+  const indexs = app.getIndexs()
+
+  const info = indexs.find((item) => {
+    if (item.name == context.config.indexName) {
+      return true
+    }
+    return false
+  })
+
   app.addResources([
+    {
+      name: 'admin',
+      list: 'system/index',
+      listElenemt: info?.component,
+      meta: {
+        label: 'system.stats',
+        icon: 'i-tabler:home',
+        sort: 0,
+      },
+    },
     {
       name: 'system',
       meta: {

@@ -30,6 +30,14 @@ content:
     name: 메뉴 그룹 관리
     validator:
       title: 그룹 제목을 입력하십시오.
+  attr:
+    name: 기사 등록 정보
+    validator:
+      name: 이름을 입력하십시오.
+  replace:
+    name: 컨텐트 교체
+  tags:
+    name: 기사 태그
   comment:
     name: 기사 리뷰
   recommend:

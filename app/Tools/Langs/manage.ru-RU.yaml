@@ -34,6 +34,25 @@ tools:
     name: Содержание
     validator:
       name: Введите имя каталога
+  backup:
+    name: Восстановление резервного копирования
+    validator:
+      table: Выберите таблицу экспорта
+      title: Заполните описание.
+      notFound: Данные не найдены
+    message:
+      export: Экспорт данных успешно
+      import: Импортировать данные успешно
+    import:
+      name: Импорт
+    export:
+      name: Экспорт
+    download:
+      name: Скачать
+  poster:
+    name: Плакаты
+    validator:
+      title: Заполните заголовок.
 extend:
   name: Расширение
   magic:

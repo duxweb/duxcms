@@ -45,6 +45,11 @@ const Page = () => {
       queryParams={{
         magic: magic,
       }}
+      useFormProps={{
+        queryOptions: {
+          cacheTime: 0,
+        },
+      }}
     >
       {data?.data?.type == 'tree' && (
         <Form.FormItem label={translate('tools.data.fields.parent')} name='parent_id'>

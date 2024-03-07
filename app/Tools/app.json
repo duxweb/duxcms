@@ -1,5 +1,13 @@
 {
     "name": "duxweb/tools",
     "description": "System Tools Applications",
-    "version": "0.1.6"
+    "version": "0.2.0",
+    "jsDependencies": {
+        "@types/fabric": "^5.3.7",
+        "fabric": "^5.3.0",
+        "fabricjs-react": "^1.2.2",
+        "react-contenteditable": "^3.3.7",
+        "react-dnd": "^16.0.1",
+        "react-dnd-html5-backend": "^16.0.1"
+    }
 }

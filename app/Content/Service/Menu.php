@@ -19,9 +19,21 @@ class Menu
         return $query;
     }
 
-    public static function lists(string $name = '', array $where = [])
+    public static function lists(string $name = '', array $where = [], ?string $path = '')
     {
-        return self::query($name, $where)->get()->toTree();
+        return self::query($name, $where)->get()->toTree()->map(function ($item) use ($path) {
+            $item->active = false;
+            if ($item->url == '/') {
+                if ($path == $item->url) {
+                    $item->active = true;
+                }
+            }else {
+                if (str_contains($path, $item->url)) {
+                    $item->active = true;
+                }
+            }
+            return $item;
+        });
     }
 
 }

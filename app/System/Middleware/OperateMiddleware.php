@@ -5,6 +5,7 @@ namespace App\System\Middleware;
 use App\System\App;
 use App\System\Models\LogOperate;
 use donatj\UserAgent\UserAgentParser;
+use Dux\Handlers\ExceptionBusiness;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
@@ -20,8 +21,15 @@ class OperateMiddleware {
 
     public function __invoke(Request $request, RequestHandler $handler): Response {
         $startTime = microtime(true);
-        $response = $handler->handle($request);
         $method = $request->getMethod();
+
+        if (\Dux\App::config("use")->get('example') && $method != 'GET') {
+            throw new ExceptionBusiness("演示模式无法操作");
+        }
+
+        $response = $handler->handle($request);
+
+
         if ($method == "GET") {
             return $response;
         }

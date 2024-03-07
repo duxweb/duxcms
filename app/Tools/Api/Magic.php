@@ -75,21 +75,6 @@ class Magic
         return send($response, 'ok', $list);
     }
 
-
-    #[Route(methods: 'GET', pattern: '/{name}')]
-    public function listOne(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $query = $request->getQueryParams();
-        $page = $query['page'] ?: 1;
-        $limit = $query['limit'] ?? 0;
-        $table = $args['name'];
-        if (!$table) {
-            throw new ExceptionNotFound();
-        }
-        $result = $this->list($table, (int)$page, (int)$limit, $query ?: []);
-        return send($response, 'ok', $result['data'], $result['meta']);
-    }
-
     #[Route(methods: 'GET', pattern: '/{name}/{id}')]
     public function info(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
@@ -103,7 +88,7 @@ class Magic
             throw new ExceptionNotFound();
         }
 
-        $info = ToolsMagicData::query()->where('magic_id', $args['id'])->first();
+        $info = ToolsMagicData::query()->where('magic_id', $magicInfo->id)->where('id', $args['id'])->first();
         if (!$info) {
             throw new ExceptionNotFound();
         }
@@ -126,6 +111,21 @@ class Magic
         }
 
         return send($response, 'ok', $data);
+    }
+
+
+    #[Route(methods: 'GET', pattern: '/{name}')]
+    public function listOne(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?: 1;
+        $limit = $query['limit'] ?? 0;
+        $table = $args['name'];
+        if (!$table) {
+            throw new ExceptionNotFound();
+        }
+        $result = $this->list($table, (int)$page, (int)$limit, $query ?: []);
+        return send($response, 'ok', $result['data'], $result['meta']);
     }
 
     #[Route(methods: 'POST', pattern: '/{name}')]
@@ -199,15 +199,14 @@ class Magic
 
     private function list(string $table, int $page, int $limit, array $params = []): array
     {
-        $info = ToolsMagic::query()->where('name', $table)->where('external', 0)->first();
-        if (!$info) {
+        $info = ToolsMagic::query()->where('name', $table)->first();
+
+
+        if (!$info || !in_array('read', $info->external)) {
             throw new ExceptionNotFound();
         }
         $fields = [];
         foreach ($info->fields as $vo) {
-            if ($vo['type'] == 'editor') {
-                continue;
-            }
             if ($vo['external'] == 'read' || $vo['external'] == 'readWrite') {
                 $fields[] = $vo['name'];
             }

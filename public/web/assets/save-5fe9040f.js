@@ -1,1 +1,0 @@
-import{U as n,j as a,bK as r,O as m,P as s}from"./modulepreload-polyfill-ac2ad948.js";const i=e=>{const t=n();return a.jsx(r,{id:e==null?void 0:e.id,children:a.jsx(m.FormItem,{label:t("content.recommend.fields.name"),name:"name",requiredMark:!0,children:a.jsx(s,{})})})};export{i as default};

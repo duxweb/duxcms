@@ -2,11 +2,7 @@
 
 namespace App\Install\Web;
 
-use App\System\Service\Config;
 use Dux\App;
-use Dux\Config\Yaml;
-use Dux\Handlers\ExceptionBusiness;
-use Dux\Handlers\ExceptionNotFound;
 use Dux\Route\Attribute\Route;
 use Dux\Route\Attribute\RouteGroup;
 use PDO;
@@ -30,7 +26,7 @@ class Install
     public function index(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $view = \Dux\App::view('web');
-        $data = json_decode(file_get_contents(public_path('/web/manifest.json')) ?: '', true);
+        $data = json_decode(file_get_contents(public_path('/web/.vite/manifest.json')) ?: '', true);
         $vite = App::config('use')->get('vite', []);
         $html = $view->renderToString(dirname(__DIR__) . "/Views/Web/install.html", [
             "title" => App::config('use')->get('app.name'),
@@ -83,7 +79,7 @@ class Install
         }
 
         $composerLock = json_decode(file_get_contents(base_path('composer.lock')), true);
-        $packageName = 'duxphp/lite';
+        $packageName = 'duxweb/dux-lite';
 
         $packageData = [];
         foreach ($composerLock['packages'] as $package) {
@@ -134,6 +130,7 @@ class Install
         $output = new BufferedOutput();
         $db = App::config('database');
         $use = App::config('use');
+        $storage = App::config('storage');
 
         $db->set('db.drivers.default.host', $dbData['host']);
         $db->set('db.drivers.default.database', $dbData['name']);
@@ -152,13 +149,17 @@ class Install
 
         $output->writeln('config use success');
 
+        $storage->set('drivers.local.public_url', $useData['domain'] . '/uploads/');
+        $storage->toFile(config_path('/storage.yaml'));
+        $output->writeln('storage use success');
+
+
 
         App::db()->getDatabaseManager()->purge('default');
         App::db()->getDatabaseManager()->connection('default');
 
         App::dbMigrate()->registerAttribute();
         try {
-            $output = new BufferedOutput();
             App::dbMigrate()->migrate($output);
             $output->writeln('sync database success');
             file_put_contents(data_path('/install.lock'), now()->format('Y-m-d H:i:s'));

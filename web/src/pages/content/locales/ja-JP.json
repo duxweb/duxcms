@@ -1,0 +1,147 @@
+{
+  "content": {
+    "name": "内容",
+    "articleGroup": {
+      "name": "記事の管理"
+    },
+
+    "articleExtend": {
+      "name": "記事の拡張"
+    },
+    "article": {
+      "name": "記事リスト",
+      "tab": {
+        "all": "すべて",
+        "published": "公開済み",
+        "unpublished": "未公開"
+      },
+      "validate": {
+        "title": "タイトルを入力してください",
+        "class": "分類を選択してください",
+        "keywords": "キーワードを入力してください",
+        "descriptions": "記事の説明を入力してください。自動抽出には記入しません",
+        "activity": "アクティビティを選択してください"
+      },
+      "fields": {
+        "category": "分類",
+        "title": "タイトル",
+        "subtitle": "サブタイトル",
+        "image": "表紙図",
+        "imagesAuto": "カバーの抽出",
+        "auto": "自動",
+        "manual": "手動",
+        "status": "ステータス",
+        "source": "ソース",
+        "activity": "アクティビティ",
+        "content": "内容",
+        "virtualView": "仮想ブラウズ",
+        "recommend": "推奨",
+        "attrs": "属性＃ゾクセイ＃",
+        "createdAt": "作成時間"
+      }
+    },
+    "source": {
+      "name": "記事のソース",
+      "fields": {
+        "name": "の名前をあげる",
+        "avatar": "アイコン",
+        "createdAt": "作成時間"
+      }
+    },
+    "recommend": {
+      "name": "記事のおすすめ",
+      "fields": {
+        "name": "の名前をあげる",
+        "createdAt": "作成時間",
+        "articles": "おすすめ記事"
+      },
+      "help": {
+        "name": "推奨ビット記述",
+        "articles": "推奨関連記事の選択"
+      }
+    },
+    "tags": {
+      "name": "記事のラベル",
+      "fields": {
+        "name": "の名前をあげる",
+        "view": "ブラウズ量",
+        "count": "参照数",
+        "createdAt": "作成時間"
+      }
+    },
+    "category": {
+      "name": "記事の分類",
+      "fields": {
+        "parent": "親分類",
+        "magic": "キューブデータ",
+        "name": "の名前をあげる",
+        "image": "表紙図",
+        "top": "の頂部をおおう"
+      }
+    },
+    "attr": {
+      "name": "記事のプロパティ",
+      "fields": {
+        "name": "の名前をあげる",
+        "createdAt": "作成時間"
+      }
+    },
+    "replace": {
+      "name": "コンテンツ置換",
+      "fields": {
+        "from": "ソースワード",
+        "to": "置換語",
+        "createdAt": "作成時間"
+      }
+    },
+    "comment": {
+      "name": "記事のコメント",
+      "fields": {
+        "user": "ユーザー",
+        "title": "文章",
+        "content": "コメント",
+        "createdAt": "作成時間"
+      }
+    },
+    "page": {
+      "name": "ページ管理",
+      "tab": {
+        "all": "すべて",
+        "published": "公開済み",
+        "unpublished": "未公開"
+      },
+      "validate": {
+        "title": "タイトルを入力してください"
+      },
+      "fields": {
+        "name": "呼び出し名",
+        "title": "タイトル",
+        "subtitle": "サブタイトル",
+        "image": "表紙図",
+        "status": "ステータス",
+        "content": "内容",
+        "virtualView": "仮想ブラウズ",
+        "createdAt": "作成時間"
+      }
+    },
+    "menu": {
+      "name": "メニュー管理",
+      "fields": {
+        "addGroup": "グループの作成",
+        "editGroup": "グループの編集",
+        "title": "メニュータイトル",
+        "subtitle": "メニューのサブタイトル",
+        "image": "メニュー画像",
+        "url": "メニューリンク",
+        "parent": "親メニュー",
+        "groupName": "メニューグループ名",
+        "groupTitle": "メニューグループの説明"
+
+      },
+      "placeholder": {
+        "group": "メニューグループを選択してください"
+      }
+    }
+  }
+  
+}

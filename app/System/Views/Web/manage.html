@@ -10,23 +10,26 @@
       window.lang = {$lang};
       window.sideType = {$sideType};
     </script>
-</head>
-<body  class="bg-page text-primary">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
     {if !$vite['dev']}
     <link rel="stylesheet" href="/web/{$manifest['css']}" />
     <script type="module" src="/web/{$manifest['js']}"></script>
     {else}
     <script type="module">
-      import RefreshRuntime from "http://localhost:{$vite['port']}/@react-refresh"
+      import RefreshRuntime from "http://localhost:{$vite['port']}/web/@react-refresh"
       RefreshRuntime.injectIntoGlobalHook(window)
       window.$RefreshReg$ = () => {}
       window.$RefreshSig$ = () => (type) => type
       window.__vite_plugin_react_preamble_installed__ = true
     </script>
-    <script type="module" src="http://localhost:{$vite['port']}/@vite/client"></script>
-    <script type="module" src="http://localhost:{$vite['port']}/src/index.tsx"></script>
+    <script type="module" src="http://localhost:{$vite['port']}/web/@vite/client"></script>
+    {/if}
+</head>
+<body  class="bg-page text-primary">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    {if $vite['dev']}
+    <script type="module" src="http://localhost:{$vite['port']}/web/src/index.tsx"></script>
     {/if}
 </body>
 </html>

@@ -1,28 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { useTranslate, useDelete } from '@refinedev/core'
-import { PrimaryTableCol, Button, Link, Popconfirm, Select, Form } from 'tdesign-react/esm'
-import { PageTable, Modal, useSelect, TableRef } from '@duxweb/dux-refine'
+import React from 'react'
+import { useTranslate } from '@refinedev/core'
+import { PrimaryTableCol, Form } from 'tdesign-react/esm'
+import {
+  PageTable,
+  EditLinkModal,
+  DeleteLink,
+  CreateButtonModal,
+  FilterEdit,
+} from '@duxweb/dux-refine'
 
 const List = () => {
   const translate = useTranslate()
-  const { mutate } = useDelete()
-  const table = useRef<TableRef>(null)
-  const [init, setInit] = useState(false)
-  const { options, onSearch, queryResult } = useSelect({
-    resource: 'content.menu',
-    optionLabel: 'title',
-    optionValue: 'id',
-  })
+  const [form] = Form.useForm()
 
-  useEffect(() => {
-    if (!options.length && !init) {
-      return
-    }
-    setInit(() => true)
-    table.current?.form?.setFieldsValue({
-      menu_id: options[0]?.value,
-    })
-  }, [init, options])
+  const menuId = Form.useWatch('menu_id', form)
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
@@ -52,32 +43,17 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Modal
-                title={translate('buttons.edit')}
-                trigger={<Link theme='primary'>{translate('buttons.edit')}</Link>}
+              <EditLinkModal
+                rowId={row.id}
                 component={() => import('./save')}
-                componentProps={{ id: row.id, menu_id: row.menu_id }}
+                componentProps={{ menu_id: row.menu_id }}
               />
-              <Popconfirm
-                content={translate('buttons.confirm')}
-                destroyOnClose
-                placement='top'
-                showArrow
-                theme='default'
-                onConfirm={() => {
-                  mutate({
-                    resource: 'content.menuData',
-                    id: row.id,
-                    meta: {
-                      params: {
-                        menu_id: table.current?.filters.menu_id,
-                      },
-                    },
-                  })
+              <DeleteLink
+                rowId={row.id}
+                params={{
+                  menu_id: row.menu_id,
                 }}
-              >
-                <Link theme='danger'>{translate('buttons.delete')}</Link>
-              </Popconfirm>
+              />
             </div>
           )
         },
@@ -90,8 +66,8 @@ const List = () => {
   return (
     <>
       <PageTable
-        ref={table}
         columns={columns}
+        filterForm={form}
         table={{
           rowKey: 'id',
           tree: { childrenKey: 'children', treeNodeColumnIndex: 1, defaultExpandAll: true },
@@ -99,74 +75,29 @@ const List = () => {
         }}
         actionRender={() => (
           <>
-            {table.current?.filters?.menu_id && (
-              <Modal
+            {menuId && (
+              <CreateButtonModal
                 title={translate('buttons.create')}
-                trigger={
-                  <Button icon={<div className='i-tabler:plus mr-2' />}>
-                    {translate('buttons.create')}
-                  </Button>
-                }
                 component={() => import('./save')}
                 componentProps={{
-                  menu_id: table.current?.filters?.menu_id,
+                  menu_id: menuId,
                 }}
-              ></Modal>
+              ></CreateButtonModal>
             )}
           </>
         )}
         filterRender={() => (
           <>
-            <div>
-              <Modal
-                title={translate('content.menu.fields.addGroup')}
-                trigger={
-                  <Button icon={<div className='i-tabler:plus' />} variant='outline'></Button>
-                }
-                component={() => import('./group')}
-              ></Modal>
-            </div>
-            <Form.FormItem name='menu_id' initialData={options?.[0]?.value}>
-              <Select
-                filterable
-                clearable
-                onSearch={onSearch}
-                options={options}
-                placeholder={translate('content.menu.placeholder.group')}
-                loading={queryResult.isLoading}
-              />
-            </Form.FormItem>
-
-            {table.current?.filters?.menu_id && (
-              <div className='flex gap-2'>
-                <Modal
-                  title={translate('content.menu.fields.editGroup')}
-                  trigger={
-                    <Button icon={<div className='i-tabler:edit' />} variant='outline'></Button>
-                  }
-                  component={() => import('./group')}
-                  componentProps={{
-                    id: table.current?.filters.menu_id,
-                  }}
-                ></Modal>
-                <Popconfirm
-                  content={translate('buttons.confirm')}
-                  destroyOnClose
-                  placement='top'
-                  showArrow
-                  theme='default'
-                  onConfirm={() => {
-                    mutate({
-                      resource: 'content.menu',
-                      id: table.current?.filters.menu_id,
-                    })
-                    setInit(false)
-                  }}
-                >
-                  <Button icon={<div className='i-tabler:trash' />} variant='outline'></Button>
-                </Popconfirm>
-              </div>
-            )}
+            <FilterEdit
+              title={translate('content.menu.placeholder.group')}
+              resource='content.menu'
+              form={form}
+              field='menu_id'
+              defaultSelect
+              optionLabel='name'
+              optionValue='id'
+              component={() => import('./group')}
+            />
           </>
         )}
       />

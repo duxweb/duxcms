@@ -1,7 +1,4 @@
 type: local
-ext: []
+ext: {  }
 drivers:
-  local:
-    type: local
-    public_url: http://localhost/uploads/
-    path: public/uploads
+    local: { type: local, public_url: 'http://localhost/uploads/', path: public/uploads }

@@ -1,0 +1,119 @@
+{
+  "tools": {
+    "name": "ツール",
+    "dataGroup": {
+      "name": "データ管理"
+    },
+    "area": {
+      "name": "ちいきかんり",
+      "fields": {
+        "code": "エリア番号",
+        "name": "の名前をあげる",
+        "level": "レベル＃レベル＃"
+      },
+      "help": {
+        "import": "百度地図行政区画adcodeマッピングシート"
+      }
+    },
+    "magic": {
+      "name": "データキューブ",
+      "fields": {
+        "group": "データのグループ化",
+        "unknown": "不明",
+        "name": "データ名",
+        "nameDesc": "データ呼び出し名",
+        "label": "データラベル",
+        "labelDesc": "データ記述情報",
+        "type": "データ型",
+        "typeDesc": "データ・リスト・タイプ",
+        "treeLabel": "ラベルフィールド",
+        "treeLabelDesc": "ツリー・リストのラベル・フィールド名",
+        "affiliate": "サブモデル",
+        "affiliateDesc": "他の機能の付属モデルかどうか",
+        "independentType": "スタンドアロン",
+        "inlineType": "付属",
+        "external": "データ権限",
+        "externalDesc": "公開後の外部インタフェースはデータにアクセス可能",
+        "list": "リスト",
+        "pages": "改ページ",
+        "tree": "じゅけい",
+        "public": "公開",
+        "private": "プライベート＃プライベート＃",
+        "option": "操作方法",
+        "optionDesc": "操作データの編集方法の追加",
+        "modal": "だんまど",
+        "page": "ページ",
+        "fields": "データフィールド",
+        "fieldsDesc": "タイプを切り替えたらタイプを再設定する必要があります",
+        "groupName": "グループ名",
+        "groupLabel": "グループ化ラベル",
+        "groupIcon": "グループ化アイコン",
+        "addGroup": "グループの追加",
+        "editGroup": "グループの編集"
+      },
+      "external": {
+        "read": "読み取り",
+        "create": "作成＃サクセイ＃",
+        "edit": "編集"
+      },
+      "validate": {
+        "label": "データラベルを入力してください",
+        "name": "データ名を入力してください",
+        "class": "グループを選択してください"
+      },
+      "placeholder": {
+        "group": "グループを選択してください"
+      },
+      "help": {
+        "group": "データメニューのグループ化",
+        "groupName": "名前は英数字またはアンダースコアのみです",
+        "groupIcon": "アイコン名リファレンス",
+        "groupIconDoc": "参照ドキュメント"
+      }
+    },
+    "magicGroup": {
+      "name": "データ管理"
+    },
+    "file": {
+      "name": "添付ファイルの管理",
+      "fields": {
+        "dir": "ディレクトリ",
+        "addDir": "ディレクトリの追加",
+        "editDir": "ディレクトリの編集",
+        "name": "ファイル",
+        "driver": "ドライブ",
+        "time": "時間",
+        "size": "サイズ",
+        "dirName": "ディレクトリ名",
+        "upload": "ファイルのアップロード"
+      },
+      "placeholder": {
+        "dir": "ディレクトリを選択してください"
+      }
+    },
+    "poster": {
+      "name": "ポスターテンプレート",
+      "fields": {
+        "title": "タイトル",
+        "data": "ポスターデザイン"
+      },
+      "validate": {
+        "title": "ポスターのタイトルを入力してください"
+      }
+    },
+    "backup": {
+      "name": "バックアップ・リカバリ",
+      "fields": {
+        "name": "説明",
+        "data": "データ＃データ＃",
+        "createdAt": "時間"
+      }
+    }
+  },
+  "data": {
+    "name": "データ＃データ＃",
+    "fields": {
+      "parent": "親"
+    }
+  }
+}

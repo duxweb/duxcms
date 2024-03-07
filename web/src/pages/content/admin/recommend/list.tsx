@@ -1,11 +1,10 @@
 import React from 'react'
-import { useTranslate, useDelete } from '@refinedev/core'
-import { PrimaryTableCol, Button, Link, Popconfirm } from 'tdesign-react/esm'
-import { Modal, PageTable } from '@duxweb/dux-refine'
+import { useTranslate } from '@refinedev/core'
+import { PrimaryTableCol } from 'tdesign-react/esm'
+import { CreateButton, DeleteLink, EditLink, PageTable } from '@duxweb/dux-refine'
 
 const List = () => {
   const translate = useTranslate()
-  const { mutate } = useDelete()
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
@@ -18,12 +17,20 @@ const List = () => {
       },
       {
         colKey: 'name',
-        title: translate('content.source.fields.name'),
+        title: translate('content.recommend.fields.name'),
         ellipsis: true,
       },
       {
+        colKey: 'articles',
+        title: translate('content.recommend.fields.articles'),
+        ellipsis: true,
+        cell: ({ row }) => {
+          return row?.articles?.length
+        },
+      },
+      {
         colKey: 'created_at',
-        title: translate('content.source.fields.createdAt'),
+        title: translate('content.recommend.fields.createdAt'),
         sorter: true,
         sortType: 'all',
         width: 200,
@@ -37,27 +44,8 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Modal
-                title={translate('buttons.edit')}
-                trigger={<Link theme='primary'>{translate('buttons.edit')}</Link>}
-                component={() => import('./save')}
-                componentProps={{ id: row.id, menu_id: row.menu_id }}
-              />
-              <Popconfirm
-                content={translate('buttons.confirm')}
-                destroyOnClose
-                placement='top'
-                showArrow
-                theme='default'
-                onConfirm={() => {
-                  mutate({
-                    resource: 'content.source',
-                    id: row.id,
-                  })
-                }}
-              >
-                <Link theme='danger'>{translate('buttons.delete')}</Link>
-              </Popconfirm>
+              <EditLink rowId={row.id} />
+              <DeleteLink rowId={row.id} />
             </div>
           )
         },
@@ -67,24 +55,7 @@ const List = () => {
     [translate],
   )
 
-  return (
-    <PageTable
-      columns={columns}
-      actionRender={() => (
-        <>
-          <Modal
-            title={translate('buttons.create')}
-            trigger={
-              <Button icon={<div className='i-tabler:plus mr-2' />}>
-                {translate('buttons.create')}
-              </Button>
-            }
-            component={() => import('./save')}
-          ></Modal>
-        </>
-      )}
-    />
-  )
+  return <PageTable columns={columns} actionRender={() => <CreateButton />} />
 }
 
 export default List

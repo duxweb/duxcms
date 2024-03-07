@@ -22,12 +22,18 @@ class ArticleClass extends \Dux\Database\Model
 		$table->id();
         $table->bigInteger('magic_id')->nullable();
         $table->string('name');
+        $table->string('image')->nullable();
+        $table->json('tops')->nullable();
         NestedSet::columns($table);
 		$table->timestamps();
 	}
 
-
 	public function seed(Connection $db)
 	{
 	}
+
+    protected $casts = [
+      'tops' => 'array'
+    ];
+
 }

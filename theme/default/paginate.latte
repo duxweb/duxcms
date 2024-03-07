@@ -1,0 +1,40 @@
+<nav class="">
+    {* Previous Page Link *}
+    {var $paginator = $paginator->withPath($prefix) }
+    {var $totalPage = $paginator->lastPage()}
+    {var $currentPage = $paginator->currentPage()}
+    {var $startPage = max(1, $currentPage - 2)}
+    {var $endPage = min($totalPage, $currentPage + 2)}
+    {if $endPage - $startPage < 4}
+    {var $startPage =max(1, $endPage - 4)}
+    {/if}
+
+    {if $totalPage > 1}
+    <ul class="flex flex-row gap-2 text-center">
+
+
+        <li n:class="$paginator->onFirstPage() ? 'bg-gray-200 text-gray-400' : 'bg-white hover:bg-gray-100'">
+            <a class="py-2 px-4 block"  href="{$paginator->onFirstPage() ? 'javascript:;' : $paginator->previousPageUrl()}" aria-hidden="true">&lsaquo;&lsaquo;</a>
+        </li>
+
+        {* List Page Link *}
+
+            {for $page = $startPage; $page <= $endPage; $page++}
+                <li n:class="$currentPage == $page ? 'bg-blue-600 text-white' : 'bg-white hover:bg-gray-100'"><a class="py-2 px-4 block" href="{$paginator->url($page)}">{$page}</a></li>
+            {/for}
+
+            {if $endPage < $totalPage}
+                {if ($endPage < $totalPage - 1) }
+                <li class="bg-white hover:bg-gray-100"><span class="py-2 px-4 block">...</span></li>
+                {/if}
+                <li class="bg-white hover:bg-gray-100"><a class="py-2 px-4 block" href="{$paginator->url($paginator->lastPage())}">{$paginator->lastPage()}</a></li>
+            {/if}
+
+        {* Next Page Link *}
+        <li  n:class="!$paginator->hasMorePages() ? 'bg-gray-200 text-gray-400' : 'bg-white hover:bg-gray-100'">
+            <a class="py-2 px-4 block" href="{!$paginator->hasMorePages() ? 'javascript:;' : $paginator->nextPageUrl()}" rel="next"
+               aria-label="@lang('pagination.next')">&rsaquo;&rsaquo;</a>
+        </li>
+    </ul>
+    {/if}
+</nav>

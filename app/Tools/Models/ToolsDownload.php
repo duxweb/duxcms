@@ -11,7 +11,7 @@ use Illuminate\Database\Schema\Blueprint;
 #[AutoMigrate]
 class ToolsDownload extends \Dux\Database\Model
 {
-    public $table = 'system_download';
+    public $table = 'tools_download';
 
 
     public function migration(Blueprint $table)

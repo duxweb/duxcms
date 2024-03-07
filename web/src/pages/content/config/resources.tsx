@@ -44,11 +44,20 @@ export const adminResources = (app: App) => {
       },
     },
     {
+      name: 'content.articleExtend',
+      meta: {
+        parent: 'content',
+        label: 'content.articleExtend',
+        icon: 'i-tabler:frame',
+        sort: 1,
+      },
+    },
+    {
       name: 'content.source',
       list: 'content/source',
       listElenemt: lazyComponent(() => import('../admin/source/list')),
       meta: {
-        parent: 'content.articleGroup',
+        parent: 'content.articleExtend',
         label: 'content.source',
         sort: 3,
       },
@@ -56,11 +65,45 @@ export const adminResources = (app: App) => {
     {
       name: 'content.recommend',
       list: 'content/recommend',
+      create: 'content/recommend/page',
+      edit: 'content/recommend/page/:id',
       listElenemt: lazyComponent(() => import('../admin/recommend/list')),
+      createElenemt: lazyComponent(() => import('../admin/recommend/page')),
+      editElenemt: lazyComponent(() => import('../admin/recommend/page')),
       meta: {
-        parent: 'content.articleGroup',
+        parent: 'content.articleExtend',
         label: 'content.recommend',
         sort: 5,
+      },
+    },
+    {
+      name: 'content.tags',
+      list: 'content/tags',
+      listElenemt: lazyComponent(() => import('../admin/tags/list')),
+      meta: {
+        parent: 'content.articleExtend',
+        label: 'content.tags',
+        sort: 6,
+      },
+    },
+    {
+      name: 'content.attr',
+      list: 'content/attr',
+      listElenemt: lazyComponent(() => import('../admin/attr/list')),
+      meta: {
+        parent: 'content.articleExtend',
+        label: 'content.attr',
+        sort: 7,
+      },
+    },
+    {
+      name: 'content.replace',
+      list: 'content/replace',
+      listElenemt: lazyComponent(() => import('../admin/replace/list')),
+      meta: {
+        parent: 'content.articleExtend',
+        label: 'content.replace',
+        sort: 7,
       },
     },
     {

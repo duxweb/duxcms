@@ -6,6 +6,7 @@ namespace App\Content\Admin;
 
 use Dux\Resources\Action\Resources;
 use Dux\Resources\Attribute\Resource;
+use Dux\Utils\Content;
 use Dux\Validator\Data;
 use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\ServerRequestInterface;
@@ -28,12 +29,21 @@ class Page extends Resources
             'subtitle' => $item->subtitle,
             'virtual_view' =>$item->virtual_view,
             'status' => (bool)$item->status,
-            'created_at' => $item->created_at->format('Y-m-d H:i')
+            'created_at' => $item->created_at->format('Y-m-d H:i'),
+            'keywords' => $item->keywords ? explode(',', $item->keywords) : [],
+            'descriptions' => $item->descriptions,
         ];
     }
 
     public function format(Data $data, ServerRequestInterface $request, array $args): array
     {
+
+        $content = html_entity_decode($data->content);
+
+        if (!$data->descriptions) {
+            $data->descriptions = Content::extractDescriptions($content);
+        }
+
         return [
             "name" => $data->name,
             "title" => $data->title,
@@ -42,6 +52,8 @@ class Page extends Resources
             "content" => $data->content,
             'status' => $data->status,
             'virtual_view' =>$data->virtual_view ?: 0,
+            'keywords' => $data->keywords ? implode(',', $data->keywords) : '',
+            'descriptions' => $data->descriptions,
         ];
     }
 

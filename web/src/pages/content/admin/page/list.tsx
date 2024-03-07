@@ -1,13 +1,19 @@
 import React, { useRef } from 'react'
-import { useTranslate, useDelete, useDeleteMany, useNavigation } from '@refinedev/core'
-import { PrimaryTableCol, Button, Input, Tag, Link, Popconfirm } from 'tdesign-react/esm'
-import { PageTable, FilterItem, MediaText, TableRef } from '@duxweb/dux-refine'
+import { useTranslate } from '@refinedev/core'
+import { PrimaryTableCol, Input, Tag } from 'tdesign-react/esm'
+import {
+  PageTable,
+  FilterItem,
+  MediaText,
+  TableRef,
+  CreateButton,
+  DeleteManyButton,
+  EditLink,
+  DeleteLink,
+} from '@duxweb/dux-refine'
 
 const List = () => {
   const translate = useTranslate()
-  const { mutate } = useDelete()
-  const { mutate: deleteMany } = useDeleteMany()
-  const { create, edit } = useNavigation()
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
@@ -81,24 +87,8 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Link theme='primary' onClick={() => edit('content.page', row.id)}>
-                {translate('buttons.edit')}
-              </Link>
-              <Popconfirm
-                content='确认删除吗'
-                destroyOnClose
-                placement='top'
-                showArrow
-                theme='default'
-                onConfirm={() => {
-                  mutate({
-                    resource: 'content.page',
-                    id: row.id,
-                  })
-                }}
-              >
-                <Link theme='danger'>{translate('buttons.delete')}</Link>
-              </Popconfirm>
+              <EditLink rowId={row.id} />
+              <DeleteLink rowId={row.id} />
             </div>
           )
         },
@@ -130,39 +120,14 @@ const List = () => {
       ]}
       batchRender={() => (
         <>
-          <Popconfirm
-            content={translate('buttons.confirm')}
-            destroyOnClose
-            placement='top'
-            showArrow
-            theme='default'
-            onConfirm={() => {
-              deleteMany({
-                resource: 'content.article',
-                ids: table.current?.selecteds || [],
-              })
-            }}
-          >
-            <Button
-              variant='outline'
-              theme='danger'
-              icon={<div className='i-tabler:trash t-icon'></div>}
-            >
-              {translate('buttons.delete')}
-            </Button>
-          </Popconfirm>
+          <DeleteManyButton
+            rowIds={table.current?.selecteds || []}
+            variant='outline'
+            icon={<div className='t-icon i-tabler:trash'></div>}
+          />
         </>
       )}
-      actionRender={() => (
-        <Button
-          icon={<div className='i-tabler:plus t-icon'></div>}
-          onClick={() => {
-            create('content.page')
-          }}
-        >
-          {translate('buttons.create')}
-        </Button>
-      )}
+      actionRender={() => <CreateButton />}
       filterRender={() => {
         return (
           <>

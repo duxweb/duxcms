@@ -13,7 +13,7 @@ class Menu
     {
         $app = $menu->add("data", [
             "label" => "data",
-            "icon" => 'data',
+            "icon" => 'i-tabler:database',
             "meta" => [
                 "sort" => 100,
             ]

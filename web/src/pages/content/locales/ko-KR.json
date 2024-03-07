@@ -1,0 +1,147 @@
+{
+  "content": {
+    "name": "내용",
+    "articleGroup": {
+      "name": "문서 관리"
+    },
+
+    "articleExtend": {
+      "name": "기사 확장"
+    },
+    "article": {
+      "name": "기사 목록",
+      "tab": {
+        "all": "모두",
+        "published": "게시됨",
+        "unpublished": "게시되지 않음"
+      },
+      "validate": {
+        "title": "제목을 입력하십시오.",
+        "class": "분류를 선택하십시오.",
+        "keywords": "키워드를 입력하세요",
+        "descriptions": "기사 설명을 입력하십시오. 자동 추출을 기입하지 마십시오.",
+        "activity": "활동을 선택하십시오."
+      },
+      "fields": {
+        "category": "분류",
+        "title": "제목",
+        "subtitle": "하위 제목",
+        "image": "표지 그림",
+        "imagesAuto": "표지 추출",
+        "auto": "자동",
+        "manual": "수동",
+        "status": "상태",
+        "source": "출처",
+        "activity": "활동",
+        "content": "내용",
+        "virtualView": "가상 브라우징",
+        "recommend": "추천",
+        "attrs": "속성",
+        "createdAt": "생성 시간"
+      }
+    },
+    "source": {
+      "name": "기사 출처",
+      "fields": {
+        "name": "이름",
+        "avatar": "프로필 사진",
+        "createdAt": "생성 시간"
+      }
+    },
+    "recommend": {
+      "name": "기사 추천",
+      "fields": {
+        "name": "이름",
+        "createdAt": "생성 시간",
+        "articles": "추천 기사"
+      },
+      "help": {
+        "name": "추천 비트 설명",
+        "articles": "추천 관련 기사 선택"
+      }
+    },
+    "tags": {
+      "name": "기사 태그",
+      "fields": {
+        "name": "이름",
+        "view": "찾아보기",
+        "count": "참조 수",
+        "createdAt": "생성 시간"
+      }
+    },
+    "category": {
+      "name": "문장 분류",
+      "fields": {
+        "parent": "상위 분류",
+        "magic": "큐브 데이터",
+        "name": "이름",
+        "image": "표지 그림",
+        "top": "상단"
+      }
+    },
+    "attr": {
+      "name": "기사 등록 정보",
+      "fields": {
+        "name": "이름",
+        "createdAt": "생성 시간"
+      }
+    },
+    "replace": {
+      "name": "컨텐트 교체",
+      "fields": {
+        "from": "소스 단어",
+        "to": "대체어",
+        "createdAt": "생성 시간"
+      }
+    },
+    "comment": {
+      "name": "기사 리뷰",
+      "fields": {
+        "user": "사용자",
+        "title": "기사",
+        "content": "코멘트",
+        "createdAt": "생성 시간"
+      }
+    },
+    "page": {
+      "name": "페이지 관리",
+      "tab": {
+        "all": "모두",
+        "published": "게시됨",
+        "unpublished": "게시되지 않음"
+      },
+      "validate": {
+        "title": "제목을 입력하십시오."
+      },
+      "fields": {
+        "name": "호출 이름",
+        "title": "제목",
+        "subtitle": "하위 제목",
+        "image": "표지 그림",
+        "status": "상태",
+        "content": "내용",
+        "virtualView": "가상 브라우징",
+        "createdAt": "생성 시간"
+      }
+    },
+    "menu": {
+      "name": "메뉴 관리",
+      "fields": {
+        "addGroup": "그룹 만들기",
+        "editGroup": "그룹 편집",
+        "title": "메뉴 제목",
+        "subtitle": "메뉴 부제목",
+        "image": "메뉴 그림",
+        "url": "메뉴 링크",
+        "parent": "상위 메뉴",
+        "groupName": "메뉴 그룹 이름",
+        "groupTitle": "메뉴 그룹 설명"
+
+      },
+      "placeholder": {
+        "group": "메뉴 그룹을 선택하십시오."
+      }
+    }
+  }
+  
+}

@@ -1,13 +1,14 @@
 {
     "name": "duxweb/base",
     "description": "System Base Applications",
-    "version": "0.0.10",
+    "version": "0.0.12",
     "phpDependencies": {
         "duxweb/dux-lite": "main-dev"
     },
     "jsDependencies": {
-        "@duxweb/dux-extend": "^0.0.19",
-        "@duxweb/dux-plugin": "^0.0.7",
-        "@duxweb/dux-refine": "0.7.8"
+        "@duxweb/dux-extend": "^0.0.21",
+        "@duxweb/dux-plugin": "^0.0.8",
+        "@duxweb/dux-refine": "^0.8.16",
+        "patch-package": "^8.0.0"
     }
 }

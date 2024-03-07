@@ -7,6 +7,7 @@ namespace App\Content\Admin;
 use App\Content\Models\ArticleClass;
 use App\Tools\Models\ToolsMagic;
 use Dux\Handlers\ExceptionBusiness;
+use Dux\Handlers\ExceptionNotFound;
 use Dux\Resources\Action\Resources;
 use Dux\Resources\Attribute\Action;
 use Dux\Resources\Attribute\Resource;
@@ -30,6 +31,7 @@ class Category extends Resources
             "id" => $item->id,
             "parent_id" => $item->parent_id,
             "name" => $item->name,
+            "image" => $item->image,
             "magic_id" => $item->magic_id,
             "children" => $item->children ? $item->children->map(function ($vo) {
                 return $this->transform($vo);
@@ -46,12 +48,40 @@ class Category extends Resources
 
     public function format(Data $data, ServerRequestInterface $request, array $args): array
 	{
-		return [
-		    "name" => $data->name,
+        $result = [
+            "name" => $data->name,
+            "image" => $data->image,
             "parent_id" => $data->parent_id ?: 0,
             "magic_id" => $data->magic_id,
-		];
+        ];
+		return $result;
 	}
+
+    #[Action(methods: 'GET', route: '/top/{id}')]
+    public function top(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $id = $args['id'];
+        $info = ArticleClass::query()->find($id);
+
+        return send($response, 'ok', [
+            'tops' => $info->tops
+        ]);
+    }
+
+    #[Action(methods: 'PUT', route: '/top/{id}')]
+    public function topSave(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $id = $args['id'];
+        $info = ArticleClass::query()->find($id);
+        if (!$info) {
+            throw new ExceptionNotFound();
+        }
+        $data = $request->getParsedBody() ?: [];
+        $info->tops = $data['tops'];
+        $info->save();
+
+        return send($response, 'ok');
+    }
 
     #[Action(methods: 'GET', route: '/{id}/magic')]
     public function magic(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface

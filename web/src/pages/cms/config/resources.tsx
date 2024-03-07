@@ -3,16 +3,6 @@ import { App, lazyComponent } from '@duxweb/dux-refine'
 export const adminResources = (app: App) => {
   app.addResources([
     {
-      name: 'cms.stats.index',
-      list: 'system/index',
-      listElenemt: lazyComponent(() => import('../admin/home/index')),
-      meta: {
-        label: 'cms.dashboard',
-        icon: 'i-tabler:home',
-        sort: 0,
-      },
-    },
-    {
       name: 'cms',
       meta: {
         label: 'cms',

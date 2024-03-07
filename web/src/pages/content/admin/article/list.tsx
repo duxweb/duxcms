@@ -1,13 +1,20 @@
 import React, { useRef } from 'react'
-import { useTranslate, useDelete, useDeleteMany, useNavigation } from '@refinedev/core'
-import { PrimaryTableCol, Button, Input, Tag, Link, Popconfirm } from 'tdesign-react/esm'
-import { PageTable, FilterItem, MediaText, CascaderAsync, TableRef } from '@duxweb/dux-refine'
+import { useTranslate } from '@refinedev/core'
+import { PrimaryTableCol, Input, Tag } from 'tdesign-react/esm'
+import {
+  PageTable,
+  FilterItem,
+  MediaText,
+  CascaderAsync,
+  TableRef,
+  EditLink,
+  DeleteLink,
+  DeleteManyButton,
+  CreateButton,
+} from '@duxweb/dux-refine'
 
 const List = () => {
   const translate = useTranslate()
-  const { mutate } = useDelete()
-  const { mutate: deleteMany } = useDeleteMany()
-  const { create, edit } = useNavigation()
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
@@ -26,7 +33,7 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <MediaText size='small'>
-              {row.images?.[0] && <MediaText.Image src={row.images}></MediaText.Image>}
+              {row.images?.[0] && <MediaText.Image src={row.images[0]}></MediaText.Image>}
               <MediaText.Title>{row.title}</MediaText.Title>
               <MediaText.Desc>{row.subtitle}</MediaText.Desc>
             </MediaText>
@@ -89,24 +96,8 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Link theme='primary' onClick={() => edit('content.article', row.id)}>
-                {translate('buttons.edit')}
-              </Link>
-              <Popconfirm
-                content={translate('buttons.confirm')}
-                destroyOnClose
-                placement='top'
-                showArrow
-                theme='default'
-                onConfirm={() => {
-                  mutate({
-                    resource: 'content.article',
-                    id: row.id,
-                  })
-                }}
-              >
-                <Link theme='danger'>{translate('buttons.delete')}</Link>
-              </Popconfirm>
+              <EditLink rowId={row.id} />
+              <DeleteLink rowId={row.id} />
             </div>
           )
         },
@@ -138,39 +129,14 @@ const List = () => {
       ]}
       batchRender={() => (
         <>
-          <Popconfirm
-            content={translate('buttons.confirm')}
-            destroyOnClose
-            placement='top'
-            showArrow
-            theme='default'
-            onConfirm={() => {
-              deleteMany({
-                resource: 'content.article',
-                ids: table.current?.selecteds || [],
-              })
-            }}
-          >
-            <Button
-              variant='outline'
-              theme='danger'
-              icon={<div className='i-tabler:trash t-icon'></div>}
-            >
-              {translate('buttons.delete')}
-            </Button>
-          </Popconfirm>
+          <DeleteManyButton
+            rowIds={table.current?.selecteds || []}
+            variant='outline'
+            icon={<div className='t-icon i-tabler:trash'></div>}
+          />
         </>
       )}
-      actionRender={() => (
-        <Button
-          icon={<div className='t-icon i-tabler:plus'></div>}
-          onClick={() => {
-            create('content.article')
-          }}
-        >
-          {translate('buttons.create')}
-        </Button>
-      )}
+      actionRender={() => <CreateButton />}
       filterRender={() => {
         return (
           <>

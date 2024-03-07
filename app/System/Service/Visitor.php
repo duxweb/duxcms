@@ -12,11 +12,11 @@ use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
 class Visitor
 {
-    public static function increment(\Psr\Http\Message\ServerRequestInterface $request, string $type, string|int|null $id = null, string $driver = 'web'): void
+    public static function increment(\Psr\Http\Message\ServerRequestInterface $request, string $type, string|int|null $id = null, string $driver = 'web', string $path = ''): void
     {
         $date = date('Y-m-d');
         $url = $request->getUri();
-        $path = $url->getPath();
+        $path = $path ?: $url->getPath();
         if (str_contains($path, '/theme') || str_contains($path, '/manage') || str_contains($path, '/install')) {
             return;
         }
@@ -37,7 +37,7 @@ class Visitor
             $view->increment('pv');
 
             $viewData = LogVisitData::query()->firstOrCreate([
-                'has_type' => $type, 'has_id' => $id, 'driver' => $driver, 'date' => $date, 'path' => $path
+                'has_type' => $type, 'has_id' => $id, 'driver' => $driver, 'date' => $date
             ]);
             $viewData->increment('pv');
 
@@ -47,7 +47,6 @@ class Visitor
                 'driver' => $driver,
                 'ip' =>$ip,
                 'browser' => $browser,
-                'path' => $path,
             ];
 
             // uv
@@ -58,18 +57,19 @@ class Visitor
                 $viewData->increment('uv');
 
                 $uvData = LogVisitUv::query()->firstOrCreate([
-                    'has_type' => $type, 'has_id' => $id, 'date' => $date, 'ip' => $ip, 'browser' => $browser, 'path' => $path, 'driver' => $driver,
+                    'has_type' => $type, 'has_id' => $id, 'date' => $date, 'ip' => $ip, 'browser' => $browser, 'driver' => $driver,
                 ]);
+
                 if (!$uvData->country) {
                     try {
-                        $record = App::geo()->city($ip);
-                        $country = $record->country->name;
-                        $province = $record->mostSpecificSubdivision->name;
-                        $city = $record->city->name;
+                        $address = App::geo()?->search($ip) ?: '';
+                        [$country, $null, $province, $city] = explode('|', $address);
                     }catch (\Exception $e) {}
-                    $uvData->country = $country;
-                    $uvData->province = $province;
-                    $uvData->city = $city;
+                    if ($address && $country) {
+                        $uvData->country = $country ?: null;
+                        $uvData->province = $province ?: null;
+                        $uvData->city = $city ?: null;
+                    }
                 }
                 $uvData->num = $uvData->num + 1;
                 $uvData->save();

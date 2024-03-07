@@ -1,6 +1,6 @@
 import { useTranslate, useResource } from '@refinedev/core'
 import { FormPage, Editor, UploadImageManage, FormPageItem } from '@duxweb/dux-refine'
-import { Form, Input, Radio } from 'tdesign-react/esm'
+import { Form, Input, Radio, TagInput, Textarea } from 'tdesign-react/esm'
 
 const Page = () => {
   const translate = useTranslate()
@@ -43,6 +43,14 @@ const Page = () => {
 
       <FormPageItem name='content'>
         <Editor />
+      </FormPageItem>
+
+      <FormPageItem name='keywords'>
+        <TagInput placeholder={translate('content.article.validate.keywords')} />
+      </FormPageItem>
+
+      <FormPageItem name='descriptions' initialData=''>
+        <Textarea placeholder={translate('content.article.validate.descriptions')} />
       </FormPageItem>
     </FormPage>
   )

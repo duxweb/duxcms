@@ -17,8 +17,8 @@ class LogVisitUv extends Model {
         $table->date('date')->comment("日期");
         $table->string('has_type')->comment("关联类型");
         $table->string('has_id')->comment("关联id")->nullable();
+        $table->string('uuid')->comment("唯一标识")->nullable();
         $table->string('driver')->comment("设备")->nullable();
-        $table->string('path')->comment("页面路径")->nullable();
         $table->string('ip')->comment("ip")->nullable();
         $table->string('country')->comment("国家")->nullable();
         $table->string('province')->comment("省份")->nullable();

@@ -1,0 +1,89 @@
+{layout 'layout.latte'}
+
+
+{block content}
+
+{* 查询文章信息 *}
+{var $info = \App\Content\Service\Article::info($id)}
+
+
+<div class="bg-gray-100 ">
+    <div class="mx-auto max-w-7xl  bg-no-repeat bg-opacity-70 bg-auto"
+         style="background-image: url('/theme/images/banner.jpg')">
+        <div class="bg-gray-100 bg-opacity-80">
+            <div
+                    class="flex flex-col justify-center items-center text-center bg-gradient-to-r from-gray-100 via-transparent to-gray-100"
+                    style="height: 200px; ">
+                <div class=" text-gray-900 text-2xl mb-4 font-bold">
+                    {$info->class->name}
+                </div>
+
+                {* 位置导航 *}
+                <div class="text-gray-500">
+                    <div class=" flex flex-row gap-2">
+                        <div>
+                            <a href="/" class="hover:underline">{_'home'}</a>
+                        </div>
+                        {foreach \App\Content\Service\Category::breadcrumb($info->class_id) as $item}
+                        <div>&rsaquo;&rsaquo;</div>
+                        <div><a class="hover:underline" href="/page/article/{$item->id}">{$item->name}</a></div>
+                        {/foreach}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mx-auto max-w-7xl flex lg:flex-row flex-col mt-6 min-h-screen gap-6">
+    <div class="lg:w-3/4">
+        <div class="bg-white p-4 mt-5 overflow-x-hidden">
+            <div class="text-3xl text-center font-bold text-black">{$info->title}</div>
+            <div class="text-center text-gray-500 mt-4 flex justify-center gap-4">
+                <div>{_'publish'}: {$info->created_at->format('Y-m-d H:i')}</div>
+                {if $info->source}
+                <div>{_'source'}: {$info->source}</div>
+                {/if}
+
+                {* 查询文章标签 *}
+                {if $info->tags->count()}
+                <div>{_'tags'}:
+                    {foreach $info->tags as $vo}
+                    <a class="hover:underline mr-1 text-blue-600" href="/page/tags/{$vo->name}">{$vo->name}</a>
+                    {/foreach}
+                </div>
+                {/if}
+            </div>
+            <div class="pb-6 mt-8 text-base mt-2 content prose prose-truegray max-w-full">
+                {$info->content|tags:'/page/tags',$info->tags|replace|noescape}
+            </div>
+            <div class="flex lg:justify-between lg:flex-row flex-col py-4 text-base gap-4">
+                {var $previousInfo = \App\Content\Service\Article::prev($info->id)}
+                <div>
+                    {if $previousInfo}
+                    <a href="/page/article-info/{$previousInfo->id}" class="hover:underline hover:text-blue-700">{_'prev'}： {$previousInfo->title}</a>
+                    {/if}
+                </div>
+                {var $nextInfo = \App\Content\Service\Article::next($info->id)}
+                <div>
+                    {if $nextInfo}
+                    <a href="/page/article-info/{$nextInfo->id}" class="hover:underline hover:text-blue-700">{_'next'}：{$nextInfo->title}</a>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lg:w-1/4 p-6 lg:p-0">
+        <div class="text-lg font-bold">{_'recommend'}</div>
+        <div class="flex flex-col gap-6 pb-6 mt-5">
+            {var $list = \App\Content\Service\Article::recommend($info)}
+            {foreach $list as $item}
+                {include 'widgets/article-rec.latte', item: $item}
+            {/foreach}
+        </div>
+    </div>
+
+</div>
+
+{/block}

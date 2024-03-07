@@ -1,0 +1,147 @@
+{
+  "content": {
+    "name": "内容",
+    "articleGroup": {
+      "name": "文章管理"
+    },
+
+    "articleExtend": {
+      "name": "文章扩展"
+    },
+    "article": {
+      "name": "文章列表",
+      "tab": {
+        "all": "全部",
+        "published": "已发布",
+        "unpublished": "未发布"
+      },
+      "validate": {
+        "title": "请输入标题",
+        "class": "请选择分类",
+        "keywords": "请输入关键词",
+        "descriptions": "请输入文章描述，不填写自动提取",
+        "activity": "请选择活动"
+      },
+      "fields": {
+        "category": "分类",
+        "title": "标题",
+        "subtitle": "子标题",
+        "image": "封面图",
+        "imagesAuto": "提取封面",
+        "auto": "自动",
+        "manual": "手动",
+        "status": "状态",
+        "source": "来源",
+        "activity": "活动",
+        "content": "内容",
+        "virtualView": "虚拟浏览量",
+        "recommend": "推荐",
+        "attrs": "属性",
+        "createdAt": "创建时间"
+      }
+    },
+    "source": {
+      "name": "文章来源",
+      "fields": {
+        "name": "名称",
+        "avatar": "头像",
+        "createdAt": "创建时间"
+      }
+    },
+    "recommend": {
+      "name": "文章推荐",
+      "fields": {
+        "name": "名称",
+        "createdAt": "创建时间",
+        "articles": "推荐文章"
+      },
+      "help": {
+        "name": "推荐位描述",
+        "articles": "选择推荐关联文章"
+      }
+    },
+    "tags": {
+      "name": "文章标签",
+      "fields": {
+        "name": "名称",
+        "view": "浏览量",
+        "count": "引用数",
+        "createdAt": "创建时间"
+      }
+    },
+    "category": {
+      "name": "文章分类",
+      "fields": {
+        "parent": "上级分类",
+        "magic": "魔方数据",
+        "name": "名称",
+        "image": "封面图",
+        "top": "置顶"
+      }
+    },
+    "attr": {
+      "name": "文章属性",
+      "fields": {
+        "name": "名称",
+        "createdAt": "创建时间"
+      }
+    },
+    "replace": {
+      "name": "内容替换",
+      "fields": {
+        "from": "来源词",
+        "to": "替换词",
+        "createdAt": "创建时间"
+      }
+    },
+    "comment": {
+      "name": "文章评论",
+      "fields": {
+        "user": "用户",
+        "title": "文章",
+        "content": "评论",
+        "createdAt": "创建时间"
+      }
+    },
+    "page": {
+      "name": "页面管理",
+      "tab": {
+        "all": "全部",
+        "published": "已发布",
+        "unpublished": "未发布"
+      },
+      "validate": {
+        "title": "请输入标题"
+      },
+      "fields": {
+        "name": "调用名",
+        "title": "标题",
+        "subtitle": "子标题",
+        "image": "封面图",
+        "status": "状态",
+        "content": "内容",
+        "virtualView": "虚拟浏览量",
+        "createdAt": "创建时间"
+      }
+    },
+    "menu": {
+      "name": "菜单管理",
+      "fields": {
+        "addGroup": "创建组",
+        "editGroup": "编辑组",
+        "title": "菜单标题",
+        "subtitle": "菜单副标题",
+        "image": "菜单图片",
+        "url": "菜单链接",
+        "parent": "上级菜单",
+        "groupName": "菜单组名",
+        "groupTitle": "菜单组描述"
+
+      },
+      "placeholder": {
+        "group": "请选择菜单组"
+      }
+    }
+  }
+  
+}

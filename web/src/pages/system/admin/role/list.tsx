@@ -1,11 +1,10 @@
 import React from 'react'
-import { useTranslate, useDelete } from '@refinedev/core'
-import { PrimaryTableCol, Button, Link, Popconfirm } from 'tdesign-react/esm'
-import { PageTable, Modal } from '@duxweb/dux-refine'
+import { useTranslate } from '@refinedev/core'
+import { PrimaryTableCol } from 'tdesign-react/esm'
+import { PageTable, CreateButtonModal, EditLinkModal, DeleteLink } from '@duxweb/dux-refine'
 
 const List = () => {
   const translate = useTranslate()
-  const { mutate } = useDelete()
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
@@ -30,27 +29,8 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Modal
-                title={translate('buttons.edit')}
-                trigger={<Link theme='primary'>{translate('buttons.edit')}</Link>}
-                component={() => import('./save')}
-                componentProps={{ id: row.id }}
-              />
-              <Popconfirm
-                content={translate('buttons.confirm')}
-                destroyOnClose
-                placement='top'
-                showArrow
-                theme='default'
-                onConfirm={() => {
-                  mutate({
-                    resource: 'system.role',
-                    id: row.id,
-                  })
-                }}
-              >
-                <Link theme='danger'>{translate('buttons.delete')}</Link>
-              </Popconfirm>
+              <EditLinkModal rowId={row.id} component={() => import('./save')} />
+              <DeleteLink rowId={row.id} />
             </div>
           )
         },
@@ -67,17 +47,7 @@ const List = () => {
         rowKey: 'id',
       }}
       title={translate('system.role.name')}
-      actionRender={() => (
-        <Modal
-          title={translate('buttons.create')}
-          trigger={
-            <Button icon={<div className='i-tabler:plus t-icon'></div>}>
-              {translate('buttons.create')}
-            </Button>
-          }
-          component={() => import('./save')}
-        ></Modal>
-      )}
+      actionRender={() => <CreateButtonModal component={() => import('./save')} />}
     />
   )
 }

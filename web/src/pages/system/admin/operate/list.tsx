@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslate } from '@refinedev/core'
 import { PrimaryTableCol, Link, Tag, Tooltip, Select, DateRangePicker } from 'tdesign-react/esm'
-import { PageTable, Modal, MediaText, FilterItem, useSelect } from '@duxweb/dux-refine'
+import { PageTable, MediaText, FilterItem, useSelect, ShowLinkModal } from '@duxweb/dux-refine'
 
 const List = () => {
   const translate = useTranslate()
@@ -84,19 +84,14 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Modal
-                title={translate('buttons.show')}
-                trigger={<Link theme='primary'>{translate('buttons.show')}</Link>}
-                component={() => import('./show')}
-                componentProps={{ id: row.id }}
-              />
+              <ShowLinkModal component={() => import('./show')} rowId={row.id} />
             </div>
           )
         },
       },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [translate]
+    [translate],
   )
 
   const { options, onSearch, queryResult } = useSelect({

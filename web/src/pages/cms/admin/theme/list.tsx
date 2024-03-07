@@ -1,6 +1,13 @@
 import { useCustomMutation, useTranslate } from '@refinedev/core'
-import { Main, Modal, StatusEmpty, useTable } from '@duxweb/dux-refine'
-import { Card, Tag, Button, Image, Tooltip, Popconfirm } from 'tdesign-react/esm'
+import {
+  ConfirmButton,
+  EditButtonModal,
+  Main,
+  Modal,
+  StatusEmpty,
+  useTable,
+} from '@duxweb/dux-refine'
+import { Card, Tag, Button, Image, Tooltip } from 'tdesign-react/esm'
 import { Icon } from 'tdesign-icons-react'
 
 const List = () => {
@@ -55,12 +62,7 @@ const CardItem = ({ item, refetch }: CardItemProps) => {
             </Modal>
           </div>
           <div className='flex justify-center'>
-            <Popconfirm
-              content={translate('cms.theme.changeConfirm')}
-              destroyOnClose
-              placement='top'
-              showArrow
-              theme='default'
+            <ConfirmButton
               onConfirm={() => {
                 mutate({
                   url: `cms/theme/${item?.id}`,
@@ -72,28 +74,26 @@ const CardItem = ({ item, refetch }: CardItemProps) => {
                   },
                 })
               }}
+              variant='text'
+              action='store'
             >
-              <Button variant='text'>
-                <Tooltip content={translate('cms.theme.change')}>
-                  <Icon name='component-switch' />
-                </Tooltip>
-              </Button>
-            </Popconfirm>
+              <Tooltip content={translate('cms.theme.change')}>
+                <Icon name='component-switch' />
+              </Tooltip>
+            </ConfirmButton>
           </div>
           <div className='flex justify-center'>
-            <Modal
-              title={translate('cms.theme.config')}
-              width={640}
-              trigger={
-                <Button variant='text'>
-                  <Tooltip content={translate('cms.theme.config')}>
-                    <Icon name='edit-1' />
-                  </Tooltip>
-                </Button>
-              }
+            <EditButtonModal
               component={() => import('./save')}
-              componentProps={{ id: item?.id }}
-            />
+              rowId={item?.id}
+              title={translate('cms.theme.config')}
+              variant='text'
+              theme='default'
+            >
+              <Tooltip content={translate('cms.theme.config')}>
+                <Icon name='edit-1' />
+              </Tooltip>
+            </EditButtonModal>
           </div>
         </div>
       }

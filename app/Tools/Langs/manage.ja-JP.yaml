@@ -34,6 +34,25 @@ tools:
     name: 添付ディレクトリ
     validator:
       name: ディレクトリ名を入力してください
+  backup:
+    name: バックアップ・リカバリ
+    validator:
+      table: エクスポートテーブルを選択してください
+      title: 説明を記入してください
+      notFound: データが見つかりません
+    message:
+      export: データのエクスポートに成功しました
+      import: データのインポートに成功しました
+    import:
+      name: インポート＃インポート＃
+    export:
+      name: エクスポート＃エクスポート＃
+    download:
+      name: ダウンロード
+  poster:
+    name: ポスター枚
+    validator:
+      title: タイトルを記入してください
 extend:
   name: 拡張
   magic:

@@ -1,0 +1,147 @@
+{
+  "content": {
+    "name": "內容",
+    "articleGroup": {
+      "name": "文章管理"
+    },
+
+    "articleExtend": {
+      "name": "文章擴展"
+    },
+    "article": {
+      "name": "文章列表",
+      "tab": {
+        "all": "全部",
+        "published": "已發佈",
+        "unpublished": "未發佈"
+      },
+      "validate": {
+        "title": "請輸入標題",
+        "class": "請選擇分類",
+        "keywords": "請輸入關鍵字",
+        "descriptions": "請輸入文章描述，不填寫自動選取",
+        "activity": "請選擇活動"
+      },
+      "fields": {
+        "category": "分類",
+        "title": "標題",
+        "subtitle": "子標題",
+        "image": "封面圖",
+        "imagesAuto": "選取封面",
+        "auto": "自動",
+        "manual": "手動",
+        "status": "狀態",
+        "source": "來源",
+        "activity": "活動",
+        "content": "內容",
+        "virtualView": "虛擬流覽量",
+        "recommend": "推薦",
+        "attrs": "內容",
+        "createdAt": "創建時間"
+      }
+    },
+    "source": {
+      "name": "文章來源",
+      "fields": {
+        "name": "名稱",
+        "avatar": "頭像",
+        "createdAt": "創建時間"
+      }
+    },
+    "recommend": {
+      "name": "文章推薦",
+      "fields": {
+        "name": "名稱",
+        "createdAt": "創建時間",
+        "articles": "推薦文章"
+      },
+      "help": {
+        "name": "推薦比特描述",
+        "articles": "選擇推薦關聯文章"
+      }
+    },
+    "tags": {
+      "name": "文章標籤",
+      "fields": {
+        "name": "名稱",
+        "view": "流覽量",
+        "count": "引用數",
+        "createdAt": "創建時間"
+      }
+    },
+    "category": {
+      "name": "文章分類",
+      "fields": {
+        "parent": "上級分類",
+        "magic": "魔方數據",
+        "name": "名稱",
+        "image": "封面圖",
+        "top": "置頂"
+      }
+    },
+    "attr": {
+      "name": "文章內容",
+      "fields": {
+        "name": "名稱",
+        "createdAt": "創建時間"
+      }
+    },
+    "replace": {
+      "name": "內容替換",
+      "fields": {
+        "from": "來源詞",
+        "to": "替換詞",
+        "createdAt": "創建時間"
+      }
+    },
+    "comment": {
+      "name": "文章評論",
+      "fields": {
+        "user": "用戶",
+        "title": "文章",
+        "content": "評論",
+        "createdAt": "創建時間"
+      }
+    },
+    "page": {
+      "name": "頁面管理",
+      "tab": {
+        "all": "全部",
+        "published": "已發佈",
+        "unpublished": "未發佈"
+      },
+      "validate": {
+        "title": "請輸入標題"
+      },
+      "fields": {
+        "name": "調用名",
+        "title": "標題",
+        "subtitle": "子標題",
+        "image": "封面圖",
+        "status": "狀態",
+        "content": "內容",
+        "virtualView": "虛擬流覽量",
+        "createdAt": "創建時間"
+      }
+    },
+    "menu": {
+      "name": "選單管理",
+      "fields": {
+        "addGroup": "創建組",
+        "editGroup": "編輯組",
+        "title": "選單標題",
+        "subtitle": "選單副標題",
+        "image": "選單圖片",
+        "url": "選單連結",
+        "parent": "上級選單",
+        "groupName": "選單組名",
+        "groupTitle": "選單組描述"
+
+      },
+      "placeholder": {
+        "group": "請選擇功能表組"
+      }
+    }
+  }
+  
+}

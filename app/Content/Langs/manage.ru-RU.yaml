@@ -30,6 +30,14 @@ content:
     name: Управление группами меню
     validator:
       title: Введите заголовок группы
+  attr:
+    name: Свойства статьи
+    validator:
+      name: Введите имя
+  replace:
+    name: Замена содержимого
+  tags:
+    name: Теги статей
   comment:
     name: Статьи
   recommend:

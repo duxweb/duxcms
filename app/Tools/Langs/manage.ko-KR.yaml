@@ -34,6 +34,25 @@ tools:
     name: 첨부 파일 디렉토리
     validator:
       name: 디렉토리 이름을 입력하십시오.
+  backup:
+    name: 백업 복구
+    validator:
+      table: 내보내기 테이블 선택
+      title: 설명을 입력하십시오.
+      notFound: 데이터를 찾을 수 없음
+    message:
+      export: 데이터 내보내기 성공
+      import: 데이터 가져오기 성공
+    import:
+      name: 가져오기
+    export:
+      name: 내보내기
+    download:
+      name: 다운로드
+  poster:
+    name: 포스터
+    validator:
+      title: 제목을 입력하십시오.
 extend:
   name: 확장
   magic:

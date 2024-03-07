@@ -1,7 +1,22 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./**/*.{latte}", "./*.latte"],
+  content: ["./**/*.latte"],
   theme: {
-    extend: {},
+    extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              '&:hover': {
+                color: theme('colors.blue.600'),
+              },
+            },
+          },
+        },
+      }),
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }

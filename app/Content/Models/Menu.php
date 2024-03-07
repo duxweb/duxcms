@@ -30,7 +30,6 @@ class Menu extends \Dux\Database\Model
     protected static function boot(): void
     {
         parent::boot();
-
         static::deleting(function($modal) {
             $modal->data()->delete();
         });

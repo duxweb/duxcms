@@ -1,0 +1,119 @@
+{
+  "tools": {
+    "name": "工具",
+    "dataGroup": {
+      "name": "数据管理"
+    },
+    "area": {
+      "name": "地区管理",
+      "fields": {
+        "code": "区号",
+        "name": "名称",
+        "level": "级别"
+      },
+      "help": {
+        "import": "百度地图行政区划adcode映射表"
+      }
+    },
+    "magic": {
+      "name": "数据魔方",
+      "fields": {
+        "group": "数据分组",
+        "unknown": "未知",
+        "name": "数据名称",
+        "nameDesc": "数据调用名",
+        "label": "数据标签",
+        "labelDesc": "数据描述信息",
+        "type": "数据类型",
+        "typeDesc": "数据列表类型",
+        "treeLabel": "标签字段",
+        "treeLabelDesc": "树形列表标签字段名",
+        "affiliate": "附属模型",
+        "affiliateDesc": "是否为其他功能的附属模型",
+        "independentType": "独立",
+        "inlineType": "附属",
+        "external": "数据权限",
+        "externalDesc": "公开后外部接口可访问数据",
+        "list": "列表",
+        "pages": "分页",
+        "tree": "树形",
+        "public": "公开",
+        "private": "私有",
+        "option": "操作方式",
+        "optionDesc": "添加编辑操作数据方式",
+        "modal": "弹窗",
+        "page": "页面",
+        "fields": "数据字段",
+        "fieldsDesc": "切换类型后需重新设置类型",
+        "groupName": "分组名称",
+        "groupLabel": "分组标签",
+        "groupIcon": "分组图标",
+        "addGroup": "添加分组",
+        "editGroup": "编辑分组"
+      },
+      "external": {
+        "read": "读取",
+        "create": "创建",
+        "edit": "编辑"
+      },
+      "validate": {
+        "label": "请输入数据标签",
+        "name": "请输入数据名称",
+        "class": "请选择分组"
+      },
+      "placeholder": {
+        "group": "请选择分组"
+      },
+      "help": {
+        "group": "数据菜单分组",
+        "groupName": "名称只能字母数字或下划线",
+        "groupIcon": "图标名参考",
+        "groupIconDoc": "参考文档"
+      }
+    },
+    "magicGroup": {
+      "name": "数据管理"
+    },
+    "file": {
+      "name": "附件管理",
+      "fields": {
+        "dir": "目录",
+        "addDir": "添加目录",
+        "editDir": "编辑目录",
+        "name": "文件",
+        "driver": "驱动",
+        "time": "时间",
+        "size": "大小",
+        "dirName": "目录名称",
+        "upload": "上传文件"
+      },
+      "placeholder": {
+        "dir": "请选择目录"
+      }
+    },
+    "poster": {
+      "name": "海报模板",
+      "fields": {
+        "title": "标题",
+        "data": "海报设计"
+      },
+      "validate": {
+        "title": "请输入海报标题"
+      }
+    },
+    "backup": {
+      "name": "备份恢复",
+      "fields": {
+        "name": "描述",
+        "data": "数据",
+        "createdAt": "时间"
+      }
+    }
+  },
+  "data": {
+    "name": "数据",
+    "fields": {
+      "parent": "上级"
+    }
+  }
+}

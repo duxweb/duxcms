@@ -30,6 +30,14 @@ content:
     name: 菜单组管理
     validator:
       title: 请输入分组标题
+  attr:
+    name: 文章属性
+    validator:
+      name: 请输入名称
+  replace:
+    name: 内容替换
+  tags:
+    name: 文章标签
   comment:
     name: 文章评论
   recommend:

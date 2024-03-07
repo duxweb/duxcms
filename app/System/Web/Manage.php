@@ -7,6 +7,7 @@ use Dux\Route\Attribute\Route;
 use Dux\Route\Attribute\RouteGroup;
 use Dux\Validator\Validator;
 use Exception;
+use Imagick;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -23,7 +24,7 @@ class Manage
     public function index(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $view = \Dux\App::view('web');
-        $data = json_decode(file_get_contents(public_path('/web/manifest.json')) ?: '', true);
+        $data = json_decode(file_get_contents(public_path('/web/.vite/manifest.json')) ?: '', true);
         $vite = App::config('use')->get('vite', []);
         $lang = App::config('use')->get('lang', 'en-US');
         $sideType = App::config('use')->get('sideType', 'app');

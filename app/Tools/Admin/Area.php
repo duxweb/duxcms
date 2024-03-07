@@ -42,7 +42,7 @@ class Area extends Resources
             $query->where('level', $level);
         }
 
-        if($name){
+        if($name) {
             $area = ToolsArea::query()->where('name', $name)->first();
             $query->where('parent_code', $area->code);
         }
@@ -55,7 +55,7 @@ class Area extends Resources
         $data = $request->getParsedBody();
         $file = $data['file'];
 
-        $data = Excel::import($file['url']);
+        $data = Excel::import($file[0]['url']);
         $data = array_slice($data, 1);
 
         $newData = [];
@@ -122,18 +122,16 @@ class Area extends Resources
         return send($response, "导入成功");
     }
 
-    #[Action(methods: 'GET', route: '/cascade')]
+    #[Action(methods: 'GET', route: '/select')]
     public function cascade(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $params = $request->getQueryParams();
         $level = $params['level'] ?: 0;
         $parent = $params['parent'];
-        $model = new DataHeat();
+        $model = new ToolsArea();
         $info = $model->query()->where('name', $parent)->where('level', $level)->first();
-        $data = $model->query()->where('level', $level + 1)->where('parent_code', $parent ? $info['code'] : 0)->get(["name", "leaf"])->toArray();
-        return send($response, 'ok', [
-            'list' => $data,
-        ]);
+        $data = $model->query()->where('level', $info->level + 1)->where('parent_code', $parent ? $info['code'] : 0)->get(["name as value", "name as label", "leaf"])->toArray();
+        return send($response, 'ok', $data);
 
     }
 

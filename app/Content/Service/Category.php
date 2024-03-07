@@ -10,10 +10,15 @@ class Category
 {
     public static function query(array $where = []): \Illuminate\Database\Eloquent\Builder
     {
-        return \App\Content\Models\Article::query()->where($where);
+        return \App\Content\Models\ArticleClass::query()->where($where);
     }
 
     public static function lists(array $where = [])
+    {
+        return self::query($where)->get();
+    }
+
+    public static function tree(array $where = [])
     {
         return self::query($where)->get()->toTree();
     }
@@ -25,6 +30,11 @@ class Category
             throw new ExceptionNotFound();
         }
         return $info;
+    }
+
+    public static function breadcrumb(int $id)
+    {
+        return \App\Content\Models\ArticleClass::query()->ancestorsAndSelf($id);
     }
 
 }

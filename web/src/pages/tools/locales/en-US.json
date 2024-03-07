@@ -1,0 +1,119 @@
+{
+  "tools": {
+    "name": "tool",
+    "dataGroup": {
+      "name": "data management"
+    },
+    "area": {
+      "name": "Regional management",
+      "fields": {
+        "code": "Area code",
+        "name": "name",
+        "level": "level"
+      },
+      "help": {
+        "import": "Baidu Map Administrative Region Adcode Mapping Table"
+      }
+    },
+    "magic": {
+      "name": "Data Cube",
+      "fields": {
+        "group": "Data grouping",
+        "unknown": "unknown",
+        "name": "Data Name",
+        "nameDesc": "Data call name",
+        "label": "Data labels",
+        "labelDesc": "Data Description Information",
+        "type": "data type",
+        "typeDesc": "Data List Type",
+        "treeLabel": "Label fields",
+        "treeLabelDesc": "Tree List Label Field Name",
+        "affiliate": "Affiliated model",
+        "affiliateDesc": "Is it a subsidiary model of other functions",
+        "independentType": "independent",
+        "inlineType": "subsidiary",
+        "external": "Data permissions",
+        "externalDesc": "External interfaces can access data after disclosure",
+        "list": "list",
+        "pages": "paging",
+        "tree": "Tree shaped",
+        "public": "open",
+        "private": "private",
+        "option": "Operation method",
+        "optionDesc": "Add editing operation data method",
+        "modal": "pop-up notification",
+        "page": "page",
+        "fields": "Data fields",
+        "fieldsDesc": "After switching types, it is necessary to reset the type",
+        "groupName": "Group Name",
+        "groupLabel": "Group labels",
+        "groupIcon": "Group icons",
+        "addGroup": "Add Group",
+        "editGroup": "Edit grouping"
+      },
+      "external": {
+        "read": "read",
+        "create": "establish",
+        "edit": "edit"
+      },
+      "validate": {
+        "label": "Please enter the data label",
+        "name": "Please enter the data name",
+        "class": "Please select a group"
+      },
+      "placeholder": {
+        "group": "Please select a group"
+      },
+      "help": {
+        "group": "Data menu grouping",
+        "groupName": "The name can only be alphanumeric or underlined",
+        "groupIcon": "Icon Name Reference",
+        "groupIconDoc": "Reference documents"
+      }
+    },
+    "magicGroup": {
+      "name": "data management"
+    },
+    "file": {
+      "name": "Attachment Management",
+      "fields": {
+        "dir": "catalogue",
+        "addDir": "Add Table of Contents",
+        "editDir": "Edit Table of Contents",
+        "name": "file",
+        "driver": "drive",
+        "time": "time",
+        "size": "size",
+        "dirName": "Catalog Name",
+        "upload": "Upload files"
+      },
+      "placeholder": {
+        "dir": "Please select a directory"
+      }
+    },
+    "poster": {
+      "name": "Poster template",
+      "fields": {
+        "title": "title",
+        "data": "Poster Design "
+      },
+      "validate": {
+        "title": "Please enter the poster title"
+      }
+    },
+    "backup": {
+      "name": "Backup recovery",
+      "fields": {
+        "name": "describe",
+        "data": "data",
+        "createdAt": "time"
+      }
+    }
+  },
+  "data": {
+    "name": "data",
+    "fields": {
+      "parent": "Superior"
+    }
+  }
+}

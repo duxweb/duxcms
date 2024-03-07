@@ -10,13 +10,13 @@ tools:
     name: Data grouping
     validator:
       name: Please enter a name
-      label: Please enter a label
-      icon: Please enter an icon name
+      label: Please enter the label
+      icon: Please enter the icon name
   magic:
     name: Data Cube
     validator:
       name: Data names can only be English numbers and underscores
-      group: Please select a data group
+      group: Please select data grouping
       label: Please enter the data label
       fields: Please configure data fields
       fieldsFull: Incomplete field configuration
@@ -33,7 +33,26 @@ tools:
   fileDir:
     name: Attachment Table of Contents
     validator:
-      name: Please enter a directory name
+      name: Please enter the directory name
+  backup:
+    name: Backup recovery
+    validator:
+      table: Please select the export table
+      title: Please fill in the description
+      notFound: No data found
+    message:
+      export: Export data successful
+      import: Successfully imported data
+    import:
+      name: Import
+    export:
+      name: export
+    download:
+      name: download
+  poster:
+    name: poster
+    validator:
+      title: Please fill in the title
 extend:
   name: extend
   magic:

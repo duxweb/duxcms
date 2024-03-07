@@ -4,6 +4,7 @@ declare global {
   interface Window {
     lang?: lang
     sideType?: siderType
+    baiduMap?: string
   }
 }
 

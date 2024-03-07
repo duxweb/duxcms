@@ -1,0 +1,119 @@
+{
+  "tools": {
+    "name": "도구",
+    "dataGroup": {
+      "name": "데이터 관리"
+    },
+    "area": {
+      "name": "지역 관리",
+      "fields": {
+        "code": "지역 번호",
+        "name": "이름",
+        "level": "수준"
+      },
+      "help": {
+        "import": "바이두 지도 행정구획adcode 매핑표"
+      }
+    },
+    "magic": {
+      "name": "데이터 큐브",
+      "fields": {
+        "group": "데이터 그룹",
+        "unknown": "알 수 없음",
+        "name": "데이터 이름",
+        "nameDesc": "데이터 호출 이름",
+        "label": "데이터 레이블",
+        "labelDesc": "데이터 설명 정보",
+        "type": "데이터 유형",
+        "typeDesc": "데이터 목록 유형",
+        "treeLabel": "레이블 필드",
+        "treeLabelDesc": "트리 목록 레이블 필드 이름",
+        "affiliate": "첨부 모델",
+        "affiliateDesc": "다른 기능의 부속 모델인지 여부",
+        "independentType": "독립",
+        "inlineType": "부속",
+        "external": "데이터 권한",
+        "externalDesc": "공개 후 외부 인터페이스에서 데이터 액세스 가능",
+        "list": "목록",
+        "pages": "페이지 나누기",
+        "tree": "트리",
+        "public": "공개",
+        "private": "개인",
+        "option": "작동 방식",
+        "optionDesc": "편집 작업 데이터 추가 방법",
+        "modal": "탄창",
+        "page": "페이지",
+        "fields": "데이터 필드",
+        "fieldsDesc": "유형 전환 후 유형 재설정 필요",
+        "groupName": "그룹 이름",
+        "groupLabel": "그룹 레이블",
+        "groupIcon": "그룹 아이콘",
+        "addGroup": "그룹 추가",
+        "editGroup": "그룹 편집"
+      },
+      "external": {
+        "read": "읽기",
+        "create": "작성",
+        "edit": "편집"
+      },
+      "validate": {
+        "label": "데이터 레이블을 입력하십시오.",
+        "name": "데이터 이름을 입력하십시오.",
+        "class": "그룹을 선택하십시오."
+      },
+      "placeholder": {
+        "group": "그룹을 선택하십시오."
+      },
+      "help": {
+        "group": "데이터 메뉴 그룹화",
+        "groupName": "이름은 영숫자 또는 밑줄만 가능합니다.",
+        "groupIcon": "아이콘 이름 참조",
+        "groupIconDoc": "참조 문서"
+      }
+    },
+    "magicGroup": {
+      "name": "데이터 관리"
+    },
+    "file": {
+      "name": "첨부 관리",
+      "fields": {
+        "dir": "카탈로그",
+        "addDir": "디렉토리 추가",
+        "editDir": "디렉토리 편집",
+        "name": "파일",
+        "driver": "구동",
+        "time": "시간",
+        "size": "크기",
+        "dirName": "디렉토리 이름",
+        "upload": "파일 업로드"
+      },
+      "placeholder": {
+        "dir": "디렉토리를 선택하십시오."
+      }
+    },
+    "poster": {
+      "name": "포스터 템플릿",
+      "fields": {
+        "title": "제목",
+        "data": "포스터 디자인"
+      },
+      "validate": {
+        "title": "포스터 제목을 입력하세요"
+      }
+    },
+    "backup": {
+      "name": "백업 복구",
+      "fields": {
+        "name": "설명",
+        "data": "데이터",
+        "createdAt": "시간"
+      }
+    }
+  },
+  "data": {
+    "name": "데이터",
+    "fields": {
+      "parent": "상급"
+    }
+  }
+}

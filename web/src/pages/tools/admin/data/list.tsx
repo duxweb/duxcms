@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useTranslate, useNavigation, useParsed, useCustom, useResource } from '@refinedev/core'
 import { Button, EnhancedTableProps } from 'tdesign-react/esm'
-import { PageTable, Modal, FormPage } from '@duxweb/dux-refine'
+import { PageTable, Modal, FormPage, useMenu } from '@duxweb/dux-refine'
 import { useMagicTableRender, MagicFormRender } from '@duxweb/dux-extend'
 
 const RenderList = ({ data }: any) => {
@@ -96,6 +96,9 @@ const RenderPage = () => {
         magic: params?.name,
       },
     },
+    queryOptions: {
+      cacheTime: 0
+    },
   })
 
   if (resource?.meta) {
@@ -115,17 +118,23 @@ const RenderPage = () => {
         meta: {
           mode: 'page',
         },
+        queryOptions: {
+          cacheTime: 0
+        }
       }}
       queryParams={{
         magic: params?.name,
       }}
     >
-      {data?.data?.fields && <MagicFormRender fields={data?.data?.fields} />}
+      <div>
+        {data?.data?.fields && <MagicFormRender fields={data?.data?.fields} />}
+      </div>
     </FormPage>
   )
 }
 
-const List = () => {
+
+const ListData = () => {
   const { params } = useParsed()
 
   const { data }: any = useCustom<Record<string, any>>({
@@ -135,17 +144,23 @@ const List = () => {
       params: {
         magic: params?.name,
       },
-    },
+    }
   })
 
   if (data?.code !== 200) {
     return null
   }
 
-  if (data?.data.type === 'page') {
-    return <RenderPage key={params?.name} />
+  if (data.data.type === 'page') {
+    return <RenderPage />
   }
-  return <RenderList data={data} key={params?.name} />
+  return <RenderList data={data} />
+}
+
+const List = () => {
+  const { params } = useParsed()
+
+  return <ListData key={params?.name} />
 }
 
 export default List

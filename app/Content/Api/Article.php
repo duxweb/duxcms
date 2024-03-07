@@ -2,7 +2,9 @@
 
 namespace App\Content\Api;
 
+use App\Member\Service\Foot;
 use Dux\App;
+use Dux\Auth\AuthService;
 use Dux\Handlers\ExceptionNotFound;
 use Dux\Route\Attribute\Route;
 use Dux\Route\Attribute\RouteGroup;
@@ -78,6 +80,7 @@ class Article
         $visualHtml = CssInliner::fromHtml('<div class="typo">'.$content.'</div>')->inlineCss($css)->renderBodyContent();
 
         $meta = App::apiEvent(self::class)->get('info.meta', $info, $request, $response, $args);
+
 
         return send($response, 'ok', [
             'id' => $info->id,

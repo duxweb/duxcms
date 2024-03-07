@@ -1,0 +1,1 @@
+import{X as n,j as t,c1 as s,P as m,Q as r}from"./modulepreload-polyfill-DkiKXnSB.js";const d=a=>{const e=n();return t.jsx(s,{id:a==null?void 0:a.id,children:t.jsx(m.FormItem,{label:e("content.attr.fields.name"),name:"name",children:t.jsx(r,{})})})};export{d as default};

@@ -1,11 +1,10 @@
 import React from 'react'
-import { useTranslate, useDelete } from '@refinedev/core'
-import { PrimaryTableCol, Button, Link, Popconfirm } from 'tdesign-react/esm'
-import { PageTable, Modal } from '@duxweb/dux-refine'
+import { useTranslate } from '@refinedev/core'
+import { PrimaryTableCol } from 'tdesign-react/esm'
+import { PageTable, ButtonModal, DeleteLink } from '@duxweb/dux-refine'
 
 const List = () => {
   const translate = useTranslate()
-  const { mutate } = useDelete()
 
   const columns = React.useMemo<PrimaryTableCol[]>(
     () => [
@@ -40,21 +39,7 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Popconfirm
-                content={translate('buttons.confirm')}
-                destroyOnClose
-                placement='top'
-                showArrow
-                theme='default'
-                onConfirm={() => {
-                  mutate({
-                    resource: 'tools.area',
-                    id: row.id,
-                  })
-                }}
-              >
-                <Link theme='danger'>{translate('buttons.delete')}</Link>
-              </Popconfirm>
+              <DeleteLink rowId={row.id} />
             </div>
           )
         },
@@ -72,15 +57,12 @@ const List = () => {
       }}
       title={translate('tools.area.name')}
       actionRender={() => (
-        <Modal
+        <ButtonModal
           title={translate('buttons.import')}
-          trigger={
-            <Button icon={<div className='i-tabler:plus t-icon'></div>}>
-              {translate('buttons.import')}
-            </Button>
-          }
           component={() => import('./import')}
-        ></Modal>
+          action='import'
+          icon={<div className='t-icon i-tabler:plus'></div>}
+        />
       )}
     />
   )

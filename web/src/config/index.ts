@@ -13,6 +13,7 @@ const config: Config = {
     menu: 'menu',
   },
   defaultApp: 'admin',
+  indexName: 'cms',
   resourcesPrefix: true,
   moduleApp: {
     admin: {
@@ -22,5 +23,6 @@ const config: Config = {
   },
   sideType: window?.sideType || 'level',
   lang: window?.lang,
+  baiduMap: window?.baiduMap || '',
 }
 export default config

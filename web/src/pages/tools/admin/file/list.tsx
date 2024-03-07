@@ -1,7 +1,14 @@
 import React, { useRef } from 'react'
-import { useTranslate, useDelete } from '@refinedev/core'
-import { PrimaryTableCol, Button, Link, Popconfirm, Select, Form } from 'tdesign-react/esm'
-import { PageTable, Modal, useSelect, TableRef } from '@duxweb/dux-refine'
+import { useTranslate } from '@refinedev/core'
+import { PrimaryTableCol, Link, Select, Form } from 'tdesign-react/esm'
+import {
+  PageTable,
+  useSelect,
+  TableRef,
+  ButtonModal,
+  DeleteButton,
+  DeleteLink,
+} from '@duxweb/dux-refine'
 
 interface FileIconProps {
   mime: string
@@ -65,7 +72,6 @@ const FileIcon = ({ mime }: FileIconProps) => {
 
 const List = () => {
   const translate = useTranslate()
-  const { mutate } = useDelete()
   const table = useRef<TableRef>(null)
   const { options, onSearch, queryResult } = useSelect({
     resource: 'tools.fileDir',
@@ -125,21 +131,7 @@ const List = () => {
               <Link theme='primary' href={row.url} target='_block'>
                 {translate('buttons.show')}
               </Link>
-              <Popconfirm
-                content={translate('buttons.confirm')}
-                destroyOnClose
-                placement='top'
-                showArrow
-                theme='default'
-                onConfirm={() => {
-                  mutate({
-                    resource: 'tools.file',
-                    id: row.id,
-                  })
-                }}
-              >
-                <Link theme='danger'>{translate('buttons.delete')}</Link>
-              </Popconfirm>
+              <DeleteLink rowId={row.id} />
             </div>
           )
         },
@@ -162,13 +154,17 @@ const List = () => {
         filterRender={() => (
           <>
             <div>
-              <Modal
+              <ButtonModal
+                resource='tools.fileDir'
+                action='create'
+                variant='outline'
+                theme='default'
                 title={translate('tools.file.fields.addDir')}
-                trigger={
-                  <Button icon={<div className='i-tabler:plus' />} variant='outline'></Button>
-                }
+                icon={<div className='i-tabler:plus' />}
                 component={() => import('./group')}
-              ></Modal>
+              >
+                <></>
+              </ButtonModal>
             </div>
             <Form.FormItem name='dir_id' initialData={options?.[0]?.value}>
               <Select
@@ -183,50 +179,39 @@ const List = () => {
 
             {table.current?.filters?.dir_id && (
               <div className='flex gap-2'>
-                <Modal
-                  title={translate('tools.file.fields.editDir')}
-                  trigger={
-                    <Button icon={<div className='i-tabler:edit' />} variant='outline'></Button>
-                  }
-                  component={() => import('./group')}
-                  componentProps={{
-                    id: table.current?.filters.dir_id,
-                  }}
-                ></Modal>
-                <Popconfirm
-                  content={translate('buttons.confirm')}
-                  destroyOnClose
-                  placement='top'
-                  showArrow
+                <ButtonModal
+                  resource='tools.fileDir'
+                  action='edit'
+                  variant='outline'
                   theme='default'
-                  onConfirm={() => {
-                    mutate({
-                      resource: 'tools.file',
-                      id: table.current?.filters.dir_id,
-                    })
-                  }}
+                  title={translate('tools.file.fields.editDir')}
+                  icon={<div className='i-tabler:edit' />}
+                  component={() => import('./group')}
+                  rowId={table.current?.filters.dir_id}
                 >
-                  <Button icon={<div className='i-tabler:trash' />} variant='outline'></Button>
-                </Popconfirm>
+                  <></>
+                </ButtonModal>
+                <DeleteButton
+                  resource='tools.fileDir'
+                  variant='outline'
+                  theme='default'
+                  icon={<div className='i-tabler:trash' />}
+                  rowId={table.current?.filters.dir_id}
+                >
+                  <></>
+                </DeleteButton>
               </div>
             )}
           </>
         )}
         actionRender={() => (
-          <>
-            <Modal
-              title={translate('tools.file.fields.upload')}
-              trigger={
-                <Button icon={<div className='i-tabler:plus t-icon'></div>}>
-                  {translate('tools.file.fields.upload')}
-                </Button>
-              }
-              component={() => import('./upload')}
-              componentProps={{
-                id: dirId,
-              }}
-            ></Modal>
-          </>
+          <ButtonModal
+            component={() => import('./upload')}
+            action='upload'
+            title={translate('tools.file.fields.upload')}
+            icon={<div className='t-icon i-tabler:plus'></div>}
+            rowId={dirId}
+          />
         )}
       />
     </>

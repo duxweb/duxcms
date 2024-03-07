@@ -6,9 +6,8 @@ namespace App\Content\Models;
 
 use Dux\Database\Attribute\AutoMigrate;
 use Illuminate\Database\Connection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Schema\Blueprint;
-use Kalnoy\Nestedset\NestedSet;
-use Kalnoy\Nestedset\NodeTrait;
 
 #[AutoMigrate]
 class ArticleRecommend extends \Dux\Database\Model
@@ -25,6 +24,10 @@ class ArticleRecommend extends \Dux\Database\Model
 
     public function seed(Connection $db)
     {
+    }
+
+    public function articles(): BelongsToMany {
+        return $this->belongsToMany(Article::class, 'article_recommend_has', 'recommend_id', 'article_id')->withPivot('sort')->orderBy('pivot_sort');
     }
 
 }

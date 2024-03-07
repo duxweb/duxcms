@@ -34,6 +34,25 @@ tools:
     name: 附件目錄
     validator:
       name: 請輸入目錄名
+  backup:
+    name: 備份恢復
+    validator:
+      table: 請選擇匯出錶
+      title: 請填寫描述
+      notFound: 沒有找到數據
+    message:
+      export: 匯出數據成功
+      import: 導入數據成功
+    import:
+      name: 導入
+    export:
+      name: 匯出
+    download:
+      name: 下載
+  poster:
+    name: 海報
+    validator:
+      title: 請填寫標題
 extend:
   name: 擴展
   magic:

@@ -34,6 +34,25 @@ tools:
     name: 附件目录
     validator:
       name: 请输入目录名
+  backup:
+    name: 备份恢复
+    validator:
+      table: 请选择导出表
+      title: 请填写描述
+      notFound: 没有找到数据
+    message:
+      export: 导出数据成功
+      import: 导入数据成功
+    import:
+      name: 导入
+    export:
+      name: 导出
+    download:
+      name: 下载
+  poster:
+    name: 海报
+    validator:
+      title: 请填写标题
 extend:
   name: 扩展
   magic:

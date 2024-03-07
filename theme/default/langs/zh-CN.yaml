@@ -1,7 +1,22 @@
-info: 你可以按照以下步骤定制自己的主题
-step1: 目录中创建自己的主题
-step2: 使用 _code_ 模板引擎进行数据调用
-step3: 加入 _code_ 定制模板参数
-description: DuxCMS 是一个 Headless CMS 理念的管理系统，通过不同的数据调用可以实现您的使用需求。
-tips: 深入了解模板开发？
-doc: 阅读文档
+home: 首页
+recommend: 推荐
+more: 更多
+welcome: 欢迎使用
+info: Dux是一款强大、灵活且自由的内容管理框架
+site: 官方网站
+docs: 开发手册
+article: 文章
+publish: 发布
+source: 来源
+tags: 标签
+prev: 上一篇
+next: 下一篇
+top: 置顶
+class: 分类
+images: 图集
+link: 友情链接
+dux_site: Dux官方
+dux_store: Dux商店
+facebook: 建议和反馈
+facebook_help: 如果您对该产品有什么建议或者想法您可以采用以下方式跟我们进行沟通
+search: 搜索

@@ -1,0 +1,13 @@
+diff --git a/node_modules/tdesign-react/esm/form/FormList.js b/node_modules/tdesign-react/esm/form/FormList.js
+index c914cbd..4b56fa7 100644
+--- a/node_modules/tdesign-react/esm/form/FormList.js
++++ b/node_modules/tdesign-react/esm/form/FormList.js
+@@ -206,7 +206,7 @@ var FormList = function FormList(props) {
+         if (data) callback(formItemRef, data);
+       });
+     });
+-  }, [form, name, fields, formMapRef]);
++  }, [form, name, formMapRef]);
+   useImperativeHandle(formListRef, function () {
+     return {
+       name: name,

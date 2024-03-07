@@ -1,0 +1,12 @@
+{layout 'layout.latte'}
+
+
+{block content}
+
+{if $id}
+{include 'article-list.latte', id: $id}
+{else}
+{include 'article-index.latte'}
+{/if}
+
+{/block}

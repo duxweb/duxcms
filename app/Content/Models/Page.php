@@ -24,6 +24,8 @@ class Page extends \Dux\Database\Model
         $table->bigInteger('virtual_view')->default(0)->comment('虚拟访问量');
         $table->bigInteger('view')->default(0)->comment('访问量');
         $table->boolean('status')->default(true)->comment('状态');
+        $table->string('keywords')->comment('关键词')->nullable();
+        $table->string('descriptions')->comment('描述')->nullable();
         $table->timestamps();
     }
 

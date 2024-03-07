@@ -30,6 +30,14 @@ content:
     name: メニューグループ管理
     validator:
       title: グループ化タイトルを入力してください
+  attr:
+    name: 記事のプロパティ
+    validator:
+      name: 名前を入力してください
+  replace:
+    name: コンテンツ置換
+  tags:
+    name: 記事のラベル
   comment:
     name: 記事のコメント
   recommend:

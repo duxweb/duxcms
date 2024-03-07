@@ -49,7 +49,7 @@ class Article extends Resources
         return [
             "id" => $item->id,
             'class_id' => $item->class_id,
-            'class_name' => array_filter([$item->class->name, ...($item?->class?->ancestors?->pluck('id')->toArray() ?: [])]),
+            'class_name' => array_filter([...($item->class?->ancestors?->pluck('name')->toArray() ?: []), $item->class->name]),
             "title" => mb_substr($item->title, 0, 500),
             "images" => $item->images,
             "content" => $item->content,
@@ -59,9 +59,9 @@ class Article extends Resources
             'virtual_view' => $item->virtual_view,
             'status' => (bool)$item->status,
             'created_at' => $item->created_at->format('Y-m-d H:i'),
-            'keywords' => $item->keywords,
+            'keywords' => $item->keywords ? explode(',', $item->keywords) : [],
             'descriptions' => $item->descriptions,
-            'recommend' => $item->recommend?->pluck('id')->toArray(),
+            'attrs' => $item->attrs?->pluck('id')->toArray(),
             'extend' => $item->extend
         ];
     }
@@ -100,23 +100,27 @@ class Article extends Resources
             'source' => $data->source,
             'status' => $data->status,
             'virtual_view' => $data->virtual_view ?: 0,
-            'keywords' => $data->keywords,
+            'keywords' => $data->keywords ? implode(',', $data->keywords) : '',
             'descriptions' => $data->descriptions,
             'extend' => $data->extend,
         ];
     }
 
+
+
     public function createAfter(Data $data, mixed $info): void
     {
 
         \App\Content\Service\Source::autoSave($data->source);
-        $info->recommend()->sync($data->recommend ?: []);
+        $info->retag($data->keywords);
+        $info->attrs()->sync($data->attrs ?: []);
     }
 
     public function editAfter(Data $data, mixed $info): void
     {
         \App\Content\Service\Source::autoSave($data->source);
-        $info->recommend()->sync($data->recommend ?: []);
+        $info->retag($data->keywords);
+        $info->attrs()->sync($data->attrs ?: []);
     }
 
 }

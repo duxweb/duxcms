@@ -18,7 +18,6 @@ class LogVisitData extends Model {
         $table->string('has_type')->comment("关联类型");
         $table->string('has_id')->comment("关联id")->nullable();
         $table->string('driver')->comment("设备")->nullable();
-        $table->string('path')->comment("页面路径")->nullable();
         $table->integer('pv')->comment("访问量")->default(1);
         $table->integer('uv')->comment("访客量")->default(1);
         $table->timestamps();

@@ -1,0 +1,48 @@
+{layout 'layout.latte'}
+
+
+{block content}
+
+{* 查询页面信息 *}
+{var $info = \App\Content\Service\Page::info('about')}
+
+
+<div class="bg-gray-100 ">
+    <div class="mx-auto max-w-7xl  bg-no-repeat bg-opacity-70 bg-auto"
+         style="background-image: url('/theme/images/banner.jpg')">
+        <div class="bg-gray-100 bg-opacity-80">
+            <div
+                    class="flex flex-col justify-center items-center text-center bg-gradient-to-r from-gray-100 via-transparent to-gray-100"
+                    style="height: 200px; ">
+                <div class=" text-gray-900 text-2xl mb-4 font-bold">
+                    {$info->title}
+                </div>
+
+                {* 位置导航 *}
+                <div class="text-gray-500">
+                    <div class=" flex flex-row gap-2">
+                        <div>
+                            <a href="/" class="hover:underline">{_'home'}</a>
+                        </div>
+
+                        <div>&rsaquo;&rsaquo;</div>
+                        <div><a class="hover:underline" href="/page/about"> {$info->title}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mx-auto max-w-7xl  mt-6 gap-6">
+        <div class="bg-white p-4 mt-5 overflow-x-hidden">
+
+            <div class="pb-6 mt-8 text-base mt-2 content prose prose-truegray prose-blue max-w-full">
+                {$info->content|tags:'/page/tags',$info->tags|replace|noescape}
+            </div>
+        </div>
+
+
+</div>
+
+{/block}

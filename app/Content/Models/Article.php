@@ -13,6 +13,9 @@ use Illuminate\Database\Schema\Blueprint;
 class Article extends \Dux\Database\Model
 {
     public $table = 'article';
+
+    use ArticleTagsTrait;
+
     public function migration(Blueprint $table)
     {
         $table->id();
@@ -34,6 +37,12 @@ class Article extends \Dux\Database\Model
         $table->timestamps();
     }
 
+    public function migrationAfter(Connection $db)
+    {
+        $pre = $db->getTablePrefix();
+        $db->statement("ALTER TABLE {$pre}{$this->table} ADD FULLTEXT content_fulltext(title, content) WITH PARSER ngram");
+    }
+
     protected $casts = [
         'extend' => 'array',
         'images' => 'array'
@@ -47,9 +56,20 @@ class Article extends \Dux\Database\Model
     {
         return $this->hasOne(ArticleSource::class, 'name', 'source');
     }
+
     public function recommend(): BelongsToMany
     {
         return $this->belongsToMany(ArticleRecommend::class, 'article_recommend_has', 'article_id', 'recommend_id');
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(ArticleTags::class, 'article_tags_has', 'article_id', 'tag_id');
+    }
+
+    public function attrs(): BelongsToMany
+    {
+        return $this->belongsToMany(ArticleAttr::class, 'article_attr_has', 'article_id', 'attr_id');
     }
 
     public function class(): \Illuminate\Database\Eloquent\Relations\HasOne

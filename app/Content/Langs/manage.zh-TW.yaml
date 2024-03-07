@@ -30,6 +30,14 @@ content:
     name: 選單組管理
     validator:
       title: 請輸入分組標題
+  attr:
+    name: 文章内容
+    validator:
+      name: 請輸入名稱
+  replace:
+    name: 內容替換
+  tags:
+    name: 文章標籤
   comment:
     name: 文章評論
   recommend:

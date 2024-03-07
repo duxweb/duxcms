@@ -24,76 +24,43 @@ class Index
         $theme = Config::getValue('theme', 'default');
         $config = Config::getJsonValue('theme_' . $theme, []);
         self::langs($theme);
+        $path = $request->getUri()->getPath();
+        $this->theme();
 
-        $html = $view->renderToString(base_path('theme/default/index.latte'), [
+        $html = $view->renderToString(base_path('theme/'.$theme.'/index.latte'), [
             'theme' => $config,
+            'path' => $path
         ]);
+
+
         return sendText($response, $html);
     }
 
-    #[Route(methods: 'GET', pattern: 'theme/{path:.*}')]
-    public function template(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        if (str_contains($args['path'], '..')) {
-            throw new ExceptionNotFound();
-        }
-        $theme = Config::getValue('theme', 'default');
-        $filePath = base_path('theme/' . $theme . '/' . $args['path']);
-        if (!file_exists($filePath)) {
-            throw new ExceptionNotFound();
-        }
-        $fileContent = file_get_contents($filePath);
-        $response->getBody()->write($fileContent);
-        $extension = pathinfo($filePath, PATHINFO_EXTENSION);
-        return match ($extension) {
-            'css' => $response->withHeader('Content-Type', 'text/css'),
-            'js' => $response->withHeader('Content-Type', 'application/javascript'),
-            default => $response->withHeader('Content-Type', mime_content_type($filePath)),
-        };
-    }
-
-    #[Route(methods: 'GET', pattern: 'page/{name}')]
-    public function page(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $params = $request->getQueryParams();
-        $name = $args['name'];
-        $theme = Config::getValue('theme', 'default');
-        $filePath = base_path('theme/' . $theme . '/' . $name . '.latte');
-        if (!file_exists($filePath)) {
-            throw new ExceptionNotFound();
-        }
-
-        $view = \Dux\App::view('web');
-        $config = Config::getJsonValue('theme_' . $theme, []);
-        self::langs($theme);
-        $html = $view->renderToString($filePath, [
-            'theme' => $config,
-            'query' => $params,
-        ]);
-        return sendText($response, $html);
-    }
-
-    #[Route(methods: 'GET', pattern: 'page/{name}/{id}')]
+    #[Route(methods: 'GET', pattern: 'page/{name}[/{id}]')]
     public function info(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $params = $request->getQueryParams();
         $id = $args['id'];
         $name = $args['name'];
         $theme = Config::getValue('theme', 'default');
-        $filePath = base_path('theme/' . $theme . '/' . $name . '-info.latte');
+        $filePath = base_path('theme/' . $theme . '/' . $name . '.latte');
         if (!file_exists($filePath)) {
             throw new ExceptionNotFound();
         }
+        self::langs($theme);
         $view = \Dux\App::view('web');
         $config = Config::getJsonValue('theme_' . $theme, []);
+        $path = $request->getUri()->getPath();
+        $this->theme();
 
-        self::langs($theme);
         $html = $view->renderToString($filePath, [
             'theme' => $config,
             'query' => $params,
             'name' => $name,
-            'id' => $id
+            'id' => $id,
+            'path' => $path
         ]);
+
         return sendText($response, $html);
     }
 
@@ -114,6 +81,28 @@ class Index
             $translator->translate(...),
         );
         App::view('web')->addExtension($extension);
+    }
+
+    private function theme(): void
+    {
+        $theme = Config::getValue('theme', 'default');
+        $themePath = base_path("theme/$theme");
+        $linkPath = base_path("public/theme");
+
+        if (is_link($linkPath)) {
+            $link = readlink($linkPath);
+            if ($link) {
+                $baseName = pathinfo($link);
+                if ($baseName != $theme) {
+                    unlink($linkPath);
+                }
+            }
+        }
+
+        if (!is_link($linkPath)) {
+            symlink($themePath, $linkPath);
+        }
+
     }
 
 }
