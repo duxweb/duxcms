@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{$theme['page']['title'] ?: 'DuxCMS Default'}</title>
+    <title>{$theme['page']['title'] ?: 'DuxCMS Default'}</title>
     <meta name="keywords" content="{{$meta->keywords}}">
     <meta name="description" content="{{$meta->description}}">
     <link rel="stylesheet" href="/theme/css/style.css">
@@ -23,6 +23,9 @@
         </svg>
         <div class="text-2xl text-gray-900 uppercase">{Dux\App::config('use')->get('app.name')}</div>
     </a>
+
+    {var $list = \App\Content\Service\Menu::lists(name: 'web-top', path: $path)}
+
     {* 移动端菜单开关 *}
     <div class="flex-grow justify-end flex lg:hidden">
         <div @click="menu = true" class="cursor-pointer text-gray-500">
@@ -64,41 +67,12 @@
             {* 菜单列表 *}
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <ul x-data="{ open: 0 }">
-                    <li>
-                        <a href="/"
-                           class="block px-3 py-2 hover:bg-blue-600 hover:text-white text-base">{_'home'}</a>
+                    {foreach $list as $vo}
+                    <li class="whitespace-nowrap">
+                        <a class="block px-3 py-2 flex items-center text-base {$vo->active ? 'text-blue-600' : ''}" href="{$vo->url ?: ''}">{$vo->title}</a>
                     </li>
-                    @articleclass()
-                    <li @click="open = {{$item->class_id}}">
-                        <a href=""
-                           class="block px-3 py-2 flex items-center hover:bg-blue-600 hover:text-white text-base">
-                            <div class="flex-grow">
-                                {{$item->name}}
-                            </div>
-                            <div class="flex-none">
-                                @if($item->children->count())
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                                     viewBox="0 0 24 24"
-                                     stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 9l-7 7-7-7"/>
-                                </svg>
-                                @endif
-                            </div>
-                        </a>
-                        @if($item->children->count())
-                        <div x-cloak class="p-2" x-show="open === {{$item->class_id}}">
-                            <ul>
-                                @foreach($item->children as $vo)
-                                <li><a href=""
-                                       class="block px-4 py-2 hover:bg-blue-600 hover:text-white text-base">{{$vo->name}}</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                    </li>
-                    @endarticleclass
+                    {/foreach}
+
                 </ul>
             </div>
         </div>
@@ -107,7 +81,6 @@
     {* pc端菜单 *}
     <div class="flex-grow ml-10 w-1 hidden lg:block">
         <ul class="flex flex-nowrap gap-10 items-center">
-            {var $list = \App\Content\Service\Menu::lists(name: 'web-top', path: $path)}
             {foreach $list as $vo}
             <li class="whitespace-nowrap">
                 <a class="block flex gap-3 items-center {$vo->active ? 'text-blue-600' : ''}" href="{$vo->url ?: ''}">{$vo->title}</a>
@@ -142,8 +115,8 @@
             <div class="flex-none">
                 <div class="text-base font-bold">{_'link'}</div>
                 <div class="flex flex-wrap gap-6 mt-4">
-                        <a href="https://www.dux.cn" class="hover:underline" target="_blank">{_'dux_site'}</a>
-                        <a href="https://www.dux.cn/apps" class="hover:underline" target="_blank">{_'dux_store'}</a>
+                    <a href="https://www.dux.cn" class="hover:underline" target="_blank">{_'dux_site'}</a>
+                    <a href="https://www.dux.cn/apps" class="hover:underline" target="_blank">{_'dux_store'}</a>
                 </div>
             </div>
             <div class="flex-grow lg:justify-end flex items-center gap-4">
