@@ -153,10 +153,7 @@ class Install
         $storage->toFile(config_path('/storage.yaml'));
         $output->writeln('storage use success');
 
-
-
-        App::db()->getDatabaseManager()->purge('default');
-        App::db()->getDatabaseManager()->connection('default');
+        App::db()->getDatabaseManager()->connectUsing('default', App::config("database")->get("db.drivers.default"), true);
 
         App::dbMigrate()->registerAttribute();
         try {
