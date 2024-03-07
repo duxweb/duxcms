@@ -4,12 +4,12 @@
     "dependencies": {
         "duxweb/cms": "0.1.1",
         "duxweb/content": "0.2.0",
-        "duxweb/install": "0.0.3",
+        "duxweb/install": "0.0.4",
         "duxweb/base": "0.0.12",
         "duxweb/tools": "0.2.0"
     },
     "apps": {
         "dux/cms": 1709799173,
-        "dux/base": 1709799036
+        "dux/base": 1709815830
     }
 }

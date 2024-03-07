@@ -51,7 +51,7 @@
         {
             "name": "duxweb/install",
             "description": "Installation Wizard Applications",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "app": "install"
         }
     ]
