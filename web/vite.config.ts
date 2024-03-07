@@ -20,7 +20,10 @@ export default defineConfig({
   },
   base: '/web/',
   server: {
-    origin: 'http://127.0.0.1:5173',
+    origin: 'http://localhost:5173',
+    // proxy: {
+    //   '/admin': 'https://localhost',
+    // },
   },
   build: {
     cssCodeSplit: false,
@@ -30,6 +33,22 @@ export default defineConfig({
       input: {
         index: '/src/index.tsx',
         install: '/src/install.tsx',
+      },
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-tdesign': ['tdesign-react/esm'],
+          'vendor-refine': ['@refinedev/core'],
+          'vendor-echarts': ['echarts', 'echarts-for-react'],
+          'vendor-lib': ['prismjs', 'ace-builds', 'react-ace', 'dayjs'],
+          'vendor-map': ['@uiw/react-baidu-map'],
+          'vendor-tinymce': [
+            'tinymce',
+            'tinymce/themes/silver',
+            'tinymce/icons/default',
+            'tinymce/models/dom/model',
+          ],
+        },
       },
     },
   },

@@ -1,1 +1,0 @@
-import{X as l,j as e,c1 as r,P as n,Q as s}from"./modulepreload-polyfill-DkiKXnSB.js";const o=t=>{const a=l();return e.jsxs(r,{id:t==null?void 0:t.id,children:[e.jsx(n.FormItem,{label:a("content.replace.fields.from"),name:"from",children:e.jsx(s,{})}),e.jsx(n.FormItem,{label:a("content.replace.fields.to"),name:"to",children:e.jsx(s,{})})]})};export{o as default};
