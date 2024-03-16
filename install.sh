@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export COMPOSER_HOME=/root/.config/composer
+
 if command -v composer &> /dev/null; then
     composer_path=$(which composer)
 else
@@ -7,6 +9,8 @@ else
 fi
 
 export COMPOSER_ALLOW_SUPERUSER=1
+
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
 root_path=$(pwd)
 
