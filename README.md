@@ -44,7 +44,7 @@ composer create-project duxweb/duxcms
 
 ## 🤝 反馈
 
-如果有开发疑问，请提交 issues <br />请查看 [issues page](https://github.com/duxweb/dux-lite/issues).
+如果有开发疑问，请提交 issues <br />请查看 [github](https://github.com/duxweb/duxcms/issues) 或 [gitee](https://gitee.com/duxphp/duxcms-next/issues).
 
 ## 支持
 
