@@ -19,6 +19,10 @@
 
 >️ DuxCMS Next 内容管理系统是一款基于 PHP & React 的简单、易用的基础系统。
 
+<center>
+    <img src="https://www.dux.cn/theme/images/hero-photo-light.png" width="500">
+</center>
+
 - 基于 SlimPHP 做开发集成封装各类 PSR 库的 DuxLite 框架为基础。 
 - 前后端分离，后台系统采用前端 React TS + 后端 PHP 的组合方式开发，拥有良好体验的同时易于二次开发。
 - 数据魔方，自定义多种数据格式与输入组件，并且数据可互相调用，满足大部分低代码的需求。
