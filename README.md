@@ -1,2 +1,3 @@
-# duxcms
-💥  php content management system based on dux-refine and dux-lite
+# DuxCMS Next
+
+Dux Next 是一款简单、易用、易开发、独立部署的的应用式管理系统，该系统采用各类成熟开源的三方库进行集成封装，免去后续维护的大量工作，自带开箱即用的 CMS 模块，适合长期开发和维护。
