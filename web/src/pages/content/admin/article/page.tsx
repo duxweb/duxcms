@@ -2,7 +2,6 @@ import { useTranslate, useList, useResource } from '@refinedev/core'
 import {
   FormPage,
   Editor,
-  MarkdownEditor,
   useClient,
   useSelect,
   FormPageItem,
@@ -128,10 +127,6 @@ const Page = () => {
       </FormPageItem>
 
       <FormPageItem name='content'>
-        <MarkdownEditor />
-      </FormPageItem>
-
-      <FormPageItem name='content2'>
         <Editor />
       </FormPageItem>
 
