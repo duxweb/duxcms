@@ -4,6 +4,7 @@ content:
     name: 文章内容
     validator:
       title: 请输入标题
+      class_id: 请选择分类
       source: 请输入作者
   category:
     name: 文章分类

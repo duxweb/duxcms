@@ -5,11 +5,11 @@
     "dependencies": {
         "@duxweb/dux-extend": "^0.0.21",
         "@duxweb/dux-plugin": "^0.0.8",
-        "@duxweb/dux-refine": "^0.8.16",
-        "patch-package": "^8.0.0",
+        "@duxweb/dux-refine": "^0.9.0",
         "@types/fabric": "^5.3.7",
         "fabric": "^5.3.0",
         "fabricjs-react": "^1.2.2",
+        "patch-package": "^8.0.0",
         "react-contenteditable": "^3.3.7",
         "react-dnd": "^16.0.1",
         "react-dnd-html5-backend": "^16.0.1"
@@ -42,7 +42,6 @@
         "dev": "refine dev --host",
         "build": "rm -rf ../public/web/ && tsc && refine build",
         "preview": "refine start",
-        "refine": "refine",
-        "postinstall": "patch-package"
+        "refine": "refine"
     }
 }

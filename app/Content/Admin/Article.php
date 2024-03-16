@@ -74,6 +74,7 @@ class Article extends Resources
         Validator::parser($data->extend ?: [], Validator::rule($magicInfo?->fields ?: []));
 
         return [
+            "class_id" => ["required", __('content.article.validator.class_id', 'manage')],
             "title" => ["required", __('content.article.validator.title', 'manage')],
         ];
     }

@@ -40,8 +40,9 @@ export default defineConfig({
           'vendor-tdesign': ['tdesign-react/esm'],
           'vendor-refine': ['@refinedev/core'],
           'vendor-echarts': ['echarts', 'echarts-for-react'],
-          'vendor-lib': ['prismjs', 'ace-builds', 'react-ace', 'dayjs'],
+          'vendor-lib': ['prismjs', 'ace-builds', 'react-ace', 'dayjs', 'mammoth'],
           'vendor-map': ['@uiw/react-baidu-map'],
+          'vendor-markdown': ['md-editor-rt', 'mermaid', 'highlight.js', 'prettier'],
           'vendor-tinymce': [
             'tinymce',
             'tinymce/themes/silver',
