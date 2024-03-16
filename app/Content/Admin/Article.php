@@ -123,4 +123,9 @@ class Article extends Resources
         $info->attrs()->sync($data->attrs ?: []);
     }
 
+    public function delBefore(mixed $info): void
+    {
+        $info->untag($info->tags);
+    }
+
 }
