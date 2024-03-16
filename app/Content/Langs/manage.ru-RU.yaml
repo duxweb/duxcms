@@ -4,6 +4,7 @@ content:
     name: Статьи
     validator:
       title: Введите заголовок
+      class_id: Выберите классификацию
       source: Введите автора
   category:
     name: Классификация статей

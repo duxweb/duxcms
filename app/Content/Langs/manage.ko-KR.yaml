@@ -4,6 +4,7 @@ content:
     name: 기사 내용
     validator:
       title: 제목을 입력하십시오.
+      class_id: 분류를 선택하십시오.
       source: 작성자를 입력하십시오.
   category:
     name: 문장 분류

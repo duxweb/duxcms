@@ -4,6 +4,7 @@ content:
     name: 記事の内容
     validator:
       title: タイトルを入力してください
+      class_id: 分類を選択してください
       source: 作者を入力してください
   category:
     name: 記事の分類

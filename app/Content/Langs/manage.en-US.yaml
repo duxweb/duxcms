@@ -4,6 +4,7 @@ content:
     name: Article content
     validator:
       title: Please enter a title
+      class_id: Please select a category
       source: Please enter the author
   category:
     name: Article classification
