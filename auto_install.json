@@ -1,0 +1,14 @@
+{
+  "php_ext":"redis,fileinfo,imagemagick,exif,bz2,event",
+  "chmod":[
+    {"mode":755,"path":"/data"}
+  ],
+  "success_url":"/",
+  "php_versions":"82,83",
+  "db_config":"",
+  "admin_username":"",
+  "admin_password":"",
+  "run_path":"/public",
+  "remove_file":["/install","/temp","/.user.ini"],
+  "enable_functions":["symlink","readlink", "exec", "system", "putenv", "pcntl_signal", "proc_open"]
+}
