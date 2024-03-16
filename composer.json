@@ -18,6 +18,11 @@
             "Console\\": "console/"
         }
     },
-    "repositories": [],
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    },
     "license": "MIT"
 }
