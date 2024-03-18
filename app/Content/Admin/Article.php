@@ -126,7 +126,7 @@ class Article extends Resources
 
     public function delBefore(mixed $info): void
     {
-        $info->untag($info->tags);
+        $info->untag();
     }
 
 }

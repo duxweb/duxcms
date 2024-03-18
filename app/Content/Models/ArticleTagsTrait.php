@@ -28,9 +28,9 @@ trait ArticleTagsTrait
 
     /**
      * 删除标签
-     * @param array $tags
+     * @param array|string|null $tags
      */
-    public function untag(array $tags = []): void
+    public function untag(array|string $tags = null): void
     {
         if ($tags) {
             $tags = $this->formatTags($tags);
