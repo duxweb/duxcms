@@ -7,5 +7,5 @@ app:
 clock: false
 lang: zh-CN
 vite:
-    dev: true
+    dev: false
     port: 5173
