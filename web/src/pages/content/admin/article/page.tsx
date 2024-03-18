@@ -1,12 +1,5 @@
 import { useTranslate, useList, useResource } from '@refinedev/core'
-import {
-  FormPage,
-  Editor,
-  useClient,
-  useSelect,
-  FormPageItem,
-  UploadImageManage,
-} from '@duxweb/dux-refine'
+import { FormPage, useClient, useSelect, FormPageItem, UploadImageManage } from '@duxweb/dux-refine'
 import {
   Form,
   Input,
@@ -19,6 +12,7 @@ import {
 } from 'tdesign-react/esm'
 import { useEffect, useState } from 'react'
 import { MagicFormRender } from '@duxweb/dux-extend'
+import { Editor } from '@/pages/cms/components/editor'
 
 const Page = () => {
   const translate = useTranslate()

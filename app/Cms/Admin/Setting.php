@@ -25,10 +25,8 @@ class Setting
     public function show(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $data = [
-            'title' => Config::getValue('site_title'),
-            'keyword' => Config::getValue('site_keyword'),
-            'description' => Config::getValue('site_description'),
-            'copyright' => Config::getValue('site_copyright'),
+            'site' => Config::getJsonValue('site'),
+            'cms' => Config::getJsonValue('cms')
         ];
         return send($response, 'ok', $data);
     }
@@ -39,7 +37,7 @@ class Setting
         $data = $request->getParsedBody();
 
         foreach ($data as $key => $vo) {
-            Config::setValue('site_' . $key, $vo);
+            Config::setValue($key, $vo);
         }
 
         return send($response, __('message.edit', 'common'));

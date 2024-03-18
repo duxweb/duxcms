@@ -1,7 +1,7 @@
 cms:
   name: Site Management
   index:
-    name: Site Statistics
+    name: Site statistics
   theme:
     name: Site template
   setting:

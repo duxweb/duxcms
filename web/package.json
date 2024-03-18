@@ -5,7 +5,7 @@
     "dependencies": {
         "@duxweb/dux-extend": "^0.0.21",
         "@duxweb/dux-plugin": "^0.0.8",
-        "@duxweb/dux-refine": "^0.9.0",
+        "@duxweb/dux-refine": "^0.9.1",
         "@types/fabric": "^5.3.7",
         "fabric": "^5.3.0",
         "fabricjs-react": "^1.2.2",

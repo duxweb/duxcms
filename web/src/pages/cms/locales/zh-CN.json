@@ -32,9 +32,13 @@
       },
       "noData": "暂无数据"
     },
-    "name": "站点管理",
+    "name": "CMS 管理",
     "setting": {
-      "name": "站点设置",
+      "name": "系统设置",
+      "tabs": {
+        "base" : "站点设置",
+        "fun": "功能设置"
+      },
       "fields": {
         "title": "站点标题",
         "titleHelp": "站点头部标题",
@@ -43,7 +47,9 @@
         "keyword": "关键词",
         "keywordHelp": "站点关键词信息",
         "copyright": "版权信息",
-        "copyrightHelp": "站点版权信息"
+        "copyrightHelp": "站点版权信息",
+        "editor": "编辑器",
+        "editorHelp": "请选择文章使用编辑器"
       }
     },
     "theme": {

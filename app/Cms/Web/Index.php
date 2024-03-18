@@ -27,7 +27,7 @@ class Index
         $path = $request->getUri()->getPath();
         $this->theme();
 
-        $site = Config::getValue('site_*', []);
+        $site = Config::getJsonValue('site', []);
         $html = $view->renderToString(base_path('theme/'.$theme.'/index.latte'), [
             'theme' => $config,
             'site' => $site,
@@ -55,7 +55,7 @@ class Index
         $path = $request->getUri()->getPath();
         $this->theme();
 
-        $site = Config::getValue('site_*', []);
+        $site = Config::getJsonValue('site', []);
         $html = $view->renderToString($filePath, [
             'theme' => $config,
             'site' => $site,
