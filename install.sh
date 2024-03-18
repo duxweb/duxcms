@@ -10,7 +10,7 @@ fi
 
 export COMPOSER_ALLOW_SUPERUSER=1
 
-composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+composer config -g repo.packagist composer https://mirrors.tencent.com/composer/
 
 root_path=$(pwd)
 
