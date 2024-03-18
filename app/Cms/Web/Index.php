@@ -27,8 +27,10 @@ class Index
         $path = $request->getUri()->getPath();
         $this->theme();
 
+        $site = Config::getValue('site_*', []);
         $html = $view->renderToString(base_path('theme/'.$theme.'/index.latte'), [
             'theme' => $config,
+            'site' => $site,
             'path' => $path
         ]);
 
@@ -53,8 +55,10 @@ class Index
         $path = $request->getUri()->getPath();
         $this->theme();
 
+        $site = Config::getValue('site_*', []);
         $html = $view->renderToString($filePath, [
             'theme' => $config,
+            'site' => $site,
             'query' => $params,
             'name' => $name,
             'id' => $id,

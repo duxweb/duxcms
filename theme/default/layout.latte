@@ -5,9 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{$theme['page']['title'] ?: 'DuxCMS Default'}</title>
-    <meta name="keywords" content="{$theme['page']['keywords']}">
-    <meta name="description" content="{$theme['page']['description']}">
+    <title>{$theme['page']['title'] ?: $site['site_title']}</title>
+    <meta name="keywords" content="{$theme['page']['keywords'] ?: $site['site_keyword']}">
+    <meta name="description" content="{$theme['page']['description'] ?: $site['site_description']}">
     <link rel="stylesheet" href="/theme/css/style.css">
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
@@ -132,7 +132,7 @@
         </div>
 
         <div class=" border-t border-gray-200 py-4 flex items-center">
-            <div class="flex-grow text-center lg:text-left">© Copyright 2024, All Rights Reserved</div>
+            <div class="flex-grow text-center lg:text-left">© {$site['site_copyright'] ?: 'Copyright 2024 Dux, All Rights Reserved'}</div>
         </div>
     </div>
 </div>
