@@ -4,7 +4,7 @@
     {"mode":755,"path":"/data"}
   ],
   "success_url":"/",
-  "php_versions":"82,83",
+  "php_versions":"82",
   "db_config":"",
   "admin_username":"",
   "admin_password":"",
