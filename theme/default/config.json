@@ -1,13 +1,21 @@
 {
   "theme": {
-    "name": "Dux Guide",
-    "help": "This is a topic guide"
+    "name": "Dux 默认",
+    "help": "这是 duxcms 的默认主题"
   },
   "page": {
-    "name": "Pages",
+    "label": "全局",
     "fields": {
       "title": {
-        "label": "Title",
+        "label": "标题",
+        "type": "text"
+      },
+      "keywords": {
+        "label": "关键词",
+        "type": "text"
+      },
+      "description": {
+        "label": "描述",
         "type": "text"
       }
     }

@@ -7,10 +7,12 @@ namespace App\Cms\Admin;
 use App\System\Service\Config;
 use Dux\Resources\Attribute\Action;
 use Dux\Resources\Attribute\Resource;
+use Mimey\MimeTypes;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Slim\Routing\RouteContext;
 
-#[Resource(app: 'admin',  route: '/cms/theme', name: 'cms.theme', actions: false)]
+#[Resource(app: 'admin', route: '/cms/theme', name: 'cms.theme', actions: false)]
 class Template
 {
 
@@ -21,11 +23,13 @@ class Template
         $list = [];
         foreach ($configList as $config) {
             $data = json_decode(file_get_contents($config), true);
+            $name = basename(dirname($config));
             $list[] = [
-                "id" => basename(dirname($config)),
-                "dir" => basename(dirname($config)),
+                "id" => $name,
+                "dir" => $name,
                 "name" => $data['theme']['name'],
                 "help" => $data['theme']['help'],
+                'image' =>  "/map/theme/{$name}/topic"
             ];
         }
         return send($response, 'ok', $list);
@@ -35,11 +39,22 @@ class Template
     public function show(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $name = $args['id'];
-        $file = base_path('theme/'.$name.'/config.json');
+        $file = base_path('theme/' . $name . '/config.json');
         $data = json_decode(file_get_contents($file), true);
         $config = Config::getJsonValue('theme_' . $name, []);
 
         return send($response, 'ok', $config, $data);
+    }
+
+
+    #[Action(methods: 'GET', route: '/{id}/config')]
+    public function config(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $name = $args['id'];
+        $file = base_path('theme/' . $name . '/config.json');
+        $data = json_decode(file_get_contents($file), true);
+
+        return send($response, 'ok', $data);
     }
 
     #[Action(methods: 'PUT', route: '/{id}')]
@@ -64,5 +79,6 @@ class Template
             "%name%" => __("cms.theme.name", 'manage'),
         ], "common"));
     }
+
 
 }

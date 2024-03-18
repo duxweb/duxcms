@@ -1729,7 +1729,7 @@
     ]
   },
   "src/index.tsx": {
-    "file": "assets/index-BdDS6pfb.js",
+    "file": "assets/index-LL5o2Qpi.js",
     "src": "src/index.tsx",
     "isEntry": true,
     "imports": [
@@ -1934,7 +1934,7 @@
     ]
   },
   "src/pages/cms/admin/theme/list.tsx": {
-    "file": "assets/list-D2_tY6sO.js",
+    "file": "assets/list-FUcTEmO4.js",
     "src": "src/pages/cms/admin/theme/list.tsx",
     "isDynamicEntry": true,
     "imports": [
@@ -1955,7 +1955,7 @@
     ]
   },
   "src/pages/cms/admin/theme/save.tsx": {
-    "file": "assets/save-bksQGLrS.js",
+    "file": "assets/save-DwurVizl.js",
     "src": "src/pages/cms/admin/theme/save.tsx",
     "isDynamicEntry": true,
     "imports": [

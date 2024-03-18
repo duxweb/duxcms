@@ -64,6 +64,23 @@ class Index
         return sendText($response, $html);
     }
 
+    #[Route(methods: 'GET', pattern: 'map/theme/{name}/topic')]
+    public function topic(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $name = $args['name'];
+        $file = base_path('theme/' . $name . '/topic.jpg');
+
+        if (!is_file($file)) {
+            throw new ExceptionNotFound();
+        }
+        $imageContent = file_get_contents(base_path('theme/' . $name . '/topic.jpg'));
+
+        $response = $response->withHeader('Content-Type', 'image/jpeg')
+            ->withBody(new \Slim\Psr7\Stream(fopen('php://temp', 'r+')));
+        $response->getBody()->write($imageContent);
+        return $response;
+    }
+
     private function langs(string $theme): void
     {
         $dirPath = base_path('theme/' . $theme . '/langs');

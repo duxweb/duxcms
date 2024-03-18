@@ -1,21 +1,24 @@
-import { FormModal } from '@duxweb/dux-refine'
+import { FormModal, useClient } from '@duxweb/dux-refine'
 import { Button, Form, Input, NamePath, Tabs, Textarea } from 'tdesign-react/esm'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Icon } from 'tdesign-icons-react'
 import { useTranslate } from '@refinedev/core'
 
 const Page = (props: Record<string, any>) => {
   const [result, setResult] = useState<Record<string, any> | undefined>({})
+
+  const { request } = useClient()
+
+  useEffect(() => {
+    request(`cms/theme/${props?.id}/config`).then((res) => {
+      setResult(res?.data)
+    })
+  }, [])
+
   return (
-    <FormModal
-      id={props?.id}
-      onResult={({ formData }) => {
-        setResult(formData?.data)
-      }}
-      padding={false}
-    >
+    <FormModal id={props?.id} padding={false}>
       <Tabs placement={'top'} size={'medium'} defaultValue={0}>
-        {Object.entries<Record<string, any>>(result?.meta || {})
+        {Object.entries<Record<string, any>>(result || {})
           .filter(([key]) => {
             if (key == 'theme') {
               return false
@@ -25,7 +28,7 @@ const Page = (props: Record<string, any>) => {
           .map(([key, value], index) => {
             const fileds = Object.entries<Record<string, any>>(value?.fields || {})
             return (
-              <Tabs.TabPanel value={index} label={value?.name} key={index} destroyOnHide={false}>
+              <Tabs.TabPanel value={index} label={value?.label} key={index} destroyOnHide={false}>
                 <div className='p-5'>
                   {fileds.map(([name, field], fieldIndex) => {
                     if (field?.type == 'textarea') {

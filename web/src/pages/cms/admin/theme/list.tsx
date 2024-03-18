@@ -7,25 +7,27 @@ import {
   StatusEmpty,
   useTable,
 } from '@duxweb/dux-refine'
-import { Card, Tag, Button, Image, Tooltip } from 'tdesign-react/esm'
+import { Card, Tag, Button, Image, Tooltip, Loading } from 'tdesign-react/esm'
 import { Icon } from 'tdesign-icons-react'
 
 const List = () => {
-  const { data, refetch } = useTable({})
+  const { data, refetch, loading } = useTable({})
 
   return (
     <Main>
-      <div className='mb-4'>
-        {data && data.length > 0 ? (
-          <div className='grid grid-cols-2 gap-4 2xl:grid-cols-4 xl:grid-cols-3'>
-            {data?.map((item, key) => <CardItem key={key} item={item} refetch={refetch} />)}
-          </div>
-        ) : (
-          <Card>
-            <StatusEmpty />
-          </Card>
-        )}
-      </div>
+      <Loading loading={loading} showOverlay>
+        <div className='mb-4'>
+          {data && data.length > 0 ? (
+            <div className='grid grid-cols-2 gap-4 2xl:grid-cols-4 xl:grid-cols-3'>
+              {data?.map((item, key) => <CardItem key={key} item={item} refetch={refetch} />)}
+            </div>
+          ) : (
+            <Card>
+              <StatusEmpty />
+            </Card>
+          )}
+        </div>
+      </Loading>
     </Main>
   )
 }
@@ -44,7 +46,7 @@ const CardItem = ({ item, refetch }: CardItemProps) => {
       title={item?.name}
       actions={<Tag theme='success'>{translate('cms.theme.default')}</Tag>}
       bordered
-      cover={<Image src={item?.image} className='h-50' />}
+      cover={<Image src={item?.image} className='h-50' fit='cover' position='top' />}
       footer={
         <div className='grid grid-cols-3 items-center justify-between divide-x divide-gray-200'>
           <div className='flex justify-center'>
