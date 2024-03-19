@@ -1,10 +1,10 @@
-import { useCallback, useContext, useState } from 'react'
-import { Button, ColorPicker, Radio, Tooltip } from 'tdesign-react/esm'
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { Button, ColorPicker, Popup, Tooltip, Dropdown, ColorPickerPanel } from 'tdesign-react/esm'
 import { PosterContext, PosterToolsProps } from '../poster'
 import { fabric } from 'fabric'
 
 const PosterBtn = () => {
-  const { editor } = useContext(PosterContext)
+  const { canvas } = useContext(PosterContext)
 
   const onAddText = useCallback(() => {
     const text = new fabric.Textbox('请输入文本', {
@@ -12,8 +12,9 @@ const PosterBtn = () => {
       lockUniScaling: true,
     })
     text.set('name', 'text')
-    editor?.canvas.add(text)
-  }, [editor])
+
+    canvas?.add(text)
+  }, [canvas])
 
   return (
     <Tooltip content='文本'>
@@ -29,90 +30,129 @@ const PosterBtn = () => {
 }
 
 const PosterTools = () => {
-  const { editor, save } = useContext(PosterContext)
-  const activeObject = editor?.canvas?.getActiveObject() as Record<string, any>
-  const [textColor, setTextColor] = useState<string>(activeObject?.fill || 'rgb(0,0,0)')
-  const [textAlign, setTextAlign] = useState<string>(activeObject?.textAlign || 'left')
-  const [fontWeight, setFontWeight] = useState<string>(activeObject?.fontWeight || 'normal')
-  const [fontStyle, setFontStyle] = useState<string>(activeObject?.fontStyle || 'normal')
-  const [underline, setUnderline] = useState<boolean>(!!activeObject?.underline)
-
-  if (activeObject?.get('type') !== 'textbox') {
-    return <></>
-  }
+  const { canvas, activeObject } = useContext(PosterContext)
+  const [fill, setFill] = useState(activeObject?.get('fill') || 'rgb(0,0,0)')
 
   return (
     <>
       <div>
-        <ColorPicker
-          value={textColor}
-          onChange={(v) => {
-            setTextColor(v)
-            activeObject.set('fill', v)
-            save()
-          }}
-        />
+        <Popup
+          content={
+            <ColorPickerPanel
+              value={fill}
+              format='RGB'
+              onChange={(v) => {
+                activeObject?.set('fill', v)
+                canvas?.renderAll()
+                setFill(v)
+              }}
+            />
+          }
+          trigger='hover'
+        >
+          <div>
+            <Tooltip content='颜色'>
+              <Button theme='default' variant='text' className='px-2'>
+                <div
+                  className='t-icon'
+                  style={{
+                    backgroundColor: activeObject?.get('fill'),
+                  }}
+                ></div>
+              </Button>
+            </Tooltip>
+          </div>
+        </Popup>
       </div>
 
       <div>
-        <Radio.Group
-          className='w-full'
-          value={textAlign}
-          onChange={(value) => {
-            setTextAlign(value as string)
-            activeObject.set('textAlign', value)
-            save()
+        <Dropdown
+          options={[
+            {
+              content: '左对齐',
+              value: 'left',
+              prefixIcon: <div className='t-icon i-tabler:align-left' />,
+            },
+            {
+              content: '居中',
+              value: 'center',
+              prefixIcon: <div className='t-icon i-tabler:align-center' />,
+            },
+            {
+              content: '右对齐',
+              value: 'right',
+              prefixIcon: <div className='t-icon i-tabler:align-right' />,
+            },
+          ]}
+          onClick={(data) => {
+            activeObject?.set('textAlign', data.value)
+            canvas?.renderAll()
           }}
         >
-          <Radio.Button value='left' className='flex-1 justify-center'>
-            <div className='t-icon i-tabler:align-left'></div>
-          </Radio.Button>
-          <Radio.Button value='center' className='flex-1 justify-center'>
-            <div className='t-icon i-tabler:align-center'></div>
-          </Radio.Button>
-          <Radio.Button value='right' className='flex-1 justify-center'>
-            <div className='t-icon i-tabler:align-right'></div>
-          </Radio.Button>
-        </Radio.Group>
+          <div>
+            <Tooltip content='对齐'>
+              <Button
+                theme='default'
+                variant='text'
+                className='px-2'
+                icon={<div className='t-icon i-tabler:align-justified'></div>}
+              ></Button>
+            </Tooltip>
+          </div>
+        </Dropdown>
       </div>
+
       <div>
-        <div className='grid grid-cols-3 gap-2'>
-          <Button
-            variant='outline'
-            theme={fontWeight == 'bold' ? 'primary' : 'default'}
-            icon={<div className='t-icon i-tabler:bold'></div>}
-            onClick={() => {
-              console.log(fontWeight)
-              const value = fontWeight == 'bold' ? 'normal' : 'bold'
-              setFontWeight(value)
-              activeObject.set('fontWeight', value)
-              save()
-            }}
-          />
-          <Button
-            variant='outline'
-            theme={fontStyle == 'italic' ? 'primary' : 'default'}
-            icon={<div className='t-icon i-tabler:italic'></div>}
-            onClick={() => {
-              const value = fontStyle == 'italic' ? 'normal' : 'italic'
-              setFontStyle(value)
-              activeObject.set('fontStyle', value)
-              save()
-            }}
-          />
-          <Button
-            variant='outline'
-            theme={underline ? 'primary' : 'default'}
-            icon={<div className='t-icon i-tabler:underline'></div>}
-            onClick={() => {
-              const value = underline ? false : true
-              setUnderline(value)
-              activeObject.set('underline', value)
-              console.log(activeObject)
-              save()
-            }}
-          />
-        </div>
+        <Dropdown
+          options={[
+            {
+              content: '加粗',
+              value: 'bold',
+              prefixIcon: <div className='t-icon i-tabler:bold' />,
+            },
+            {
+              content: '斜体',
+              value: 'italic',
+              prefixIcon: <div className='t-icon i-tabler:italic' />,
+            },
+            {
+              content: '下划线',
+              value: 'underline',
+              prefixIcon: <div className='t-icon i-tabler:underline' />,
+            },
+          ]}
+          onClick={(data) => {
+            switch (data.value) {
+              case 'bold':
+                activeObject?.set(
+                  'fontWeight',
+                  activeObject.fontWeight == 'bold' ? 'normal' : 'bold',
+                )
+                break
+              case 'italic':
+                activeObject?.set(
+                  'fontStyle',
+                  activeObject.fontStyle == 'italic' ? 'normal' : 'italic',
+                )
+                break
+              case 'underline':
+                activeObject?.set('underline', !activeObject?.underline)
+                break
+            }
+            canvas?.renderAll()
+          }}
+        >
+          <div>
+            <Tooltip content='样式'>
+              <Button
+                theme='default'
+                variant='text'
+                className='px-2'
+                icon={<div className='t-icon i-tabler:typography'></div>}
+              ></Button>
+            </Tooltip>
+          </div>
+        </Dropdown>
       </div>
     </>
   )

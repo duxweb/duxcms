@@ -6,6 +6,7 @@ import React, {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react'
 import { Button, InputNumber, ColorPicker, Input, Tooltip } from 'tdesign-react/esm'
@@ -22,15 +23,16 @@ import { PosterImage } from './poster/image'
 import { PosteRectangle } from './poster/rectangle'
 
 interface PosterContextProps {
-  activeObject?: fabric.Object
   config: Record<string, any>
   setConfig: React.Dispatch<React.SetStateAction<Record<string, any>>>
+  canvas?: fabric.Canvas
   canvasObjects: fabric.Object[]
   setCanvasObjects: React.Dispatch<React.SetStateAction<fabric.Object[]>>
   setSelected: (index?: number) => void
   save: () => void
-  editor?: FabricJSEditor
+  //editor?: FabricJSEditor
   selected?: number
+  activeObject?: Record<string, any> | null
 }
 
 export const PosterContext = createContext<PosterContextProps>({
@@ -57,17 +59,16 @@ export interface PosterToolsProps {
 export const Poster = ({ ...props }: PosterProps) => {
   const [tools, setTools] = useState<PosterToolsProps[]>([])
   const [value, setValue] = useControllableValue<Record<string, any>>(props)
-  const { selectedObjects, editor, onReady } = useFabricJSEditor()
-  const activeObject = selectedObjects?.[0]
+  const { editor, onReady } = useFabricJSEditor()
 
-  useEffect(() => {
-    setTools([PosterText])
-  }, [])
+  const canvas = editor?.canvas
+  const activeObject = canvas?.getActiveObject()
 
   const [config, setConfig] = useState<Record<string, any>>({
     width: 400,
     height: 600,
   })
+
   const [canvasObjects, setCanvasObjects] = useState<fabric.Object[]>([])
   const [selected, setSelected] = useState<number>()
 
@@ -86,62 +87,37 @@ export const Poster = ({ ...props }: PosterProps) => {
   // }, [editor, value])
 
   const save = useCallback(() => {
-    editor?.canvas.renderAll()
-    const json = editor?.canvas.toJSON(['name', 'label'])
+    canvas?.renderAll()
+    const json = canvas?.toJSON()
     setValue({
       config: config,
       data: json,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editor])
-
-  const updateCanvasObjects = useCallback(() => {
-    setCanvasObjects(
-      editor?.canvas.getObjects()?.map((item, index) => {
-        if (!item.name) {
-          item.name = '图层 ' + index
-        }
-        return item
-      }) || [],
-    )
-  }, [editor])
-
-  const handleSelection = (e: any) => {
-    if (!e?.selected || e?.selected?.length > 1) {
-      setSelected(undefined)
-      return
-    }
-    const active = e?.selected?.[0]
-    const index = editor?.canvas.getObjects().indexOf(active)
-    setSelected(index)
-  }
+  }, [canvas])
 
   useEffect(() => {
-    if (!editor?.canvas) {
-      return
-    }
+    setTools([PosterText])
 
-    editor.canvas.includeDefaultValues = false
     //editor.canvas.on('object:added', updateCanvasObjects)
     //editor.canvas.on('object:removed', updateCanvasObjects)
-    editor.canvas.on('selection:created', handleSelection)
-    editor.canvas.on('selection:updated', handleSelection)
-    editor.canvas.on('selection:cleared', () => {
+
+    canvas?.on('selection:cleared', () => {
       setSelected(undefined)
     })
-    editor.canvas.on('object:modified', function () {
-      save()
+    canvas?.on('object:modified', function () {
+      //save()
     })
 
     return () => {
       //editor.canvas.off('object:added')
       //editor.canvas.off('object:removed')
-      editor.canvas.off('selection:created')
-      editor.canvas.off('selection:updated')
-      editor.canvas.off('selection:modified')
+      //canvas?.off('selection:created')
+      //canvas?.off('selection:updated')
+      //canvas?.off('selection:modified')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editor?.canvas])
+  }, [canvas])
 
   const comp = useMemo(() => {
     const name = activeObject?.get('name')
@@ -156,26 +132,26 @@ export const Poster = ({ ...props }: PosterProps) => {
       value={{
         config,
         setConfig,
+        canvas,
         canvasObjects,
         selected,
         setSelected,
         setCanvasObjects,
-        editor,
-        activeObject,
         save,
+        activeObject,
       }}
     >
       <div className='w-full overflow-hidden border rounded border-component'>
         <div className='relative flex bg-component'>
           <div className='w-1 flex-1'>
-            <div className='flex justify-between border-b p-2 shadow-sm bg-container border-component'>
-              <div className='flex gap-2 gap-2 divide-x divide-gray-100'>
+            <div className='min-h-[48px] flex justify-between border-b p-2 shadow-sm bg-container border-component'>
+              <div className='flex gap-1 divide-x divide-gray-100'>
                 <div className='flex'>
                   {tools.map((item, index) => {
                     return <item.Btn key={index} />
                   })}
                 </div>
-                <div className='flex px-4'>{comp?.Tools && <comp.Tools />}</div>
+                <div className='flex gap-1 px-4'>{comp?.Tools && <comp.Tools />}</div>
               </div>
               <div>
                 <Tooltip content='上移一层'>
@@ -212,11 +188,11 @@ export const Poster = ({ ...props }: PosterProps) => {
                   height: config.height,
                 }}
               >
-                <FabricJSCanvas className='h-full w-full' onReady={onReady} />
+                <FabricJSCanvas className='h-full w-full' onReady={onReady}></FabricJSCanvas>
               </div>
             </div>
           </div>
-          <Sider />
+          {/* <Sider /> */}
         </div>
       </div>
     </PosterContext.Provider>
@@ -266,7 +242,7 @@ const Sider = () => {
               <UploadImage
                 value={config?.image}
                 onChange={(value) => {
-                  fabric.Image.fromURL(value as string, (img) => {
+                  fabric.FabricImage.fromURL(value as string, (img) => {
                     if (!editor?.canvas) {
                       return
                     }
