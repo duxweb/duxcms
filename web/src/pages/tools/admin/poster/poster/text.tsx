@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from 'react'
-import { Button, ColorPicker, Radio } from 'tdesign-react/esm'
-import { PosterContext, SiderItem } from '../poster'
+import { Button, ColorPicker, Radio, Tooltip } from 'tdesign-react/esm'
+import { PosterContext, PosterToolsProps } from '../poster'
 import { fabric } from 'fabric'
 
 const PosterBtn = () => {
@@ -11,18 +11,20 @@ const PosterBtn = () => {
       fontSize: 24,
       lockUniScaling: true,
     })
+    text.set('name', 'text')
     editor?.canvas.add(text)
   }, [editor])
 
   return (
-    <Button
-      theme='default'
-      variant='text'
-      onClick={onAddText}
-      icon={<div className='t-icon i-tabler:letter-t'></div>}
-    >
-      文本
-    </Button>
+    <Tooltip content='文本'>
+      <Button
+        theme='default'
+        variant='text'
+        onClick={onAddText}
+        className='px-2'
+        icon={<div className='t-icon i-tabler:letter-t'></div>}
+      ></Button>
+    </Tooltip>
   )
 }
 
@@ -41,7 +43,7 @@ const PosterTools = () => {
 
   return (
     <>
-      <SiderItem title='文本颜色'>
+      <div>
         <ColorPicker
           value={textColor}
           onChange={(v) => {
@@ -50,9 +52,9 @@ const PosterTools = () => {
             save()
           }}
         />
-      </SiderItem>
+      </div>
 
-      <SiderItem title='文本对齐'>
+      <div>
         <Radio.Group
           className='w-full'
           value={textAlign}
@@ -72,8 +74,8 @@ const PosterTools = () => {
             <div className='t-icon i-tabler:align-right'></div>
           </Radio.Button>
         </Radio.Group>
-      </SiderItem>
-      <SiderItem title='文本格式'>
+      </div>
+      <div>
         <div className='grid grid-cols-3 gap-2'>
           <Button
             variant='outline'
@@ -111,12 +113,13 @@ const PosterTools = () => {
             }}
           />
         </div>
-      </SiderItem>
+      </div>
     </>
   )
 }
 
-export const PosterText = {
+export const PosterText: PosterToolsProps = {
+  name: 'text',
   Btn: PosterBtn,
   Tools: PosterTools,
 }

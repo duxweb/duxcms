@@ -1,16 +1,17 @@
 import React, {
   PropsWithChildren,
+  ReactNode,
   createContext,
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from 'react'
-import { Button, InputNumber, ColorPicker, Input } from 'tdesign-react/esm'
+import { Button, InputNumber, ColorPicker, Input, Tooltip } from 'tdesign-react/esm'
 import { FabricJSCanvas, FabricJSEditor, useFabricJSEditor } from 'fabricjs-react'
 import { fabric } from 'fabric'
-import { useDrag, useDrop, DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
+import { useDrag, useDrop } from 'react-dnd'
 import { useControllableValue } from 'ahooks'
 
 import './style.scss'
@@ -47,11 +48,21 @@ interface PosterProps {
   onChange?: (value: Record<string, any>) => void
 }
 
+export interface PosterToolsProps {
+  name: string
+  Btn: () => ReactNode
+  Tools?: () => ReactNode
+}
+
 export const Poster = ({ ...props }: PosterProps) => {
+  const [tools, setTools] = useState<PosterToolsProps[]>([])
   const [value, setValue] = useControllableValue<Record<string, any>>(props)
   const { selectedObjects, editor, onReady } = useFabricJSEditor()
   const activeObject = selectedObjects?.[0]
-  const [init, setInit] = useState(0)
+
+  useEffect(() => {
+    setTools([PosterText])
+  }, [])
 
   const [config, setConfig] = useState<Record<string, any>>({
     width: 400,
@@ -60,19 +71,19 @@ export const Poster = ({ ...props }: PosterProps) => {
   const [canvasObjects, setCanvasObjects] = useState<fabric.Object[]>([])
   const [selected, setSelected] = useState<number>()
 
-  useEffect(() => {
-    // 防止库缓存，需要加载几次
-    if (init > 2 || !value?.data) {
-      return
-    }
-    setInit((v) => v + 1)
-    setConfig(value?.config)
-    editor?.canvas.loadFromJSON(value?.data, () => {
-      editor.canvas.renderAll()
-      updateCanvasObjects()
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editor, value])
+  // useEffect(() => {
+  //   // 防止库缓存，需要加载几次
+  //   if (init > 2 || !value?.data) {
+  //     return
+  //   }
+  //   setInit((v) => v + 1)
+  //   setConfig(value?.config)
+  //   editor?.canvas.loadFromJSON(value?.data, () => {
+  //     editor.canvas.renderAll()
+  //     updateCanvasObjects()
+  //   })
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [editor, value])
 
   const save = useCallback(() => {
     editor?.canvas.renderAll()
@@ -111,8 +122,8 @@ export const Poster = ({ ...props }: PosterProps) => {
     }
 
     editor.canvas.includeDefaultValues = false
-    editor.canvas.on('object:added', updateCanvasObjects)
-    editor.canvas.on('object:removed', updateCanvasObjects)
+    //editor.canvas.on('object:added', updateCanvasObjects)
+    //editor.canvas.on('object:removed', updateCanvasObjects)
     editor.canvas.on('selection:created', handleSelection)
     editor.canvas.on('selection:updated', handleSelection)
     editor.canvas.on('selection:cleared', () => {
@@ -123,14 +134,22 @@ export const Poster = ({ ...props }: PosterProps) => {
     })
 
     return () => {
-      editor.canvas.off('object:added')
-      editor.canvas.off('object:removed')
+      //editor.canvas.off('object:added')
+      //editor.canvas.off('object:removed')
       editor.canvas.off('selection:created')
       editor.canvas.off('selection:updated')
       editor.canvas.off('selection:modified')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editor?.canvas])
+
+  const comp = useMemo(() => {
+    const name = activeObject?.get('name')
+    const info = tools.find((item) => {
+      return item.name == name
+    })
+    return info
+  }, [activeObject, tools])
 
   return (
     <PosterContext.Provider
@@ -146,14 +165,44 @@ export const Poster = ({ ...props }: PosterProps) => {
         save,
       }}
     >
-      <div className='w-full border rounded border-component'>
+      <div className='w-full overflow-hidden border rounded border-component'>
         <div className='relative flex bg-component'>
-          <Layer />
           <div className='w-1 flex-1'>
-            <div className='h-50px flex justify-center border-b p-2 bg-container border-component'>
-              <PosterText.Btn />
-              <PosterImage.Btn />
-              <PosteRectangle.Btn />
+            <div className='flex justify-between border-b p-2 shadow-sm bg-container border-component'>
+              <div className='flex gap-2 gap-2 divide-x divide-gray-100'>
+                <div className='flex'>
+                  {tools.map((item, index) => {
+                    return <item.Btn key={index} />
+                  })}
+                </div>
+                <div className='flex px-4'>{comp?.Tools && <comp.Tools />}</div>
+              </div>
+              <div>
+                <Tooltip content='上移一层'>
+                  <Button
+                    theme='default'
+                    variant='text'
+                    className='px-2'
+                    icon={<div className='t-icon i-tabler:layers-subtract'></div>}
+                  ></Button>
+                </Tooltip>
+                <Tooltip content='下移一层'>
+                  <Button
+                    theme='default'
+                    variant='text'
+                    className='px-2'
+                    icon={<div className='t-icon i-tabler:layers-intersect'></div>}
+                  ></Button>
+                </Tooltip>
+                <Tooltip content='删除图层'>
+                  <Button
+                    theme='default'
+                    variant='text'
+                    className='px-2'
+                    icon={<div className='t-icon i-tabler:trash'></div>}
+                  ></Button>
+                </Tooltip>
+              </div>
             </div>
             <div className='flex flex-1 justify-center overflow-auto p-10'>
               <div
@@ -171,72 +220,6 @@ export const Poster = ({ ...props }: PosterProps) => {
         </div>
       </div>
     </PosterContext.Provider>
-  )
-}
-
-const Layer = () => {
-  const { canvasObjects, setCanvasObjects, setSelected, selected, editor, save } =
-    useContext(PosterContext)
-
-  const onSelectLayer = (index: number) => {
-    setSelected(index)
-    const object = canvasObjects[index]
-    editor?.canvas.setActiveObject(object)
-    editor?.canvas.requestRenderAll()
-  }
-
-  const onRemoveLayer = (index: number) => {
-    editor?.canvas.remove(editor?.canvas.getObjects()[index])
-    setSelected(undefined)
-  }
-
-  const moveLayer = useCallback(
-    (dragIndex: number, hoverIndex?: number) => {
-      const dragObject = canvasObjects[dragIndex]
-      editor?.canvas.moveTo(dragObject, hoverIndex || 0)
-      editor?.canvas.fire('object:added')
-      setSelected(undefined)
-    },
-    [canvasObjects, editor?.canvas, setSelected],
-  )
-
-  return (
-    <div className='w-200px flex flex-none flex-col gap-2 border-r rounded-lt bg-container border-component'>
-      <div className='h-50px flex items-center justify-center border-b px-4 font-bold border-component'>
-        图层
-      </div>
-      <DndProvider backend={HTML5Backend}>
-        <div className='flex flex-col gap-2 px-2'>
-          {!canvasObjects?.length && (
-            <div className='py-4 text-center text-placeholder'>暂无元素图层</div>
-          )}
-          {canvasObjects.length > 0 &&
-            canvasObjects.map((layer, index) => {
-              return (
-                <LayerItem
-                  key={index}
-                  name={layer.name}
-                  index={index}
-                  moveLayer={moveLayer}
-                  onRename={(value) => {
-                    setCanvasObjects((old) => {
-                      const item = old[index]
-                      item.name = value
-                      return [...old]
-                    })
-                    save()
-                  }}
-                  onClick={() => {
-                    onSelectLayer(index)
-                  }}
-                  onRemove={() => onRemoveLayer(index)}
-                  isSelected={selected == index}
-                />
-              )
-            })}
-        </div>
-      </DndProvider>
-    </div>
   )
 }
 
@@ -324,7 +307,7 @@ const Sider = () => {
             </SiderItem>
           </>
         )}
-        <PosterText.Tools />
+
         <PosterImage.Tools />
         <PosteRectangle.Tools />
       </div>
