@@ -800,12 +800,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxweb/dux-lite.git",
-                "reference": "c8cab322fa349d0d6ab9e120bc60f2bb9cefb6bb"
+                "reference": "e109ba13c15e4bcf50e6a0c801a1c7c007547902"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/c8cab322fa349d0d6ab9e120bc60f2bb9cefb6bb",
-                "reference": "c8cab322fa349d0d6ab9e120bc60f2bb9cefb6bb",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/e109ba13c15e4bcf50e6a0c801a1c7c007547902",
+                "reference": "e109ba13c15e4bcf50e6a0c801a1c7c007547902",
                 "shasum": ""
             },
             "require": {
@@ -828,7 +828,7 @@
                 "iidestiny/flysystem-oss": "^4",
                 "illuminate/database": "^10.0",
                 "illuminate/pagination": "^10.0",
-                "intervention/image": "^2.7",
+                "intervention/image": "^3.5.0",
                 "itsgoingd/clockwork": "^5.1",
                 "jaybizzle/crawler-detect": "^1.2",
                 "kalnoy/nestedset": "^6.0",
@@ -899,7 +899,7 @@
                 "issues": "https://github.com/duxweb/dux-lite/issues",
                 "source": "https://github.com/duxweb/dux-lite"
             },
-            "time": "2024-03-18T03:17:09+00:00"
+            "time": "2024-03-20T08:48:13+00:00"
         },
         {
             "name": "enqueue/dsn",
@@ -2506,50 +2506,32 @@
             "time": "2024-03-11T21:46:45+00:00"
         },
         {
-            "name": "intervention/image",
-            "version": "2.7.2",
+            "name": "intervention/gif",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Intervention/image.git",
-                "reference": "04be355f8d6734c826045d02a1079ad658322dad"
+                "url": "https://github.com/Intervention/gif.git",
+                "reference": "c2b07d1f69709e196c8b4ced423449a7e0f3b925"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/04be355f8d6734c826045d02a1079ad658322dad",
-                "reference": "04be355f8d6734c826045d02a1079ad658322dad",
+                "url": "https://api.github.com/repos/Intervention/gif/zipball/c2b07d1f69709e196c8b4ced423449a7e0f3b925",
+                "reference": "c2b07d1f69709e196c8b4ced423449a7e0f3b925",
                 "shasum": ""
             },
             "require": {
-                "ext-fileinfo": "*",
-                "guzzlehttp/psr7": "~1.1 || ^2.0",
-                "php": ">=5.4.0"
+                "php": "^8.1"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.2",
-                "phpunit/phpunit": "^4.8 || ^5.7 || ^7.5.15"
-            },
-            "suggest": {
-                "ext-gd": "to use GD library based image processing.",
-                "ext-imagick": "to use Imagick based image processing.",
-                "intervention/imagecache": "Caching extension for the Intervention Image library"
+                "phpstan/phpstan": "^1",
+                "phpunit/phpunit": "^9",
+                "slevomat/coding-standard": "~8.0",
+                "squizlabs/php_codesniffer": "^3.8"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Intervention\\Image\\ImageServiceProvider"
-                    ],
-                    "aliases": {
-                        "Image": "Intervention\\Image\\Facades\\Image"
-                    }
-                }
-            },
             "autoload": {
                 "psr-4": {
-                    "Intervention\\Image\\": "src/Intervention/Image"
+                    "Intervention\\Gif\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2563,19 +2545,17 @@
                     "homepage": "https://intervention.io/"
                 }
             ],
-            "description": "Image handling and manipulation library with support for Laravel integration",
-            "homepage": "http://image.intervention.io/",
+            "description": "Native PHP GIF Encoder/Decoder",
+            "homepage": "https://github.com/intervention/gif",
             "keywords": [
+                "animation",
                 "gd",
-                "image",
-                "imagick",
-                "laravel",
-                "thumbnail",
-                "watermark"
+                "gif",
+                "image"
             ],
             "support": {
-                "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/2.7.2"
+                "issues": "https://github.com/Intervention/gif/issues",
+                "source": "https://github.com/Intervention/gif/tree/4.0.2"
             },
             "funding": [
                 {
@@ -2587,7 +2567,79 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-21T17:30:32+00:00"
+            "time": "2024-02-18T15:36:58+00:00"
+        },
+        {
+            "name": "intervention/image",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "408d3655c7705339e8c79731ea7efb51546cfa10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/408d3655c7705339e8c79731ea7efb51546cfa10",
+                "reference": "408d3655c7705339e8c79731ea7efb51546cfa10",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "intervention/gif": "^4.0.1",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6",
+                "phpstan/phpstan": "^1",
+                "phpunit/phpunit": "^10.0",
+                "slevomat/coding-standard": "~8.0",
+                "squizlabs/php_codesniffer": "^3.8"
+            },
+            "suggest": {
+                "ext-exif": "Recommended to be able to read EXIF data properly."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@intervention.io",
+                    "homepage": "https://intervention.io/"
+                }
+            ],
+            "description": "PHP image manipulation",
+            "homepage": "https://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "resize",
+                "thumbnail",
+                "watermark"
+            ],
+            "support": {
+                "issues": "https://github.com/Intervention/image/issues",
+                "source": "https://github.com/Intervention/image/tree/3.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/interventionio",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Intervention",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-13T16:26:15+00:00"
         },
         {
             "name": "itsgoingd/clockwork",
@@ -2841,16 +2893,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v3.0.13",
+            "version": "v3.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "462444d669809528b6f6ce191b616d747c9b4bfc"
+                "reference": "1ab054b1af13ee647ccbc5bf2673a3483a7457d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/462444d669809528b6f6ce191b616d747c9b4bfc",
-                "reference": "462444d669809528b6f6ce191b616d747c9b4bfc",
+                "url": "https://api.github.com/repos/nette/latte/zipball/1ab054b1af13ee647ccbc5bf2673a3483a7457d5",
+                "reference": "1ab054b1af13ee647ccbc5bf2673a3483a7457d5",
                 "shasum": ""
             },
             "require": {
@@ -2920,9 +2972,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v3.0.13"
+                "source": "https://github.com/nette/latte/tree/v3.0.14"
             },
-            "time": "2024-01-09T13:54:57+00:00"
+            "time": "2024-03-19T09:03:26+00:00"
         },
         {
             "name": "league/flysystem",
