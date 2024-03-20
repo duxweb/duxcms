@@ -12,8 +12,11 @@ use Intervention\Image\Typography\FontFactory;
 
 class Poster
 {
-    public static function generate(string $fontPath, int $id, $params = []): string
+    public static function generate(int $id, $params = [], string $fontPath = ''): string
     {
+
+        $fontPath = $fontPath ?: config_path('font/AlibabaPuHuiTi-3-55-Regular.ttf');
+
         if (!$fontPath || !is_file($fontPath)) {
             throw new ExceptionBusiness('Font file does not exist');
         }

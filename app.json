@@ -5,11 +5,11 @@
         "duxweb/cms": "0.1.3",
         "duxweb/content": "0.2.3",
         "duxweb/install": "0.0.4",
-        "duxweb/base": "0.0.14",
-        "duxweb/tools": "0.2.0"
+        "duxweb/base": "0.0.16",
+        "duxweb/tools": "0.2.3"
     },
     "apps": {
         "dux/cms": 1710751438,
-        "dux/base": 1710751273
+        "dux/base": 1710952647
     }
 }
