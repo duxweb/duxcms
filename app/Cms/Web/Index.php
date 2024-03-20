@@ -4,6 +4,7 @@ namespace App\Cms\Web;
 
 use App\Cms\Service\Translator;
 use App\System\Service\Config;
+use App\Tools\Service\Poster;
 use Dux\App;
 use Dux\Handlers\ExceptionNotFound;
 use Dux\Route\Attribute\Route;
@@ -17,7 +18,7 @@ class Index
 {
 
     #[Route(methods: 'GET', pattern: '')]
-    public function location(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function index(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $view = \Dux\App::view('web');
 
@@ -34,6 +35,11 @@ class Index
             'path' => $path
         ]);
 
+
+        Poster::generate(1, [
+            'avatar' => 'http://duxcms.test/uploads/2024-03-20/c8f1ddab50ee3b845b29.jpg',
+            'qrcode' =>  'http://duxcms.test/uploads/2024-03-20/c8f1ddab50ee3b845b29.jpg',
+        ]);
 
         return sendText($response, $html);
     }

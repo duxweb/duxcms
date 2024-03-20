@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@duxweb/dux-extend": "^0.1.0",
+        "@duxweb/dux-extend": "^0.1.1",
         "@duxweb/dux-plugin": "^0.0.8",
         "@duxweb/dux-refine": "^0.9.1"
     },
