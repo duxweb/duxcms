@@ -1,11 +1,5 @@
 import { useTranslate, useResource } from '@refinedev/core'
-import {
-  FormPage,
-  formatUploadSingle,
-  getUploadSingle,
-  FormPageItem,
-  useSelect,
-} from '@duxweb/dux-refine'
+import { FormPage, FormPageItem, useSelect } from '@duxweb/dux-refine'
 import { Form, Input, Radio, Select, Checkbox } from 'tdesign-react/esm'
 import { MagicEditor } from '@duxweb/dux-extend'
 
@@ -25,14 +19,6 @@ const Page = () => {
       }}
       back
       id={id}
-      initFormat={(data) => {
-        data.image = formatUploadSingle(data.image)
-        return data
-      }}
-      saveFormat={(data) => {
-        data.image = getUploadSingle(data.image)
-        return data
-      }}
     >
       <FormPageItem
         name='group_id'

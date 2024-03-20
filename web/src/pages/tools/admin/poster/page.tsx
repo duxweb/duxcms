@@ -1,12 +1,11 @@
 import { useTranslate, useResource } from '@refinedev/core'
 import { FormPage, FormPageItem } from '@duxweb/dux-refine'
-import { Form, Input } from 'tdesign-react/esm'
-import { Poster } from './poster'
+import { Input } from 'tdesign-react/esm'
+import { Poster } from '@duxweb/dux-extend'
 
 const Page = () => {
   const translate = useTranslate()
   const { id } = useResource()
-  const [form] = Form.useForm()
 
   return (
     <FormPage
@@ -14,7 +13,11 @@ const Page = () => {
         labelAlign: 'top',
       }}
       back
-      form={form}
+      useFormProps={{
+        queryOptions: {
+          cacheTime: 0,
+        },
+      }}
       id={id}
     >
       <FormPageItem name='title'>

@@ -18,7 +18,7 @@ class ToolsPoster extends \Dux\Database\Model
     {
         $table->id();
         $table->string("title")->comment('海报标题');
-        $table->json('data')->comment('海报数据');
+        $table->json('data')->comment('海报数据')->nullable();
         $table->timestamps();
     }
 
