@@ -3,19 +3,10 @@
 declare(strict_types=1);
 
 namespace App\Cms;
-
 use App\Content\Models\ArticleReplace;
-use App\System\Service\Config;
 use Dux\App\AppExtend;
 use Dux\Bootstrap;
-use Fukuball\Jieba\Finalseg;
-use Fukuball\Jieba\Jieba;
-use Fukuball\Jieba\JiebaAnalyse;
-use Lizhichao\Word\VicWord;
-use SCWS\PSCWS4;
-use TextAnalysis\Documents\TokensDocument;
-use TextAnalysis\Taggers\StanfordNerTagger;
-use TextAnalysis\Tokenizers\WhitespaceTokenizer;
+use Parsedown;
 
 /**
  * Application Registration
@@ -66,6 +57,11 @@ class App extends AppExtend
             return $data;
         });
 
+
+        \Dux\App::view('web')->addFilter('markdown', function ($content) {
+            $parsedown = new Parsedown();
+            return $parsedown->text($content);
+        });
 
     }
 

@@ -10,7 +10,8 @@
     "prefer-stable": true,
     "require": {
         "duxweb/dux-lite": "main-dev",
-        "pelago/emogrifier": "^7.1"
+        "pelago/emogrifier": "^7.1",
+        "erusev/parsedown": "^1.7"
     },
     "autoload": {
         "psr-4": {
