@@ -35,12 +35,6 @@ class Index
             'path' => $path
         ]);
 
-
-        Poster::generate(1, [
-            'avatar' => 'http://duxcms.test/uploads/2024-03-20/c8f1ddab50ee3b845b29.jpg',
-            'qrcode' =>  'http://duxcms.test/uploads/2024-03-20/c8f1ddab50ee3b845b29.jpg',
-        ]);
-
         return sendText($response, $html);
     }
 
