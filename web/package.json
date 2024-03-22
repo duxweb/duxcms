@@ -5,7 +5,7 @@
     "dependencies": {
         "@duxweb/dux-extend": "^0.1.1",
         "@duxweb/dux-plugin": "^0.0.8",
-        "@duxweb/dux-refine": "^0.9.1"
+        "@duxweb/dux-refine": "^0.9.2"
     },
     "devDependencies": {
         "@faker-js/faker": "^8.0.2",
