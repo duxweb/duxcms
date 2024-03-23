@@ -59,8 +59,15 @@ class App extends AppExtend
 
 
         \Dux\App::view('web')->addFilter('markdown', function ($content) {
-            $parsedown = new Parsedown();
-            return $parsedown->text($content);
+            $ParsedownToc = new \ParsedownToc();
+            return $ParsedownToc->body($content);
+        });
+
+
+        \Dux\App::view('web')->addFilter('markdown_toc', function ($content) {
+            $ParsedownToc = new \ParsedownToc();
+            $ParsedownToc->body($content);
+            return $ParsedownToc->contentsList();
         });
 
     }

@@ -1,8 +1,9 @@
 {
     "name": "duxweb/cms",
     "description": "CMS Basic Application",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "phpDependencies": {
-        "erusev/parsedown": "^1.7"
+        "erusev/parsedown": "^1.7",
+        "benjaminhoegh/parsedown-toc": "^1.5"
     }
 }

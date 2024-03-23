@@ -1,3 +1,8 @@
+# 0.2.2
+## Feature
+
+- 增加模板 markdown toc 功能
+
 # 0.2.1
 ## Feature
 

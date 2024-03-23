@@ -11,7 +11,8 @@
     "require": {
         "duxweb/dux-lite": "main-dev",
         "pelago/emogrifier": "^7.1",
-        "erusev/parsedown": "^1.7"
+        "erusev/parsedown": "^1.7",
+        "benjaminhoegh/parsedown-toc": "^1.5"
     },
     "autoload": {
         "psr-4": {

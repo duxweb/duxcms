@@ -26,15 +26,6 @@
             "app": "tools"
         },
         {
-            "name": "duxweb/cms",
-            "description": "CMS Basic Application",
-            "version": "0.2.1",
-            "phpDependencies": {
-                "erusev/parsedown": "^1.7"
-            },
-            "app": "cms"
-        },
-        {
             "name": "duxweb/base",
             "description": "System Base Applications",
             "version": "0.0.17",
@@ -47,6 +38,16 @@
                 "@duxweb/dux-refine": "^0.9.2"
             },
             "app": "system"
+        },
+        {
+            "name": "duxweb/cms",
+            "description": "CMS Basic Application",
+            "version": "0.2.2",
+            "phpDependencies": {
+                "erusev/parsedown": "^1.7",
+                "benjaminhoegh/parsedown-toc": "^1.5"
+            },
+            "app": "cms"
         }
     ]
 }
