@@ -1,0 +1,40 @@
+{
+    "name": "tuupola/callable-handler",
+    "description": "Compatibility layer for PSR-7 double pass and PSR-15 middlewares.",
+    "keywords": [
+      "middleware",
+      "psr-7",
+      "psr-15"
+    ],
+    "homepage": "https://github.com/tuupola/callable-handler",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mika Tuupola",
+            "email": "tuupola@appelsiini.net",
+            "homepage": "https://appelsiini.net/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1|^8.0",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tuupola\\Middleware\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tuupola\\Middleware\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0|^8.0|^9.0",
+        "squizlabs/php_codesniffer": "^3.2",
+        "overtrue/phplint": "^1.0",
+        "tuupola/http-factory": "^0.4.0|^1.0",
+        "zendframework/zend-diactoros": "^1.6.0|^2.0"
+    }
+}

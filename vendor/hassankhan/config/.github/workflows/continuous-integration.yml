@@ -1,0 +1,36 @@
+name: Continuous Integration
+
+on: [push, pull_request]
+
+jobs:
+  quality:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: ['7.4', '8.0', '8.1', '8.2']
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+            php-version: ${{ matrix.php-versions }}
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+      
+      - name: PHP Unit tests
+        if: ${{ matrix.php-versions != '7.4' }}
+        run: vendor/bin/phpunit
+
+      - name: PHP Unit tests generating coverage data
+        if: ${{ matrix.php-versions == '7.4' }}
+        run: vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+      
+      - name: Upload code coverage data
+        if: ${{ matrix.php-versions == '7.4' }}
+        run: php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover

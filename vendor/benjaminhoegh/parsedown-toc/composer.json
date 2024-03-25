@@ -1,0 +1,44 @@
+{
+    "name": "benjaminhoegh/parsedown-toc",
+    "description": "Table of Contents Extension for Parsedown.",
+    "keywords": [
+        "markdown",
+        "parser",
+        "extension"
+    ],
+    "homepage": "https://github.com/BenjaminHoegh/parsedownToc/",
+    "authors": [
+        {
+            "name": "BenjaminHoegh",
+            "homepage": "https://github.com/BenjaminHoegh/",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "erusev/parsedown": "^1.7",
+        "erusev/parsedown-extra": "^0.8.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "": [
+                "src/",
+                "tests/"
+            ]
+        }
+    },
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "archive": {
+        "exclude": [
+            "/test",
+            "/.travis.yml",
+            "/.nova"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.6.16",
+        "vimeo/psalm": ">=5.21.1"
+    }
+}

@@ -1,7 +1,6 @@
 *.iml
 /logs
 /data
-/vendor
 /public/uploads
 /config/geo
 /public/theme

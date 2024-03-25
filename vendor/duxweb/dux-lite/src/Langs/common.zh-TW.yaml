@@ -1,0 +1,30 @@
+encryption:
+  failure: 加密失敗
+message:
+  emptyData: 無資料
+  create: 建立成功
+  edit: 編輯成功
+  delete: 刪除成功
+  store: 儲存成功
+  trash: 徹底刪除成功
+  restore: 恢復成功
+resources:
+  list: 列表
+  show: 詳情
+  create: 建立
+  edit: 編輯
+  delete: 刪除
+  deleteMany: 批次刪除
+  store: 更新
+  trash: 徹底刪除
+  restore: 恢復
+validate:
+  placeholder: 請輸入%name%
+  select: 請選擇%name%
+error:
+  notFound: 頁面不存在
+  notFoundMessage: 您訪問的頁面不存在或已被刪除
+  errorTitle: 操作錯誤
+  errorMessage: 操作遇到了錯誤，請稍後再試
+  home: 回到首頁
+  back: 返回上一頁

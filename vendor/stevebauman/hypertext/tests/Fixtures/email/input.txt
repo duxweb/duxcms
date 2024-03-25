@@ -1,0 +1,578 @@
+Received: from PH0PR84MB1646.NAMPRD84.PROD.OUTLOOK.COM (2603:10b6:510:172::15)
+ by IA1PR84MB3081.NAMPRD84.PROD.OUTLOOK.COM with HTTPS; Thu, 28 Sep 2023
+ 13:12:33 +0000
+Received: from MN2PR08CA0002.namprd08.prod.outlook.com (2603:10b6:208:239::7)
+ by PH0PR84MB1646.NAMPRD84.PROD.OUTLOOK.COM (2603:10b6:510:172::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6813.20; Thu, 28 Sep
+ 2023 13:12:31 +0000
+Received: from BL6PEPF0001AB50.namprd04.prod.outlook.com
+ (2603:10b6:208:239:cafe::5a) by MN2PR08CA0002.outlook.office365.com
+ (2603:10b6:208:239::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6838.22 via Frontend
+ Transport; Thu, 28 Sep 2023 13:12:30 +0000
+Authentication-Results: spf=pass (sender IP is 23.251.252.18)
+ smtp.mailfrom=bounces.amazon.ca; dkim=pass (signature was verified)
+ header.d=amazon.ca;dmarc=pass action=none header.from=amazon.ca;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of bounces.amazon.ca
+ designates 23.251.252.18 as permitted sender)
+ receiver=protection.outlook.com; client-ip=23.251.252.18;
+ helo=e252-18.smtp-out.amazonses.com; pr=C
+Received: from e252-18.smtp-out.amazonses.com (23.251.252.18) by
+ BL6PEPF0001AB50.mail.protection.outlook.com (10.167.242.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6838.14 via Frontend Transport; Thu, 28 Sep 2023 13:12:30 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:35EDF1611046AF4ED33923C17655709B6D31DDE9864DBEB9945BBD687D60CBAB;UpperCasedChecksum:A8F50210C8762ACD2C824870D3B30DF28B400A408852652D57C198936F51047D;SizeAsReceived:1658;Count:15
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=a674d6gdpchfa22x3tav5tk6mu3ztkhl; d=amazon.ca; t=1695906750;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type;
+	bh=LihGpwLlhiNyN331KEOfv5nFTsRLYARdGkfCBzyGMxo=;
+	b=WjY4bdhrMq41wOcP7XLt2waPK06U7jufNa2OKMYTWh4d31ZjkA35xGxT9DeL3NJG
+	nNj7TLYU8b2tp4vEzIa3XzZapq5Z4VAscsGZ56F0fxBRryE1n5KsZatGn4ilylZ460a
+	Bn3FUKFyU2G/uuIW0ofw28hYH6Er1fvJ+mtlXGwI=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1695906750;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Feedback-ID;
+	bh=LihGpwLlhiNyN331KEOfv5nFTsRLYARdGkfCBzyGMxo=;
+	b=dnncao88MLNth5i3pduz9l14pvj9j8gvdPEvfK47zBONKDLqPQwVjO/NJIqvT2kC
+	m1gt9FvOx2WGt/S2AWb8BPiV4yjK5qjLipTjEzHZqEEzhCTRTzHcfODEIbiffvIowO0
+	mvPXTRxRAhM63lHrAvFxnlnky4cl2JD1nJ4ykGfY=
+Date: Thu, 28 Sep 2023 13:12:30 +0000
+From: Amazon Prime <store-news@amazon.ca>
+To: steven_bauman@outlook.com
+Message-ID: <0100018adbeb5e81-7441772a-204e-4b22-b007-9b8883f5d97f-000000@email.amazonses.com>
+Subject: Updates to Amazon Music for Prime members
+Content-Type: multipart/alternative;
+	boundary="----=_Part_2394104_575539662.1695906750074"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 20230928131230548486cacf2b460889a872665aa0p0na-C3SWF0OD595NJQ@bounces.amazon.ca
+X-AMAZON-METADATA: CA=C3SWF0OD595NJQ-CU=A3IMLYVNEIGCPI
+X-Original-MessageID: <urn.rtn.msg.20230928131230548486cacf2b460889a872665aa0p0na@1695906750075.>
+Feedback-ID: 1.us-east-1.+gzE1S+MWTFXXYmwxo7wkk651GMxMPAUFYiyN/09X40=:AmazonSES
+X-SES-Outgoing: 2023.09.28-23.251.252.18
+X-IncomingHeaderCount: 15
+Return-Path:
+ 20230928131230548486cacf2b460889a872665aa0p0na-C3SWF0OD595NJQ@bounces.amazon.ca
+X-MS-Exchange-Organization-ExpirationStartTime: 28 Sep 2023 13:12:30.5661
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 1803f4c2-d4d4-4f8f-177a-08dbc024921b
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BL6PEPF0001AB50:EE_|PH0PR84MB1646:EE_|IA1PR84MB3081:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BL6PEPF0001AB50.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/28/2023 1:11:42 PM
+X-MS-Office365-Filtering-Correlation-Id: 1803f4c2-d4d4-4f8f-177a-08dbc024921b
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 23.251.252.18
+X-SID-PRA: STORE-NEWS@AMAZON.CA
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 2
+X-Microsoft-Antispam: BCL:1;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2023 13:12:30.5193
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1803f4c2-d4d4-4f8f-177a-08dbc024921b
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BL6PEPF0001AB50.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR84MB1646
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.5683715
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6813.014
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90012020)(91020020)(91040095)(9050020)(9100341)(944500132)(4810010)(4910033)(9910022)(9545005)(10170022)(9320005)(120001)(1110079);
+X-Message-Info:
+	qZelhIiYnPkx84CNH6AeQjx1jf2H9Hg0hHVQTuBlsC2lb5n8Vsc5KOV9H6Lvdus5gklzJI+7pMu8z7D2RmbRsQPwZrPF6i0Sv6h1whqpnSJ7z2Fya6dP3SCE1szl3hn67Vg72aSzZ8Lerz7WpWoW8NXdPdhOB++yg8qpX6HzN1/Z0nRqBHPV4yor/alJX1Zg0ImSTOYfSOihYl8lriTm9g==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0xO0Q9MTtHRD0xO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?d1JPOU1BZjk3c1ZhY0hON3dUU0lQdFNldkVKTUZoYTBRMmx6WGpvOVlkRmZR?=
+ =?utf-8?B?VkpVSmhDc2JmQXpjY2lVWXF0SFdMYkdHU3k5RVdqYUQ1KzFBQ2V3cytuODlZ?=
+ =?utf-8?B?Wm5MZEc4QW0vUjhleDdBL0t1bVFEMWdJRGZ4N3dPS0VjNldJRDJIRm5kbGtt?=
+ =?utf-8?B?d042UEI2RTRwL0ZoWWNIWG5adG9GQ0hacmhSUkpheFZPYjlOYllRd2l5Rmg3?=
+ =?utf-8?B?MEoxVGFTSlkrSE95RUc5NTlaQVNidE0xVStHcUxQOU9MVDJuTWoxYmFkQklO?=
+ =?utf-8?B?R1RiRjZrcmZha0NvQWlvTWRFVzFFT256N1BwWmp0S2g4MWNnc01lOUNsbHU4?=
+ =?utf-8?B?aGZZZVcyRFB5Q3VPZWJWeWhmMmlRdThjU0wxSXJ1TTFxckkwRGdDMGI5enY3?=
+ =?utf-8?B?OHV0eUI3YUp2aG9RQVN0dWVKNGJ1c1JJbHhmaERyQVJWRHlMV09Mc2ZmZzRP?=
+ =?utf-8?B?Ryt0dWp3VzlJeHhjUURXVnZqU0RpejQ5NkZtVzV4RFJYanU5Rm5RRlBkVkww?=
+ =?utf-8?B?dEZ0RE9nTkdrK2lOV1YveHhadGV2QU4yOCsyWnF5RDI3V2VkNTdwNi9UTVZO?=
+ =?utf-8?B?dVVFaDhvSFg4L3lKQUhVTXloRzdHYnBtcFZRZ2NtQ3N3YTdta21BVXA0UlFl?=
+ =?utf-8?B?Nm4waXpYd0VPYlVyeW1MOGxhKzc3NzZLNERsZFFvSU8xeUVMbk9pZnNlNkcx?=
+ =?utf-8?B?TnpucVZxeHlXSlY4ZFNIQWRzaUkybm5kZ1hPV3JqV1BQTE1IdjFnT0NZMmFI?=
+ =?utf-8?B?MzVIeDJxTWFwMzlmcWZaNnFWOVZRQzVYd1hSTE5PdHp1akRLZytkejB2cmlM?=
+ =?utf-8?B?dktUdGNaakhmVU5OWUNQYnZqTEsxanNObzMvb2VGMHdmeEhqUDBUVzAvemcy?=
+ =?utf-8?B?dVprcmdvN3dMMGJraktmUmtOVmpBd0x6MXhzMi9yYTlLYTRRSzZvT3p0OWYx?=
+ =?utf-8?B?UzIvMTFzWnlrWjV1UG5zRWxKcUpuVTR0Y3pyWGl4akNvaGlodmlPTjNIalFu?=
+ =?utf-8?B?SlY2L29SVDN3MnZDaXZDYnIvZi9QTVVjOW5kdmxUcWtvTzg1M2dZZnFsS1Rw?=
+ =?utf-8?B?WFNKMUI3amFLT05Qc1huOGlaVFd5QVpRSXpZbk1RaU5uY0k0ZmNYVnNEUFlX?=
+ =?utf-8?B?ZzFyWXoyU0lPZ3pWRHJzcmpDeFBsTENaT2NtV3BFUW53U3FzTTMzM1c5b3BZ?=
+ =?utf-8?B?UktYS3oyOHQ5M0ZTU1dLQkh5S2szUzdaLzQxM3AyUTE4V3dFcDE4QTA3WHdx?=
+ =?utf-8?B?QktoMSs4a2t1ZGRjWUJSTGhYSVpDZi80MmJmNzV5WHJPWXg5NTNoN29XcW16?=
+ =?utf-8?B?ZFQwcWhtMS9FSUtRZHhpbjZJL0IvY3AvL1I4MUwwV2VCcE5adUEvNXJCQXIr?=
+ =?utf-8?B?SWNCOVJ6UWdtNXhncmNPWDZ1eDBPeHd3elB4eVFIVytUd3FBdjdZREtHS1dK?=
+ =?utf-8?B?S2tGcitOaWVxQzZMbWRySFNxY1F6SmhEcXNMWDZRVGg1MVlsN2huSkFXeDVX?=
+ =?utf-8?B?QmJRUHZRR1B6YWtRTS95SU9lSElwa1lkc0NlQVo5Z1BveGNOT3FhUWtsTnJS?=
+ =?utf-8?B?a2VUSk5La3M1UGk5Q29MejJuRGxOUkxnTkhPNCtoMUhnREduOUlLUVM1UkxH?=
+ =?utf-8?B?Ym16ZllhY2xibEw4SUgwQW5yZDE5eFQvMkJaNFA0Rk9ma2tWM3BodzVGNGt2?=
+ =?utf-8?B?L1BaNVdtRzBuaTFmK0dhTTlmSnpMbWJOaWNsdUJrNVhHazNzUllSRDhjV1lm?=
+ =?utf-8?B?UDZVOTQ3VERPSjZ4WXJnRm5HQW9SaVlHb09FeDFxWTdFeW93eFhROUEzNGw0?=
+ =?utf-8?B?aStKUGRZNTdNYUN2L3BYWlVBOXdDWUlOanN5bjczRGhXL1dLSStURUJGR3VF?=
+ =?utf-8?B?MzZRTThrQ2NaR0Z3REMxRWtLWXAzRHo5UkN3UHJSQjVzdEtLcURLMVFQa21E?=
+ =?utf-8?B?NkEvVEJzTGFnRlJkTXNpQ2Vvd3pITHl3TU1wdEtJS2pCQlJkSk01bHBhekFP?=
+ =?utf-8?B?cVQ1empFSFlEOEV5YlpISlFOTjB5SXVVYWEyZW91cHppdHM5WnI3aGdyQ2cx?=
+ =?utf-8?B?TTQ0UE8vZEo3dlJGRTZVdkIwVnFyQWhDRm1sOXZra056NFZaaUdDd0ppMDBO?=
+ =?utf-8?B?NFlJaWdzdnpSdmh5cXp2VzNzUHBQbUNFMS8xTTZVUVYwUkhnKzJLcWU3bEwx?=
+ =?utf-8?B?S0x5cnRDa3p5M0hJRnhWMjltT1FEYjdqVW84SmJJR2Rkd1dObTZuaGRlRXJP?=
+ =?utf-8?B?RnAwRjF3Q0gvSXdOd0ZyaVB0Z0VwWnRNdkM1YXVLTnZ0ekNGcWZCbXNIZmRn?=
+ =?utf-8?B?QzhTeGpHVzlybERXZnNISFUxdFZNcG8wQmhILzR1VkhvaS9wZmhNR2VWeFIz?=
+ =?utf-8?B?NTRONlBoRGMrSDhNV0IzWW5FQkhDRGFPcUlBSHFKMHYvcE11NndTVHdXdUp6?=
+ =?utf-8?B?RnRvb29ITWxnTGFzay9mU1FETjFBWGFjeEVEZkFRWStlNnpZWnBlSGMrTzRF?=
+ =?utf-8?B?OWJvbUtoN0RSUFZOc091YzhQNnlIK3FycWdUemFIVTdxNDEwaGg0OUlLTlJT?=
+ =?utf-8?B?WElTcDJ0WjllUjdKRjc5MlNkMkg3WmZ3c2pUQ0dHelNHek9qenJhZVhpWFhR?=
+ =?utf-8?B?QjVuSmFPdHE1ODBEb1N4MzdROGpLam5HajhQRVRqeThPOWQxMXM2elFDRmxC?=
+ =?utf-8?B?SjNjQmVKa01qaEpRTWNiYjZHT3FETTJDbXJya2V0N3NueWdvVFNjOG5ha3JI?=
+ =?utf-8?Q?CUoYBjz67KfdPex873mvU3V?=
+MIME-Version: 1.0
+
+------=_Part_2394104_575539662.1695906750074
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+ =20
+
+Hi Steve,
+
+We have added new on-demand features to give you more control over your lis=
+tening experience. This is an addition to millions of songs ad-free in shuf=
+fle mode.   You can create your own playlist with your favourite songs and =
+listen with unlimited skips and offline. We=E2=80=99ve improved your select=
+ion of All-Access Playlists. These are playlists personalized for you and a=
+lways available to listen on-demand and offline. We=E2=80=99ve created a ne=
+w playlist just for you called =E2=80=98My Mix=E2=80=99. It refreshes daily=
+ based on your music tastes and listening history. Each week, we make selec=
+t new release albums from top artists available on-demand for a limited tim=
+e.  Learn how to manage your listening experience on the Amazon Music mobil=
+e app or web here.
+
+Learn more
+https://www.amazon.ca/music/i/ondemand-playlists
+
+For a complete list of Prime benefits, click here.
+=C2=A92023 Amazon.com.ca, Inc. or its affiliates. All rights reserved. Amaz=
+on, Amazon.ca, the Amazon logo and 1-Click are registered trademarks of Ama=
+zon.com.ca, Inc. or its affiliates. Amazon.ca, 410 Terry Avenue N., Seattle=
+, WA 98109-5210. If you have any questions and wish to contact us,<a href=
+=3D"https://www.amazon.ca/hz/contact-us/foresight/hubgateway" style=3D"font=
+-family: Arial,Helvetica,Sans-Serif; color: #bfbfbf">click here</a>.
+
+Amazon.ca
+------=_Part_2394104_575539662.1695906750074
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html lang=3D"en_CA" xmlns=3D"http://www.w3.org/1999/xhtml">=
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta content=3D"telephone=3Dno" name=3D"format-detection"><meta content=3D"w=
+idth=3Ddevice-width,initial-scale=3D1;user-scalable=3Dno;" name=3D"viewport=
+"><meta content=3D"IE=3D9; IE=3D8; IE=3D7; IE=3DEDGE" http-equiv=3D"X-UA-Co=
+mpatible"><meta name=3D"x-apple-disable-message-reformatting"><meta content=
+=3D"light dark" name=3D"color-scheme"><meta content=3D"light dark" name=3D"=
+supported-color-schemes"><style type=3D"text/css">@font-face{font-family:Em=
+ber;font-weight:700;src:local("Ember"),url(https://m.media-amazon.com/image=
+s/G/01/outbound/AmazonEmber_Bd._CB1515450239_.WOFF) format("woff")}@font-fa=
+ce{font-family:Ember;font-weight:600;src:local("Ember"),url(https://m.media=
+-amazon.com/images/G/01/outbound/AmazonEmber_Bd._CB1515450239_.WOFF) format=
+("woff")}@font-face{font-family:Ember;font-style:normal;font-weight:400;src=
+:local("Ember"),url(https://m.media-amazon.com/images/G/01/outbound/AmazonE=
+mber_Rg._CB1515450239_.WOFF) format("woff")}@font-face{font-family:Ember;fo=
+nt-weight:200;src:local("Ember"),url(https://m.media-amazon.com/images/G/01=
+/outbound/AmazonEmber_Lt._CB1515450239_.WOFF) format("woff")}@font-face{fon=
+t-family:Ember;font-weight:500;src:local("Ember"),url(https://m.media-amazo=
+n.com/images/G/01/outbound/AmazonEmber_Md._CB1515450239_.WOFF) format("woff=
+")}*{font-family:Ember,Helvetica,Arial,sans-serif;border-spacing:0;margin:0=
+;padding:0}[data-ogsc] :root{--body-bg:#181A1A;--body-color:#ffffff}.rootCo=
+ntent{background:#fff!important}.fonts,.sans,h1,h2,h3,h4,h5,li,p,table,td,t=
+h{color:#0f1111}a{color:#007185;text-decoration:none}@media screen and (max=
+-width:599px){.mobile-only{display:initial!important}.desktop-only{display:=
+none!important;mso-hide:all!important}}@media screen and (min-width:600px){=
+.mobile-only{display:none!important;mso-hide:all!important}}@media (prefers=
+-color-scheme:light){:root{--body-bg:#ffffff;--body-color:#000000}}@media (=
+prefers-color-scheme:dark){:root{--body-bg:#181A1A;--body-color:#ffffff}bod=
+y{background-color:#181a1a!important}.fonts,.sans,h1,h2,h3,h4,h5,li,p,table=
+,td,th{color:#fff}a{color:#6ed6e6}.rootContent{background:#181a1a!important=
+}}[data-ogsc] .fonts,[data-ogsc] .sans,[data-ogsc] h1,[data-ogsc] h2,[data-=
+ogsc] h3,[data-ogsc] h4,[data-ogsc] h5,[data-ogsc] li,[data-ogsc] p{color:#=
+fff}[data-ogsc] a{color:#6ed6e6}[data-ogsc] .rootContent{background:#181a1a=
+}body{background-color:var(--body-bg)!important;color:var(--body-color)!imp=
+ortant;margin:0!important;padding:0}body>img{position:absolute}table{border=
+-spacing:0}h3,h4,h5,table th{font-weight:400;margin:0;padding:0}td{padding:=
+0}img{border:0}a,span,td{word-break:keep-all!important}ol,ul{margin-left:32=
+px}.button{background-color:#ffd814;color:#0f1111;border-radius:24px;paddin=
+g:1px 16px;display:inline-block;box-shadow:1px 2px 4px rgba(153,153,153,.2)=
+;font-size:13px;line-height:29px;white-space:nowrap;text-decoration:none;ma=
+rgin-top:4px}a,body,table,td{-ms-text-size-adjust:100%;-webkit-text-size-ad=
+just:100%}.appleBody a,.appleFooter a{color:#007185!important;text-decorati=
+on:none}a[x-apple-data-detectors]{color:#007185!important;font-family:inher=
+it!important;font-size:inherit!important;font-weight:inherit!important;line=
+-height:inherit!important}u+#body a{color:#007185!important;font-family:inh=
+erit!important;font-size:inherit!important;font-weight:inherit!important;li=
+ne-height:inherit!important}#MessageViewBody a{color:#007185!important;font=
+-family:inherit!important;font-size:inherit!important;font-weight:inherit!i=
+mportant;line-height:inherit!important}</style><style type=3D"text/css">.pr=
+oductListPrice{color:#565959}.productDiscount{color:#cc0c39}.productPrice{c=
+olor:#0f1111}@media (prefers-color-scheme:dark){.productListPrice{color:#ff=
+f!important}.productDiscount{color:#ff8c8c!important}.productPrice{color:#f=
+ff!important}}[data-ogsc] .productListPrice{color:#fff!important}[data-ogsc=
+] .productDiscount{color:#ff8c8c!important}[data-ogsc] .productPrice{color:=
+#fff!important}</style><style type=3D"text/css">.dealBadge{background-color=
+:#cc0c39;color:#fff}.dealText{color:#cc0c39}@media (prefers-color-scheme:da=
+rk){.dealBadge{background-color:#ff8c8c!important;color:#000!important}.dea=
+lText{color:#ff8c8c!important}}[data-ogsc] .dealBadge{background-color:#ff8=
+c8c!important;color:#000!important}[data-ogsc] .dealText{color:#ff8c8c!impo=
+rtant}</style><style type=3D"text/css">#amazonLogojiXaoNHSEsdHEZ8meb8ZMh.fu=
+ll{max-width:100%!important;padding-left:0!important;padding-right:0!import=
+ant;width:100%!important}#amazonLogojiXaoNHSEsdHEZ8meb8ZMh.zeroBorder{borde=
+r:0;border-collapse:collapse;border-spacing:0}#amazonLogojiXaoNHSEsdHEZ8meb=
+8ZMh .full{max-width:100%!important;padding-left:0!important;padding-right:=
+0!important;width:100%!important}#amazonLogojiXaoNHSEsdHEZ8meb8ZMh .zeroBor=
+der{border:0;border-collapse:collapse;border-spacing:0}#amazonLogojiXaoNHSE=
+sdHEZ8meb8ZMh .light-img{background-color:#fff;background-image:linear-grad=
+ient(#fff,#fff)}@media (prefers-color-scheme:light){#amazonLogojiXaoNHSEsdH=
+EZ8meb8ZMh .light-img{display:block!important}#amazonLogojiXaoNHSEsdHEZ8meb=
+8ZMh .dark-img{display:none!important}}@media (prefers-color-scheme:dark){#=
+amazonLogojiXaoNHSEsdHEZ8meb8ZMh .content{background-color:#181a1a!importan=
+t}#amazonLogojiXaoNHSEsdHEZ8meb8ZMh .light-img{display:none!important}#amaz=
+onLogojiXaoNHSEsdHEZ8meb8ZMh .dark-img{display:block!important}}[data-ogsc]=
+ #amazonLogojiXaoNHSEsdHEZ8meb8ZMh .content{background-color:#181a1a!import=
+ant}[data-ogsc] #amazonLogojiXaoNHSEsdHEZ8meb8ZMh .light-img{display:none!i=
+mportant}[data-ogsc] #amazonLogojiXaoNHSEsdHEZ8meb8ZMh .dark-img{display:bl=
+ock!important}</style><style type=3D"text/css">#surveyCopy4YmQmc91wwoUr9dSP=
+9dnyU{margin-left:auto;margin-right:auto;width:100%;max-width:100%}#surveyC=
+opy4YmQmc91wwoUr9dSP9dnyU .zeroBorder{border:0;border-collapse:collapse;bor=
+der-spacing:0}#surveyCopy4YmQmc91wwoUr9dSP9dnyU .header{font-weight:700;fon=
+t-size:18px;line-height:22px}#surveyCopy4YmQmc91wwoUr9dSP9dnyU .description=
+{font-weight:400;font-size:15px;line-height:20px}#surveyCopy4YmQmc91wwoUr9d=
+SP9dnyU .button{background-color:#ffd814;color:#0f1111;border-radius:24px;p=
+adding:1px 16px;display:inline-block;box-shadow:1px 2px 4px rgba(153,153,15=
+3,.2);font-size:13px;line-height:29px;white-space:nowrap;text-decoration:no=
+ne;margin-top:4px}@media (prefers-color-scheme:dark){#surveyCopy4YmQmc91wwo=
+Ur9dSP9dnyU .content{background-color:#181a1a!important}#surveyCopy4YmQmc91=
+wwoUr9dSP9dnyU .description,#surveyCopy4YmQmc91wwoUr9dSP9dnyU .header{color=
+:#fff!important}}[data-ogsc] #surveyCopy4YmQmc91wwoUr9dSP9dnyU .content{bac=
+kground-color:#181a1a!important}[data-ogsc] #surveyCopy4YmQmc91wwoUr9dSP9dn=
+yU .description,[data-ogsc] #surveyCopy4YmQmc91wwoUr9dSP9dnyU .header{color=
+:#fff!important}</style><style type=3D"text/css">#transactionalCopytrCCE7j2=
+RFEeahrBbDbm6T{margin-left:auto;margin-right:auto;width:100%;max-width:100%=
+}#transactionalCopytrCCE7j2RFEeahrBbDbm6T .zeroBorder{border:0;border-colla=
+pse:collapse;border-spacing:0}#transactionalCopytrCCE7j2RFEeahrBbDbm6T .hea=
+der{font-weight:700;font-size:18px;line-height:22px}#transactionalCopytrCCE=
+7j2RFEeahrBbDbm6T .description{font-weight:400;font-size:15px;line-height:2=
+0px}#transactionalCopytrCCE7j2RFEeahrBbDbm6T img{width:100%;height:auto;bor=
+der-radius:4px}#transactionalCopytrCCE7j2RFEeahrBbDbm6T .button{background-=
+color:#ffd814;color:#0f1111;border-radius:24px;padding:1px 16px;display:inl=
+ine-block;box-shadow:1px 2px 4px rgba(153,153,153,.2);font-size:13px;line-h=
+eight:29px;white-space:nowrap;text-decoration:none;margin-top:4px}@media (p=
+refers-color-scheme:dark){#transactionalCopytrCCE7j2RFEeahrBbDbm6T .content=
+{background-color:#181a1a!important}#transactionalCopytrCCE7j2RFEeahrBbDbm6=
+T .description,#transactionalCopytrCCE7j2RFEeahrBbDbm6T .header{color:#fff!=
+important}}[data-ogsc] #transactionalCopytrCCE7j2RFEeahrBbDbm6T .content{ba=
+ckground-color:#181a1a!important}[data-ogsc] #transactionalCopytrCCE7j2RFEe=
+ahrBbDbm6T .description,[data-ogsc] #transactionalCopytrCCE7j2RFEeahrBbDbm6=
+T .header{color:#fff!important}</style><style type=3D"text/css">#transactio=
+nalFooter7SrKMPiuYN8ukCSKUcZKNo.full{max-width:100%!important;padding-left:=
+0!important;padding-right:0!important;width:100%!important}#transactionalFo=
+oter7SrKMPiuYN8ukCSKUcZKNo.zeroBorder{border:0;border-collapse:collapse;bor=
+der-spacing:0}#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .sans{font-family:=
+Ember,Helvetica,Arial,sans-serif;color:#494d4d}#transactionalFooter7SrKMPiu=
+YN8ukCSKUcZKNo .additionalText *,#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo=
+ p{color:#494d4d;font-size:14px;font-weight:400;line-height:20px;margin:0;t=
+ext-decoration:none}#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .footerlinks=
+ a,#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo a{color:#007185!important;tex=
+t-decoration:none}#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .full{max-widt=
+h:100%!important;padding-left:0!important;padding-right:0!important;width:1=
+00%!important}#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .zeroBorder{border=
+:0;border-collapse:collapse;border-spacing:0}#transactionalFooter7SrKMPiuYN=
+8ukCSKUcZKNo .light-img{background-color:#fff;background-image:linear-gradi=
+ent(#fff,#fff)}@media (prefers-color-scheme:light){#transactionalFooter7SrK=
+MPiuYN8ukCSKUcZKNo .light-img{display:block!important}#transactionalFooter7=
+SrKMPiuYN8ukCSKUcZKNo .dark-img{display:none!important}#transactionalFooter=
+7SrKMPiuYN8ukCSKUcZKNo .content{background-color:#f0f2f2!important}}@media =
+(prefers-color-scheme:dark){#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .lig=
+ht-img{display:none!important}#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .d=
+ark-img{display:block!important}#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo =
+.sans{color:#c8cccc!important}#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .a=
+dditionalText *{color:#c8cccc!important}#transactionalFooter7SrKMPiuYN8ukCS=
+KUcZKNo .footerlinks a,#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo a{color:#=
+6ed6e6!important}#transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .content{backgr=
+ound-color:#303333!important}}[data-ogsc] #transactionalFooter7SrKMPiuYN8uk=
+CSKUcZKNo .content{background-color:#303333!important}[data-ogsc] #transact=
+ionalFooter7SrKMPiuYN8ukCSKUcZKNo .light-img{display:none!important}[data-o=
+gsc] #transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .dark-img{display:block!imp=
+ortant}[data-ogsc] #transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .sans{color:#=
+c8cccc!important}[data-ogsc] #transactionalFooter7SrKMPiuYN8ukCSKUcZKNo .ad=
+ditionalText *{color:#c8cccc!important}[data-ogsc] #transactionalFooter7SrK=
+MPiuYN8ukCSKUcZKNo .footerlinks a,[data-ogsc] #transactionalFooter7SrKMPiuY=
+N8ukCSKUcZKNo a{color:#6ed6e6!important}</style><!--[if gte mso 9]>    <xml=
+>        <o:OfficeDocumentSettings>            <o:AllowPNG />            <o=
+:PixelsPerInch>96</o:PixelsPerInch>        </o:OfficeDocumentSettings>    <=
+/xml>    <style>        body, h1, h2, h3, h4, table, th, td, p, li, a, .san=
+s, .fonts {            font-family: Helvetica, Arial, sans-serif !important=
+;        }        [data-ogsc] .rootContent{          background: #181A1A !i=
+mportant;        }    </style>    <![endif]--></head><body class=3D"body"><=
+img width=3D"1" height=3D"1" src=3D"https://www.amazon.ca/gp/r.html?C=3D2CU=
+JQDATTQSK9&amp;K=3D15ODT8ZFYFIX3&amp;M=3Durn:rtn:msg:20230928131230548486ca=
+cf2b460889a872665aa0p0na&amp;R=3D3CNWI68LMFZAH&amp;T=3DO&amp;U=3Dhttps%3A%2=
+F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&am=
+p;H=3DXFAQBKAEQ6CUJCZSFRRXIOSNWYUA&amp;ref_=3Dpe_63241380_755296010_opens">=
+<div style=3D"display:none;max-height:0;overflow:hidden">Improvements to yo=
+ur on-demand listening=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=
+=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =
+=E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=
+=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =
+=C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=
+=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp=
+; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C =
+&nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=
+=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=
+=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=
+=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=
+=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =
+=E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &n=
+bsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=
+=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =
+=E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=
+=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =
+=C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=
+=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp=
+; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C =
+&nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=
+=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=
+=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=
+=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=
+=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =
+=E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &n=
+bsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=
+=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =
+=E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=
+=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =
+=C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=
+=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp=
+; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C =
+&nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=
+=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=
+=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=
+=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=
+=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =
+=E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &n=
+bsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=
+=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =
+=E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=
+=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =
+=C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=
+=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp=
+; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C =
+&nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=
+=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=
+=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=
+=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=
+=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =
+=E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &n=
+bsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=
+=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =E2=80=8C &nbsp; =E2=80=87 =C2=AD=CD=8F =
+=E2=80=8C &nbsp; =E2=80=87 =C2=AD</div><!--[if (gte mso 9)|(IE)]><table    =
+align=3D"center"    class=3D"zeroBorder"    width=3D"600"    style=3D"margi=
+n-left: auto; margin-right: auto; width: 600px;">    <tbody width=3D"600"> =
+   <tr>        <td width=3D"600" style=3D"width: 600px;"><![endif]--><table=
+ class=3D"zeroBorder" style=3D"margin-left:auto;margin-right:auto;width:100=
+%" role=3D"presentation"><tbody><tr><td width=3D"600"><table width=3D"600" =
+role=3D"presentation" class=3D"sans zeroBorder" style=3D"width:100%;max-wid=
+th:600px;margin:0 auto"><tbody><tr><td class=3D"rootContent" style=3D"backg=
+round-color:#fff"><table role=3D"presentation" style=3D"width:100%"><tr><td=
+><tr><td style=3D"padding-top:0;padding-bottom:4px"><!-- LOGO --><!-- PRIME=
+ LOGO --><!-- ALEXA LOGO --><table id=3D"amazonLogojiXaoNHSEsdHEZ8meb8ZMh" =
+class=3D"full zeroBorder" style=3D"width:100%" role=3D"presentation"><tbody=
+><tr><td class=3D"content" style=3D"padding:16px 16px 12px 16px; text-align=
+:left; background-color: #FFFFFF"><a href=3D"https://na01.safelinks.protect=
+ion.outlook.com/?url=3Dhttps%3A%2F%2Fwww.amazon.ca%2Fgp%2Fr.html%3FC%3D2CUJ=
+QDATTQSK9%26K%3D15ODT8ZFYFIX3%26M%3Durn%3Artn%3Amsg%3A20230928131230548486c=
+acf2b460889a872665aa0p0na%26R%3D2EUV2S5HSRV1A%26T%3DC%26U%3Dhttp%253A%252F%=
+252Fwww.amazon.ca%26H%3D1DIW6EQHAXM1A0BKP5AW78LBRF4A&amp;data=3D05%7C01%7C%=
+7C1803f4c2d4d44f8f177a08dbc024921b%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7=
+C0%7C638315035533063775%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3DpPE66lv=
+U0Oh9zBqbKhqpnq9b3EHSFV5HeXEk3v5rG%2FE%3D&amp;reserved=3D0" originalsrc=3D"=
+https://www.amazon.ca/gp/r.html?C=3D2CUJQDATTQSK9&amp;K=3D15ODT8ZFYFIX3&amp=
+;M=3Durn:rtn:msg:20230928131230548486cacf2b460889a872665aa0p0na&amp;R=3D2EU=
+V2S5HSRV1A&amp;T=3DC&amp;U=3Dhttp%3A%2F%2Fwww.amazon.ca&amp;H=3D1DIW6EQHAXM=
+1A0BKP5AW78LBRF4A" shash=3D"C5s/ifGZhceA+g8KuB/eeKedFmhRUV9FfQiT1nwRR9eXZeP=
+WXfr9Z1UiM+mQCQgLkrd651uePIm9K/cyqLA0ISuLLAWnezTiHgTa7d4D74LQVhR1QL/YHl5U1D=
+Ycco97pi5o0CkNuIlHHqhHYO4qHPCpcklaXvuCxdOmVu2T7cU=3D" target=3D"_blank"><im=
+g class=3D"light-img" height=3D"30" role=3D"presentation" src=3D"https://m.=
+media-amazon.com/images/G/01/automated/2022/amazon_ca_half_logo_RGB_SQUID.p=
+ng" style=3D"width:auto; height:30px; max-width:100%; display:block; border=
+:0; float:left; background-color: #ffffff;" alt=3D""><!--[if !mso]><! --> <=
+img class=3D"dark-img" height=3D"30" role=3D"presentation" src=3D"https://m=
+.media-amazon.com/images/G/01/automated/2022/amazon_ca_half_logo_RGB_WHITE.=
+png" style=3D"display:none; width:auto; height:30px; max-width:100%; border=
+:0; float:left;" alt=3D""><!--<![endif]--></a></td></tr></tbody></table></t=
+d></tr><tr><td style=3D"padding-top:4px;padding-bottom:4px"> <table id=3D"s=
+urveyCopy4YmQmc91wwoUr9dSP9dnyU" class=3D"zeroBorder" role=3D"presentation"=
+ style=3D"width:100%"><tbody><tr><td style=3D"padding:0 8px"><table style=
+=3D"width:100%" role=3D"presentation"><tbody><tr><td class=3D"content" styl=
+e=3D"padding:12px 8px 16px;background-color:#fff;border-radius:4px;width:10=
+0%"><table style=3D"width:100%" role=3D"presentation"><tbody><tr><td style=
+=3D"padding-bottom:20px"><h2 style=3D"word-break:break-word!important" clas=
+s=3D"fonts header">Hi Steve,</h2></td></tr><tr><td style=3D"padding-bottom:=
+12px" class=3D"fonts description"><p style=3D"word-break:break-word!importa=
+nt" class=3D"fonts description">We have added new on-demand features to giv=
+e you more control over your listening experience. This is an addition to m=
+illions of songs ad-free in shuffle mode.=20
+<br>
+<br>=20
+<ul>=20
+ <li>You can create your own playlist with your favourite songs and listen =
+with unlimited skips and offline.</li>=20
+ <li>We=E2=80=99ve improved your selection of All-Access Playlists. These a=
+re playlists personalized for you and always available to listen on-demand =
+and offline.</li>=20
+ <li>We=E2=80=99ve created a new playlist just for you called =E2=80=98My M=
+ix=E2=80=99. It refreshes daily based on your music tastes and listening hi=
+story.</li>=20
+ <li>Each week, we make select new release albums from top artists availabl=
+e on-demand for a limited time.</li>=20
+</ul>
+<br>=20
+<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%2Fwww.amazon.ca%2Fgp%2Ff.html%3FC%3D2CUJQDATTQSK9%26K%3D15ODT8ZFYFIX3%26M%=
+3Durn%3Artn%3Amsg%3A20230928131230548486cacf2b460889a872665aa0p0na%26R%3D3I=
+Q7JN0UGMW56%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.ca%252Fmusic%252Fi=
+%252Fondemand-playlists%253Fref_%253Dpe_63241380_755296010%26H%3D277VIBKJLN=
+ZYODA2BNUFPMRAWKOA%26ref_%3Dpe_63241380_755296010&amp;data=3D05%7C01%7C%7C1=
+803f4c2d4d44f8f177a08dbc024921b%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%=
+7C638315035533063775%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2=
+luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3DzGwHpkE6ix=
+YZ%2FBsWfSbUq8kS4RtwbgorTA6micvObn8%3D&amp;reserved=3D0" originalsrc=3D"htt=
+ps://www.amazon.ca/gp/f.html?C=3D2CUJQDATTQSK9&amp;K=3D15ODT8ZFYFIX3&amp;M=
+=3Durn:rtn:msg:20230928131230548486cacf2b460889a872665aa0p0na&amp;R=3D3IQ7J=
+N0UGMW56&amp;T=3DC&amp;U=3Dhttps%3A%2F%2Fwww.amazon.ca%2Fmusic%2Fi%2Fondema=
+nd-playlists%3Fref_%3Dpe_63241380_755296010&amp;H=3D277VIBKJLNZYODA2BNUFPMR=
+AWKOA&amp;ref_=3Dpe_63241380_755296010" shash=3D"NmKEwIZzv6Ien7byvbkeK5433o=
+XZkARZz3zFxNDa3UzNxdAThtcf6Wqt2idTMb4AOV2rVeRbj5oM6w9XlADS8+WlZjtSrY9hQ8spb=
+GFopA7gSyTA6IDO/TUl2q/Bs0svLSqImiLd8ALETnR7ITpW9fAwVmEM5Ql0IA5kiHvgjdA=3D" =
+rel=3D"nofollow">Learn how to manage your listening experience on the Amazo=
+n Music mobile app or web here.</a></p></td></tr><tr><td class=3D"fonts"><!=
+--[if mso]><v:roundrect  arcsize=3D"24px"  fillcolor=3D"#FFD814"  stroke=3D=
+"f"  style=3D"border:0;width:180px;height:32px;v-text-anchor:middle;"  xmln=
+s:v=3D"urn:schemas-microsoft-com:vml"  xmlns:w=3D"urn:schemas-microsoft-com=
+:office:word">  <w:anchorlock/>  <v:textbox inset=3D"0,0,0,0">    <center><=
+![endif]--> <a aria-describedby=3D"Learn more" class=3D"button" target=3D"_=
+blank" href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3=
+A%2F%2Fwww.amazon.ca%2Fgp%2Ff.html%3FC%3D2CUJQDATTQSK9%26K%3D15ODT8ZFYFIX3%=
+26M%3Durn%3Artn%3Amsg%3A20230928131230548486cacf2b460889a872665aa0p0na%26R%=
+3DEM3PUKEQHARN%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.ca%252Fmusic%25=
+2Fi%252Fondemand-playlists%253Fref_%253Dpe_63241380_755296010%26H%3D5ASQFBT=
+HCPHAXOHPARDQKHTYJQQA%26ref_%3Dpe_63241380_755296010&amp;data=3D05%7C01%7C%=
+7C1803f4c2d4d44f8f177a08dbc024921b%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7=
+C0%7C638315035533063775%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D8gWUkEz=
+a1AOxnFvM3oGq2rSQ%2BzZTKEFn6aoJXZcF17Y%3D&amp;reserved=3D0" originalsrc=3D"=
+https://www.amazon.ca/gp/f.html?C=3D2CUJQDATTQSK9&amp;K=3D15ODT8ZFYFIX3&amp=
+;M=3Durn:rtn:msg:20230928131230548486cacf2b460889a872665aa0p0na&amp;R=3DEM3=
+PUKEQHARN&amp;T=3DC&amp;U=3Dhttps%3A%2F%2Fwww.amazon.ca%2Fmusic%2Fi%2Fondem=
+and-playlists%3Fref_%3Dpe_63241380_755296010&amp;H=3D5ASQFBTHCPHAXOHPARDQKH=
+TYJQQA&amp;ref_=3Dpe_63241380_755296010" shash=3D"Xk9/BAtPhdk0ZSvNBh5TI8W2t=
+aaMwXeTth6h7bNHTgHzRhCo1W+YctmjJg0EXKfIa+cQPnn8tsvisuTMgM7YO21G5myEAQWqee1p=
+EjBO85iosVPVWzihEVNlyo577wtTBK/0w+EGoJeOmqo2cCrgfA1kS752NRCfaO/pZBX5Cvc=3D"=
+ style=3D"text-decoration:none"><span style=3D"text-decoration:none">Learn =
+more </span></a><!--[if mso]>    </center>    </v:textbox>    </v:roundrect=
+>    <![endif]--></td></tr></tbody></table></td></tr></tbody></table></td><=
+/tr></tbody></table></td></tr><tr><td style=3D"padding-top:4px;padding-bott=
+om:4px"> <table id=3D"transactionalCopytrCCE7j2RFEeahrBbDbm6T" class=3D"zer=
+oBorder" role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D=
+"padding:0 8px"><table style=3D"width:100%" role=3D"presentation"><tbody><t=
+r><td class=3D"content" style=3D"padding:12px 8px 16px;background-color:#ff=
+f;border-radius:4px;width:100%"><table style=3D"width:100%" role=3D"present=
+ation"><tbody><tr><td style=3D"padding-bottom:12px;word-break:break-word!im=
+portant" class=3D"fonts description">For a complete list of Prime benefits,=
+ click=20
+<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%2Fwww.amazon.ca%2Fgp%2Fr.html%3FC%3D2CUJQDATTQSK9%26K%3D15ODT8ZFYFIX3%26M%=
+3Durn%3Artn%3Amsg%3A20230928131230548486cacf2b460889a872665aa0p0na%26R%3D1Z=
+VWGLJVVXJGX%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.ca%252Famazonprime=
+%253Fref_%253Dpe_63241380_755296010%26H%3DCSPPKOZBE1PG8SM89NXOHDD8CUUA%26re=
+f_%3Dpe_63241380_755296010&amp;data=3D05%7C01%7C%7C1803f4c2d4d44f8f177a08db=
+c024921b%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638315035533063775%7C=
+Unknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiL=
+CJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3DjnWbiJTQilnjCXmic4cXrfLtOC4zSVd1V=
+TRubMJneps%3D&amp;reserved=3D0" originalsrc=3D"https://www.amazon.ca/gp/r.h=
+tml?C=3D2CUJQDATTQSK9&amp;K=3D15ODT8ZFYFIX3&amp;M=3Durn:rtn:msg:20230928131=
+230548486cacf2b460889a872665aa0p0na&amp;R=3D1ZVWGLJVVXJGX&amp;T=3DC&amp;U=
+=3Dhttps%3A%2F%2Fwww.amazon.ca%2Famazonprime%3Fref_%3Dpe_63241380_755296010=
+&amp;H=3DCSPPKOZBE1PG8SM89NXOHDD8CUUA&amp;ref_=3Dpe_63241380_755296010" sha=
+sh=3D"v7BjCPqjB5dHxv8ubClNN5sywtXSNS8hfGSPPvtOoLqXB19M+VM8eXgmgqyUSiphMolwk=
+hGPQ+vnCMBAYXQBiX/4tWHpO7sDdCyN4gL8WfFUnFqkauJsVld4j6g9ODQg9Kdf9CBn5a/zNqQT=
+GbymwgKABxJNsO1TL/j6+s29AVQ=3D" rel=3D"nofollow">here</a>.</td></tr></tbody=
+></table></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr>=
+<td style=3D"padding-top:4px;padding-bottom:0"> <table id=3D"transactionalF=
+ooter7SrKMPiuYN8ukCSKUcZKNo" class=3D"zeroBorder footer" style=3D"margin-le=
+ft:auto;margin-right:auto;width:100%" role=3D"presentation"><tbody><tr><td =
+class=3D"content" style=3D"background-color:#f0f2f2"><table role=3D"present=
+ation"><tbody><tr><td style=3D"padding:32px 16px 0;word-break:break-word!im=
+portant"><p class=3D"sans footerlinks" style=3D"word-break:break-word!impor=
+tant">=C2=A92023 Amazon.com.ca, Inc. or its affiliates. All rights reserved=
+. Amazon, Amazon.ca, the Amazon logo and 1-Click are registered trademarks =
+of Amazon.com.ca, Inc. or its affiliates. Amazon.ca, 410 Terry Avenue N., S=
+eattle, WA 98109-5210. If you have any questions and wish to contact us,<a =
+href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2F=
+www.amazon.ca%2Fgp%2Ff.html%3FC%3D2CUJQDATTQSK9%26K%3D15ODT8ZFYFIX3%26M%3Du=
+rn%3Artn%3Amsg%3A20230928131230548486cacf2b460889a872665aa0p0na%26R%3D27WBH=
+FZBJXEJ2%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.ca%252Fhz%252Fcontact=
+-us%252Fforesight%252Fhubgateway%253Fref_%253Dpe_63241380_755296010%26H%3DM=
+K3YR3UEF98KRK5HR0DIUGF06IMA%26ref_%3Dpe_63241380_755296010&amp;data=3D05%7C=
+01%7C%7C1803f4c2d4d44f8f177a08dbc024921b%7C84df9e7fe9f640afb435aaaaaaaaaaaa=
+%7C1%7C0%7C638315035533063775%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiL=
+CJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3DC=
+FeK30%2FREAKEcKMUa9lZ6ClRe%2FIVorciW0B7rAx1RLU%3D&amp;reserved=3D0" origina=
+lsrc=3D"https://www.amazon.ca/gp/f.html?C=3D2CUJQDATTQSK9&amp;K=3D15ODT8ZFY=
+FIX3&amp;M=3Durn:rtn:msg:20230928131230548486cacf2b460889a872665aa0p0na&amp=
+;R=3D27WBHFZBJXEJ2&amp;T=3DC&amp;U=3Dhttps%3A%2F%2Fwww.amazon.ca%2Fhz%2Fcon=
+tact-us%2Fforesight%2Fhubgateway%3Fref_%3Dpe_63241380_755296010&amp;H=3DMK3=
+YR3UEF98KRK5HR0DIUGF06IMA&amp;ref_=3Dpe_63241380_755296010" shash=3D"hyFKhA=
+jthh6UzrtHVa4YbNC/W+GgVJfcRW7EE3C6H/GEXv+otz93XF1MOSYMkxsMjowc7TRNJjyfeXNtD=
+lk6SpgW+z6gm0Dencq3ygfp2AsDVycfYCh22NVvWmpN8U7P7lj4WZU8uKpJ+gcivD74qcqaZyZf=
+uEIukbJOeHJwZwM=3D" style=3D"font-family: Arial,Helvetica,Sans-Serif; color=
+: #bfbfbf">click here</a>.</p></td></tr><tr><td style=3D"padding:36px 16px =
+36px"><img class=3D"light-img" height=3D"12" role=3D"presentation" src=3D"h=
+ttps://m.media-amazon.com/images/G/01/automated/2022/Smile_logo_US.png" sty=
+le=3D"width:auto;height:12px;max-width:100%;display:block;border:0;float:le=
+ft;background-color:#f0f2f2;background-image:linear-gradient(#f0f2f2,#f0f2f=
+2)" alt=3D"Amazon.ca"><!--[if !mso]><! --> <img class=3D"dark-img" style=3D=
+"display:none;width:auto;height:12px;max-width:100%;border:0;float:left" he=
+ight=3D"12" role=3D"presentation" src=3D"https://m.media-amazon.com/images/=
+G/01/automated/2022/Smile_Mark_RGB_WHITE.png" alt=3D"Amazon.ca"><!--<![endi=
+f]--></td></tr></tbody></table></td></tr></tbody></table></td></tr></td></t=
+r></table></td></tr></tbody></table></td></tr></tbody></table><!--[if (gte =
+mso 9)|(IE)]></td></tr></tbody></table><![endif]--><img width=3D"1" height=
+=3D"1" src=3D"https://www.amazon.ca/gp/r.html?C=3D2CUJQDATTQSK9&amp;K=3D15O=
+DT8ZFYFIX3&amp;M=3Durn:rtn:msg:20230928131230548486cacf2b460889a872665aa0p0=
+na&amp;R=3D2QFMNSLN5L41O&amp;T=3DE&amp;U=3Dhttps%3A%2F%2Fimages-na.ssl-imag=
+es-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&amp;H=3D6QMEALIXLEXIAOXJ=
+FJX6QU3AIZGA&amp;ref_=3Dpe_63241380_755296010_open"></body></html>=
+
+------=_Part_2394104_575539662.1695906750074--

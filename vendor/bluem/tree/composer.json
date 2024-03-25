@@ -1,0 +1,27 @@
+{
+    "name": "bluem/tree",
+    "type": "library",
+    "description": "Library for handling tree structures based on parent IDs",
+    "keywords": ["tree", "hierarchical"],
+    "homepage": "https://github.com/BlueM/Tree",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Carsten Blüm",
+            "email": "carsten@bluem.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.3 || >=8.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {"BlueM\\": "src/"}
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=8.0 || >=9.0"
+    }
+}

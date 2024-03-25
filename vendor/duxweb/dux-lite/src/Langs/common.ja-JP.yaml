@@ -1,0 +1,30 @@
+encryption:
+  failure: 暗号化に失敗しました
+message:
+  emptyData: データがありません
+  create: 作成成功
+  edit: 編集成功
+  delete: 削除成功
+  store: 保存成功
+  trash: 完全に削除しました
+  restore: 復元成功
+resources:
+  list: リスト
+  show: 詳細
+  create: 作成
+  edit: 編集
+  delete: 削除
+  deleteMany: 一括削除
+  store: 更新
+  trash: 完全削除
+  restore: 復元
+validate:
+  placeholder: %name%を入力してください
+  select: %name%を選択してください
+error:
+  notFound: ページが見つかりません
+  notFoundMessage: アクセスしたページは存在しないか、削除されています
+  errorTitle: エラーが発生しました
+  errorMessage: 操作中にエラーが発生しました。後でもう一度お試しください
+  home: ホームに戻る
+  back: 前のページに戻る

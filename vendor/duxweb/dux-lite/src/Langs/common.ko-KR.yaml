@@ -1,0 +1,30 @@
+encryption:
+  failure: 암호화 실패
+message:
+  emptyData: 데이터 없음
+  create: 생성 성공
+  edit: 편집 성공
+  delete: 삭제 성공
+  store: 저장 성공
+  trash: 완전히 삭제 성공
+  restore: 복원 성공
+resources:
+  list: 목록
+  show: 상세
+  create: 생성
+  edit: 편집
+  delete: 삭제
+  deleteMany: 일괄 삭제
+  store: 업데이트
+  trash: 완전히 삭제
+  restore: 복원
+validate:
+  placeholder: %name%을(를) 입력하세요
+  select: %name%을(를) 선택하세요
+error:
+  notFound: 페이지가 존재하지 않습니다
+  notFoundMessage: 방문하신 페이지가 존재하지 않거나 삭제되었습니다
+  errorTitle: 작업 오류
+  errorMessage: 작업 중 오류가 발생했습니다. 나중에 다시 시도해 주세요
+  home: 홈페이지로 돌아가기
+  back: 이전 페이지로 돌아가기

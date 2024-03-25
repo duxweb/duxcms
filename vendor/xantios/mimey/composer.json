@@ -1,0 +1,32 @@
+{
+    "name": "xantios/mimey",
+    "description": "PHP package for converting file extensions to MIME types and vice versa.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Xantios Krugor",
+            "email": "git@xantios.nl"
+        },
+        {
+            "name": "Ralph Khattar",
+            "email": "ralph.khattar@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4",
+        "php-coveralls/php-coveralls": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mimey\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mimey\\Tests\\": "tests/src/"
+        }
+    }
+}

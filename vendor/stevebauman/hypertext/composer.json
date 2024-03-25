@@ -1,0 +1,29 @@
+{
+    "name": "stevebauman/hypertext",
+    "description": "The best HTML to text transformer",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Stevebauman\\Hypertext\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Steve Bauman",
+            "email": "steven_bauman@outlook.com"
+        }
+    ],
+    "require": {
+        "ezyang/htmlpurifier": "^4.16"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.24",
+        "spatie/ray": "^1.39"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

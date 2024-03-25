@@ -866,12 +866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxweb/dux-lite.git",
-                "reference": "e109ba13c15e4bcf50e6a0c801a1c7c007547902"
+                "reference": "027f22e81d0e5a2a66f6fa4468b0168e936f65bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/e109ba13c15e4bcf50e6a0c801a1c7c007547902",
-                "reference": "e109ba13c15e4bcf50e6a0c801a1c7c007547902",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/027f22e81d0e5a2a66f6fa4468b0168e936f65bb",
+                "reference": "027f22e81d0e5a2a66f6fa4468b0168e936f65bb",
                 "shasum": ""
             },
             "require": {
@@ -882,11 +882,6 @@
                 "enqueue/redis": "^0.10.19",
                 "ext-bcmath": "*",
                 "ext-curl": "*",
-                "ext-fileinfo": "*",
-                "ext-json": "*",
-                "ext-openssl": "*",
-                "ext-pdo": "*",
-                "ext-redis": "*",
                 "ext-zip": "*",
                 "ezyang/htmlpurifier": "^4.17",
                 "godruoyi/php-snowflake": "^2.2",
@@ -909,7 +904,7 @@
                 "overtrue/flysystem-cos": "^5.1",
                 "overtrue/flysystem-qiniu": "^3.2",
                 "peppeocchi/php-cron-scheduler": "^4.0",
-                "php": ">=8.1",
+                "php": ">=8.2",
                 "php-di/php-di": "^6.4.0",
                 "phpfastcache/phpfastcache": "^9.1",
                 "phpoffice/phpspreadsheet": "^1.26",
@@ -965,7 +960,7 @@
                 "issues": "https://github.com/duxweb/dux-lite/issues",
                 "source": "https://github.com/duxweb/dux-lite"
             },
-            "time": "2024-03-20T08:48:13+00:00"
+            "time": "2024-03-25T07:57:04+00:00"
         },
         {
             "name": "enqueue/dsn",
@@ -3145,16 +3140,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.25.1",
+            "version": "3.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "abbd664eb4381102c559d358420989f835208f18"
+                "reference": "072735c56cc0da00e10716dd90d5a7f7b40b36be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/abbd664eb4381102c559d358420989f835208f18",
-                "reference": "abbd664eb4381102c559d358420989f835208f18",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/072735c56cc0da00e10716dd90d5a7f7b40b36be",
+                "reference": "072735c56cc0da00e10716dd90d5a7f7b40b36be",
                 "shasum": ""
             },
             "require": {
@@ -3219,7 +3214,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.25.1"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.26.0"
             },
             "funding": [
                 {
@@ -3231,7 +3226,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-16T12:53:19+00:00"
+            "time": "2024-03-25T11:49:53+00:00"
         },
         {
             "name": "league/flysystem-local",

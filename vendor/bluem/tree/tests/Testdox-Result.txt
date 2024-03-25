@@ -1,0 +1,67 @@
+BlueM\Tree\Node
+ [x] The previous sibling can be retrieved
+ [x] Trying to get the previous sibling returns null when called on the first node
+ [x] The next sibling can be retrieved
+ [x] All siblings can be retrieved
+ [x] All siblings can be retrieved including the node itself
+ [x] All siblings can be retrieved when mixed data types are used for the ids
+ [x] The child nodes can be retrieved
+ [x] When trying to get the child nodes an empty array is returned if there are no child nodes
+ [x] A node can tell how many children it has
+ [x] A node can tell if it has any child nodes
+ [x] The parent node can be retrieved
+ [x] Trying to get the parent returns null for the root node
+ [x] A child can be attached to a node
+ [x] The node id can be retrieved
+ [x] A node property can be fetched using method get
+ [x] Trying to get a non existent property using get throws an exception
+ [x] A node property can be fetched using magic method
+ [x] Trying to get a non existent property using magic method throws an exception
+ [x] The existence of a property can be checked using isset function
+ [x] Node properties are handled case insensitively
+ [x] The properties can be access using magic properties
+ [x] An exception is thrown when accessing an inexistent magic property
+ [x] The properties can be fetched as an array
+ [x] When serializing a node to json its array representation is used
+ [x] In scalar context the node is typecasted to its id
+ [x] The level of a root node is 0
+ [x] A node 2 levels below the root node has level 2
+ [x] The root nodes ancestors is an empty array
+ [x] A nodes ancestors can be retrieved
+ [x] A nodes ancestors can be retrieved including the node itself
+ [x] A nodes descendants can be retrieved
+ [x] A nodes descendants can be retrieved including the node itself
+
+BlueM\Tree\Serializer\FlatTreeJsonSerializer
+ [x] Serialization happens by calling get nodes method on the tree
+
+BlueM\Tree\Serializer\HierarchicalTreeJsonSerializer
+ [x] Serializes to a hierarchical array
+
+BlueM\Tree
+ [x] An exception is thrown if a non scalar value should be used as root id
+ [x] An exception is thrown if a non string value should be used as id field name
+ [x] An exception is thrown if a non string value should be used as parent id field name
+ [x] An exception is thrown if a non object should be used as serializer
+ [x] The serializer can be set to an object implementing serializerinterface
+ [x] The root nodes can be retrieved
+ [x] The root nodes can be retrieved when the ids are strings
+ [x] The tree can be rebuilt from new data
+ [x] An exception is thrown when trying to create a tree from unusable data
+ [x] A tree can be created from an iterable
+ [x] A tree can be created from an array of objects implementing iterator
+ [x] The tree can be serialized to a json representation from which a tree with the same data can be built when decoded
+ [x] All nodes can be retrieved
+ [x] All nodes can be retrieved when node ids are strings
+ [x] A node can be accessed by its integer id
+ [x] A node can be accessed by its string id
+ [x] Trying to get a node by its id throws an exception if the id is invalid
+ [x] A node can be accessed by its value path
+ [x] Trying to get a node by its value path returns null if no node matches
+ [x] In scalar context the tree is returned as a string
+ [x] An exception is thrown when an invalid parent id is referenced
+ [x] An exception is thrown when a node would be its own parent
+ [x] An exception is thrown when a node would be its own parent when own id and parent id have different types
+ [x] When mixing numeric and string ids no exception is thrown due to implicit typecasting
+ [x] Clients can supply differing names for id and parent id in input data
+

@@ -1,0 +1,17 @@
+language: php
+
+php:
+  - 7.3
+  - 7.4
+  - 8.0
+  - nightly
+
+before_script:
+  - composer install
+
+script:
+  - mkdir -p build/logs
+  - vendor/bin/phpunit
+
+after_script:
+  - vendor/bin/coveralls -v

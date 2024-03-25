@@ -1,0 +1,30 @@
+encryption:
+  failure: 加密失败
+message:
+  emptyData: 空数据
+  create: 创建成功
+  edit: 编辑成功
+  delete: 删除成功
+  store: 保存成功
+  trash: 彻底删除成功
+  restore: 恢复成功
+resources:
+  list: 列表
+  show: 详情
+  create: 创建
+  edit: 编辑
+  delete: 删除
+  deleteMany: 批量删除
+  store: 更新
+  trash: 彻底删除
+  restore: 恢复
+validate:
+  placeholder: 请输入%name%
+  select: 请选择%name%
+error:
+  notFound: 页面不存在
+  notFoundMessage: 您访问的页面不存在或者已被删除
+  errorTitle: 操作错误
+  errorMessage: 操作遇到了错误，请稍后再试
+  home: 回到首页
+  back: 返回上一页
