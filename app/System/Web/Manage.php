@@ -5,9 +5,6 @@ namespace App\System\Web;
 use Dux\App;
 use Dux\Route\Attribute\Route;
 use Dux\Route\Attribute\RouteGroup;
-use Dux\Validator\Validator;
-use Exception;
-use Imagick;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -27,12 +24,10 @@ class Manage
         $data = json_decode(file_get_contents(public_path('/web/.vite/manifest.json')) ?: '', true);
         $vite = App::config('use')->get('vite', []);
         $lang = App::config('use')->get('lang', 'en-US');
-        $sideType = App::config('use')->get('sideType', 'app');
 
         $assign = [
             "title" => App::config('use')->get('app.name'),
             "lang" => $lang,
-            "sideType" => $sideType,
             'vite' => [
                 'dev' => (bool)$vite['dev'],
                 'port' => $vite['port'] ?: 5173,
@@ -40,7 +35,12 @@ class Manage
             'manifest' => [
                 'js' => $data['src/index.tsx']['file'],
                 'css' => $data['style.css']['file'],
-            ]
+            ],
+            'manage' => [
+                'indexName' => App::config('use')->get('manage.indexName', 'system'),
+                'sideType' => App::config('use')->get('manage.sideType', 'app'),
+                'baiduMap' => App::config('use')->get('manage.baiduMap', ''),
+            ],
         ];
 
         $html = $view->renderToString(dirname(__DIR__) . "/Views/Web/manage.html", $assign);

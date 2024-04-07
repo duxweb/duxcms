@@ -5,6 +5,15 @@ cloud:
     validator:
       notLogin: 暫未登入，請先進行登入
       username: 請輸入用戶名密碼
+      name: 請輸入應用名
+      password: 請輸入密碼
+      passwordError: 密碼輸入錯誤
     alert:
       login: 登入成功
+    login:
+      name: 登入
+    install:
+      name: 安裝
+    update:
+      name: 更新
 

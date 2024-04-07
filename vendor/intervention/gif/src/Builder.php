@@ -96,10 +96,16 @@ class Builder
      * @param float $delay time delay in seconds
      * @param int $left position offset in pixels from left
      * @param int $top position offset in pixels from top
+     * @param bool $interlaced
      * @return Builder
      */
-    public function addFrame(string $source, float $delay = 0, int $left = 0, int $top = 0): self
-    {
+    public function addFrame(
+        string $source,
+        float $delay = 0,
+        int $left = 0,
+        int $top = 0,
+        bool $interlaced = false
+    ): self {
         $frame = new FrameBlock();
         $source = Decoder::decode($source);
 
@@ -113,7 +119,7 @@ class Builder
 
         // store image
         $frame->setTableBasedImage(
-            $this->buildTableBasedImage($source, $left, $top)
+            $this->buildTableBasedImage($source, $left, $top, $interlaced)
         );
 
         // add frame
@@ -156,10 +162,15 @@ class Builder
      * @param GifDataStream $source
      * @param int $left
      * @param int $top
+     * @param bool $interlaced
      * @return TableBasedImage
      */
-    protected function buildTableBasedImage(GifDataStream $source, int $left, int $top): TableBasedImage
-    {
+    protected function buildTableBasedImage(
+        GifDataStream $source,
+        int $left,
+        int $top,
+        bool $interlaced
+    ): TableBasedImage {
         $block = new TableBasedImage();
         $block->setImageDescriptor(new ImageDescriptor());
 
@@ -182,6 +193,9 @@ class Builder
 
         // set position
         $block->getImageDescriptor()->setPosition($left, $top);
+
+        // set interlaced flag
+        $block->getImageDescriptor()->setInterlaced($interlaced);
 
         // add image data from source
         $block->setImageData($source->getFirstFrame()->getImageData());

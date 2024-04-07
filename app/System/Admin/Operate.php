@@ -18,9 +18,6 @@ class Operate extends Resources {
 
     public function queryMany(Builder $query, ServerRequestInterface $request, array $args): void
     {
-        SystemUser::resolveRelationUsing("user", function ($orderModel) {
-            return $orderModel->hasOne(SystemUser::class, 'user_id');
-        });
         $query->with("user");
         $query->where("user_type", SystemUser::class);
         $params = $request->getQueryParams();

@@ -15,15 +15,23 @@
         "time": "版本",
         "update": "更新",
         "username": "用户名",
-        "password": "密码"
+        "password": "密码",
+        "verCur": "当前版本：",
+        "verTarget": "最新版本："
       },
       "tips": {
         "uninstall": "卸载该应用不可恢复，需验证用户密码，请谨慎操作",
         "update": "发现新版本，是否需要更新？",
-        "loading": "处理中，请稍后查看日志"
+        "loading": "处理中，请稍后查看日志",
+        "login": "没有账号？",
+        "register": "注册应用平台"
       },
       "validator": {
-        "url": "请输入安装的地址"
+        "url": "安装地址",
+        "build": "编译界面"
+      },
+      "help": {
+        "build": "编译前端请确保服务器环境可执行 yarn 命令"
       }
     }
   }

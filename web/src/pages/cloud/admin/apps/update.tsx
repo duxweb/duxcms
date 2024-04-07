@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useTranslate } from '@refinedev/core'
-import { Button, MessagePlugin, Loading } from 'tdesign-react/esm'
+import { Button, MessagePlugin, Loading, Switch } from 'tdesign-react/esm'
 import { Modal, useClient, useModal } from '@duxweb/dux-refine'
 import dayjs from 'dayjs'
 
@@ -10,6 +10,7 @@ interface PageProps {
 
 const Page = ({ data }: PageProps) => {
   const translate = useTranslate()
+  const [build, setBuild] = useState(false)
   const client = useClient()
   const [loading, setLoading] = useState(false)
   const [log, setLog] = useState('')
@@ -22,6 +23,7 @@ const Page = ({ data }: PageProps) => {
       .request('cloud/apps/update', 'post', {
         data: {
           name: data.name,
+          build: build,
         },
       })
       .then((res) => {
@@ -47,14 +49,20 @@ const Page = ({ data }: PageProps) => {
           <div className='p-4'>
             <div className='mb-2'>{translate('cloud.apps.tips.update')}</div>
             <div className='mb-2'>
-              当前版本：{dayjs(data.local_time * 1000).format('YYYY-MM-DD HH:mm:ss')}
+              {translate('cloud.apps.fields.verCur')}
+              {dayjs(data.local_time * 1000).format('YYYY-MM-DD HH:mm:ss')}
             </div>
             <div>
-              最新版本：
+              {translate('cloud.apps.fields.target')}
               <span className='text-error'>
                 {dayjs(data.time * 1000).format('YYYY-MM-DD HH:mm:ss')}
               </span>
             </div>
+          </div>
+          <div className='p-4'>
+            <div className='mb-2'>{translate('cloud.apps.validator.build')}</div>
+            <Switch value={build} onChange={(v) => setBuild(v)} />
+            <div className='mt-2 text-placeholder'>{translate('cloud.apps.help.build')}</div>
           </div>
           <Modal.Footer>
             <Button variant='outline' onClick={onClose}>

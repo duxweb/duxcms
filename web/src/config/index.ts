@@ -13,7 +13,7 @@ const config: Config = {
     menu: 'menu',
   },
   defaultApp: 'admin',
-  indexName: 'cms',
+  indexName: window?.manage?.indexName || 'system',
   resourcesPrefix: true,
   moduleApp: {
     admin: {
@@ -21,8 +21,8 @@ const config: Config = {
       forgotPassword: false,
     },
   },
-  sideType: window?.sideType || 'level',
+  sideType: window?.manage?.sideType || 'level',
   lang: window?.lang,
-  baiduMap: window?.baiduMap || '',
+  baiduMap: window?.manage?.baiduMap || '',
 }
 export default config

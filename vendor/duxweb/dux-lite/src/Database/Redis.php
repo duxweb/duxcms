@@ -3,28 +3,25 @@ declare(strict_types=1);
 
 namespace Dux\Database;
 
+use Dux\Database\Redis\PhpRedisAdapter;
+use Dux\Database\Redis\PredisAdapter;
+
 class Redis
 {
-
-    private \Redis $drive;
+    private PhpRedisAdapter|PredisAdapter $client;
 
     public function __construct(public array $config)
     {
-        $this->drive = new \Redis;
+        if (extension_loaded('redis')) {
+            $this->client = new PhpRedisAdapter($config);
+        } else {
+            $this->client = new PredisAdapter($config);
+        }
     }
 
-    public function connect(): \Redis
+    public function connect(): \Predis\ClientInterface|\Redis
     {
-        $this->drive->connect($this->config["host"], (int)$this->config["port"], (float)$this->config["timeout"]);
-        if ($this->config["password"]) {
-            $this->drive->auth($this->config["auth"]);
-        }
-        $database = (int)$this->config["database"] ?: 0;
-        $this->drive->select($database);
-        if ($this->config["optPrefix"]) {
-            $this->drive->setOption(\Redis::OPT_PREFIX, $this->config["optPrefix"]);
-        }
-        return $this->drive;
+        return $this->client->getClient();
     }
 
 }

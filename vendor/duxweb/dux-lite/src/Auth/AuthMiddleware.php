@@ -17,6 +17,8 @@ class AuthMiddleware {
     }
 
     public function __invoke(Request $request, RequestHandler $handler): Response {
+
+
         if (!$this->must) {
             $auth = $request->getHeaderLine('Authorization');
             if (!$auth) {

@@ -7,14 +7,22 @@ namespace App\Cloud\Admin;
 use App\System\Models\SystemUser;
 use App\System\Service\Config;
 use Dux\Handlers\ExceptionBusiness;
+use Dux\Package\ComposerCommand;
 use Dux\Package\Install;
+use Dux\Package\InstallCommand;
 use Dux\Package\Package;
 use Dux\Package\Uninstall;
+use Dux\Package\UninstallCommand;
 use Dux\Package\Update;
+use Dux\Package\UpdateCommand;
+use Dux\Package\YarnCommand;
 use Dux\Resources\Attribute\Action;
 use Dux\Resources\Attribute\Resource;
+use Nette\Utils\FileSystem;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\NullOutput;
@@ -73,6 +81,7 @@ class Apps
     {
         $data = $request->getParsedBody();
         $url = $data['url'];
+        $build = $data['build'];
         if (!str_contains($url, 'dux://app/')) {
             throw new ExceptionBusiness('应用地址不正确');
         }
@@ -83,7 +92,20 @@ class Apps
         if (!$auth) {
             throw new ExceptionBusiness(__('cloud.apps.validator.notLogin', 'manage'));
         }
-        Install::main($output, $auth, $name);
+
+        $application = new Application();
+        $application->add(new InstallCommand());
+        $application->add(new ComposerCommand());
+        $application->add(new YarnCommand());
+
+        $buildCmd = !$build ? '' : ' --build=true';
+        $input = new StringInput("install $name $buildCmd");
+        try {
+            $application->find('install')->run($input, $output);
+        } catch (\Exception $e) {
+            $output->writeln('<fg=yellow>' . $e->getMessage() . '</>');
+        }
+
         return send($response, 'ok', [
             'content' => $output->fetch()
         ]);
@@ -94,9 +116,26 @@ class Apps
     {
         $data = $request->getParsedBody();
         $name = $data['name'];
-        $output = new BufferedOutput();
+        $build = $data['build'];
         $auth = Package::getKey();
-        Update::main($output, $auth, $name);
+        if (!$auth) {
+            throw new ExceptionBusiness(__('cloud.apps.validator.notLogin', 'manage'));
+        }
+
+        $output = new BufferedOutput();
+        $application = new Application();
+        $application->add(new UpdateCommand());
+        $application->add(new ComposerCommand());
+        $application->add(new YarnCommand());
+
+        $buildCmd = !$build ? '' : ' --build=true';
+        $input = new StringInput("update $name $buildCmd");
+        try {
+            $application->find('update')->run($input, $output);
+        } catch (\Exception $e) {
+            $output->writeln('<fg=yellow>' . $e->getMessage() . '</>');
+        }
+
         return send($response, 'ok', [
             'content' => $output->fetch()
         ]);
@@ -106,23 +145,40 @@ class Apps
     public function delete(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $params = $request->getParsedBody() ?: [];
-        if (!$params['name']) {
-            throw new ExceptionBusiness('请输入应用名');
+        $build = $params['build'];
+        $name = $params['name'];
+        if (!$name) {
+            throw new ExceptionBusiness(__('cloud.apps.validator.name', 'manage'));
         }
         if (!$params['password']) {
-            throw new ExceptionBusiness('请输入密码');
+            throw new ExceptionBusiness(__('cloud.apps.validator.password', 'manage'));
         }
 
         $auth = $request->getAttribute('auth');
         $userInfo = SystemUser::query()->find($auth['id']);
 
         if (!password_verify($params['password'], $userInfo->password)) {
-            throw new ExceptionBusiness('密码输入错误');
+            throw new ExceptionBusiness(__('cloud.apps.validator.passwordError', 'manage'));
+        }
+
+        if (!$auth) {
+            throw new ExceptionBusiness(__('cloud.apps.validator.notLogin', 'manage'));
         }
 
         $output = new BufferedOutput();
-        $auth = Package::getKey();
-        Uninstall::main($output, $auth, $params['name']);
+        $application = new Application();
+        $application->add(new UninstallCommand());
+        $application->add(new ComposerCommand());
+        $application->add(new YarnCommand());
+
+        $buildCmd = !$build ? '' : ' --build=true';
+        $input = new StringInput("uninstall $name $buildCmd");
+        try {
+            $application->find('uninstall')->run($input, $output);
+        } catch (\Exception $e) {
+            $output->writeln('<fg=yellow>' . $e->getMessage() . '</>');
+        }
+
         return send($response, 'ok', [
             'content' => $output->fetch()
         ]);

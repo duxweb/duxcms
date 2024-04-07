@@ -11,6 +11,52 @@
     "userGroup": {
       "name": "ユーザー管理"
     },
+    "stats": {
+      "name": "概要"
+    },
+    "total": {
+      "name": "運転状態",
+      "general": {
+        "title": "システムの概要",
+        "cpuLoad": "CPU負荷",
+        "cpuUse": "CPU占有",
+        "memUse": "メモリ使用量",
+        "diskUse": "HDD占有率"
+      },
+      "env": {
+        "title": "環境情報",
+        "php": "PHPバージョン",
+        "mysql": "Mysqlバージョン",
+        "redis": "Redisバージョン",
+        "time": "サーバー時間",
+        "gdExt": "gd拡張",
+        "imagickExt": "imagick拡張",
+        "redisExt": "redis拡張",
+        "zipExt": "zip拡張",
+        "on": "サポート",
+        "off": "サポートされていません"
+      },
+      "speed": {
+        "title": "サイト速度測定",
+        "desc": "本速度測定は速度測定網により提供され、より詳細な速度測定",
+        "view": "アクセス",
+        "start": "速度測定を開始する",
+        "speed": "応答速度",
+        "timeout": "タイムアウト",
+        "domain": "速度測定ドメイン名",
+        "line": "せんたくかいせん",
+        "loading": "ラインロード中",
+        "token": "そくりょくキー",
+        "tokenDesc": "初めてのご利用は",
+        "tokenUrl": "トークンの取得"
+      },
+      "area": {
+        "title": "そくどそくていちいき",
+        "area": "エリア",
+        "line": "せんろ",
+        "time": "応答速度"
+      }
+    },
     "user": {
       "name": "ユーザーリスト",
       "tabs": {

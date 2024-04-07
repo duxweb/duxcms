@@ -1,0 +1,67 @@
+Laravel is a web application framework with expressive, elegant syntax. We believe development must
+be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain
+out of development by easing common tasks used in most web projects.
+Highlights
+<a href="/team">Our Team</a>
+<a href="/docs/10.x/releases">Release Notes</a>
+<a href="/docs/10.x/installation">Getting Started</a>
+<a href="/docs/10.x/routing">Routing</a>
+<a href="/docs/10.x/blade">Blade Templates</a>
+<a href="/docs/10.x/authentication">Authentication</a>
+<a href="/docs/10.x/authorization">Authorization</a>
+<a href="/docs/10.x/artisan">Artisan Console</a>
+<a href="/docs/10.x/database">Database</a>
+<a href="/docs/10.x/eloquent">Eloquent ORM</a>
+<a href="/docs/10.x/testing">Testing</a>
+Resources
+<a href="https://bootcamp.laravel.com">Laravel Bootcamp</a>
+<a href="https://laracasts.com">Laracasts</a>
+<a href="https://laravel-news.com">Laravel News</a>
+<a href="https://laracon.us">Laracon</a>
+<a href="https://laracon.au">Laracon AU</a>
+<a href="https://laracon.eu/">Laracon EU</a>
+<a href="https://laracon.in/">Laracon India</a>
+<a href="https://larabelles.com/">Larabelles</a>
+<a href="https://larajobs.com">Jobs</a>
+<a href="https://laracasts.com/discuss">Forums</a>
+<a href="https://laravel.bigcartel.com/products">Shop</a>
+<a href="/trademark">Trademark</a>
+Partners
+<a href="https://vehikl.com">Vehikl</a>
+<a href="https://webreinvent.com/?utm_source=laravel&amp;utm_medium=laravel.com&amp;utm_campaign=footer-link">WebReinvent</a>
+<a href="https://tighten.co">Tighten</a>
+<a href="https://www.bacancytechnology.com/hire-laravel-developer?utm_source=laravel&amp;utm_medium=partners.laravel&amp;utm_campaign=sponsors">Bacancy</a>
+<a href="https://64robots.com/">64 Robots</a>
+<a href="https://activelogic.com/">Active Logic</a>
+<a href="https://www.byte5.net/">Byte 5</a>
+<a href="https://www.curotec.com/services/technologies/laravel/">Curotec</a>
+<a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a>
+<a href="https://devsquad.com/">DevSquad</a>
+<a href="https://jump24.co.uk/">Jump24</a>
+<a href="https://kirschbaumdevelopment.com/">Kirschbaum</a>
+Ecosystem
+<a href="/docs/10.x/starter-kits#laravel-breeze">Breeze</a>
+<a href="/docs/10.x/billing">Cashier</a>
+<a href="/docs/10.x/dusk">Dusk</a>
+<a href="/docs/10.x/broadcasting">Echo</a>
+<a href="https://envoyer.io">Envoyer</a>
+<a href="https://forge.laravel.com">Forge</a>
+<a href="https://herd.laravel.com">Herd</a>
+<a href="/docs/10.x/horizon">Horizon</a>
+<a href="https://inertiajs.com">Inertia</a>
+<a href="https://jetstream.laravel.com">Jetstream</a>
+<a href="https://livewire.laravel.com">Livewire</a>
+<a href="https://nova.laravel.com">Nova</a>
+<a href="/docs/10.x/octane">Octane</a>
+<a href="/docs/10.x/pennant">Pennant</a>
+<a href="/docs/10.x/pint">Pint</a>
+<a href="/docs/10.x/prompts">Prompts</a>
+<a href="/docs/10.x/sail">Sail</a>
+<a href="/docs/10.x/sanctum">Sanctum</a>
+<a href="/docs/10.x/scout">Scout</a>
+<a href="/docs/10.x/socialite">Socialite</a>
+<a href="https://spark.laravel.com">Spark</a>
+<a href="/docs/10.x/telescope">Telescope</a>
+<a href="https://vapor.laravel.com">Vapor</a>
+Laravel is a Trademark of Taylor Otwell. Copyright © 2011-2023 Laravel LLC.
+Code highlighting provided by <a href="https://torchlight.dev">Torchlight</a>

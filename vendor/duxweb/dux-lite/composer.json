@@ -72,7 +72,9 @@
     "stevebauman/hypertext": "^1.0",
     "symfony/lock": "^6.3",
     "zoujingli/ip2region": "^2.0",
-    "ezyang/htmlpurifier": "^4.17"
+    "ezyang/htmlpurifier": "^4.17",
+    "predis/predis": "^2.2",
+    "enqueue/amqp-lib": "^0.10.19"
   },
   "require-dev": {
     "composer/composer": "^2.0",

@@ -1,10 +1,16 @@
 import { lang, siderType } from '@duxweb/dux-refine'
 
 declare global {
+  interface Manage {
+    sideType?: siderType
+    indexName?: string
+    baiduMap?: string
+    [key: string]: any
+  }
   interface Window {
     lang?: lang
-    sideType?: siderType
     baiduMap?: string
+    manage?: Manage
   }
 }
 

@@ -11,6 +11,52 @@
     "userGroup": {
       "name": "用戶管理"
     },
+    "stats": {
+      "name": "概況"
+    },
+    "total": {
+      "name": "運行狀態",
+      "general": {
+        "title": "系統概況",
+        "cpuLoad": "CPU負載",
+        "cpuUse": "CPU佔用",
+        "memUse": "記憶體佔用",
+        "diskUse": "硬碟佔用"
+      },
+      "env": {
+        "title": "環境資訊",
+        "php": "PHP版本",
+        "mysql": "Mysql版本",
+        "redis": "Redis版本",
+        "time": "服務器時間",
+        "gdExt": "gd擴展",
+        "imagickExt": "imagick擴展",
+        "redisExt": "redis擴展",
+        "zipExt": "zip擴展",
+        "on": "支持",
+        "off": "不支持"
+      },
+      "speed": {
+        "title": "網站測速",
+        "desc": "本測速由測速網提供，更詳細測速",
+        "view": "點擊訪問",
+        "start": "開始測速",
+        "speed": "響應速度",
+        "timeout": "超時",
+        "domain": "測速功能變數名稱",
+        "line": "選擇線路",
+        "loading": "線路加載中",
+        "token": "測速金鑰",
+        "tokenDesc": "首次使用請",
+        "tokenUrl": "獲取Token"
+      },
+      "area": {
+        "title": "測速地區",
+        "area": "地區",
+        "line": "線路",
+        "time": "響應速度"
+      }
+    },
     "user": {
       "name": "用戶列表",
       "tabs": {

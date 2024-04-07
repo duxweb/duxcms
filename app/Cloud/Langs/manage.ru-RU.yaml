@@ -5,6 +5,15 @@ cloud:
     validator:
       notLogin: Пока нет, пожалуйста, сначала войдите
       username: Введите пароль имени пользователя
+      name: Введите имя приложения
+      password: Введите пароль.
+      passwordError: Ошибка ввода пароля
     alert:
       login: Регистрация завершена
+    login:
+      name: Регистрация
+    install:
+      name: Монтаж
+    update:
+      name: Обновление
 

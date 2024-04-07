@@ -1,11 +1,12 @@
 import { useCallback, useState } from 'react'
 import { useTranslate } from '@refinedev/core'
-import { Input, Button, MessagePlugin, Loading } from 'tdesign-react/esm'
+import { Input, Button, MessagePlugin, Loading, Switch } from 'tdesign-react/esm'
 import { Modal, useClient } from '@duxweb/dux-refine'
 
 const Page = () => {
   const translate = useTranslate()
   const [url, setUrl] = useState('')
+  const [build, setBuild] = useState(false)
   const client = useClient()
   const [loading, setLoading] = useState(false)
   const [log, setLog] = useState('')
@@ -16,6 +17,7 @@ const Page = () => {
       .request('cloud/apps/install', 'post', {
         data: {
           url: url,
+          build: build,
         },
       })
       .then((res) => {
@@ -44,6 +46,12 @@ const Page = () => {
             })
           }}
         />
+      </div>
+
+      <div className='p-4'>
+        <div className='mb-2'>{translate('cloud.apps.validator.build')}</div>
+        <Switch value={build} onChange={(v) => setBuild(v)} />
+        <div className='mt-2 text-placeholder'>{translate('cloud.apps.help.build')}</div>
       </div>
 
       {log ? (

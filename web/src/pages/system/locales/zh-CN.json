@@ -14,6 +14,49 @@
     "stats": {
       "name": "概况"
     },
+    "total": {
+      "name": "运行状态",
+      "general": {
+        "title": "系统概况",
+        "cpuLoad": "CPU 负载",
+        "cpuUse": "CPU 占用",
+        "memUse": "内存占用",
+        "diskUse": "硬盘占用"
+      },
+      "env": {
+        "title": "环境信息",
+        "php": "PHP 版本",
+        "mysql": "Mysql 版本",
+        "redis": "Redis 版本",
+        "time": "服务器时间",
+        "gdExt": "gd 扩展",
+        "imagickExt": "imagick 扩展",
+        "redisExt": "redis 扩展",
+        "zipExt": "zip 扩展",
+        "on": "支持",
+        "off": "不支持"
+      },
+      "speed": {
+        "title": "站点测速",
+        "desc": "本测速由测速网提供，更详细测速 ",
+        "view": "点击访问",
+        "start": "开始测速",
+        "speed": "响应速度",
+        "timeout": "超时",
+        "domain": "测速域名",
+        "line": "选择线路",
+        "loading": "线路加载中",
+        "token": "测速密钥",
+        "tokenDesc": "首次使用请",
+        "tokenUrl": "获取 Token"
+      },
+      "area": {
+        "title": "测速地区",
+        "area": "地区",
+        "line": "线路",
+        "time": "响应速度"
+      }
+    },
     "user": {
       "name": "用户列表",
       "tabs": {

@@ -3,23 +3,24 @@ declare(strict_types=1);
 
 namespace Dux\Queue;
 
-use Enqueue\Redis\RedisMessage;
-use Symfony\Component\Messenger\MessageBus;
 
 class QueueMessage
 {
 
     private \Interop\Queue\Message $message;
+    private \Interop\Queue\Queue $queue;
     private int|float $delay = 0;
+
 
     public function __construct(
         public \Interop\Queue\Context $context,
-        public \Interop\Queue\Queue $queue,
         public string     $class,
-        public string     $method,
-        public array      $params = []
+        public string     $method = '',
+        public array      $params = [],
+        public string $name = '',
     )
     {
+        $this->queue = $this->context->createQueue($name);
         $this->message = $this->context->createMessage(json_encode([
             'class' => $this->class,
             'method' => $this->method,

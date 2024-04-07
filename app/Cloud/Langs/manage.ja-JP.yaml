@@ -5,6 +5,15 @@ cloud:
     validator:
       notLogin: ログインしていませんので、先にログインしてください
       username: ユーザー名パスワードを入力してください
+      name: アプリケーション名を入力してください
+      password: パスワードを入力してください
+      passwordError: パスワード入力エラー
     alert:
       login: ログイン成功
+    login:
+      name: ログイン＃ログイン＃
+    install:
+      name: インストール
+    update:
+      name: 更新
 

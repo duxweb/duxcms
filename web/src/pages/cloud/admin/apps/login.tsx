@@ -14,9 +14,9 @@ const Page = (props: Record<string, any>) => {
         <Input type='password' />
       </Form.FormItem>
       <Form.FormItem>
-        没有账号？请先
+        {translate('cloud.apps.tips.login')}
         <Link href='https://www.dux.cn' theme='primary' target='_black'>
-          注册应用平台
+          {translate('cloud.apps.tips.register')}
         </Link>
       </Form.FormItem>
     </FormModal>

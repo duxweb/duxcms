@@ -148,7 +148,7 @@ if (!function_exists('encryption')) {
 
 
 if (!function_exists('decryption')) {
-    function decryption(string $str, string $key = '', string $iv = '', $method = 'AES-256-CBC'): string
+    function decryption(string $str, string $key = '', string $iv = '', $method = 'AES-256-CBC'): string|false
     {
         $key = $key ?: App::config('use')->get('app.secret');
         return openssl_decrypt(hex2bin($str), $method, $key, OPENSSL_RAW_DATA, $iv);

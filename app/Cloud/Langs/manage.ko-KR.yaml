@@ -5,6 +5,15 @@ cloud:
     validator:
       notLogin: 로그인하지 않았습니다. 먼저 로그인하십시오.
       username: 사용자 이름 암호를 입력하십시오.
+      name: 응용 프로그램 이름을 입력하십시오.
+      password: 암호를 입력하십시오.
+      passwordError: 암호 입력 오류
     alert:
       login: 로그인 성공
+    login:
+      name: 로그인
+    install:
+      name: 설치
+    update:
+      name: 업데이트
 

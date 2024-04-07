@@ -5,6 +5,15 @@ cloud:
     validator:
       notLogin: 暂未登录，请先进行登录
       username: 请输入用户名密码
+      name: 请输入应用名
+      password: 请输入密码
+      passwordError: 密码输入错误
     alert:
       login: 登录成功
+    login:
+      name: 登录
+    install:
+      name: 安装
+    update:
+      name: 更新
 

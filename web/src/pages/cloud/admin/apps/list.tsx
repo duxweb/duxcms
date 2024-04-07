@@ -4,16 +4,6 @@ import { PrimaryTableCol, Link, Tag, Button } from 'tdesign-react/esm'
 import { PageTable, MediaText, Modal } from '@duxweb/dux-refine'
 import { Icon } from 'tdesign-icons-react'
 import dayjs from 'dayjs'
-import clsx from 'clsx'
-
-export const colorStyle: Record<string, any> = {
-  blue: 'bg-blue-7',
-  purple: 'bg-pink-7',
-  red: 'bg-red-7',
-  yellow: 'bg-yellow-7',
-  green: 'bg-green-7',
-  gray: 'bg-gray-7',
-}
 
 const List = () => {
   const translate = useTranslate()
@@ -27,10 +17,7 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <MediaText size='small'>
-              <MediaText.Image
-                src={row.icon}
-                className={clsx([colorStyle[row.color], 'p-2'])}
-              ></MediaText.Image>
+              <MediaText.Image src={row.icon}></MediaText.Image>
               <MediaText.Title>{row.title}</MediaText.Title>
               <MediaText.Desc>{row.desc}</MediaText.Desc>
             </MediaText>
@@ -77,7 +64,11 @@ const List = () => {
         cell: ({ row }) => {
           return (
             <div className='flex justify-center gap-4'>
-              <Link theme='primary' href={`https://www.dux.cn/apps/` + row.id} target='_black'>
+              <Link
+                theme='primary'
+                href={`https://www.dux.cn/page/apps/info/` + row.id}
+                target='_black'
+              >
                 {translate('buttons.show')}
               </Link>
 

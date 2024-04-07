@@ -743,11 +743,12 @@
   resolved "https://registry.yarnpkg.com/@duxweb/dux-plugin/-/dux-plugin-0.0.8.tgz#6efa54ff7498bba2526656dfbcde13e0cc77bf0a"
   integrity sha512-tRHBLuLlIBx24zHezLUnIEE/R0NaKbWoYcHq/DiXjH+wHF8t2mcHaDLfpfhMtpKrXi0TFu1jutUpS82aQEy/8Q==
 
-"@duxweb/dux-refine@^0.9.2":
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/@duxweb/dux-refine/-/dux-refine-0.9.2.tgz#6d532c5a32ef2a07ca1a49bf6cec59837288a4ec"
-  integrity sha512-pa7BpdM0C/TTfddXhWn9LKysBa1u4ZqwJJWRDx5X/ARtGjOJH1ISvFADHp9HOBhNyJiiDa5OEMUpuUm+JPcr7A==
+"@duxweb/dux-refine@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.npmmirror.com/@duxweb/dux-refine/-/dux-refine-0.11.0.tgz#cf46cc0b07ffe99a922ea2fc46255c1ac36a4c34"
+  integrity sha512-BEpUffOBJQKLp25NhuZSznlYz35pUc39HvcbzzuIPmBPTz49tzz9EfvlSy2B2duBwATkeo2kbwzkYvzttSRXEQ==
   dependencies:
+    "@ebay/nice-modal-react" "^1.2.13"
     "@iconify-json/tabler" "^1.1.108"
     "@refinedev/cli" "2.16.27"
     "@refinedev/core" "4.48.0"
@@ -793,6 +794,11 @@
     tinymce "^6.8.2"
     unocss "^0.58.6"
     zustand "^4.5.1"
+
+"@ebay/nice-modal-react@^1.2.13":
+  version "1.2.13"
+  resolved "https://registry.npmmirror.com/@ebay/nice-modal-react/-/nice-modal-react-1.2.13.tgz#7e8229fe3a48a11f27cd7f5e21190d82d6f609ce"
+  integrity sha512-jx8xIWe/Up4tpNuM02M+rbnLoxdngTGk3Y8LjJsLGXXcSoKd/+eZStZcAlIO/jwxyz/bhPZnpqPJZWAmhOofuA==
 
 "@emotion/is-prop-valid@^0.8.2":
   version "0.8.8"

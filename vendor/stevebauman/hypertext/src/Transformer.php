@@ -3,11 +3,18 @@
 namespace Stevebauman\Hypertext;
 
 use Closure;
+use DOMDocument;
+use DOMXPath;
 use HTMLPurifier;
 use HTMLPurifier_Config;
 
 class Transformer
 {
+    /**
+     * Filter HTML for specific element(s) using XPath expression.
+     */
+    protected ?string $filter = null;
+
     /**
      * Whether to keep anchor tags in the output.
      */
@@ -47,6 +54,16 @@ class Transformer
     ];
 
     /**
+     * Set an XPath to filter HTML for specific element(s).
+     */
+    public function filter($xPath): static
+    {
+        $this->filter = $xPath;
+
+        return $this;
+    }
+
+    /**
      * Enable keeping anchor tags with their href in the output.
      */
     public function keepLinks(): static
@@ -81,34 +98,66 @@ class Transformer
      */
     protected function pipeline(): array
     {
-        return array_merge([
-            // Convert any quoted-printable strings to an 8 bit string.
-            fn (string $text) => quoted_printable_decode($text),
+        return array_merge(
+            $this->filter ? [
+                // Query the HTML for specific element(s) using an XPath expression.
+                fn (string $html) => $this->query($html)
+            ] : [],
+            [
+                // Convert any quoted-printable strings to an 8 bit string.
+                fn (string $html) => quoted_printable_decode($html),
 
-            // Add spacing between HTML tags.
-            fn (string $text) => preg_replace('/(>)(<)/', '$1 $2', $text),
+                // Add spacing between HTML tags.
+                fn (string $html) => preg_replace('/(>)(<)/', '$1 $2', $html),
 
-            // Remove various forms of unneeded spaces.
-            fn (string $text) => str_replace($this->spaces, ' ', $text),
+                // Remove various forms of unneeded spaces.
+                fn (string $html) => str_replace($this->spaces, ' ', $html),
 
-            // Strip all CSS, HTML tags, and scripts.
-            fn (string $text) => $this->makePurifier()->purify($text),
+                // Strip all CSS, HTML tags, and scripts.
+                fn (string $html) => $this->makePurifier()->purify($html),
 
-            // Strip all remaining HTML tags after purification.
-            fn (string $text) => strip_tags($text, $this->keepLinks ? '<a>' : null),
+                // Strip all remaining HTML tags after purification.
+                fn (string $html) => strip_tags($html, $this->keepLinks ? '<a>' : null),
 
-            // Remove all horizontal spaces.
-            fn (string $text) => preg_replace( '/\h+/u', ' ', $text),
+                // Remove all horizontal spaces.
+                fn (string $html) => preg_replace( '/\h+/u', ' ', $html),
 
-            // Remove all excess spacing around new lines.
-            fn (string $text) => preg_replace('/\s*\n\s*/', "\n", $text),
+                // Remove all excess spacing around new lines.
+                fn (string $html) => preg_replace('/\s*\n\s*/', "\n", $html),
 
-            // Finally, trim the end result.
-            fn (string $text) => trim($text),
-        ], $this->keepNewLines ? [] : [
-            // Remove new lines (if configured).
-            fn (string $text) => str_replace("\n", ' ', $text),
-        ]);
+                // Finally, trim the end result.
+                fn (string $html) => trim($html),
+            ],
+            $this->keepNewLines ? [] : [
+                // Remove new lines (if configured).
+                fn (string $html) => str_replace("\n", ' ', $html),
+            ]
+        );
+    }
+
+    /**
+     * Query the HTML for specific element(s) using an XPath expression.
+     */
+    protected function query(string $html): string
+    {
+        libxml_use_internal_errors(true);
+
+        $document = new DOMDocument();
+
+        $document->loadHTML($html);
+
+        libxml_use_internal_errors(false);
+
+        $elements = (new DOMXPath($document))->query($this->filter);
+
+        $result = '';
+
+        /** @var \DOMElement $element */
+        foreach($elements as $element) {
+            $result .= $element->ownerDocument->saveXML($element);
+        }
+
+        return $result;
     }
 
     /**

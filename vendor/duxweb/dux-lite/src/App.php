@@ -38,6 +38,7 @@ use Monolog\Level;
 use Monolog\Logger;
 use Noodlehaus\Config;
 use Phpfastcache\Helper\Psr16Adapter;
+use Predis\Client;
 use Redis;
 use ReflectionClass;
 use Slim\App as SlimApp;
@@ -369,10 +370,13 @@ class App
 
     /**
      * redis
+     * @param int $database
      * @param string $name
-     * @return Redis
+     * @return Client|\Redis
+     * @throws DependencyException
+     * @throws NotFoundException
      */
-    public static function redis($database = 0, string $name = "default"): Redis
+    public static function redis($database = 0, string $name = "default"): \Predis\ClientInterface|\Redis
     {
         if (!self::$di->has("redis." . $name)) {
             $config = self::config("database")->get("redis.drivers." . $name);

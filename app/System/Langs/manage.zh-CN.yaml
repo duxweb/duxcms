@@ -23,6 +23,20 @@ system:
       name: 权限
   operate:
     name: 操作记录
+  total:
+    name: 系统统计
+    stats:
+      name: 运行状态
+    hardware:
+      name: 硬件数据
+    speedNode:
+      name: 测速节点
+    speedTest:
+      name: 站点测速
+    validator:
+      node: 暂无可用测速节点
+      line: 请选择测速线路
+      token: 请填写测速 token
   api:
     name: 接口授权
     validator:

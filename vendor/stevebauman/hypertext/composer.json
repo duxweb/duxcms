@@ -21,6 +21,10 @@
         "pestphp/pest": "^2.24",
         "spatie/ray": "^1.39"
     },
+    "suggest": {
+        "ext-dom": "Required for filtering HTML.",
+        "ext-libxml": "Required for filtering HTML."
+    },
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true

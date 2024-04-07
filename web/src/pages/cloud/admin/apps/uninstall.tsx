@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useTranslate } from '@refinedev/core'
-import { Input, Button, MessagePlugin, Loading } from 'tdesign-react/esm'
+import { Input, Button, MessagePlugin, Loading, Switch } from 'tdesign-react/esm'
 import { Modal, useClient } from '@duxweb/dux-refine'
 
 interface PageProps {
@@ -9,6 +9,7 @@ interface PageProps {
 const Page = ({ name }: PageProps) => {
   const translate = useTranslate()
   const [password, setPassword] = useState('')
+  const [build, setBuild] = useState(false)
   const client = useClient()
   const [loading, setLoading] = useState(false)
   const [log, setLog] = useState('')
@@ -20,6 +21,7 @@ const Page = ({ name }: PageProps) => {
         data: {
           name: name,
           password: password,
+          build: build,
         },
       })
       .then((res) => {
@@ -48,6 +50,12 @@ const Page = ({ name }: PageProps) => {
             })
           }}
         />
+      </div>
+
+      <div className='p-4'>
+        <div className='mb-2'>{translate('cloud.apps.validator.build')}</div>
+        <Switch value={build} onChange={(v) => setBuild(v)} />
+        <div className='mt-2 text-placeholder'>{translate('cloud.apps.help.build')}</div>
       </div>
 
       {log ? (

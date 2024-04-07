@@ -6,7 +6,7 @@
 [![Monthly Downloads](https://img.shields.io/packagist/dm/intervention/gif.svg)](https://packagist.org/packages/intervention/gif/stats)
 
 Intervention GIF is a PHP encoder and decoder for the GIF image format that
-does not depend on any image processing extension. 
+does not depend on any image processing extension.
 
 Only the special `Splitter::class` class divides the data stream of an animated
 GIF into individual `GDImage` objects for each frame and is therefore dependent
@@ -89,8 +89,12 @@ Run the static analyzer on the code base.
 docker-compose run --rm --build analysis
 ```
 
+## Authors
+
+This library is developed and maintained by [Oliver Vogel](https://intervention.io)
+
+Thanks to the community of [contributors](https://github.com/Intervention/gif/graphs/contributors) who have helped to improve this project.
+
 ## License
 
-Intervention GIF is licensed under the [MIT License](http://opensource.org/licenses/MIT).
-
-Copyright 2024 [Oliver Vogel](http://intervention.io/)
+Intervention GIF is licensed under the [MIT License](LICENSE).

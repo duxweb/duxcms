@@ -23,6 +23,20 @@ system:
       name: アクセス権
   operate:
     name: オペレーションレコード
+  total:
+    name: システム統計
+    stats:
+      name: 運転状態
+    hardware:
+      name: ハードウェアデータ
+    speedNode:
+      name: そくどそくていノード
+    speedTest:
+      name: サイト速度測定
+    validator:
+      node: 使用可能な速度測定ノードがありません
+      line: 速度測定回路を選択してください
+      token: 速度測定トークンに記入してください
   api:
     name: インタフェース認証
     validator:

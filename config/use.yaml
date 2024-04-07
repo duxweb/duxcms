@@ -9,3 +9,6 @@ lang: zh-CN
 vite:
     dev: false
     port: 5173
+manage:
+    indexName: cms
+    baiduMap:

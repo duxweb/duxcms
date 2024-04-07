@@ -23,6 +23,20 @@ system:
       name: 권한
   operate:
     name: 작업 레코드
+  total:
+    name: 시스템 통계
+    stats:
+      name: 실행 상태
+    hardware:
+      name: 하드웨어 데이터
+    speedNode:
+      name: 속도 측정 노드
+    speedTest:
+      name: 사이트 속도 측정
+    validator:
+      node: 사용 가능한 속도 측정 노드 없음
+      line: 속도 측정 회선을 선택하십시오.
+      token: 속도 측정 토큰을 기입해 주십시오.
   api:
     name: 인터페이스 인증
     validator:

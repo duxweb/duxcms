@@ -23,6 +23,20 @@ system:
       name: 權限
   operate:
     name: 操作記錄
+  total:
+    name: 系統統計
+    stats:
+      name: 運行狀態
+    hardware:
+      name: 硬體數據
+    speedNode:
+      name: 測速節點
+    speedTest:
+      name: 網站測速
+    validator:
+      node: 暫無可用測速節點
+      line: 請選擇測速線路
+      token: 請填寫測速token
   api:
     name: 介面授權
     validator:

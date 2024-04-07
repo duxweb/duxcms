@@ -308,7 +308,7 @@ class Package
         }
     }
 
-    public static function installOther(Application $application, OutputInterface $output): void
+    public static function installOther(Application $application, OutputInterface $output, bool $build = false): void
     {
         $output->writeln('<info>Composer installation</info>');
         $childInput = new ArrayInput([
@@ -331,6 +331,20 @@ class Package
         } catch (\Exception $e) {
             $output->writeln('<fg=yellow>' . $e->getMessage() . '</>');
         }
+
+        if ($build) {
+            $output->writeln('<info>Yarn build</info>');
+            $childInput = new ArrayInput([
+                'command' => 'package:yarn',
+                'cmd' => 'build',
+            ]);
+            try {
+                $application->find('package:yarn')->run($childInput, $output);
+            } catch (\Exception $e) {
+                $output->writeln('<fg=yellow>' . $e->getMessage() . '</>');
+            }
+        }
+
     }
 
     public static function getKey(): string
@@ -340,7 +354,11 @@ class Package
             return '';
         }
         $content = FileSystem::read($keyFile);
-        return decryption($content);
+        $key = '';
+        try {
+            $key = decryption($content);
+        }catch (\Exception $e) {}
+        return $key ?: '';
     }
 
     public static function request(string $method, string $path, array $params): array

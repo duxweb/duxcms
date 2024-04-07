@@ -4,7 +4,16 @@ cloud:
     name: Application Center
     validator:
       notLogin: Not logged in yet, please log in first
-      username: Please enter username and password
+      username: Please enter your username and password
+      name: Please enter the application name
+      password: Please enter password
+      passwordError: Password input error
     alert:
       login: Login successful
+    login:
+      name: Login
+    install:
+      name: install
+    update:
+      name: update
 
