@@ -6,6 +6,8 @@ content:
       title: 请输入标题
       class_id: 请选择分类
       source: 请输入作者
+    extract:
+      name: 提取
   category:
     name: 文章分类
     validator:

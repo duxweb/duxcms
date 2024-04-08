@@ -3,7 +3,7 @@
         'name' => 'duxweb/duxcms',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '15b2c83f5735335ef3b96a00ca591eb113769a7e',
+        'reference' => '18cdd6e47d374f1f281ba9dd489892c7b9637091',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -121,7 +121,7 @@
         'duxweb/dux-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '31dae016bc1def273712f72941f2199416e1fc61',
+            'reference' => 'e569eb0a2ca9bf8a6876402a2b4f66a7b024f627',
             'type' => 'library',
             'install_path' => __DIR__ . '/../duxweb/dux-lite',
             'aliases' => array(
@@ -132,7 +132,7 @@
         'duxweb/duxcms' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '15b2c83f5735335ef3b96a00ca591eb113769a7e',
+            'reference' => '18cdd6e47d374f1f281ba9dd489892c7b9637091',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -436,9 +436,9 @@
             'dev_requirement' => false,
         ),
         'kalnoy/nestedset' => array(
-            'pretty_version' => 'v6.0.3',
-            'version' => '6.0.3.0',
-            'reference' => 'f7a36eb3779ee4119a8ea72404aaf90c44fc9a15',
+            'pretty_version' => 'v6.0.4',
+            'version' => '6.0.4.0',
+            'reference' => 'd81102c980b9962516c0fd8fda21dd916a23a3d7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../kalnoy/nestedset',
             'aliases' => array(),

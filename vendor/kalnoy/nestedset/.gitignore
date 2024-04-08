@@ -1,5 +1,6 @@
 /vendor
 /.idea
+.phpunit.cache/
 composer.phar
 composer.lock
 .DS_Store

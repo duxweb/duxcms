@@ -866,12 +866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxweb/dux-lite.git",
-                "reference": "31dae016bc1def273712f72941f2199416e1fc61"
+                "reference": "e569eb0a2ca9bf8a6876402a2b4f66a7b024f627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/31dae016bc1def273712f72941f2199416e1fc61",
-                "reference": "31dae016bc1def273712f72941f2199416e1fc61",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/e569eb0a2ca9bf8a6876402a2b4f66a7b024f627",
+                "reference": "e569eb0a2ca9bf8a6876402a2b4f66a7b024f627",
                 "shasum": ""
             },
             "require": {
@@ -962,7 +962,7 @@
                 "issues": "https://github.com/duxweb/dux-lite/issues",
                 "source": "https://github.com/duxweb/dux-lite"
             },
-            "time": "2024-04-08T03:36:31+00:00"
+            "time": "2024-04-08T08:47:17+00:00"
         },
         {
             "name": "enqueue/amqp-lib",
@@ -3054,26 +3054,26 @@
         },
         {
             "name": "kalnoy/nestedset",
-            "version": "v6.0.3",
+            "version": "v6.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lazychaser/laravel-nestedset.git",
-                "reference": "f7a36eb3779ee4119a8ea72404aaf90c44fc9a15"
+                "reference": "d81102c980b9962516c0fd8fda21dd916a23a3d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/f7a36eb3779ee4119a8ea72404aaf90c44fc9a15",
-                "reference": "f7a36eb3779ee4119a8ea72404aaf90c44fc9a15",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/d81102c980b9962516c0fd8fda21dd916a23a3d7",
+                "reference": "d81102c980b9962516c0fd8fda21dd916a23a3d7",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^7.0|^8.0|^9.0|^10.0",
-                "illuminate/events": "^7.0|^8.0|^9.0|^10.0",
-                "illuminate/support": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/database": "^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/events": "^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/support": "^7.0|^8.0|^9.0|^10.0|^11.0",
                 "php": "^7.2.5|^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "7.*|8.*|9.*"
+                "phpunit/phpunit": "7.*|8.*|9.*|^10.5"
             },
             "type": "library",
             "extra": {
@@ -3111,9 +3111,9 @@
             ],
             "support": {
                 "issues": "https://github.com/lazychaser/laravel-nestedset/issues",
-                "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.3"
+                "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.4"
             },
-            "time": "2023-11-29T15:32:59+00:00"
+            "time": "2024-04-08T06:10:42+00:00"
         },
         {
             "name": "laravel/serializable-closure",

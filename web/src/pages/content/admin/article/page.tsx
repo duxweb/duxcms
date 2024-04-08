@@ -1,5 +1,12 @@
 import { useTranslate, useList, useResource } from '@refinedev/core'
-import { FormPage, useClient, useSelect, FormPageItem, UploadImageManage } from '@duxweb/dux-refine'
+import {
+  FormPage,
+  useClient,
+  useSelect,
+  FormPageItem,
+  UploadImageManage,
+  appHook,
+} from '@duxweb/dux-refine'
 import {
   Form,
   Input,
@@ -9,10 +16,13 @@ import {
   AutoComplete,
   Textarea,
   Checkbox,
+  Button,
+  MessagePlugin,
 } from 'tdesign-react/esm'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { MagicFormRender } from '@duxweb/dux-extend'
 import { Editor } from '@/pages/cms/components/editor'
+import tinymce from 'tinymce/tinymce'
 
 const Page = () => {
   const translate = useTranslate()
@@ -48,6 +58,26 @@ const Page = () => {
     optionLabel: 'name',
     optionValue: 'id',
   })
+
+  const [extractUrl, setExtractUrl] = useState<string>('')
+
+  const extract = useCallback(() => {
+    request('content/article/extract', 'post', {
+      data: {
+        url: extractUrl,
+      },
+    }).then((e) => {
+      if (e.code !== 200) {
+        MessagePlugin.error(e?.message)
+        return
+      }
+      form.setFieldsValue({
+        title: e?.data?.title,
+        content: e?.data?.content_html,
+      })
+      tinymce?.activeEditor?.fire('pasteHtml', { content: e?.data?.content_html || '' })
+    })
+  }, [extractUrl, form, request])
 
   return (
     <FormPage
@@ -119,6 +149,25 @@ const Page = () => {
       <FormPageItem name='title'>
         <Input placeholder={translate('content.article.validate.title')} />
       </FormPageItem>
+
+      <appHook.Render mark={['content', 'article', 'form', 'helper']} />
+
+      <div className='rounded bg-gray-2 p-4 border-component'>
+        <div className='mb-2'>采集助手</div>
+        <div className='mb-2 flex gap-2'>
+          <div className='w-1 flex-1'>
+            <Input
+              placeholder='请输入内容页面地址'
+              value={extractUrl}
+              onChange={(v) => setExtractUrl(v)}
+            />
+          </div>
+          <div className='flex-none'>
+            <Button onClick={extract}>提取</Button>
+          </div>
+        </div>
+        <div className='text-placeholder'>仅支持静态网页的内容提取，暂不支持 js 渲染内容提取</div>
+      </div>
 
       <FormPageItem name='content'>
         <Editor />
