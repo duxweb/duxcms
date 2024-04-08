@@ -10,3 +10,5 @@ cms:
       name: set information
     edit:
       name: Save Settings
+    config:
+      name: Template configuration

@@ -13,6 +13,10 @@ content:
       article: Please delete articles under this category first
     magic:
       name: Rubik's cube data
+    top:
+      name: Top data
+    topSave:
+      name: Top saving
   source:
     name: Article source
     validator:

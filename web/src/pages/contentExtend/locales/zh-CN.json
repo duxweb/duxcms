@@ -1,0 +1,18 @@
+{
+  "contentExtend": {
+    "name": "内容扩展",
+    "spider": {
+      "name": "采集助手",
+      "fields": {
+        "extract": "提取"
+      },
+      "validates": {
+        "uri": "请输入内容页面地址"
+      },
+      "helps": {
+        "extract": " 仅支持静态网页的内容提取，暂不支持 js 渲染内容提取"
+      }
+    }
+  }
+  
+}

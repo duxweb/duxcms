@@ -1,0 +1,10 @@
+contentExtend:
+  name: 文章擴展
+  spider:
+    name: 內容採集
+    validator:
+      user: 請先登錄應用中心
+      uri: 請輸入解析地址
+      notFound: 無法獲取該地址數據
+    extract:
+      name: 內容選取

@@ -1,0 +1,18 @@
+{
+  "contentExtend": {
+    "name": "컨텐츠 확장",
+    "spider": {
+      "name": "채집 도우미",
+      "fields": {
+        "extract": "추출"
+      },
+      "validates": {
+        "uri": "컨텐츠 페이지 주소를 입력하십시오."
+      },
+      "helps": {
+        "extract": " 정적 웹 페이지의 컨텐츠 추출만 지원되며 js 렌더링 컨텐츠 추출은 일시적으로 지원되지 않음"
+      }
+    }
+  }
+  
+}

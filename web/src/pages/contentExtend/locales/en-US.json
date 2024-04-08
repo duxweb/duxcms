@@ -1,0 +1,18 @@
+{
+  "contentExtend": {
+    "name": "Content extension",
+    "spider": {
+      "name": "Collection Assistant",
+      "fields": {
+        "extract": "extract"
+      },
+      "validates": {
+        "uri": "Please enter the content page address"
+      },
+      "helps": {
+        "extract": " Only supports content extraction for static web pages, currently does not support JS rendering content extraction"
+      }
+    }
+  }
+  
+}

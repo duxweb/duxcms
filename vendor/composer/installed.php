@@ -3,7 +3,7 @@
         'name' => 'duxweb/duxcms',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '18cdd6e47d374f1f281ba9dd489892c7b9637091',
+        'reference' => '67571e8fa22c8f5a5be4719c9f6d9b3c6aed32ad',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -121,7 +121,7 @@
         'duxweb/dux-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e569eb0a2ca9bf8a6876402a2b4f66a7b024f627',
+            'reference' => '44aaa92c756531fbb630905932c6d91f2baa761d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../duxweb/dux-lite',
             'aliases' => array(
@@ -132,7 +132,7 @@
         'duxweb/duxcms' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '18cdd6e47d374f1f281ba9dd489892c7b9637091',
+            'reference' => '67571e8fa22c8f5a5be4719c9f6d9b3c6aed32ad',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

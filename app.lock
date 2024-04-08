@@ -11,29 +11,10 @@
             "app": "install"
         },
         {
-            "name": "duxweb/content",
-            "description": "Content Management Applications",
-            "version": "0.2.3",
-            "phpDependencies": {
-                "pelago/emogrifier": "^7.1"
-            },
-            "app": "content"
-        },
-        {
             "name": "duxweb/tools",
             "description": "System Tools Applications",
             "version": "0.2.3",
             "app": "tools"
-        },
-        {
-            "name": "duxweb/cms",
-            "description": "CMS Basic Application",
-            "version": "0.2.2",
-            "phpDependencies": {
-                "erusev/parsedown": "^1.7",
-                "benjaminhoegh/parsedown-toc": "^1.5"
-            },
-            "app": "cms"
         },
         {
             "name": "duxweb/cloud",
@@ -42,18 +23,44 @@
             "app": "cloud"
         },
         {
+            "name": "duxweb/content",
+            "description": "Content Management Applications",
+            "version": "0.2.5",
+            "phpDependencies": {
+                "pelago/emogrifier": "^7.1"
+            },
+            "app": "content"
+        },
+        {
             "name": "duxweb/base",
             "description": "System Base Applications",
-            "version": "0.2.2",
+            "version": "0.2.3",
             "phpDependencies": {
                 "duxweb/dux-lite": "main-dev"
             },
             "jsDependencies": {
                 "@duxweb/dux-extend": "^0.1.1",
                 "@duxweb/dux-plugin": "^0.0.8",
-                "@duxweb/dux-refine": "^0.11.0"
+                "@duxweb/dux-refine": "^0.11.2"
             },
             "app": "system"
+        },
+        {
+            "name": "duxweb/contentExtend",
+            "description": "Content Module Extension Applications",
+            "version": "0.0.0",
+            "phpDependencies": [],
+            "app": "contentExtend"
+        },
+        {
+            "name": "duxweb/cms",
+            "description": "CMS Basic Application",
+            "version": "0.2.5",
+            "phpDependencies": {
+                "erusev/parsedown": "^1.7",
+                "benjaminhoegh/parsedown-toc": "^1.5"
+            },
+            "app": "cms"
         }
     ]
 }

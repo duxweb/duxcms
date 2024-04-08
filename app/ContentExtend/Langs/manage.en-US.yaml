@@ -1,0 +1,10 @@
+contentExtend:
+  name: Article extension
+  spider:
+    name: Content collection
+    validator:
+      user: Please log in to the application center first
+      uri: Please enter the resolution address
+      notFound: Unable to obtain data for the address
+    extract:
+      name: Content extraction

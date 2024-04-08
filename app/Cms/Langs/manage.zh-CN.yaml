@@ -4,6 +4,8 @@ cms:
     name: 站点统计
   theme:
     name: 站点模板
+    config:
+      name: 配置
   setting:
     name: 站点设置
     show:

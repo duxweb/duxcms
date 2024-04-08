@@ -2,15 +2,17 @@
     "name": "project",
     "description": "This is the dux application dependency configuration",
     "dependencies": {
-        "duxweb/cms": "0.2.2",
-        "duxweb/content": "0.2.3",
+        "duxweb/cms": "0.2.5",
+        "duxweb/content": "0.2.5",
         "duxweb/install": "0.0.4",
-        "duxweb/base": "0.2.2",
+        "duxweb/base": "0.2.3",
         "duxweb/tools": "0.2.3",
-        "duxweb/cloud": "0.0.4"
+        "duxweb/cloud": "0.0.4",
+        "duxweb/contentExtend": "0.0.0"
     },
     "apps": {
-        "dux/cms": 1711118142,
-        "dux/base": 1712494288
+        "dux/cms": 1712581216,
+        "dux/base": 1712580127,
+        "dux/contentExtend": 1712579918
     }
 }

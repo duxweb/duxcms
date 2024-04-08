@@ -10,3 +10,5 @@ cms:
       name: 設定資訊
     edit:
       name: 保存設置
+    config:
+      name: 範本配寘

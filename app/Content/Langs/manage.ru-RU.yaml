@@ -13,6 +13,10 @@ content:
       article: Пожалуйста, удалите статью из этой категории.
     magic:
       name: Данные кубика Рубика
+    top:
+      name: Данные о потолке
+    topSave:
+      name: Сохранить сверху
   source:
     name: Источник статьи
     validator:

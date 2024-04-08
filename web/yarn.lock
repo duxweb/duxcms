@@ -743,8 +743,10 @@
   resolved "https://registry.yarnpkg.com/@duxweb/dux-plugin/-/dux-plugin-0.0.8.tgz#6efa54ff7498bba2526656dfbcde13e0cc77bf0a"
   integrity sha512-tRHBLuLlIBx24zHezLUnIEE/R0NaKbWoYcHq/DiXjH+wHF8t2mcHaDLfpfhMtpKrXi0TFu1jutUpS82aQEy/8Q==
 
-"@duxweb/dux-refine@file:.yalc/@duxweb/dux-refine":
-  version "0.11.0"
+"@duxweb/dux-refine@^0.11.2":
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/@duxweb/dux-refine/-/dux-refine-0.11.2.tgz#ef0deeb06112be67bb357390e386feb7e59b811b"
+  integrity sha512-SvWJaXmZLmjMnNhuftP9EnmjAGweyUg9Fcsg/e7pSQyKmp8GAaQNKMS7FoLbIMnyKpFwFb3gfjk7qiuIr3ZClw==
   dependencies:
     "@ebay/nice-modal-react" "^1.2.13"
     "@iconify-json/tabler" "^1.1.108"

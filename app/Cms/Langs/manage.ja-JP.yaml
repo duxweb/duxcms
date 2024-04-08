@@ -10,3 +10,5 @@ cms:
       name: 設定情報
     edit:
       name: 設定の保存
+    config:
+      name: テンプレート構成

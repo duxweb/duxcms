@@ -13,6 +13,10 @@ content:
       article: 먼저 이 분류 아래 글을 삭제하십시오
     magic:
       name: 큐브 데이터
+    top:
+      name: 상단 데이터
+    topSave:
+      name: 위쪽 설정 저장
   source:
     name: 기사 출처
     validator:

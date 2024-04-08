@@ -135,49 +135,4 @@ class Article extends Resources
         $info->untag();
     }
 
-    #[Action(methods: 'POST', route: '/extract')]
-    public function extract(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $data = $request->getParsedBody() ?: [];
-
-
-        $auth = Package::getKey();
-        if (!$auth) {
-            throw new ExceptionBusiness('请先登录应用中心');
-        }
-        $uri = $data['url'];
-        if (!$uri) {
-            throw new ExceptionBusiness('请输入解析地址');
-
-        }
-
-        $headers = [
-            'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0',
-            'Referer' => $uri
-        ];
-
-        $client = new Client();
-        $result = $client->request('get', $uri, [
-            'headers' => $headers
-        ]);
-        try {
-            $content = $result?->getBody()?->getContents();
-        }catch (\Exception $e) {
-            throw new ExceptionBusiness('无法获取该地址数据');
-        }
-        $resultData = Package::request('post', '/v/services/extract', [
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-                'Authorization' => $auth
-            ],
-            'json' => [
-                'content' => $content,
-                'uri' => $uri
-            ]
-        ]);
-
-        return send($response, 'ok', $resultData);
-    }
-
 }

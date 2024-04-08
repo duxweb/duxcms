@@ -5,3 +5,4 @@ registers:
     - \App\System\App
     - \App\Tools\App
     - \App\Install\App
+    - \App\ContentExtend\App

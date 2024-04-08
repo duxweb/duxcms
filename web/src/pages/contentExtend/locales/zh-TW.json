@@ -1,0 +1,18 @@
+{
+  "contentExtend": {
+    "name": "內容擴展",
+    "spider": {
+      "name": "採集助手",
+      "fields": {
+        "extract": "提取"
+      },
+      "validates": {
+        "uri": "請輸入內容頁面地址"
+      },
+      "helps": {
+        "extract": " 僅支持靜態網頁的內容選取，暫不支持js渲染內容選取"
+      }
+    }
+  }
+  
+}

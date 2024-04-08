@@ -866,12 +866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxweb/dux-lite.git",
-                "reference": "e569eb0a2ca9bf8a6876402a2b4f66a7b024f627"
+                "reference": "44aaa92c756531fbb630905932c6d91f2baa761d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/e569eb0a2ca9bf8a6876402a2b4f66a7b024f627",
-                "reference": "e569eb0a2ca9bf8a6876402a2b4f66a7b024f627",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/44aaa92c756531fbb630905932c6d91f2baa761d",
+                "reference": "44aaa92c756531fbb630905932c6d91f2baa761d",
                 "shasum": ""
             },
             "require": {
@@ -962,7 +962,7 @@
                 "issues": "https://github.com/duxweb/dux-lite/issues",
                 "source": "https://github.com/duxweb/dux-lite"
             },
-            "time": "2024-04-08T08:47:17+00:00"
+            "time": "2024-04-08T12:05:14+00:00"
         },
         {
             "name": "enqueue/amqp-lib",

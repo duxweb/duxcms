@@ -10,3 +10,5 @@ cms:
       name: 설정 정보
     edit:
       name: 설정 저장
+    config:
+      name: 템플릿 구성

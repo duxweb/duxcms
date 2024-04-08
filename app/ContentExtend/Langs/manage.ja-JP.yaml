@@ -1,0 +1,10 @@
+contentExtend:
+  name: 記事の拡張
+  spider:
+    name: コンテンツ収集
+    validator:
+      user: まずアプリケーションセンターにログインしてください
+      uri: 解析アドレスを入力してください
+      notFound: アドレスデータを取得できませんでした
+    extract:
+      name: コンテンツ抽出

@@ -13,6 +13,10 @@ content:
       article: 請先删除該分類下文章
     magic:
       name: 魔方數據
+    top:
+      name: 置頂數據
+    topSave:
+      name: 置頂保存
   source:
     name: 文章來源
     validator:

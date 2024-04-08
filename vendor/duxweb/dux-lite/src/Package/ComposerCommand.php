@@ -25,8 +25,6 @@ class ComposerCommand extends Command
             ->setDescription('Execute execute commands via PHP.')
             ->addArgument('cmd', InputArgument::IS_ARRAY | InputArgument::REQUIRED, 'The execute command to run.')
             ->setHelp('This command allows you to run yarn commands...');
-
-        $this->setDescription(base_path());
     }
 
     public function execute(InputInterface $input, OutputInterface $output): int

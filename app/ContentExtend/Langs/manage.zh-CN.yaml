@@ -1,0 +1,10 @@
+contentExtend:
+  name: 文章扩展
+  spider:
+    name: 内容采集
+    validator:
+      user: 请先登录应用中心
+      uri: 请输入解析地址
+      notFound: 无法获取该地址数据
+    extract:
+      name: 内容提取

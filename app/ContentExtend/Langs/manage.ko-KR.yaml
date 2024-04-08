@@ -1,0 +1,10 @@
+contentExtend:
+  name: 기사 확장
+  spider:
+    name: 내용 수집
+    validator:
+      user: 먼저 애플리케이션 센터에 로그인하십시오.
+      uri: 확인 주소를 입력하십시오.
+      notFound: 이 주소 데이터를 가져올 수 없습니다.
+    extract:
+      name: 컨텐트 추출
