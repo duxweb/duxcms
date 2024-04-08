@@ -897,12 +897,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxweb/dux-lite.git",
-                "reference": "dbb6fc6e5dc8753fa853b78b1114998c7c885e74"
+                "reference": "31dae016bc1def273712f72941f2199416e1fc61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/dbb6fc6e5dc8753fa853b78b1114998c7c885e74",
-                "reference": "dbb6fc6e5dc8753fa853b78b1114998c7c885e74",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/31dae016bc1def273712f72941f2199416e1fc61",
+                "reference": "31dae016bc1def273712f72941f2199416e1fc61",
                 "shasum": ""
             },
             "require": {
@@ -963,7 +963,7 @@
                 "composer/composer": "^2.0",
                 "phpunit/phpunit": "^9.5"
             },
-            "time": "2024-04-07T14:36:10+00:00",
+            "time": "2024-04-08T03:36:31+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -3403,17 +3403,17 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.26.0",
-            "version_normalized": "3.26.0.0",
+            "version": "3.27.0",
+            "version_normalized": "3.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "072735c56cc0da00e10716dd90d5a7f7b40b36be"
+                "reference": "4729745b1ab737908c7d055148c9a6b3e959832f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/072735c56cc0da00e10716dd90d5a7f7b40b36be",
-                "reference": "072735c56cc0da00e10716dd90d5a7f7b40b36be",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4729745b1ab737908c7d055148c9a6b3e959832f",
+                "reference": "4729745b1ab737908c7d055148c9a6b3e959832f",
                 "shasum": ""
             },
             "require": {
@@ -3446,7 +3446,7 @@
                 "phpunit/phpunit": "^9.5.11|^10.0",
                 "sabre/dav": "^4.6.0"
             },
-            "time": "2024-03-25T11:49:53+00:00",
+            "time": "2024-04-07T19:17:50+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3480,7 +3480,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.26.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.27.0"
             },
             "funding": [
                 {

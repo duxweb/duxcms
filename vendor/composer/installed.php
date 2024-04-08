@@ -3,7 +3,7 @@
         'name' => 'duxweb/duxcms',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '322c7be2bf43399f32f4fc9e4236524ed3e1c4aa',
+        'reference' => '15b2c83f5735335ef3b96a00ca591eb113769a7e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -121,7 +121,7 @@
         'duxweb/dux-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'dbb6fc6e5dc8753fa853b78b1114998c7c885e74',
+            'reference' => '31dae016bc1def273712f72941f2199416e1fc61',
             'type' => 'library',
             'install_path' => __DIR__ . '/../duxweb/dux-lite',
             'aliases' => array(
@@ -132,7 +132,7 @@
         'duxweb/duxcms' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '322c7be2bf43399f32f4fc9e4236524ed3e1c4aa',
+            'reference' => '15b2c83f5735335ef3b96a00ca591eb113769a7e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -463,9 +463,9 @@
             'dev_requirement' => false,
         ),
         'league/flysystem' => array(
-            'pretty_version' => '3.26.0',
-            'version' => '3.26.0.0',
-            'reference' => '072735c56cc0da00e10716dd90d5a7f7b40b36be',
+            'pretty_version' => '3.27.0',
+            'version' => '3.27.0.0',
+            'reference' => '4729745b1ab737908c7d055148c9a6b3e959832f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/flysystem',
             'aliases' => array(),
