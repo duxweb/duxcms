@@ -31,7 +31,7 @@ const SaleForm = ({ form }: SeleFormProps) => {
   }, [extractUrl, form, request])
 
   return (
-    <div className='rounded bg-gray-2 p-4 border-component'>
+    <div className='rounded bg-gray-2 p-4 border-component dark:bg-gray-11'>
       <div className='mb-2'>{translate('contentExtend.spider.name')}</div>
       <div className='mb-2 flex gap-2'>
         <div className='w-1 flex-1'>

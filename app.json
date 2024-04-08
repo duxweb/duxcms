@@ -8,11 +8,11 @@
         "duxweb/base": "0.2.3",
         "duxweb/tools": "0.2.3",
         "duxweb/cloud": "0.0.4",
-        "duxweb/contentExtend": "0.0.0"
+        "duxweb/contentExtend": "0.0.1"
     },
     "apps": {
         "dux/cms": 1712581216,
         "dux/base": 1712580127,
-        "dux/contentExtend": 1712579918
+        "dux/contentExtend": 1712583383
     }
 }
