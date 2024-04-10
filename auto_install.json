@@ -1,5 +1,5 @@
 {
-  "php_ext":"redis,fileinfo,imagemagick,exif,bz2,event",
+  "php_ext":"fileinfo,imagemagick,exif,bz2,event",
   "chmod":[
     {"mode":755,"path":"/data"}
   ],
