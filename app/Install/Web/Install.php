@@ -61,10 +61,6 @@ class Install
                 'status' => extension_loaded('pdo')
             ],
             [
-                'name' => 'Redis',
-                'status' => extension_loaded('redis')
-            ],
-            [
                 'name' => 'GD',
                 'status' => function_exists('imagecreate')
             ],
