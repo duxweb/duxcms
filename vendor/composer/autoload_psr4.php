@@ -81,7 +81,7 @@ return array(
     'Intervention\\Gif\\' => array($vendorDir . '/intervention/gif/src'),
     'Interop\\Queue\\' => array($vendorDir . '/queue-interop/queue-interop/src'),
     'Interop\\Amqp\\' => array($vendorDir . '/queue-interop/amqp-interop/src'),
-    'Illuminate\\Support\\' => array($vendorDir . '/illuminate/conditionable', $vendorDir . '/illuminate/collections', $vendorDir . '/illuminate/macroable', $vendorDir . '/illuminate/support'),
+    'Illuminate\\Support\\' => array($vendorDir . '/illuminate/collections', $vendorDir . '/illuminate/conditionable', $vendorDir . '/illuminate/macroable', $vendorDir . '/illuminate/support'),
     'Illuminate\\Pipeline\\' => array($vendorDir . '/illuminate/pipeline'),
     'Illuminate\\Pagination\\' => array($vendorDir . '/illuminate/pagination'),
     'Illuminate\\Events\\' => array($vendorDir . '/illuminate/events'),

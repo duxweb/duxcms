@@ -7,14 +7,22 @@ use Psr\Http\Message\RequestInterface;
 class Signature
 {
     public const SIGN_HEADERS = [
-        'host',
-        'content-type',
-        'content-md5',
+        'cache-control',
         'content-disposition',
         'content-encoding',
         'content-length',
-        'transfer-encoding',
+        'content-md5',
+        'content-type',
+        'expires',
+        'host',
+        'if-match',
+        'if-modified-since',
+        'if-none-match',
+        'if-unmodified-since',
+        'origin',
         'range',
+        'transfer-encoding',
+        'pic-operations',
     ];
 
     public function __construct(public string $accessKey, public string $secretKey)

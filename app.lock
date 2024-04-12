@@ -26,20 +26,6 @@
             "app": "content"
         },
         {
-            "name": "duxweb/base",
-            "description": "System Base Applications",
-            "version": "0.2.3",
-            "phpDependencies": {
-                "duxweb/dux-lite": "main-dev"
-            },
-            "jsDependencies": {
-                "@duxweb/dux-extend": "^0.1.1",
-                "@duxweb/dux-plugin": "^0.0.8",
-                "@duxweb/dux-refine": "^0.11.2"
-            },
-            "app": "system"
-        },
-        {
             "name": "duxweb/cms",
             "description": "CMS Basic Application",
             "version": "0.2.5",
@@ -61,6 +47,20 @@
             "description": "Installation Wizard Applications",
             "version": "0.0.5",
             "app": "install"
+        },
+        {
+            "name": "duxweb/base",
+            "description": "System Base Applications",
+            "version": "0.2.4",
+            "phpDependencies": {
+                "duxweb/dux-lite": "main-dev"
+            },
+            "jsDependencies": {
+                "@duxweb/dux-extend": "^0.1.1",
+                "@duxweb/dux-plugin": "^0.0.8",
+                "@duxweb/dux-refine": "^0.11.3"
+            },
+            "app": "system"
         }
     ]
 }

@@ -897,12 +897,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/duxweb/dux-lite.git",
-                "reference": "44aaa92c756531fbb630905932c6d91f2baa761d"
+                "reference": "2f8d63e353ca88eb84b66b698ddee8bfc22c93aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/44aaa92c756531fbb630905932c6d91f2baa761d",
-                "reference": "44aaa92c756531fbb630905932c6d91f2baa761d",
+                "url": "https://api.github.com/repos/duxweb/dux-lite/zipball/2f8d63e353ca88eb84b66b698ddee8bfc22c93aa",
+                "reference": "2f8d63e353ca88eb84b66b698ddee8bfc22c93aa",
                 "shasum": ""
             },
             "require": {
@@ -963,7 +963,7 @@
                 "composer/composer": "^2.0",
                 "phpunit/phpunit": "^9.5"
             },
-            "time": "2024-04-08T12:05:14+00:00",
+            "time": "2024-04-12T08:34:19+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -2282,8 +2282,8 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -2338,8 +2338,8 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -2396,8 +2396,8 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -2445,8 +2445,8 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -2499,8 +2499,8 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -2550,17 +2550,17 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "58c2c155331c4cffbed930529e283f8906869478"
+                "reference": "635b0319641f7c746300f615838232ae30b0760c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/58c2c155331c4cffbed930529e283f8906869478",
-                "reference": "58c2c155331c4cffbed930529e283f8906869478",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/635b0319641f7c746300f615838232ae30b0760c",
+                "reference": "635b0319641f7c746300f615838232ae30b0760c",
                 "shasum": ""
             },
             "require": {
@@ -2587,7 +2587,7 @@
                 "illuminate/pagination": "Required to paginate the result set (^10.0).",
                 "symfony/finder": "Required to use Eloquent model factories (^6.2)."
             },
-            "time": "2024-04-04T17:45:10+00:00",
+            "time": "2024-04-10T14:11:27+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2626,8 +2626,8 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -2684,8 +2684,8 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -2733,8 +2733,8 @@
         },
         {
             "name": "illuminate/pagination",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
@@ -2786,8 +2786,8 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -2837,8 +2837,8 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v10.48.5",
-            "version_normalized": "10.48.5.0",
+            "version": "v10.48.7",
+            "version_normalized": "10.48.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -4579,17 +4579,17 @@
         },
         {
             "name": "overtrue/qcloud-cos-client",
-            "version": "2.1.4",
-            "version_normalized": "2.1.4.0",
+            "version": "2.1.5",
+            "version_normalized": "2.1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/qcloud-cos-client.git",
-                "reference": "7d4fe598cb81e588b7735a32762c4fa2b47f9492"
+                "reference": "637e0367e8f8504452c257ef3d6c73c84ae2dfb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/qcloud-cos-client/zipball/7d4fe598cb81e588b7735a32762c4fa2b47f9492",
-                "reference": "7d4fe598cb81e588b7735a32762c4fa2b47f9492",
+                "url": "https://api.github.com/repos/overtrue/qcloud-cos-client/zipball/637e0367e8f8504452c257ef3d6c73c84ae2dfb5",
+                "reference": "637e0367e8f8504452c257ef3d6c73c84ae2dfb5",
                 "shasum": ""
             },
             "require": {
@@ -4610,7 +4610,7 @@
                 "monolog/monolog": "^2.5",
                 "phpunit/phpunit": "^9.5"
             },
-            "time": "2023-12-18T06:07:39+00:00",
+            "time": "2024-04-10T07:16:55+00:00",
             "type": "library",
             "extra": {
                 "hooks": {
@@ -4643,7 +4643,7 @@
             "description": "Client of QCloud.com COS",
             "support": {
                 "issues": "https://github.com/overtrue/qcloud-cos-client/issues",
-                "source": "https://github.com/overtrue/qcloud-cos-client/tree/2.1.4"
+                "source": "https://github.com/overtrue/qcloud-cos-client/tree/2.1.5"
             },
             "funding": [
                 {
