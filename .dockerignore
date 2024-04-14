@@ -4,6 +4,7 @@
 /public/uploads
 /config/geo
 /public/theme
+/tmp
 
 # duxweb
 dist
