@@ -23,11 +23,12 @@ ENV PHP_MEMORY_LIMIT 512M
 ENV PHP_FPM_LISTEN 9000
 
 WORKDIR ${SITE_PATH}
-COPY --chown=www-data:www-data . ${SITE_PATH}
+COPY . ${SITE_PATH}
 COPY ./docker/Caddyfile /etc/caddy/Caddyfile
 COPY ./docker/supervisord.conf /etc/supervisord.conf
 
-RUN mkdir -p ./tmp/config && chmod +x ${SITE_PATH}/docker/run.sh
+
+RUN mkdir -p ./tmp/config && chmod +x ${SITE_PATH}/docker/run.sh && chown -R www-data:www-data ${SITE_PATH}
 COPY ./config ./tmp/config
 
 VOLUME ["${SITE_PATH}/data", "${SITE_PATH}/config"]
