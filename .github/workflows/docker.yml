@@ -33,4 +33,4 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: wmdscjhdpy/autologin
-          readme-filepath: ./doc/docker-readme.md
+          readme-filepath: ./README.md
