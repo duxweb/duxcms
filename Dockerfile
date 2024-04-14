@@ -12,11 +12,12 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         nodejs \
         yarn \
     && apk cache clean \
-    && rm -rf /var/cache/apk/* \
-    && rm /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini \
-    && rm /usr/local/etc/php/conf.d/docker-php-ext-phalcon.ini \
-    && rm /usr/local/etc/php/conf.d/docker-php-ext-psr.ini \
-    && rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    && rm -rf /var/cache/apk/*
+
+RUN rm /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini \
+        && rm /usr/local/etc/php/conf.d/docker-php-ext-phalcon.ini \
+        && rm /usr/local/etc/php/conf.d/docker-php-ext-psr.ini \
+        && rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 ENV ENV_SUBSTITUTION_ENABLE true
 ENV PHP_MEMORY_LIMIT 512M
