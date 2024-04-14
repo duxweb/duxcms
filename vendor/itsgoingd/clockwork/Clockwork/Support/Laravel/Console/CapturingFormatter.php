@@ -3,7 +3,7 @@
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 use Symfony\Component\Console\Formatter\OutputFormatterStyleInterface;
 
-// Formatter wrapping around a "real" formatter, capturing the formatted output (Symfony 6.x and later)
+// Formatter wrapping around a "real" formatter, capturing the formatted output (Symfony 7.x and later)
 class CapturingFormatter implements OutputFormatterInterface
 {
 	protected $formatter;
@@ -24,9 +24,9 @@ class CapturingFormatter implements OutputFormatterInterface
 		return $capturedOutput;
 	}
 
-	public function setDecorated(bool $decorated)
+	public function setDecorated(bool $decorated): void
 	{
-		return $this->formatter->setDecorated($decorated);
+		$this->formatter->setDecorated($decorated);
 	}
 
 	public function isDecorated(): bool
@@ -34,9 +34,9 @@ class CapturingFormatter implements OutputFormatterInterface
 		return $this->formatter->isDecorated();
 	}
 
-	public function setStyle(string $name, OutputFormatterStyleInterface $style)
+	public function setStyle(string $name, OutputFormatterStyleInterface $style): void
 	{
-		return $this->formatter->setStyle($name, $style);
+		$this->formatter->setStyle($name, $style);
 	}
 
 	public function hasStyle(string $name): bool
