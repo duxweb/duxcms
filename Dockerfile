@@ -2,8 +2,6 @@ FROM joseluisq/php-fpm:8.2
 
 ENV SITE_PATH /var/www/html
 
-COPY --from=caddy-builder /usr/bin/caddy /usr/bin/caddy
-
 # 设置时区
 RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
