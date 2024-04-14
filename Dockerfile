@@ -11,8 +11,8 @@ ENV PHP_FPM_LISTEN 9000
 
 WORKDIR ${SITE_PATH}
 COPY . ${SITE_PATH}
-COPY Caddyfile /etc/caddy/Caddyfile
-COPY supervisord.conf /etc/supervisord.conf
+COPY ./docker/Caddyfile /etc/caddy/Caddyfile
+COPY ./docker/supervisord.conf /etc/supervisord.conf
 
 # 设置时区
 RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories  \
@@ -27,9 +27,9 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories
         bash \
     && rm -rf /var/cache/apk/* \
     && rm /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini \
-   && rm /usr/local/etc/php/conf.d/docker-php-ext-phalcon.ini \
-   && rm /usr/local/etc/php/conf.d/docker-php-ext-psr.ini \
-   && rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && rm /usr/local/etc/php/conf.d/docker-php-ext-phalcon.ini \
+    && rm /usr/local/etc/php/conf.d/docker-php-ext-psr.ini \
+    && rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN chown -R www-data:www-data ${SITE_PATH} \
     && chmod -R 755 ${SITE_PATH}
