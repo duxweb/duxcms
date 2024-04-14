@@ -13,10 +13,10 @@ RUN apk add \
         yarn \
     && rm -rf /var/cache/apk/*
 
-RUN rm /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini \
-        && rm /usr/local/etc/php/conf.d/docker-php-ext-phalcon.ini \
-        && rm /usr/local/etc/php/conf.d/docker-php-ext-psr.ini \
-        && rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN rm -f /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini \
+      /usr/local/etc/php/conf.d/docker-php-ext-phalcon.ini \
+      /usr/local/etc/php/conf.d/docker-php-ext-psr.ini \
+      /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 ENV ENV_SUBSTITUTION_ENABLE true
 ENV PHP_MEMORY_LIMIT 512M
