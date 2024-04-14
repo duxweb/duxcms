@@ -2,16 +2,15 @@ FROM joseluisq/php-fpm:8.2
 
 ENV SITE_PATH /var/www/html
 
-# 设置时区
 RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone \
-    && apk del tzdata \
-    && apk add \
+        && echo "Asia/Shanghai" > /etc/timezone \
+        && apk del tzdata
+
+RUN apk add \
         caddy \
         supervisor \
         nodejs \
         yarn \
-    && apk cache clean \
     && rm -rf /var/cache/apk/*
 
 RUN rm /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini \
