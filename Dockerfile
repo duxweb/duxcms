@@ -14,6 +14,9 @@ COPY . ${SITE_PATH}
 COPY ./docker/Caddyfile /etc/caddy/Caddyfile
 COPY ./docker/supervisord.conf /etc/supervisord.conf
 
+RUN mkdir -p ./tmp/config
+COPY ./config ./tmp/config
+
 # 设置时区
 RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories  \
     && apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
@@ -32,9 +35,11 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories
     && rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN chown -R www-data:www-data ${SITE_PATH} \
-    && chmod -R 755 ${SITE_PATH}
+    && chmod -R 755 ${SITE_PATH} \
+    && chmod +x ${SITE_PATH}/docker/run.sh
 
+VOLUME ["${SITE_PATH}/data", "${SITE_PATH}/config"]
 EXPOSE 80
 
-CMD ["supervisord", "-c", "/etc/supervisord.conf"]
+CMD ["/bin/bash", "/var/www/html/docker/run.sh"]
 
