@@ -127,4 +127,27 @@ class Article
         return \App\Content\Service\Article::query()->where('id', '>', $id)->latest('id')->first();
     }
 
+
+
+    // 目录
+    public static function catalogs($classId = null)
+    {
+        $list = \App\Content\Models\ArticleClass::query()->descendantsAndSelf($classId)->toTree();
+        $ids = ArticleClass::query()->descendantsAndSelf($classId)->pluck("id");
+        $articleList = \App\Content\Models\Article::query()->whereIn('class_id', $ids)->get()->groupBy("class_id");
+        return self::children($list, $articleList);
+    }
+
+    private static function children($list, $articleList)
+    {
+        foreach ($list as $key => $vo) {
+            if ($vo->children) {
+                $list[$key]->children = self::children($vo->children, $articleList);
+            }
+            $list[$key]->articles = $articleList[$vo->id];
+        }
+        return $list;
+    }
+
+
 }

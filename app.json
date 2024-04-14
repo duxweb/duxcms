@@ -3,7 +3,7 @@
     "description": "This is the dux application dependency configuration",
     "dependencies": {
         "duxweb/cms": "0.2.5",
-        "duxweb/content": "0.2.5",
+        "duxweb/content": "0.2.6",
         "duxweb/install": "0.0.5",
         "duxweb/base": "0.2.4",
         "duxweb/tools": "0.2.3",
@@ -11,7 +11,7 @@
         "duxweb/contentExtend": "0.0.1"
     },
     "apps": {
-        "dux/cms": 1712581216,
+        "dux/cms": 1712980220,
         "dux/base": 1712910621,
         "dux/contentExtend": 1712583383
     }
