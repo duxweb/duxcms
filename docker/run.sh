@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 volume_path="/var/www/html/config/"
 temp_path="/var/www/html/tmp/config/*"
