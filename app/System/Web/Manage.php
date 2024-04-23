@@ -25,6 +25,9 @@ class Manage
         $vite = App::config('use')->get('vite', []);
         $lang = App::config('use')->get('lang', 'en-US');
 
+        $manage =  App::config('use')->get('manage');
+        $manage['indexName'] = $manage['indexName'] ?: 'system';
+        $manage['sideType'] = $manage['sideType'] ?: 'app';
         $assign = [
             "title" => App::config('use')->get('app.name'),
             "lang" => $lang,
@@ -36,11 +39,7 @@ class Manage
                 'js' => $data['src/index.tsx']['file'],
                 'css' => $data['style.css']['file'],
             ],
-            'manage' => [
-                'indexName' => App::config('use')->get('manage.indexName', 'system'),
-                'sideType' => App::config('use')->get('manage.sideType', 'app'),
-                'baiduMap' => App::config('use')->get('manage.baiduMap', ''),
-            ],
+            'manage' => $manage,
         ];
 
         $html = $view->renderToString(dirname(__DIR__) . "/Views/Web/manage.html", $assign);

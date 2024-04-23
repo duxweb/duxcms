@@ -40,20 +40,6 @@
             "app": "install"
         },
         {
-            "name": "duxweb/base",
-            "description": "System Base Applications",
-            "version": "0.2.4",
-            "phpDependencies": {
-                "duxweb/dux-lite": "main-dev"
-            },
-            "jsDependencies": {
-                "@duxweb/dux-extend": "^0.1.1",
-                "@duxweb/dux-plugin": "^0.0.8",
-                "@duxweb/dux-refine": "^0.11.3"
-            },
-            "app": "system"
-        },
-        {
             "name": "duxweb/content",
             "description": "Content Management Applications",
             "version": "0.2.6",
@@ -61,6 +47,20 @@
                 "pelago/emogrifier": "^7.1"
             },
             "app": "content"
+        },
+        {
+            "name": "duxweb/base",
+            "description": "System Base Applications",
+            "version": "0.2.8",
+            "phpDependencies": {
+                "duxweb/dux-lite": "main-dev"
+            },
+            "jsDependencies": {
+                "@duxweb/dux-extend": "^0.1.1",
+                "@duxweb/dux-plugin": "^0.0.8",
+                "@duxweb/dux-refine": "^0.11.8"
+            },
+            "app": "system"
         }
     ]
 }

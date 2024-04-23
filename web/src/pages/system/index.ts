@@ -44,7 +44,7 @@ const register = (context: appContext) => {
 
 const config: appConfig = {
   init: init,
-  register: register,
+  run: register,
 }
 
 export default config

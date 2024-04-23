@@ -14,6 +14,8 @@ const config: Config = {
   },
   defaultApp: 'admin',
   indexName: window?.manage?.indexName || 'system',
+  title: window?.manage?.title,
+  copyright: window?.manage?.copyright,
   resourcesPrefix: true,
   moduleApp: {
     admin: {
@@ -24,5 +26,7 @@ const config: Config = {
   sideType: window?.manage?.sideType || 'level',
   lang: window?.lang,
   baiduMap: window?.manage?.baiduMap || '',
+  appLogo: window?.manage?.appLogo,
+  appDarkLogo: window?.manage?.appDarkLogo,
 }
 export default config
