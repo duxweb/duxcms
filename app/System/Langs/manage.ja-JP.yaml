@@ -2,7 +2,7 @@ system:
   name: システム
   auth:
     validator:
-      nickname: アカウントを入力してください
+      username: アカウントを入力してください
       password: パスワードを入力してください
     error:
       login: アカウントまたはパスワードが間違っている

@@ -1,5 +1,5 @@
 name: Tests
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   build:
     strategy:
@@ -11,16 +11,14 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup PHP and extensions
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          extensions: gmp
           coverage: xdebug
-          #coverage: pcov
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: ${{ matrix.dependency-versions }}
       - name: Run linter
@@ -30,4 +28,7 @@ jobs:
       - name: Run static analysis
         run: make static
       - name: Upload coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: jimtools/jwt-auth

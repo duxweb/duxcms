@@ -44,6 +44,7 @@ use Intervention\Image\Interfaces\DriverInterface;
 use Intervention\Image\Interfaces\EncodedImageInterface;
 use Intervention\Image\Interfaces\EncoderInterface;
 use Intervention\Image\Interfaces\FontInterface;
+use Intervention\Image\Interfaces\FrameInterface;
 use Intervention\Image\Interfaces\ImageInterface;
 use Intervention\Image\Interfaces\ModifierInterface;
 use Intervention\Image\Interfaces\ProfileInterface;
@@ -88,6 +89,7 @@ use Intervention\Image\Modifiers\ScaleModifier;
 use Intervention\Image\Modifiers\SharpenModifier;
 use Intervention\Image\Modifiers\SliceAnimationModifier;
 use Intervention\Image\Modifiers\TextModifier;
+use Intervention\Image\Modifiers\TrimModifier;
 use Intervention\Image\Typography\FontFactory;
 
 final class Image implements ImageInterface
@@ -182,7 +184,7 @@ final class Image implements ImageInterface
     /**
      * Implementation of IteratorAggregate
      *
-     * @return Traversable
+     * @return Traversable<FrameInterface>
      */
     public function getIterator(): Traversable
     {
@@ -254,7 +256,7 @@ final class Image implements ImageInterface
     /**
      * {@inheritdoc}
      *
-     * @see ImgageInterface::setExif()
+     * @see ImageInterface::setExif()
      */
     public function setExif(CollectionInterface $exif): ImageInterface
     {
@@ -298,7 +300,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::save()
      */
-    public function save(?string $path = null, ...$options): ImageInterface
+    public function save(?string $path = null, mixed ...$options): ImageInterface
     {
         $path = is_null($path) ? $this->origin()->filePath() : $path;
 
@@ -752,6 +754,16 @@ final class Image implements ImageInterface
     /**
      * {@inheritdoc}
      *
+     * @see ImageInterface::trim()
+     */
+    public function trim(int $tolerance = 0): ImageInterface
+    {
+        return $this->modify(new TrimModifier($tolerance));
+    }
+
+    /**
+     * {@inheritdoc}
+     *
      * @see ImageInterface::place()
      */
     public function place(
@@ -864,7 +876,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::encodeByMediaType()
      */
-    public function encodeByMediaType(?string $type = null, ...$options): EncodedImageInterface
+    public function encodeByMediaType(null|string|MediaType $type = null, mixed ...$options): EncodedImageInterface
     {
         return $this->encode(new MediaTypeEncoder($type, ...$options));
     }
@@ -874,8 +886,10 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::encodeByExtension()
      */
-    public function encodeByExtension(?string $extension = null, mixed ...$options): EncodedImageInterface
-    {
+    public function encodeByExtension(
+        null|string|FileExtension $extension = null,
+        mixed ...$options
+    ): EncodedImageInterface {
         return $this->encode(new FileExtensionEncoder($extension, ...$options));
     }
 

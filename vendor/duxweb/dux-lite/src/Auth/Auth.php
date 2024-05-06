@@ -20,6 +20,6 @@ class Auth {
             'exp' => $time + $expire,
         ];
         $payload = [...$payload, ...$params];
-        return JWT::encode($payload, \Dux\App::config("use")->get("app.secret"));
+        return JWT::encode($payload, \Dux\App::config("use")->get("app.secret"), 'HS256');
     }
 }

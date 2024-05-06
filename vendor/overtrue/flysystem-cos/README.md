@@ -15,7 +15,7 @@
 ## Installation
 
 ```shell
-$ composer require overtrue/flysystem-cos -vvv
+composer require overtrue/flysystem-cos -vvv
 ```
 
 ## Usage

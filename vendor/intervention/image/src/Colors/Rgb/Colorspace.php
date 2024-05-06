@@ -7,12 +7,18 @@ namespace Intervention\Image\Colors\Rgb;
 use Intervention\Image\Colors\Hsv\Color as HsvColor;
 use Intervention\Image\Colors\Hsl\Color as HslColor;
 use Intervention\Image\Colors\Cmyk\Color as CmykColor;
+use Intervention\Image\Exceptions\ColorException;
 use Intervention\Image\Interfaces\ColorInterface;
 use Intervention\Image\Interfaces\ColorspaceInterface;
 
 class Colorspace implements ColorspaceInterface
 {
-    public static $channels = [
+    /**
+     * Channel class names of colorspace
+     *
+     * @var array<string>
+     */
+    public static array $channels = [
         Channels\Red::class,
         Channels\Green::class,
         Channels\Blue::class,
@@ -34,9 +40,9 @@ class Colorspace implements ColorspaceInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @see ColorspaceInterface::importColor()
+     * @param ColorInterface $color
+     * @return ColorInterface
+     * @throws ColorException
      */
     public function importColor(ColorInterface $color): ColorInterface
     {
@@ -48,8 +54,17 @@ class Colorspace implements ColorspaceInterface
         };
     }
 
-    protected function importCmykColor(CmykColor $color): ColorInterface
+    /**
+     * @param ColorInterface $color
+     * @return ColorInterface
+     * @throws ColorException
+     */
+    protected function importCmykColor(ColorInterface $color): ColorInterface
     {
+        if (!($color instanceof CmykColor)) {
+            throw new ColorException('Unabled to import color of type ' . $color::class . '.');
+        }
+
         return new Color(
             (int) (255 * (1 - $color->cyan()->normalize()) * (1 - $color->key()->normalize())),
             (int) (255 * (1 - $color->magenta()->normalize()) * (1 - $color->key()->normalize())),
@@ -57,8 +72,17 @@ class Colorspace implements ColorspaceInterface
         );
     }
 
-    protected function importHsvColor(HsvColor $color): ColorInterface
+    /**
+     * @param ColorInterface $color
+     * @return ColorInterface
+     * @throws ColorException
+     */
+    protected function importHsvColor(ColorInterface $color): ColorInterface
     {
+        if (!($color instanceof HsvColor)) {
+            throw new ColorException('Unabled to import color of type ' . $color::class . '.');
+        }
+
         $chroma = $color->value()->normalize() * $color->saturation()->normalize();
         $hue = $color->hue()->normalize() * 6;
         $x = $chroma * (1 - abs(fmod($hue, 2) - 1));
@@ -83,8 +107,17 @@ class Colorspace implements ColorspaceInterface
         return $this->colorFromNormalized($values);
     }
 
-    protected function importHslColor(HslColor $color): ColorInterface
+    /**
+     * @param ColorInterface $color
+     * @return ColorInterface
+     * @throws ColorException
+     */
+    protected function importHslColor(ColorInterface $color): ColorInterface
     {
+        if (!($color instanceof HslColor)) {
+            throw new ColorException('Unabled to import color of type ' . $color::class . '.');
+        }
+
         // normalized values of hsl channels
         list($h, $s, $l) = array_map(function ($channel) {
             return $channel->normalize();

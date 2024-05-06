@@ -10,7 +10,6 @@
         "phpunit/phpunit": "^9.5",
         "mockery/mockery": "^1.0",
         "league/flysystem-adapter-test-utilities": "^3.0",
-        "brainmaestro/composer-git-hooks": "dev-master",
         "laravel/pint": "^1.6"
     },
     "autoload": {
@@ -30,31 +29,8 @@
         }
     ],
     "license": "MIT",
-    "extra": {
-        "hooks": {
-            "pre-commit": [
-                "composer fix-style",
-                "composer test"
-            ],
-            "pre-push": [
-                "composer test",
-                "composer check-style"
-            ]
-        }
-    },
     "scripts": {
-        "post-update-cmd": [
-            "cghooks remove",
-            "cghooks add --ignore-lock",
-            "cghooks update"
-        ],
         "post-merge": "composer install",
-        "post-install-cmd": [
-            "cghooks remove",
-            "cghooks add --ignore-lock",
-            "cghooks update"
-        ],
-        "cghooks": "vendor/bin/cghooks",
         "check-style": "vendor/bin/pint --test",
         "fix-style": "vendor/bin/pint",
         "test": "phpunit --colors=always"

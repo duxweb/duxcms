@@ -449,14 +449,59 @@ final class Filters
 
 
 	/**
-	 * Sorts an array.
-	 * @param  mixed[]  $array
-	 * @return mixed[]
+	 * Sorts elements using the comparison function and preserves the key association.
 	 */
-	public static function sort(array $array, ?\Closure $callback = null): array
+	public static function sort(iterable $iterable, ?\Closure $comparison = null): iterable
 	{
-		$callback ? uasort($array, $callback) : asort($array);
-		return $array;
+		if (is_array($iterable)) {
+			$comparison ? uasort($iterable, $comparison) : asort($iterable);
+			return $iterable;
+		}
+
+		$keys = $values = [];
+		foreach ($iterable as $key => $value) {
+			$keys[] = $key;
+			$values[] = $value;
+		}
+		$comparison ? uasort($values, $comparison) : asort($values);
+
+		return (static function () use ($keys, $values): \Generator {
+			foreach ($values as $i => $value) {
+				yield $keys[$i] => $value;
+			}
+		})();
+	}
+
+
+	/**
+	 * Groups elements by the element indices and preserves the key association and order.
+	 */
+	public static function group(iterable $iterable, string|int|\Closure $by): \Generator
+	{
+		$fn = $by instanceof \Closure ? $by : fn($a) => is_array($a) ? $a[$by] : $a->$by;
+		$keys = $groups = $prevKey = [];
+
+		foreach ($iterable as $k => $v) {
+			$groupKey = $fn($v, $k);
+			if (!$groups || $prevKey !== $groupKey) {
+				$index = array_search($groupKey, $keys, true);
+				if ($index === false) {
+					$index = count($keys);
+					$keys[$index] = $groupKey;
+				}
+				$prevKey = $groupKey;
+			}
+			$groups[$index][0][] = $k;
+			$groups[$index][1][] = $v;
+		}
+
+		foreach ($groups as $index => $pair) {
+			yield $keys[$index] => (static function () use ($pair): \Generator {
+				foreach ($pair[1] as $i => $value) {
+					yield $pair[0][$i] => $value;
+				}
+			})();
+		}
 	}
 
 
@@ -514,11 +559,17 @@ final class Filters
 	/**
 	 * Returns the first element in an array or character in a string, or null if none.
 	 */
-	public static function first(string|array $value): mixed
+	public static function first(string|iterable $value): mixed
 	{
-		return is_array($value)
-			? ($value[array_key_first($value)] ?? null)
-			: self::substring($value, 0, 1);
+		if (is_string($value)) {
+			return self::substring($value, 0, 1);
+		}
+
+		foreach ($value as $item) {
+			return $item;
+		}
+
+		return null;
 	}
 
 

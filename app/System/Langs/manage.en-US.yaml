@@ -2,7 +2,7 @@ system:
   name: system
   auth:
     validator:
-      nickname: Please enter your account number
+      username: Please enter your account number
       password: Please enter password
     error:
       login: Account or password error

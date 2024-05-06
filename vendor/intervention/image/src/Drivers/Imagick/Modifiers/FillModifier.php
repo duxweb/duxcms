@@ -7,18 +7,12 @@ namespace Intervention\Image\Drivers\Imagick\Modifiers;
 use Imagick;
 use ImagickDraw;
 use ImagickPixel;
-use Intervention\Image\Drivers\DriverSpecialized;
-use Intervention\Image\Drivers\Imagick\Frame;
+use Intervention\Image\Interfaces\FrameInterface;
 use Intervention\Image\Interfaces\ImageInterface;
-use Intervention\Image\Geometry\Point;
-use Intervention\Image\Interfaces\ModifierInterface;
+use Intervention\Image\Interfaces\SpecializedInterface;
+use Intervention\Image\Modifiers\FillModifier as ModifiersFillModifier;
 
-/**
- * @method bool hasPosition()
- * @property mixed $color
- * @property null|Point $position
- */
-class FillModifier extends DriverSpecialized implements ModifierInterface
+class FillModifier extends ModifiersFillModifier implements SpecializedInterface
 {
     public function apply(ImageInterface $image): ImageInterface
     {
@@ -38,7 +32,7 @@ class FillModifier extends DriverSpecialized implements ModifierInterface
         return $image;
     }
 
-    private function floodFillWithColor(Frame $frame, ImagickPixel $pixel): void
+    private function floodFillWithColor(FrameInterface $frame, ImagickPixel $pixel): void
     {
         $target = $frame->native()->getImagePixelColor(
             $this->position->x(),
@@ -56,7 +50,7 @@ class FillModifier extends DriverSpecialized implements ModifierInterface
         );
     }
 
-    private function fillAllWithColor(Frame $frame, ImagickPixel $pixel): void
+    private function fillAllWithColor(FrameInterface $frame, ImagickPixel $pixel): void
     {
         $draw = new ImagickDraw();
         $draw->setFillColor($pixel);

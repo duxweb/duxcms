@@ -5,6 +5,7 @@ namespace Dux\Auth;
 use Dux\App;
 use Exception;
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class AuthService
@@ -18,7 +19,7 @@ class AuthService
     {
         $jwtStr = str_replace('Bearer ', '', $request->getHeaderLine('Authorization'));
         try {
-            $jwt = JWT::decode($jwtStr, App::config("use")->get("app.secret"), ["HS256", "HS512", "HS384"]);
+            $jwt = JWT::decode($jwtStr, new Key(App::config("use")->get("app.secret"), 'HS256'));
 
         } catch (Exception $e) {
             return null;

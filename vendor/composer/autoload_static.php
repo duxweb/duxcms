@@ -260,7 +260,7 @@ class ComposerStaticInit7b98c8797a09ce0f5c5afa3a9248096b
         'Tuupola\\Middleware\\' => 
         array (
             0 => __DIR__ . '/..' . '/tuupola/callable-handler/src',
-            1 => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src',
+            1 => __DIR__ . '/..' . '/jimtools/jwt-auth/src',
         ),
         'Tuupola\\Http\\Factory\\' => 
         array (
@@ -534,9 +534,9 @@ class ComposerStaticInit7b98c8797a09ce0f5c5afa3a9248096b
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/collections',
+            0 => __DIR__ . '/..' . '/illuminate/macroable',
             1 => __DIR__ . '/..' . '/illuminate/conditionable',
-            2 => __DIR__ . '/..' . '/illuminate/macroable',
+            2 => __DIR__ . '/..' . '/illuminate/collections',
             3 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Pipeline\\' => 

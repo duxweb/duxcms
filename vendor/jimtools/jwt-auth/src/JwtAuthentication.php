@@ -34,13 +34,15 @@ SOFTWARE.
 
 namespace Tuupola\Middleware;
 
+use ArrayAccess;
 use Closure;
 use DomainException;
-use InvalidArgumentException;
 use Exception;
 use Firebase\JWT\JWT;
-use Psr\Http\Message\ServerRequestInterface;
+use Firebase\JWT\Key;
+use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Log\LoggerInterface;
@@ -51,6 +53,11 @@ use Tuupola\Http\Factory\ResponseFactory;
 use Tuupola\Middleware\JwtAuthentication\RequestMethodRule;
 use Tuupola\Middleware\JwtAuthentication\RequestPathRule;
 use Tuupola\Middleware\JwtAuthentication\RuleInterface;
+
+use function array_fill_keys;
+use function array_keys;
+use function count;
+use function is_array;
 
 final class JwtAuthentication implements MiddlewareInterface
 {
@@ -72,10 +79,10 @@ final class JwtAuthentication implements MiddlewareInterface
      * Stores all the options passed to the middleware.
      *
      * @var array{
-     *   secret?: string|array<string>,
+     *   secret?: string|array<string>|array<string,string>,
      *   secure: bool,
      *   relaxed: array<string>,
-     *   algorithm: array<string>,
+     *   algorithm: array<string>|array<string,string>,
      *   header: string,
      *   regexp: string,
      *   cookie: string,
@@ -90,7 +97,7 @@ final class JwtAuthentication implements MiddlewareInterface
     private array $options = [
         "secure" => true,
         "relaxed" => ["localhost", "127.0.0.1"],
-        "algorithm" => ["HS256", "HS512", "HS384"],
+        "algorithm" => ["HS256"],
         "header" => "Authorization",
         "regexp" => "/Bearer\s+(.*)$/i",
         "cookie" => "token",
@@ -306,11 +313,15 @@ final class JwtAuthentication implements MiddlewareInterface
      */
     private function decodeToken(string $token): array
     {
+        $keys = $this->createKeysFromAlgorithms();
+        if (count($keys) === 1) {
+            $keys = current($keys);
+        }
+
         try {
             $decoded = JWT::decode(
                 $token,
-                $this->options["secret"],
-                (array) $this->options["algorithm"]
+                $keys,
             );
             return (array) $decoded;
         } catch (Exception $exception) {
@@ -326,6 +337,16 @@ final class JwtAuthentication implements MiddlewareInterface
      */
     private function hydrate(array $data = []): void
     {
+        $data['algorithm'] = $data['algorithm'] ?? $this->options['algorithm'];
+        if ((is_array($data['secret']) || $data['secret'] instanceof ArrayAccess)
+            && is_array($data['algorithm'])
+            && count($data['algorithm']) === 1
+            && count((array) $data['secret']) > count($data['algorithm'])
+        ) {
+            $secretIndex = array_keys((array) $data['secret']);
+            $data['algorithm'] = array_fill_keys($secretIndex, $data['algorithm'][0]);
+        }
+
         foreach ($data as $key => $value) {
             /* https://github.com/facebook/hhvm/issues/6368 */
             $key = str_replace(".", " ", $key);
@@ -503,5 +524,32 @@ final class JwtAuthentication implements MiddlewareInterface
         foreach ($rules as $callable) {
             $this->rules->push($callable);
         }
+    }
+
+    /**
+     * @return array<string,Key>
+     */
+    private function createKeysFromAlgorithms(): array
+    {
+        if (!isset($this->options["secret"])) {
+            throw new InvalidArgumentException(
+                'Secret must be either a string or an array of "kid" => "secret" pairs'
+            );
+        }
+
+        $keyObjects = [];
+        foreach ($this->options["algorithm"] as $kid => $algorithm) {
+            $keyId = !is_numeric($kid) ? $kid : $algorithm;
+
+            $secret = $this->options["secret"];
+
+            if (is_array($secret) || $secret instanceof ArrayAccess) {
+                $secret = $this->options["secret"][$kid];
+            }
+
+            $keyObjects[$keyId] = new Key($secret, $algorithm);
+        }
+
+        return $keyObjects;
     }
 }

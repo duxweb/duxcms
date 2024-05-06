@@ -191,6 +191,8 @@ class CosAdapter implements FilesystemAdapter
     }
 
     /**
+     * @see https://cloud.tencent.com/document/product/436/7744
+     *
      * @throws \Overtrue\CosClient\Exceptions\InvalidConfigException
      */
     public function visibility(string $path): FileAttributes
@@ -199,8 +201,22 @@ class CosAdapter implements FilesystemAdapter
 
         $meta = $this->getObjectClient()->getObjectACL($prefixedPath);
 
-        foreach ($meta['AccessControlPolicy']['AccessControlList']['Grant'] ?? [] as $grant) {
-            if ($grant['Permission'] === 'READ' && str_contains($grant['Grantee']['URI'] ?? '', 'global/AllUsers')) {
+        $grants = $meta['AccessControlList']['Grant'] ?? [];
+
+        if (array_key_exists('Grantee', $grants)) {
+            $grants = [$grants];
+        }
+
+        foreach ($grants as $grant) {
+            //     <Grant>
+            //          <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+            //              <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+            //          </Grantee>
+            //          <Permission>READ</Permission>
+            //      </Grant>
+            $allowRead = $grant['Permission'] === 'READ' || $grant['Permission'] === 'FULL_CONTROL';
+
+            if ($allowRead && str_contains($grant['Grantee']['URI'] ?? '', 'global/AllUsers')) {
                 return new FileAttributes($path, null, Visibility::PUBLIC);
             }
         }

@@ -12,6 +12,9 @@ use Intervention\Image\Exceptions\AnimationException;
 use Intervention\Image\Interfaces\CollectionInterface;
 use Intervention\Image\Interfaces\FrameInterface;
 
+/**
+ * @implements Iterator<FrameInterface>
+ */
 class Core implements CoreInterface, Iterator
 {
     protected int $iteratorIndex = 0;
@@ -159,7 +162,7 @@ class Core implements CoreInterface, Iterator
     /**
      * {@inheritdoc}
      *
-     * @see Interator::rewind()
+     * @see Iterator::rewind()
      */
     public function current(): mixed
     {
@@ -171,7 +174,7 @@ class Core implements CoreInterface, Iterator
     /**
      * {@inheritdoc}
      *
-     * @see Interator::rewind()
+     * @see Iterator::rewind()
      */
     public function next(): void
     {
@@ -181,7 +184,7 @@ class Core implements CoreInterface, Iterator
     /**
      * {@inheritdoc}
      *
-     * @see Interator::rewind()
+     * @see Iterator::rewind()
      */
     public function key(): mixed
     {
@@ -191,7 +194,7 @@ class Core implements CoreInterface, Iterator
     /**
      * {@inheritdoc}
      *
-     * @see Interator::rewind()
+     * @see Iterator::rewind()
      */
     public function valid(): bool
     {
@@ -207,7 +210,7 @@ class Core implements CoreInterface, Iterator
     /**
      * {@inheritdoc}
      *
-     * @see Interator::rewind()
+     * @see Iterator::rewind()
      */
     public function rewind(): void
     {
