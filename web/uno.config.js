@@ -1,11 +1,10 @@
-import {
-  defineConfig,
-  presetIcons,
-  presetTypography,
-  presetUno,
-  transformerDirectives,
-} from 'unocss'
+import { defineConfig, presetTypography, presetUno, transformerDirectives } from 'unocss'
+import presetIcons from '@unocss/preset-icons/browser'
 import { presetDux } from '@duxweb/dux-plugin'
+import tablerIcon from '@iconify-json/tabler/icons.json'
+
+const iconSafeList = []
+Object.keys(tablerIcon.icons).map((item) => iconSafeList.push(`i-tabler:${item}`))
 
 export default defineConfig({
   presets: [
@@ -14,10 +13,16 @@ export default defineConfig({
         dark: '[theme-mode="dark"]',
       },
     }),
-    presetIcons(),
     presetTypography(),
     presetDux(),
+    presetIcons({
+      prefix: 'i-',
+      collections: {
+        tabler: () => import('@iconify-json/tabler/icons.json').then((i) => i.default),
+      },
+    }),
   ],
+  safelist: iconSafeList,
   transformers: [transformerDirectives()],
   content: {
     pipeline: {
