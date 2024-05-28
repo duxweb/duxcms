@@ -22,8 +22,8 @@ trait  Edit
         $validator = $this->validator($requestData, $request, $args);
         $validatorEvent = $this->event->get('validator', $requestData, $request, $args);
 
-        $data = Validator::parser($requestData, [...$validator, ...$validatorEvent]);
-
+        $data = Validator::parser([...$requestData, ...$args], [...$validator, ...$validatorEvent]);
+        
         $format = $this->format($data, $request, $args);
         $formatEvent = $this->event->get('format', $data, $request, $args);
         $modelData = $this->formatData([...$format, ...$formatEvent], $data);

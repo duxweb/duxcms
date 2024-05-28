@@ -5,19 +5,14 @@ import { Form, Tag } from 'tdesign-react/esm'
 const Page = (props: Record<string, any>) => {
   const translate = useTranslate()
 
+  {console.log(props?.id)}
   return (
     <FormModal id={props?.id} resource='content/category/top'>
       <Form.FormItem name='tops'>
         <ListSelect
           sort
-          resource={'content.article'}
-          tableHook={{
-            meta: {
-              params: {
-                class_id: props?.id,
-              },
-            },
-          }}
+          resource={'content/article?class_id=' + props?.id}
+
           options={[
             {
               field: 'id',

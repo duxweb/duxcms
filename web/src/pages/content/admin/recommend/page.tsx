@@ -1,5 +1,12 @@
 import { useTranslate, useResource } from '@refinedev/core'
-import { FormPage, FormPageItem, ListSelect, MediaText } from '@duxweb/dux-refine'
+import {
+  FormPage,
+  FormPageItem,
+  ListSelect,
+  MediaText,
+  FilterItem,
+  CascaderAsync,
+} from '@duxweb/dux-refine'
 import { Form, Input, Tag } from 'tdesign-react/esm'
 
 const Page = () => {
@@ -39,7 +46,7 @@ const Page = () => {
               content: ({ row }) => {
                 return (
                   <MediaText size='small'>
-                    <MediaText.Image src={row?.images[0]} />
+                    <MediaText.Image src={row?.images?.[0]} />
                     <MediaText.Title>{row?.title}</MediaText.Title>
                     <MediaText.Desc>{row?.subtitle}</MediaText.Desc>
                   </MediaText>
@@ -67,6 +74,24 @@ const Page = () => {
               },
             },
           ]}
+          filterRender={
+            <>
+              <FilterItem name='class_id'>
+                <CascaderAsync
+                  placeholder={translate('content.article.validate.class')}
+                  url={'content/category'}
+                  keys={{
+                    label: 'name',
+                    value: 'id',
+                  }}
+                  format={(v) => parseInt(v)}
+                  filterable
+                  checkStrictly
+                  clearable
+                />
+              </FilterItem>
+            </>
+          }
           tableColumns={[
             {
               colKey: 'id',
@@ -79,9 +104,9 @@ const Page = () => {
               cell: ({ row }) => {
                 return (
                   <MediaText size='small'>
-                    <MediaText.Image src={row?.images[0]} />
+                    <MediaText.Image src={row?.images?.[0]} />
                     <MediaText.Title>{row?.title}</MediaText.Title>
-                    <MediaText.Desc>{row?.subtitle}</MediaText.Desc>
+                    <MediaText.Desc>{row.class_name?.join(' > ')}</MediaText.Desc>
                   </MediaText>
                 )
               },

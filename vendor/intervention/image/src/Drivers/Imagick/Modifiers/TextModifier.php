@@ -7,24 +7,19 @@ namespace Intervention\Image\Drivers\Imagick\Modifiers;
 use ImagickDraw;
 use ImagickDrawException;
 use ImagickException;
-use Intervention\Image\Drivers\AbstractTextModifier;
 use Intervention\Image\Drivers\Imagick\FontProcessor;
-use Intervention\Image\Drivers\Imagick\Frame;
 use Intervention\Image\Exceptions\ColorException;
 use Intervention\Image\Exceptions\FontException;
 use Intervention\Image\Exceptions\RuntimeException;
 use Intervention\Image\Geometry\Point;
 use Intervention\Image\Interfaces\FontInterface;
+use Intervention\Image\Interfaces\FrameInterface;
 use Intervention\Image\Interfaces\ImageInterface;
-use Intervention\Image\Interfaces\ModifierInterface;
+use Intervention\Image\Interfaces\SpecializedInterface;
+use Intervention\Image\Modifiers\TextModifier as GenericTextModifier;
 use Intervention\Image\Typography\Line;
 
-/**
- * @property Point $position
- * @property string $text
- * @property FontInterface $font
- */
-class TextModifier extends AbstractTextModifier implements ModifierInterface
+class TextModifier extends GenericTextModifier implements SpecializedInterface
 {
     /**
      * {@inheritdoc}
@@ -114,14 +109,14 @@ class TextModifier extends AbstractTextModifier implements ModifierInterface
      * Maybe draw given line of text on frame instance depending on given
      * ImageDraw instance. Optionally move line position by given offset.
      *
-     * @param Frame $frame
+     * @param FrameInterface $frame
      * @param Line $textline
      * @param null|ImagickDraw $draw
      * @param Point $offset
      * @return void
      */
     private function maybeDrawTextline(
-        Frame $frame,
+        FrameInterface $frame,
         Line $textline,
         ?ImagickDraw $draw = null,
         Point $offset = new Point(),

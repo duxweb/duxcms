@@ -449,14 +449,78 @@ final class Filters
 
 
 	/**
-	 * Sorts an array.
-	 * @param  mixed[]  $array
-	 * @return mixed[]
+	 * Sorts elements using the comparison function and preserves the key association.
+	 * @template K
+	 * @template V
+	 * @param  iterable<K, V>  $data
+	 * @return iterable<K, V>
 	 */
-	public static function sort(array $array, ?\Closure $callback = null): array
+	public static function sort(
+		iterable $data,
+		?\Closure $comparison = null,
+		string|int|\Closure|null $by = null,
+		string|int|\Closure|bool $byKey = false,
+	): iterable
 	{
-		$callback ? uasort($array, $callback) : asort($array);
-		return $array;
+		if ($byKey !== false) {
+			if ($by !== null) {
+				throw new \InvalidArgumentException('Filter |sort cannot use both $by and $byKey.');
+			}
+			$by = $byKey === true ? null : $byKey;
+		}
+
+		$comparison ??= fn($a, $b) => $a <=> $b;
+		$comparison = match (true) {
+			$by === null => $comparison,
+			$by instanceof \Closure => fn($a, $b) => $comparison($by($a), $by($b)),
+			default => fn($a, $b) => $comparison(is_array($a) ? $a[$by] : $a->$by, is_array($b) ? $b[$by] : $b->$by),
+		};
+
+		if (is_array($data)) {
+			$byKey ? uksort($data, $comparison) : uasort($data, $comparison);
+			return $data;
+		}
+
+		$pairs = [];
+		foreach ($data as $key => $value) {
+			$pairs[] = [$key, $value];
+		}
+		uasort($pairs, fn($a, $b) => $byKey ? $comparison($a[0], $b[0]) : $comparison($a[1], $b[1]));
+
+		return new AuxiliaryIterator($pairs);
+	}
+
+
+	/**
+	 * Groups elements by the element indices and preserves the key association and order.
+	 * @template K
+	 * @template V
+	 * @param  iterable<K, V>  $data
+	 * @return iterable<iterable<K, V>>
+	 */
+	public static function group(iterable $data, string|int|\Closure $by): iterable
+	{
+		$fn = $by instanceof \Closure ? $by : fn($a) => is_array($a) ? $a[$by] : $a->$by;
+		$keys = $groups = [];
+
+		foreach ($data as $k => $v) {
+			$groupKey = $fn($v, $k);
+			if (!$groups || $prevKey !== $groupKey) {
+				$index = array_search($groupKey, $keys, true);
+				if ($index === false) {
+					$index = count($keys);
+					$keys[$index] = $groupKey;
+				}
+				$prevKey = $groupKey;
+			}
+			$groups[$index][] = [$k, $v];
+		}
+
+		return new AuxiliaryIterator(array_map(
+			fn($key, $group) => [$key, new AuxiliaryIterator($group)],
+			$keys,
+			$groups,
+		));
 	}
 
 
@@ -514,11 +578,17 @@ final class Filters
 	/**
 	 * Returns the first element in an array or character in a string, or null if none.
 	 */
-	public static function first(string|array $value): mixed
+	public static function first(string|iterable $value): mixed
 	{
-		return is_array($value)
-			? ($value[array_key_first($value)] ?? null)
-			: self::substring($value, 0, 1);
+		if (is_string($value)) {
+			return self::substring($value, 0, 1);
+		}
+
+		foreach ($value as $item) {
+			return $item;
+		}
+
+		return null;
 	}
 
 

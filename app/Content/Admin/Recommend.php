@@ -41,24 +41,21 @@ class Recommend extends Resources
 
     public function createAfter(Data $data, mixed $info): void
     {
-        $info->articles()->detach();
+        $info->articles()->sync([]);
         if ($data->articles) {
             foreach ($data->articles as $sort => $id) {
-                $info->articles()->attach($id, ['sort' => $sort]);
+                $info->articles()->attach($id, ['sort' => $sort ?: 0]);
             }
-        } else {
-            $info->articles()->sync([]);
         }
     }
 
     public function editAfter(Data $data, mixed $info): void
     {
+        $info->articles()->sync([]);
         if ($data->articles) {
             foreach ($data->articles as $sort => $id) {
-                $info->articles()->attach($id, ['sort' => $sort]);
+                $info->articles()->attach($id, ['sort' => $sort ?: 0]);
             }
-        } else {
-            $info->articles()->sync([]);
         }
     }
 }

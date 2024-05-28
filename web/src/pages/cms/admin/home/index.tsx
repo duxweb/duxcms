@@ -29,7 +29,7 @@ const Index = () => {
   const ips: Array<Record<string, any>> = statsData?.data?.ips
 
   return (
-    <Main title={translate('cms.dashboard.name')} icon='i-tabler:home'>
+    <Main title={translate('cms.dashboard.name')}>
       <div className='flex flex-col gap-4 lg:flex-row'>
         <div className='grid grid-cols-2 flex-none gap-4'>
           <CardItem

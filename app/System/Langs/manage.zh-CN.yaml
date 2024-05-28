@@ -2,7 +2,7 @@ system:
   name: 系统
   auth:
     validator:
-      nickname: 请输入账号
+      username: 请输入账号
       password: 请输入密码
     error:
       login: 账号或者密码错误

@@ -46,7 +46,7 @@ class AuthMiddleware {
                 $time = time();
                 if ($renewalTime <= $time) {
                     $token["exp"] = $time + $expire;
-                    $auth = JWT::encode($token, $secret);
+                    $auth = JWT::encode($token, $secret, 'HS256');
                     return $response->withHeader("Authorization", "Bearer $auth");
                 }
                 return $response;

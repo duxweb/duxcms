@@ -33,6 +33,10 @@ final class PhpFile
 	}
 
 
+	/**
+	 * Adds a class to the file. If it already exists, throws an exception.
+	 * As a parameter, pass the full name with namespace.
+	 */
 	public function addClass(string $name): ClassType
 	{
 		return $this
@@ -41,6 +45,10 @@ final class PhpFile
 	}
 
 
+	/**
+	 * Adds an interface to the file. If it already exists, throws an exception.
+	 * As a parameter, pass the full name with namespace.
+	 */
 	public function addInterface(string $name): InterfaceType
 	{
 		return $this
@@ -49,6 +57,10 @@ final class PhpFile
 	}
 
 
+	/**
+	 * Adds a trait to the file. If it already exists, throws an exception.
+	 * As a parameter, pass the full name with namespace.
+	 */
 	public function addTrait(string $name): TraitType
 	{
 		return $this
@@ -57,6 +69,10 @@ final class PhpFile
 	}
 
 
+	/**
+	 * Adds an enum to the file. If it already exists, throws an exception.
+	 * As a parameter, pass the full name with namespace.
+	 */
 	public function addEnum(string $name): EnumType
 	{
 		return $this
@@ -65,6 +81,21 @@ final class PhpFile
 	}
 
 
+	/**
+	 * Adds a function to the file. If it already exists, throws an exception.
+	 * As a parameter, pass the full name with namespace.
+	 */
+	public function addFunction(string $name): GlobalFunction
+	{
+		return $this
+			->addNamespace(Helpers::extractNamespace($name))
+			->addFunction(Helpers::extractShortName($name));
+	}
+
+
+	/**
+	 * Adds a namespace to the file. If it already exists, it returns the existing one.
+	 */
 	public function addNamespace(string|PhpNamespace $namespace): PhpNamespace
 	{
 		$res = $namespace instanceof PhpNamespace
@@ -79,11 +110,14 @@ final class PhpFile
 	}
 
 
-	public function addFunction(string $name): GlobalFunction
+	/**
+	 * Removes the namespace from the file.
+	 */
+	public function removeNamespace(string|PhpNamespace $namespace): static
 	{
-		return $this
-			->addNamespace(Helpers::extractNamespace($name))
-			->addFunction(Helpers::extractShortName($name));
+		$name = $namespace instanceof PhpNamespace ? $namespace->getName() : $namespace;
+		unset($this->namespaces[$name]);
+		return $this;
 	}
 
 
@@ -124,6 +158,9 @@ final class PhpFile
 	}
 
 
+	/**
+	 * Adds a use statement to the file, to the global namespace.
+	 */
 	public function addUse(string $name, ?string $alias = null, string $of = PhpNamespace::NameNormal): static
 	{
 		$this->addNamespace('')->addUse($name, $alias, $of);
@@ -134,9 +171,9 @@ final class PhpFile
 	/**
 	 * Adds declare(strict_types=1) to output.
 	 */
-	public function setStrictTypes(bool $on = true): static
+	public function setStrictTypes(bool $state = true): static
 	{
-		$this->strictTypes = $on;
+		$this->strictTypes = $state;
 		return $this;
 	}
 

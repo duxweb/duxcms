@@ -2,7 +2,7 @@ system:
   name: 系統
   auth:
     validator:
-      nickname: 請輸入帳號
+      username: 請輸入帳號
       password: 請輸入密碼
     error:
       login: 帳號或者密碼錯誤

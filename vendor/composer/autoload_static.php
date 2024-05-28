@@ -260,7 +260,7 @@ class ComposerStaticInit7b98c8797a09ce0f5c5afa3a9248096b
         'Tuupola\\Middleware\\' => 
         array (
             0 => __DIR__ . '/..' . '/tuupola/callable-handler/src',
-            1 => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src',
+            1 => __DIR__ . '/..' . '/jimtools/jwt-auth/src',
         ),
         'Tuupola\\Http\\Factory\\' => 
         array (
@@ -393,8 +393,8 @@ class ComposerStaticInit7b98c8797a09ce0f5c5afa3a9248096b
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -534,9 +534,9 @@ class ComposerStaticInit7b98c8797a09ce0f5c5afa3a9248096b
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/collections',
+            0 => __DIR__ . '/..' . '/illuminate/macroable',
             1 => __DIR__ . '/..' . '/illuminate/conditionable',
-            2 => __DIR__ . '/..' . '/illuminate/macroable',
+            2 => __DIR__ . '/..' . '/illuminate/collections',
             3 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Pipeline\\' => 
@@ -845,6 +845,7 @@ class ComposerStaticInit7b98c8797a09ce0f5c5afa3a9248096b
         'Latte\\Compiler\\TokenStream' => __DIR__ . '/..' . '/latte/latte/src/Latte/Compiler/TokenStream.php',
         'Latte\\ContentType' => __DIR__ . '/..' . '/latte/latte/src/Latte/ContentType.php',
         'Latte\\Engine' => __DIR__ . '/..' . '/latte/latte/src/Latte/Engine.php',
+        'Latte\\Essential\\AuxiliaryIterator' => __DIR__ . '/..' . '/latte/latte/src/Latte/Essential/AuxiliaryIterator.php',
         'Latte\\Essential\\Blueprint' => __DIR__ . '/..' . '/latte/latte/src/Latte/Essential/Blueprint.php',
         'Latte\\Essential\\CachingIterator' => __DIR__ . '/..' . '/latte/latte/src/Latte/Essential/CachingIterator.php',
         'Latte\\Essential\\CoreExtension' => __DIR__ . '/..' . '/latte/latte/src/Latte/Essential/CoreExtension.php',

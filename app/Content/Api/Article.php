@@ -21,24 +21,9 @@ class Article
     public function list(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $params = $request->getQueryParams();
-        $query = \App\Content\Models\Article::query();
-        $query->orderByDesc('id');
-        $query->with(['sources']);
-        $query->where('status', 1);
-        if ($params['class']) {
-            $query->where('class_id', $params['class']);
-        }
-        if ($params['recommend']) {
-            $query->whereHas('recommend', function ($query) use ($params) {
-                $query->where('id', $params['recommend']);
-            });
-        }
-        if ($params['keyword']) {
-            $query->where(function ($query) use ($params) {
-                $query->where('title', 'like', '%'.$params['keyword'].'%')->orWhere('descriptions', 'like', '%'.$params['keyword'].'%')->orWhere('keywords', 'like', '%'.$params['keyword'].'%');
-            });
-        }
-        $list = $query->paginate(20);
+
+        $list = \App\Content\Service\Article::page(where: [], classId: $params['class'], recId: $params['recommend'], image: $params['image'],keyword: $params['keyword'], tag: $params['tag'], limit: 20);
+
 
         $result = format_data($list, function ($item) {
             return [
@@ -56,7 +41,8 @@ class Article
                 'collect' => $item->collect,
                 'comment' => $item->comment,
                 'praise' => $item->praise,
-                'extend' => $item->extend
+                'extend' => $item->extend,
+                'top' => $item->top
             ];
         });
 

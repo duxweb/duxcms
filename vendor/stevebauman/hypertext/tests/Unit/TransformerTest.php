@@ -86,7 +86,6 @@ it('captures text within html', function (string $inputFile, string $outputFile,
         'email/output-both.txt',
         fn (Transformer $transformer) => $transformer->keepLinks()->keepNewLines(),
     ],
-
     [
         'laravel.com/input.txt',
         'laravel.com/output.txt',
@@ -106,15 +105,6 @@ it('captures text within html', function (string $inputFile, string $outputFile,
         'laravel.com/output-both.txt',
         fn (Transformer $transformer) => $transformer->keepLinks()->keepNewLines(),
     ],
-    [
-        'html2text/huge-msoffice/input.txt',
-        'html2text/huge-msoffice/output.txt',
-    ],
-    [
-        'html2text/huge-msoffice/input.txt',
-        'html2text/huge-msoffice/output-lines.txt',
-        fn (Transformer $transformer) => $transformer->keepNewLines(),
-    ],
 ]);
 
 it('it captures text only within filter selector', function () {
@@ -130,4 +120,12 @@ it('it captures text only within filter selector with larger input', function ()
     $output = file_get_contents(fixture('laravel.com/output-filter-xpath.txt'));
 
     expect(transformer()->filter('//footer')->keepLinks()->keepNewLines()->toText($input))->toEqual($output);
+});
+
+it('converts html entities into their true form', function () {
+    expect(
+        transformer()->toText(<<<HTML
+            <p>Here's some &nbsp;text that is a bit &ldquo;rough &amp; ready&rdquo;</p>
+        HTML)
+    )->toEqual("Here's some text that is a bit “rough & ready”");
 });

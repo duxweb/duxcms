@@ -102,8 +102,7 @@ class Transformer
             $this->filter ? [
                 // Query the HTML for specific element(s) using an XPath expression.
                 fn (string $html) => $this->query($html)
-            ] : [],
-            [
+            ] : [], [
                 // Convert any quoted-printable strings to an 8 bit string.
                 fn (string $html) => quoted_printable_decode($html),
 
@@ -120,10 +119,13 @@ class Transformer
                 fn (string $html) => strip_tags($html, $this->keepLinks ? '<a>' : null),
 
                 // Remove all horizontal spaces.
-                fn (string $html) => preg_replace( '/\h+/u', ' ', $html),
+                fn (string $html) => preg_replace('/\h+/u', ' ', $html),
 
                 // Remove all excess spacing around new lines.
                 fn (string $html) => preg_replace('/\s*\n\s*/', "\n", $html),
+
+                // Decode any remaining HTML entities.
+                 fn (string $html) => htmlspecialchars_decode($html),
 
                 // Finally, trim the end result.
                 fn (string $html) => trim($html),

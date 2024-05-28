@@ -154,6 +154,7 @@ const List = () => {
                 format={(v) => parseInt(v)}
                 filterable
                 clearable
+                checkStrictly
               />
             </FilterItem>
           </>

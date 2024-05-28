@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Intervention\Image\Modifiers;
 
+use Intervention\Image\Drivers\SpecializableModifier;
 use Intervention\Image\Exceptions\RuntimeException;
 use Intervention\Image\Geometry\Rectangle;
 use Intervention\Image\Interfaces\ImageInterface;
@@ -16,7 +17,7 @@ class CropModifier extends SpecializableModifier
         public int $height,
         public int $offset_x = 0,
         public int $offset_y = 0,
-        public mixed $background = 'f00',
+        public mixed $background = 'ffffff',
         public string $position = 'top-left'
     ) {
     }

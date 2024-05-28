@@ -28,14 +28,14 @@ Resources
 <a href="/trademark">Trademark</a>
 Partners
 <a href="https://vehikl.com">Vehikl</a>
-<a href="https://webreinvent.com/?utm_source=laravel&amp;utm_medium=laravel.com&amp;utm_campaign=footer-link">WebReinvent</a>
+<a href="https://webreinvent.com/?utm_source=laravel&utm_medium=laravel.com&utm_campaign=footer-link">WebReinvent</a>
 <a href="https://tighten.co">Tighten</a>
-<a href="https://www.bacancytechnology.com/hire-laravel-developer?utm_source=laravel&amp;utm_medium=partners.laravel&amp;utm_campaign=sponsors">Bacancy</a>
+<a href="https://www.bacancytechnology.com/hire-laravel-developer?utm_source=laravel&utm_medium=partners.laravel&utm_campaign=sponsors">Bacancy</a>
 <a href="https://64robots.com/">64 Robots</a>
 <a href="https://activelogic.com/">Active Logic</a>
 <a href="https://www.byte5.net/">Byte 5</a>
 <a href="https://www.curotec.com/services/technologies/laravel/">Curotec</a>
-<a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a>
+<a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&utm_medium=Sponsorship">Cyber-Duck</a>
 <a href="https://devsquad.com/">DevSquad</a>
 <a href="https://jump24.co.uk/">Jump24</a>
 <a href="https://kirschbaumdevelopment.com/">Kirschbaum</a>

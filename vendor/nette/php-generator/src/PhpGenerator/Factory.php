@@ -200,7 +200,7 @@ final class Factory
 	public function fromParameterReflection(\ReflectionParameter $from): Parameter
 	{
 		$param = $from->isPromoted()
-			? new PromotedParameter($from->name)
+			? (new PromotedParameter($from->name))->setReadOnly(PHP_VERSION_ID >= 80100 && $from->getDeclaringClass()->getProperty($from->name)->isReadonly())
 			: new Parameter($from->name);
 		$param->setReference($from->isPassedByReference());
 		$param->setType((string) $from->getType());
@@ -230,7 +230,7 @@ final class Factory
 		$const = new Constant($from->name);
 		$const->setValue($from->getValue());
 		$const->setVisibility($this->getVisibility($from));
-		$const->setFinal(PHP_VERSION_ID >= 80100 ? $from->isFinal() : false);
+		$const->setFinal(PHP_VERSION_ID >= 80100 && $from->isFinal());
 		$const->setComment(Helpers::unformatDocComment((string) $from->getDocComment()));
 		$const->setAttributes($this->getAttributes($from));
 		return $const;
@@ -257,7 +257,7 @@ final class Factory
 		$prop->setType((string) $from->getType());
 
 		$prop->setInitialized($from->hasType() && array_key_exists($prop->getName(), $defaults));
-		$prop->setReadOnly(PHP_VERSION_ID >= 80100 && $from->isReadOnly() && !(PHP_VERSION_ID >= 80200 && $from->getDeclaringClass()->isReadOnly()));
+		$prop->setReadOnly(PHP_VERSION_ID >= 80100 && $from->isReadOnly());
 		$prop->setComment(Helpers::unformatDocComment((string) $from->getDocComment()));
 		$prop->setAttributes($this->getAttributes($from));
 		return $prop;

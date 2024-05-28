@@ -2,7 +2,7 @@ system:
   name: Системы
   auth:
     validator:
-      nickname: Введите номер счета.
+      username: Введите номер счета.
       password: Введите пароль.
     error:
       login: Ошибка аккаунта или пароля.

@@ -5,7 +5,7 @@
     "dependencies": {
         "@duxweb/dux-extend": "^0.1.1",
         "@duxweb/dux-plugin": "^0.0.8",
-        "@duxweb/dux-refine": "^0.11.8"
+        "@duxweb/dux-refine": "^0.14.6"
     },
     "devDependencies": {
         "@faker-js/faker": "^8.0.2",
@@ -29,7 +29,7 @@
         "react-dom": "^18.2.0",
         "sass": "^1.69.5",
         "typescript": "^5.2.2",
-        "vite": "^5.1.4"
+        "vite": "^5.2.11"
     },
     "scripts": {
         "dev": "refine dev --host",

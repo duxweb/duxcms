@@ -48,7 +48,6 @@
     "illuminate/pagination": "^10.0",
     "vlucas/valitron": "^1.4",
     "bluem/tree": "^3.2",
-    "tuupola/slim-jwt-auth": "^3.7",
     "symfony/var-dumper": "^6.2",
     "donatj/phpuseragentparser": "^1.7",
     "nette/finder": "^2.6",
@@ -74,7 +73,8 @@
     "zoujingli/ip2region": "^2.0",
     "ezyang/htmlpurifier": "^4.17",
     "predis/predis": "^2.2",
-    "enqueue/amqp-lib": "^0.10.19"
+    "enqueue/amqp-lib": "^0.10.19",
+    "jimtools/jwt-auth": "^1.0"
   },
   "require-dev": {
     "composer/composer": "^2.0",

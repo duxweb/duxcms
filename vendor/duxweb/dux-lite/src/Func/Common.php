@@ -142,7 +142,7 @@ if (!function_exists('encryption')) {
         if (!$data) {
             throw new ExceptionBusiness(__('encryption.failure', 'common'));
         }
-        return strtolower(bin2hex($data));
+        return base64_encode($data);
     }
 }
 
@@ -151,7 +151,7 @@ if (!function_exists('decryption')) {
     function decryption(string $str, string $key = '', string $iv = '', $method = 'AES-256-CBC'): string|false
     {
         $key = $key ?: App::config('use')->get('app.secret');
-        return openssl_decrypt(hex2bin($str), $method, $key, OPENSSL_RAW_DATA, $iv);
+        return openssl_decrypt(base64_decode($str), $method, $key, OPENSSL_RAW_DATA, $iv);
     }
 }
 

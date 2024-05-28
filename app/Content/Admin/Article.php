@@ -39,7 +39,19 @@ class Article extends Resources
             $query->where('title', 'like', '%' . $params['keyword'] . '%');
         }
         if ($params['class_id']) {
-            $query->where('class_id', $params['class_id']);
+            $classId = $params['class_id'];
+            $classList = ArticleClass::query()->with(['descendants'])->whereIn('id', is_array($classId) ? $classId : [$classId])->get();
+            $classIds = [];
+            $tops = [];
+            foreach ($classList as $vo) {
+                $classIds[] = $vo['id'];
+                $classIds = [...$classIds, ...$vo->descendants->pluck('id')];
+                if ($vo->tops) {
+                    $tops = [...$tops, ...$vo->tops];
+                }
+            }
+            $query->whereIn('class_id', $classIds);
+
         }
         if ($params['tab'] == 1) {
             $query->where('status', 1);
@@ -98,19 +110,24 @@ class Article extends Resources
             $data->descriptions = Content::extractDescriptions($content);
         }
 
-        return [
+        $result = [
             "class_id" => $data->class_id,
             "title" => $data->title,
             'subtitle' => $data->subtitle,
             "images" => $data->images,
             "content" => $content,
             'source' => $data->source,
-            'status' => $data->status,
             'virtual_view' => $data->virtual_view ?: 0,
             'keywords' => $data->keywords ? implode(',', $data->keywords) : '',
             'descriptions' => $data->descriptions,
             'extend' => $data->extend,
         ];
+
+        if (isset($data->status)) {
+            $result['status'] = $data->status;
+        }
+
+        return $result;
     }
 
 

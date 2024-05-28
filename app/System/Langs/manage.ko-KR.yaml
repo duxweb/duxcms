@@ -2,7 +2,7 @@ system:
   name: 시스템
   auth:
     validator:
-      nickname: 계정을 입력하세요
+      username: 계정을 입력하세요
       password: 암호를 입력하십시오.
     error:
       login: 아이디나 비밀번호 오류

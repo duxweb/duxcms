@@ -21,7 +21,7 @@ trait Create
 
         $validator = $this->validator($requestData, $request, $args);
         $validatorEvent = $this->event->get('validator', $requestData, $request, $args);
-        $data = Validator::parser($requestData, [...$validator, ...$validatorEvent]);
+        $data = Validator::parser([...$requestData, ...$args], [...$validator, ...$validatorEvent]);
 
         App::db()->getConnection()->beginTransaction();
 

@@ -119,6 +119,7 @@ return array(
     'Latte\\Compiler\\TokenStream' => $vendorDir . '/latte/latte/src/Latte/Compiler/TokenStream.php',
     'Latte\\ContentType' => $vendorDir . '/latte/latte/src/Latte/ContentType.php',
     'Latte\\Engine' => $vendorDir . '/latte/latte/src/Latte/Engine.php',
+    'Latte\\Essential\\AuxiliaryIterator' => $vendorDir . '/latte/latte/src/Latte/Essential/AuxiliaryIterator.php',
     'Latte\\Essential\\Blueprint' => $vendorDir . '/latte/latte/src/Latte/Essential/Blueprint.php',
     'Latte\\Essential\\CachingIterator' => $vendorDir . '/latte/latte/src/Latte/Essential/CachingIterator.php',
     'Latte\\Essential\\CoreExtension' => $vendorDir . '/latte/latte/src/Latte/Essential/CoreExtension.php',

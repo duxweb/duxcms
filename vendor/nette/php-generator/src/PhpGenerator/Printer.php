@@ -170,6 +170,7 @@ class Printer
 			}
 		}
 
+		$readOnlyClass = $class instanceof ClassType && $class->isReadOnly();
 		$consts = [];
 		$methods = [];
 		if (
@@ -179,19 +180,14 @@ class Printer
 			|| $class instanceof EnumType
 		) {
 			foreach ($class->getConstants() as $const) {
-				$def = ($const->isFinal() ? 'final ' : '')
-					. ($const->getVisibility() ? $const->getVisibility() . ' ' : '')
-					. 'const '
-					. ltrim($this->printType($const->getType(), nullable: false) . ' ')
-					. $const->getName() . ' = ';
-
-				$consts[] = $this->printDocComment($const)
-					. $this->printAttributes($const->getAttributes())
-					. $def
-					. $this->dump($const->getValue(), strlen($def)) . ";\n";
+				$consts[] = $this->printConstant($const);
 			}
 
 			foreach ($class->getMethods() as $method) {
+				if ($readOnlyClass && $method->getName() === Method::Constructor) {
+					$method = clone $method;
+					array_map(fn($param) => $param instanceof PromotedParameter ? $param->setReadOnly(false) : null, $method->getParameters());
+				}
 				$methods[] = $this->printMethod($method, $namespace, $class->isInterface());
 			}
 		}
@@ -199,22 +195,7 @@ class Printer
 		$properties = [];
 		if ($class instanceof ClassType || $class instanceof TraitType) {
 			foreach ($class->getProperties() as $property) {
-				$property->validate();
-				$type = $property->getType();
-				$def = (($property->getVisibility() ?: 'public')
-					. ($property->isStatic() ? ' static' : '')
-					. ($property->isReadOnly() && $type ? ' readonly' : '')
-					. ' '
-					. ltrim($this->printType($type, $property->isNullable()) . ' ')
-					. '$' . $property->getName());
-
-				$properties[] = $this->printDocComment($property)
-					. $this->printAttributes($property->getAttributes())
-					. $def
-					. ($property->getValue() === null && !$property->isInitialized()
-						? ''
-						: ' = ' . $this->dump($property->getValue(), strlen($def) + 3)) // 3 = ' = '
-					. ";\n";
+				$properties[] = $this->printProperty($property, $readOnlyClass);
 			}
 		}
 
@@ -372,6 +353,42 @@ class Printer
 			? "(\n" . $this->indent($res) . ')'
 			: '(' . substr($res, 0, -2) . ')';
 
+	}
+
+
+	private function printConstant(Constant $const): string
+	{
+		$def = ($const->isFinal() ? 'final ' : '')
+			. ($const->getVisibility() ? $const->getVisibility() . ' ' : '')
+			. 'const '
+			. ltrim($this->printType($const->getType(), nullable: false) . ' ')
+			. $const->getName() . ' = ';
+
+		return $this->printDocComment($const)
+			. $this->printAttributes($const->getAttributes())
+			. $def
+			. $this->dump($const->getValue(), strlen($def)) . ";\n";
+	}
+
+
+	private function printProperty(Property $property, bool $readOnlyClass = false): string
+	{
+		$property->validate();
+		$type = $property->getType();
+		$def = (($property->getVisibility() ?: 'public')
+			. ($property->isStatic() ? ' static' : '')
+			. (!$readOnlyClass && $property->isReadOnly() && $type ? ' readonly' : '')
+			. ' '
+			. ltrim($this->printType($type, $property->isNullable()) . ' ')
+			. '$' . $property->getName());
+
+		return $this->printDocComment($property)
+			. $this->printAttributes($property->getAttributes())
+			. $def
+			. ($property->getValue() === null && !$property->isInitialized()
+				? ''
+				: ' = ' . $this->dump($property->getValue(), strlen($def) + 3)) // 3 = ' = '
+			. ";\n";
 	}
 
 

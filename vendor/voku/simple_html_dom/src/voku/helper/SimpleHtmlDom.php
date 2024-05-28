@@ -684,11 +684,15 @@ class SimpleHtmlDom extends AbstractSimpleHtmlDom implements \IteratorAggregate,
     /**
      * Returns the parent of node.
      *
-     * @return SimpleHtmlDomInterface
+     * @return SimpleHtmlDomInterface|null
      */
-    public function parentNode(): SimpleHtmlDomInterface
+    public function parentNode(): ?SimpleHtmlDomInterface
     {
-        return new static($this->node->parentNode);
+        if ($node = $this->node->parentNode) {
+            return new static($node);
+        }
+
+        return null;
     }
 
     /**
@@ -831,7 +835,6 @@ class SimpleHtmlDom extends AbstractSimpleHtmlDom implements \IteratorAggregate,
             ||
             $newDocument->getIsDOMDocumentCreatedWithoutHtmlWrapper()
         ) {
-
             // Remove doc-type node.
             if ($newDocument->getDocument()->doctype !== null) {
                 $newDocument->getDocument()->doctype->parentNode->removeChild($newDocument->getDocument()->doctype);

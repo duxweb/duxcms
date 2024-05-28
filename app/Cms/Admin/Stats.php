@@ -76,7 +76,7 @@ class Stats
 
         $pushNums = [];
         foreach ($dates as $date) {
-            $pushNums[] = $pushData[$date]->pv ?: 0;
+            $pushNums[] = $pushData[$date]->num ?: 0;
         }
         $pushLabels = collect(range(6, 0))->map(function ($daysAgo) {
             return now()->subDays($daysAgo)->isoFormat('dddd');
@@ -123,6 +123,7 @@ class Stats
             ->get()
             ->toArray();
 
+
         // 蜘蛛统计
         $spiderData = LogVisitSpider::query()
             ->select(
@@ -131,6 +132,8 @@ class Stats
                 App::db()->getConnection()->raw('COUNT(*) as num'),
             )
             ->groupBy('name', 'date')
+            ->orderBy('num')
+            ->limit(6)
             ->get()->toArray();
 
         $dates = collect(range(30,0))->map(function ($daysAgo) {

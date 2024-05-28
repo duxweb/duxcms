@@ -155,7 +155,7 @@ Database Migrations
 Validation
 </a>
 <a href="#notifications">
-Notifications &amp; Mail
+Notifications & Mail
 </a>
 <a href="#storage">
 File Storage
@@ -170,11 +170,11 @@ Task Scheduling
 Testing
 </a>
 <a href="#events">
-Events &amp; WebSockets
+Events & WebSockets
 </a>
 Authentication
 Authenticating users is as simple as adding an authentication middleware to your Laravel route definition:
-Route :: get ( ' /profile ' , ProfileController :: class ) -&gt; middleware ( ' auth ' );
+Route :: get ( ' /profile ' , ProfileController :: class ) -> middleware ( ' auth ' );
 Once the user is authenticated, you can access the authenticated user via the Auth facade:
 use Illuminate\Support\Facades\ Auth ; // Get the currently authenticated user... $user = Auth :: user ();
 Of course, you may define your own authentication middleware, allowing you to customize the authentication process.
@@ -183,37 +183,37 @@ Authorization
 You'll often need to check whether an authenticated user is authorized to perform a specific action. Laravel's model policies make it a breeze:
 php artisan make:policy UserPolicy
 Once you've defined your authorization rules in the generated policy class, you can authorize the user's request in your controller methods:
-public function update ( Request $request , Invoice $invoice ) { Gate :: authorize ( ' update ' , $invoice ); $invoice -&gt; update ( /* ... */ ); }
+public function update ( Request $request , Invoice $invoice ) { Gate :: authorize ( ' update ' , $invoice ); $invoice -> update ( /* ... */ ); }
 <a href="https://laravel.com/docs/authorization">Learn more</a>
 Eloquent ORM
 Scared of databases? Don't be. Laravel’s Eloquent ORM makes it painless to interact with your application's data, and models, migrations, and relationships can be quickly scaffolded:
 php artisan make:model Invoice --migration
 Once you've defined your model structure and relationships, you can interact with your database using Eloquent's powerful, expressive syntax:
-// Create a related model... $user -&gt; invoices () -&gt; create ([ ' amount ' =&gt; 100 ]); // Update a model... $invoice -&gt; update ([ ' amount ' =&gt; 200 ]); // Retrieve models... $invoices = Invoice :: unpaid () -&gt; where ( ' amount ' , ' &gt;= ' , 100 ) -&gt; get (); // Rich API for model interactions... $invoices -&gt;each-&gt; pay ();
+// Create a related model... $user -> invoices () -> create ([ ' amount ' => 100 ]); // Update a model... $invoice -> update ([ ' amount ' => 200 ]); // Retrieve models... $invoices = Invoice :: unpaid () -> where ( ' amount ' , ' >= ' , 100 ) -> get (); // Rich API for model interactions... $invoices ->each-> pay ();
 <a href="https://laravel.com/docs/eloquent">Learn more</a>
 Database Migrations
 Migrations are like version control for your database, allowing your team to define and share your application's database schema definition:
-public function up () : void { Schema :: create ( ' flights ' , function ( Blueprint $table ) { $table -&gt; uuid () -&gt; primary (); $table -&gt; foreignUuid ( ' airline_id ' ) -&gt; constrained (); $table -&gt; string ( ' name ' ); $table -&gt; timestamps (); }); }
+public function up () : void { Schema :: create ( ' flights ' , function ( Blueprint $table ) { $table -> uuid () -> primary (); $table -> foreignUuid ( ' airline_id ' ) -> constrained (); $table -> string ( ' name ' ); $table -> timestamps (); }); }
 <a href="https://laravel.com/docs/migrations">Learn more</a>
 Validation
 Laravel has over 90 powerful, built-in validation rules and, using Laravel Precognition, can provide live validation on your frontend:
-public function update ( Request $request ) { $validated = $request -&gt; validate ([ ' email ' =&gt; ' required|email|unique:users ' , ' password ' =&gt; Password :: required () -&gt; min ( 8 ) -&gt; uncompromised (), ]); $request -&gt; user () -&gt; update ( $validated ); }
+public function update ( Request $request ) { $validated = $request -> validate ([ ' email ' => ' required|email|unique:users ' , ' password ' => Password :: required () -> min ( 8 ) -> uncompromised (), ]); $request -> user () -> update ( $validated ); }
 <a href="https://laravel.com/docs/validation">Learn more</a>
-Notifications &amp; Mail
+Notifications & Mail
 Use Laravel to quickly send beautifully styled notifications to your users via email, Slack, SMS, in-app, and more:
 php artisan make:notification InvoicePaid
 Once you have generated a notification, you can easily send the message to one of your application's users:
-$user -&gt; notify ( new InvoicePaid ( $invoice ));
+$user -> notify ( new InvoicePaid ( $invoice ));
 <a href="https://laravel.com/docs/notifications">Learn more</a>
 File Storage
 Laravel provides a robust filesystem abstraction layer, providing a single, unified API for interacting with local filesystems and cloud based filesystems like Amazon S3:
-$path = $request -&gt; file ( ' avatar ' ) -&gt; store ( ' s3 ' );
+$path = $request -> file ( ' avatar ' ) -> store ( ' s3 ' );
 Regardless of where your files are stored, interact with them using Laravel's simple, elegant syntax:
 $content = Storage :: get ( ' photo.jpg ' ); Storage :: put ( ' photo.jpg ' , $content );
 <a href="https://laravel.com/docs/filesystem">Learn more</a>
 Job Queues
 Laravel lets you to offload slow jobs to a background queue, keeping your web requests snappy:
-$podcast = Podcast :: create ( /* ... */ ); ProcessPodcast :: dispatch ( $podcast ) -&gt; onQueue ( ' podcasts ' );
+$podcast = Podcast :: create ( /* ... */ ); ProcessPodcast :: dispatch ( $podcast ) -> onQueue ( ' podcasts ' );
 You can run as many queue workers as you need to handle your workload:
 php artisan queue:work redis --queue=podcasts
 For more visibility and control over your queues, <a href="https://laravel.com/docs/horizon">Laravel Horizon</a> provides a beautiful dashboard and code-driven configuration for your Laravel-powered Redis queues.
@@ -222,20 +222,20 @@ Learn more
 <a href="https://laravel.com/docs/horizon">Laravel Horizon</a>
 Task Scheduling
 Schedule recurring jobs and commands with an expressive syntax and say goodbye to complicated configuration files:
-$schedule -&gt; job ( NotifySubscribers :: class ) -&gt; hourly ();
+$schedule -> job ( NotifySubscribers :: class ) -> hourly ();
 Laravel's scheduler can even handle multiple servers and offers built-in overlap prevention:
-$schedule -&gt; job ( NotifySubscribers :: class ) -&gt; dailyAt ( ' 9:00 ' ) -&gt; onOneServer (); -&gt; withoutOverlapping ();
+$schedule -> job ( NotifySubscribers :: class ) -> dailyAt ( ' 9:00 ' ) -> onOneServer (); -> withoutOverlapping ();
 <a href="https://laravel.com/docs/scheduling">Learn more</a>
 Testing
 Laravel is built for testing. From unit tests to browser tests, you’ll feel more confident in deploying your application:
-$user = User :: factory () -&gt; create (); $this -&gt; browse ( fn ( Browser $browser ) =&gt; $browser -&gt; visit ( ' /login ' ) -&gt; type ( ' email ' , $user -&gt;email ) -&gt; type ( ' password ' , ' password ' ) -&gt; press ( ' Login ' ) -&gt; assertPathIs ( ' /home ' ) -&gt; assertSee ( " Welcome { $user -&gt;name } " ) );
+$user = User :: factory () -> create (); $this -> browse ( fn ( Browser $browser ) => $browser -> visit ( ' /login ' ) -> type ( ' email ' , $user ->email ) -> type ( ' password ' , ' password ' ) -> press ( ' Login ' ) -> assertPathIs ( ' /home ' ) -> assertSee ( " Welcome { $user ->name } " ) );
 <a href="https://laravel.com/docs/testing">Learn more</a>
-Events &amp; WebSockets
+Events & WebSockets
 Laravel's events allow you to send and listen for events across your application, and listeners can easily be dispatched to a background queue:
 OrderShipped :: dispatch ( $order );
 class SendShipmentNotification implements ShouldQueue { public function handle ( OrderShipped $event ) : void { // ... } }
 Your frontend application can even subscribe to your Laravel events using <a href="https://laravel.com/docs/broadcasting">Laravel Echo</a> and WebSockets, allowing you to build real-time, dynamic applications:
-Echo . private ( ` orders. ${ orderId } ` ) . listen ( ' OrderShipped ' , ( e ) =&gt; { console . log (e . order ); });
+Echo . private ( ` orders. ${ orderId } ` ) . listen ( ' OrderShipped ' , ( e ) => { console . log (e . order ); });
 <a href="https://laravel.com/docs/events">Learn more</a>
 We've just scratched the surface. Laravel has you
 covered for everything you will need to build a web application, including email verification, rate
@@ -464,14 +464,14 @@ Resources
 <a href="/trademark">Trademark</a>
 Partners
 <a href="https://vehikl.com">Vehikl</a>
-<a href="https://webreinvent.com/?utm_source=laravel&amp;utm_medium=laravel.com&amp;utm_campaign=footer-link">WebReinvent</a>
+<a href="https://webreinvent.com/?utm_source=laravel&utm_medium=laravel.com&utm_campaign=footer-link">WebReinvent</a>
 <a href="https://tighten.co">Tighten</a>
-<a href="https://www.bacancytechnology.com/hire-laravel-developer?utm_source=laravel&amp;utm_medium=partners.laravel&amp;utm_campaign=sponsors">Bacancy</a>
+<a href="https://www.bacancytechnology.com/hire-laravel-developer?utm_source=laravel&utm_medium=partners.laravel&utm_campaign=sponsors">Bacancy</a>
 <a href="https://64robots.com/">64 Robots</a>
 <a href="https://activelogic.com/">Active Logic</a>
 <a href="https://www.byte5.net/">Byte 5</a>
 <a href="https://www.curotec.com/services/technologies/laravel/">Curotec</a>
-<a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a>
+<a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&utm_medium=Sponsorship">Cyber-Duck</a>
 <a href="https://devsquad.com/">DevSquad</a>
 <a href="https://jump24.co.uk/">Jump24</a>
 <a href="https://kirschbaumdevelopment.com/">Kirschbaum</a>

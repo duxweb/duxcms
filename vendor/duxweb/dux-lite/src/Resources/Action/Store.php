@@ -30,7 +30,7 @@ trait Store
             return false;
         }, ARRAY_FILTER_USE_BOTH);
 
-        $data = Validator::parser($requestData, $validator);
+        $data = Validator::parser([...$requestData, ...$args], $validator);
 
         $format = $this->format($data, $request, $args);
         $formatEvent = $this->event->get('format', $data, $request, $args);

@@ -22,12 +22,15 @@ trait ConstantsAware
 	private array $consts = [];
 
 
-	/** @param  Constant[]  $consts */
+	/**
+	 * Replaces all constants.
+	 * @param  Constant[]  $consts
+	 */
 	public function setConstants(array $consts): static
 	{
 		(function (Constant ...$consts) {})(...$consts);
 		$this->consts = [];
-		foreach ($consts as $k => $const) {
+		foreach ($consts as $const) {
 			$this->consts[$const->getName()] = $const;
 		}
 
@@ -48,6 +51,9 @@ trait ConstantsAware
 	}
 
 
+	/**
+	 * Adds a constant. If it already exists, throws an exception or overwrites it if $overwrite is true.
+	 */
 	public function addConstant(string $name, mixed $value, bool $overwrite = false): Constant
 	{
 		if (!$overwrite && isset($this->consts[$name])) {

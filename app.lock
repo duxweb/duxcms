@@ -17,16 +17,6 @@
             "app": "cloud"
         },
         {
-            "name": "duxweb/cms",
-            "description": "CMS Basic Application",
-            "version": "0.2.5",
-            "phpDependencies": {
-                "erusev/parsedown": "^1.7",
-                "benjaminhoegh/parsedown-toc": "^1.5"
-            },
-            "app": "cms"
-        },
-        {
             "name": "duxweb/contentExtend",
             "description": "Content Module Extension Applications",
             "version": "0.0.1",
@@ -40,9 +30,19 @@
             "app": "install"
         },
         {
+            "name": "duxweb/cms",
+            "description": "CMS Basic Application",
+            "version": "0.2.6",
+            "phpDependencies": {
+                "erusev/parsedown": "^1.7",
+                "benjaminhoegh/parsedown-toc": "^1.5"
+            },
+            "app": "cms"
+        },
+        {
             "name": "duxweb/content",
             "description": "Content Management Applications",
-            "version": "0.2.6",
+            "version": "0.2.7",
             "phpDependencies": {
                 "pelago/emogrifier": "^7.1"
             },
@@ -51,14 +51,14 @@
         {
             "name": "duxweb/base",
             "description": "System Base Applications",
-            "version": "0.2.8",
+            "version": "0.2.10",
             "phpDependencies": {
                 "duxweb/dux-lite": "main-dev"
             },
             "jsDependencies": {
                 "@duxweb/dux-extend": "^0.1.1",
                 "@duxweb/dux-plugin": "^0.0.8",
-                "@duxweb/dux-refine": "^0.11.8"
+                "@duxweb/dux-refine": "^0.12.0"
             },
             "app": "system"
         }
