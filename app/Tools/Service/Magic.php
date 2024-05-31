@@ -6,11 +6,17 @@ use App\Tools\Event\SourceEvent;
 use App\Tools\Models\ToolsMagic;
 use App\Tools\Models\ToolsMagicGroup;
 use App\Tools\Models\ToolsMagicData;
+use App\Tools\Models\ToolsMagicSource;
+use DI\DependencyException;
+use DI\NotFoundException;
 use Dux\App;
 use Dux\Bootstrap;
+use Dux\Handlers\ExceptionBusiness;
 use Dux\Validator\Validator;
+use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Psr\Http\Message\ServerRequestInterface;
 
 class Magic
 {
@@ -31,32 +37,8 @@ class Magic
         try {
             $connect = App::db()->getConnection();
             if ($connect->getSchemaBuilder()->hasTable('magic') && $connect->getSchemaBuilder()->hasTable('magic_group')) {
-
-                $groupData = ToolsMagicGroup::query()->with(['magics'])->get();
-                $data = [];
-                foreach ($groupData as $group) {
-                    $children = $group->magics->filter(function ($item) {
-                        if ($item->inline) {
-                            return false;
-                        }
-                        return true;
-                    })->map(function ($item) {
-                        return [
-                            'name' => $item->name,
-                            'label' => $item->label
-                        ];
-                    })->values()->toArray();
-
-                    if (!$children) {
-                        continue;
-                    }
-                    $data[] = [
-                        'name' => $group->name,
-                        'label' => $group->label,
-                        'icon' => $group->icon,
-                        'children' => $children
-                    ];
-                }
+                $groupData = ToolsMagicGroup::query()->with(['magics'])->get()->toTree();
+                $data = self::menuLoopTree($groupData);
                 $cache->set($key, json_encode($data));
             }
         } catch (\Exception $e) {
@@ -65,6 +47,54 @@ class Magic
         return $data ?: [];
     }
 
+    /**
+     * 循环处理菜单
+     * @param mixed $list
+     * @return array
+     */
+    private static function menuLoopTree(mixed $list): array
+    {
+        $datas = [];
+        foreach ($list as $item) {
+            $children = $item->magics->filter(function ($item) {
+                if ($item->inline) {
+                    return false;
+                }
+                return true;
+            })->map(function ($item) {
+                return [
+                    'name' => $item->name,
+                    'label' => $item->label
+                ];
+            })->values()->toArray();
+
+
+            $data = [
+                'name' => $item->name,
+                'label' => $item->label,
+                'icon' => $item->icon,
+                'sort' => $item->sort,
+            ];
+
+            if ($item->children) {
+                $data['children'] = [...self::menuLoopTree($item->children), ...$children];
+            }
+
+            if ($item->res) {
+                $data['res'] = $item->res;
+            }
+
+            $datas[] = $data;
+        }
+        return $datas;
+    }
+
+    /**
+     * 清空菜单缓存
+     * @return void
+     * @throws \Phpfastcache\Exceptions\PhpfastcacheSimpleCacheException
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     public static function clean(): void
     {
         App::cache()->delete(self::keyMenu());
@@ -73,6 +103,8 @@ class Magic
     /**
      * 获取数据源
      * @return array
+     * @throws DependencyException
+     * @throws NotFoundException
      */
     public static function source(): array
     {
@@ -81,157 +113,6 @@ class Magic
         App::event()->dispatch($source, 'tools.magic.source');
         return $source->data;
     }
-
-
-    /**
-     * 拼接展示数据
-     * @param array $fields
-     * @param array $data
-     * @return array
-     */
-    public static function showData(array $fields, array $data): array
-    {
-        $extendData = self::extendData($fields, $data);
-        foreach ($data as $key => $vo) {
-            $data[$key] = self::formatItem($vo, $extendData[$key]);
-        }
-        return $data;
-    }
-
-
-    /**
-     * 提取源数据
-     * @param array $fields
-     * @param array $data
-     * @return array
-     */
-    public static function extendData(array $fields, array $data): array
-    {
-        $fields = collect($fields);
-        $optionsData = [];
-        $sourceFields = $fields->filter(function ($field) use (&$optionsData) {
-            if (!$field['setting']['source'] && $field['setting']['options']) {
-                $options = is_array($field['setting']['options']) ? $field['setting']['options'] : json_decode((string)$field['setting']['options'], true);
-                $optionsData[$field['name']] = [
-                    'key' => 'value',
-                    'type' => $field['type'],
-                    'data' => $options
-                ];
-                return false;
-            }
-            if (!$field['setting']['source']) {
-                return false;
-            }
-            return true;
-        })->values();
-
-        $sourceIdMaps = [];
-        foreach ($data as $item) {
-            $sourceFields->map(function ($field) use ($item, &$sourceIdMaps) {
-                $name = $field['name'];
-                if (!isset($sourceIdMaps[$name])) {
-                    $sourceIdMaps[$name] = [];
-                }
-                if (is_array($item[$name])) {
-                    $sourceIdMaps[$name] = [...$sourceIdMaps[$name], $item[$name]];
-                } else {
-                    $sourceIdMaps[$name][] = $item[$name];
-                }
-            });
-        }
-
-        $sources = \App\Tools\Service\Magic::source();
-        foreach ($sourceIdMaps as $field => $ids) {
-            $fieldInfo = $sourceFields->where('name', $field)->first();
-            $source = $sources[$fieldInfo['setting']['source']];
-            $optionsData[$field] = [
-                'key' => 'id',
-                'type' => $fieldInfo['type'],
-                'data' => $source['data'](ids: $ids)
-            ];
-        }
-
-
-
-        $treeType = ['cascader', 'cascader-multi'];
-
-        $hasData = [];
-        foreach ($data as $item) {
-            $arr = [];
-            foreach ($item as $key => $value) {
-
-                if (isset($optionsData[$key])) {
-                    $options = $optionsData[$key];
-                    $tmp = is_array($value) ? $value : [$value];
-
-                    if (in_array($options['type'], $treeType)) {
-                        $paths = [];
-                        foreach ($tmp as $v) {
-                            $paths[] = self::findTreePath($options['data'], $v, $options['key']);
-                        }
-                        if (is_array($value)) {
-                            $arr[$key] = $paths;
-                        }else {
-                            $arr[$key] = $paths[0];
-                        }
-                    } else {
-                        $paths = [];
-                        foreach ($options['data'] as $vo) {
-                            if (in_array($vo[$options['key']], $tmp)) {
-                                $paths[] = $vo;
-                            }
-                        }
-                        if (is_array($value)) {
-                            $arr[$key] = $paths;
-                        }else {
-                            $arr[$key] = $paths[0];
-                        }
-                    }
-                }
-
-            }
-            $hasData[] = $arr;
-        }
-        return $hasData;
-    }
-
-
-    private static function findTreePath($array, $target, $key, $path = []) {
-
-        foreach ($array as $element) {
-            $newElement = $element;
-            unset($newElement['children']);
-
-            if ($element[$key] === $target) {
-                $path[] = $newElement;
-                return $path;
-            }
-
-            if (isset($element['children']) && is_array($element['children'])) {
-                $newPath = $path;
-                $newPath[] = $newElement;
-                $result = self::findTreePath($element['children'], $target, $key, $newPath);
-                if ($result !== null) {
-                    return $result;
-                }
-            }
-        }
-
-        return null;
-    }
-
-
-    private static function formatItem(array $data, array $extendData): array
-    {
-        foreach ($data as $key => $value) {
-            if (!$extendData[$key]) {
-                continue;
-            }
-            $data[$key] = $extendData[$key];
-        }
-        return $data;
-    }
-
     /**
      * 条件查询处理
      * @param Builder $query
@@ -263,6 +144,12 @@ class Magic
     }
 
 
+    /**
+     * 验证和格式化数据
+     * @param array $fields
+     * @param array $data
+     * @return array
+     */
     public static function formatData(array $fields, array $data): array
     {
         $data = Validator::parser($data, Validator::rule($fields));
@@ -281,13 +168,16 @@ class Magic
         return $saveData;
     }
 
+
+    /**
+     * 格式化配置
+     * @param array $fields
+     * @return array
+     */
     public static function formatConfig(array $fields): array
     {
         return array_map(function ($item) {
             $setting = $item['setting'];
-            if ($setting['options'] && is_string($setting['options'])) {
-                $setting['options'] = json_decode($setting['options'], true);
-            }
             if ($setting['rules']) {
                 $setting['rules'] = json_decode($setting['rules'], true);
             }
@@ -295,9 +185,10 @@ class Magic
             if ($item['child'] && is_array($item['child'])) {
                 $item['child'] = self::formatConfig($item['child']);
             }
-
             return $item;
         }, $fields);
     }
+
+
 
 }

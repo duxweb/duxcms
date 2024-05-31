@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Tools\Models;
+namespace App\Poster\Models;
 
 use Dux\Database\Attribute\AutoMigrate;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
 
 #[AutoMigrate]
-class ToolsPoster extends \Dux\Database\Model
+class Poster extends \Dux\Database\Model
 {
-    public $table = 'system_poster';
+    public $table = 'poster';
 
 
     public function migration(Blueprint $table)

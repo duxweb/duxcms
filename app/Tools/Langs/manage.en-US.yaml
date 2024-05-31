@@ -6,6 +6,8 @@ tools:
       name: Import
     cascade:
       name: choice
+  magicData:
+    name: Rubik's cube data
   magicGroup:
     name: Data grouping
     validator:
@@ -28,6 +30,11 @@ tools:
       name: allocation
     sourceData:
       name: data
+  magicSource:
+    name: data source
+    validator:
+      name: Please enter a name
+      data: Incorrect data format
   file:
     name: Attachment Management
   fileDir:

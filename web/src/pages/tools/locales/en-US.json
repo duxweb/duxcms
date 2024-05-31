@@ -19,6 +19,7 @@
       "name": "Data Cube",
       "fields": {
         "group": "Data grouping",
+        "parent": "Superior grouping",
         "unknown": "unknown",
         "name": "Data Name",
         "nameDesc": "Data call name",
@@ -49,7 +50,8 @@
         "groupLabel": "Group labels",
         "groupIcon": "Group icons",
         "addGroup": "Add Group",
-        "editGroup": "Edit grouping"
+        "editGroup": "Edit grouping",
+        "res": "Belonging resources"
       },
       "external": {
         "read": "read",
@@ -68,7 +70,34 @@
         "group": "Data menu grouping",
         "groupName": "The name can only be alphanumeric or underlined",
         "groupIcon": "Icon Name Reference",
-        "groupIconDoc": "Reference documents"
+        "groupIconDoc": "Reference documents",
+        "res": "Not filled in as an independent menu, and only effective for the first level menu"
+      }
+    },
+    "magicData": {
+      "name": "Rubik's cube data"
+    },
+    "magicManage": {
+      "name": "Data Cube"
+    },
+    "magicSource": {
+      "name": "Data source management",
+      "fields": {
+        "name": "name",
+        "type": "data type",
+        "data": "Local data",
+        "remote": "Remote data",
+        "source": "system data",
+        "maps": "Data mapping",
+        "url": "Request address",
+        "cache": "Cache time (seconds)",
+        "header": "Request header",
+        "method": "Request Method",
+        "params_name": "Parameter Name",
+        "params_value": "Parameter values",
+        "req_type": "Content Format",
+        "req_data": "Request data",
+        "req_filed": "Data fields"
       }
     },
     "magicGroup": {
@@ -89,16 +118,6 @@
       },
       "placeholder": {
         "dir": "Please select a directory"
-      }
-    },
-    "poster": {
-      "name": "Poster template",
-      "fields": {
-        "title": "title",
-        "data": "Poster Design "
-      },
-      "validate": {
-        "title": "Please enter the poster title"
       }
     },
     "backup": {

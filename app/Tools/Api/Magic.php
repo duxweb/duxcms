@@ -4,11 +4,15 @@ namespace App\Tools\Api;
 
 use App\Tools\Models\ToolsMagic;
 use App\Tools\Models\ToolsMagicData;
+use App\Tools\Service\Source;
 use Dux\Handlers\ExceptionNotFound;
 use Dux\Resources\Attribute\Action;
 use Dux\Route\Attribute\Route;
 use Dux\Route\Attribute\RouteGroup;
 use Dux\Validator\Validator;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -38,6 +42,20 @@ class Magic
         return send($response, 'ok', $data);
     }
 
+    #[Route(methods: 'GET', pattern: '/{name}')]
+    public function listOne(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?: 1;
+        $limit = $query['limit'] ?? 0;
+        $table = $args['name'];
+        if (!$table) {
+            throw new ExceptionNotFound();
+        }
+        $result = $this->list($table, (int)$page, (int)$limit, $query ?: []);
+        return send($response, 'ok', $result['data'], $result['meta']);
+    }
+
     #[Route(methods: 'GET', pattern: '/config')]
     public function config(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
@@ -55,7 +73,6 @@ class Magic
             'type' => $info->type,
             'fields' => \App\Tools\Service\Magic::formatConfig($info->fields)
         ];
-
         return send($response, 'ok', $data);
     }
 
@@ -65,68 +82,12 @@ class Magic
         $params = $request->getQueryParams();
         $name = $params['name'];
         $keyword = $params['keyword'];
-        $ids = $params['ids'];
-        $sources = \App\Tools\Service\Magic::source();
-        $list = [];
-        $source = $sources[$name];
-        if ($source) {
-            $list = $source['data'](keyword: $keyword, ids: $ids);
-        }
+        $ids = $params['ids'] ? explode(',', $params['ids']) : null;
+        $list = Source::getSourceData($name, $ids, $keyword);
         return send($response, 'ok', $list);
     }
 
-    #[Route(methods: 'GET', pattern: '/{name}/{id}')]
-    public function info(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $query = $request->getQueryParams();
-        $name = $args['name'];
-        $magicInfo = ToolsMagic::query()->where('name', $name)->first();
-        if (!$magicInfo) {
-            throw new ExceptionNotFound();
-        }
-        if (!in_array('read', $magicInfo->external)) {
-            throw new ExceptionNotFound();
-        }
 
-        $info = ToolsMagicData::query()->where('magic_id', $magicInfo->id)->where('id', $args['id'])->first();
-        if (!$info) {
-            throw new ExceptionNotFound();
-        }
-        $fields = [];
-        foreach ($magicInfo->fields as $vo) {
-            if ($vo['external'] == 'read' || $vo['external'] == 'readWrite') {
-                $fields[] = $vo['name'];
-            }
-        }
-        $data = [
-            'id' => (int)$info->id,
-        ];
-        if ($magicInfo->type == 'tree') {
-            $data['parent_id'] = $info->parent_id;
-        }
-        foreach ($info->data as $key => $vo) {
-            if (in_array($key, $fields)) {
-                $data[$key] = $vo;
-            }
-        }
-
-        return send($response, 'ok', $data);
-    }
-
-
-    #[Route(methods: 'GET', pattern: '/{name}')]
-    public function listOne(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $query = $request->getQueryParams();
-        $page = $query['page'] ?: 1;
-        $limit = $query['limit'] ?? 0;
-        $table = $args['name'];
-        if (!$table) {
-            throw new ExceptionNotFound();
-        }
-        $result = $this->list($table, (int)$page, (int)$limit, $query ?: []);
-        return send($response, 'ok', $result['data'], $result['meta']);
-    }
 
     #[Route(methods: 'POST', pattern: '/{name}')]
     public function create(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
@@ -197,10 +158,55 @@ class Magic
     }
 
 
+
+    #[Route(methods: 'GET', pattern: '/{name}/{id}')]
+    public function info(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $query = $request->getQueryParams();
+        $name = $args['name'];
+        $magicInfo = ToolsMagic::query()->where('name', $name)->first();
+
+        if (!$magicInfo) {
+            throw new ExceptionNotFound();
+        }
+        if (!in_array('read', $magicInfo->external)) {
+            throw new ExceptionNotFound();
+        }
+
+        $info = ToolsMagicData::query()->where('magic_id', $magicInfo->id)->where('id', $args['id'])->first();
+        if (!$info) {
+            throw new ExceptionNotFound();
+        }
+        $fields = [];
+        foreach ($magicInfo->fields as $vo) {
+            if ($vo['external'] == 'read' || $vo['external'] == 'readWrite') {
+                $fields[] = $vo['name'];
+            }
+        }
+
+        if ($query['_show']) {
+            $data = $this->getModalData([$info], $magicInfo->fields)[0];
+        }else {
+            $data = [
+                'id' => (int)$info->id,
+            ];
+            if ($magicInfo->type == 'tree') {
+                $data['parent_id'] = $info->parent_id;
+            }
+            foreach ($info->data as $key => $vo) {
+                if (in_array($key, $fields)) {
+                    $data[$key] = $vo;
+                }
+            }
+        }
+
+
+        return send($response, 'ok', $data);
+    }
+
     private function list(string $table, int $page, int $limit, array $params = []): array
     {
         $info = ToolsMagic::query()->where('name', $table)->first();
-
 
         if (!$info || !in_array('read', $info->external)) {
             throw new ExceptionNotFound();
@@ -232,9 +238,33 @@ class Magic
             default => $query->get(),
         };
 
-        return format_data($data, function ($item) use ($info, $fields) {
-            return $this->cast($item, $info->type, $fields);
-        });
+        if (!$params['_show']) {
+            return format_data($data, function ($item) use ($info, $fields) {
+                return $this->cast($item, $info->type, $fields);
+            });
+        }
+
+        if ($data instanceof LengthAwarePaginator) {
+            $list = $data->getCollection();
+            $data->setCollection($this->getModalData($list, $info->fields));
+            return format_data($data, function ($item) {
+                return $item;
+            });
+        } else {
+            $data = $this->getModalData($data, $info->fields);
+            return format_data($data, function ($item) {
+                return $item;
+            });
+        }
+
+    }
+
+    private function getModalData(mixed $list, array $fields): Collection
+    {
+        $modelData = Source::getModelData($list);
+        $sourceData = Source::getSourceMapsData($modelData, $fields);
+        $modelData = Source::mergeSourceData($modelData, $fields, $sourceData, true);
+        return collect($modelData);
     }
 
     private function cast($item, $type, $fields): array

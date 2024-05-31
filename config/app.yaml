@@ -6,3 +6,4 @@ registers:
     - \App\Tools\App
     - \App\Install\App
     - \App\ContentExtend\App
+    - \App\Poster\App

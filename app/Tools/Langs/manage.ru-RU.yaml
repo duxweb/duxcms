@@ -6,6 +6,8 @@ tools:
       name: Импорт
     cascade:
       name: Выбор
+  magicData:
+    name: Данные кубика Рубика
   magicGroup:
     name: Группирование данных
     validator:
@@ -28,6 +30,11 @@ tools:
       name: Настройка
     sourceData:
       name: Данные
+  magicSource:
+    name: Источник данных
+    validator:
+      name: Введите имя
+      data: Неправильный формат данных
   file:
     name: Управление приложениями
   fileDir:

@@ -10,6 +10,7 @@ export const adminResources = (app: App) => {
         icon: 'app',
         label: 'cloud.apps',
         parent: 'system',
+        sort: 1000,
       },
     },
   ])

@@ -6,6 +6,8 @@ tools:
       name: 가져오기
     cascade:
       name: 선택
+  magicData:
+    name: 큐브 데이터
   magicGroup:
     name: 데이터 그룹
     validator:
@@ -28,6 +30,11 @@ tools:
       name: 구성
     sourceData:
       name: 데이터
+  magicSource:
+    name: 데이터 소스
+    validator:
+      name: 이름을 입력하십시오.
+      data: 잘못된 데이터 형식
   file:
     name: 첨부 관리
   fileDir:

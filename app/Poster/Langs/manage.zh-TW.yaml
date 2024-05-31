@@ -1,0 +1,6 @@
+poster:
+  name: 海報
+  design:
+    name: 海報設計
+    validator:
+      title: 請填寫標題

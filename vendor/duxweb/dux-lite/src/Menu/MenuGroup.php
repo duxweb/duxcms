@@ -9,6 +9,13 @@ class MenuGroup {
     public function __construct(public string $appName, public string $name, public string $icon = '', public int $sort = 0, public string $label = '', public string $prefix = '') {
     }
 
+    public function group(string $name, $icon = '', int $sort = 0, string $label = ''): MenuGroup
+    {
+        $app = new MenuGroup($this->appName . '/' .$this->name, $name, $icon, $sort, $label, $this->prefix);
+        $this->data[] = $app;
+        return $app;
+    }
+
     public function item(string $name, string $route, string $icon = '', int $sort = 0, string $label = ''): MenuItem {
         $app = new MenuItem($this->name, $name, $route, $icon, $sort, $label, $this->prefix);
         $this->data[] = $app;

@@ -1,0 +1,6 @@
+poster:
+  name: poster
+  design:
+    name: Poster Design 
+    validator:
+      title: Please fill in the title

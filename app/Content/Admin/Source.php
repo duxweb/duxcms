@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace App\Content\Admin;
 
+use App\Tools\Models\ToolsMagicSource;
 use Dux\Resources\Action\Resources;
+use Dux\Resources\Attribute\Action;
 use Dux\Resources\Attribute\Resource;
 use Dux\Validator\Data;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 #[Resource(app: 'admin',  route: '/content/source', name: 'content.source')]
@@ -38,4 +41,5 @@ class Source extends Resources
             "avatar" => $data->avatar,
 		];
 	}
+
 }

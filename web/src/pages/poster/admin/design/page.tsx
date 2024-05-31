@@ -1,11 +1,11 @@
-import { useTranslate, useResource } from '@refinedev/core'
+import { useTranslate, useResourceParams } from '@refinedev/core'
 import { FormPage, FormPageItem } from '@duxweb/dux-refine'
 import { Input } from 'tdesign-react/esm'
 import { Poster } from '@duxweb/dux-extend'
 
 const Page = () => {
   const translate = useTranslate()
-  const { id } = useResource()
+  const { id } = useResourceParams()
 
   return (
     <FormPage
@@ -21,7 +21,7 @@ const Page = () => {
       id={id}
     >
       <FormPageItem name='title'>
-        <Input placeholder={translate('tools.poster.validate.title')} />
+        <Input placeholder={translate('poster.design.validate.title')} />
       </FormPageItem>
 
       <FormPageItem name='data'>

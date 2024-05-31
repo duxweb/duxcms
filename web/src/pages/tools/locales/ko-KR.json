@@ -19,6 +19,7 @@
       "name": "데이터 큐브",
       "fields": {
         "group": "데이터 그룹",
+        "parent": "상위 그룹",
         "unknown": "알 수 없음",
         "name": "데이터 이름",
         "nameDesc": "데이터 호출 이름",
@@ -49,7 +50,8 @@
         "groupLabel": "그룹 레이블",
         "groupIcon": "그룹 아이콘",
         "addGroup": "그룹 추가",
-        "editGroup": "그룹 편집"
+        "editGroup": "그룹 편집",
+        "res": "소속 리소스"
       },
       "external": {
         "read": "읽기",
@@ -68,7 +70,34 @@
         "group": "데이터 메뉴 그룹화",
         "groupName": "이름은 영숫자 또는 밑줄만 가능합니다.",
         "groupIcon": "아이콘 이름 참조",
-        "groupIconDoc": "참조 문서"
+        "groupIconDoc": "참조 문서",
+        "res": "독립 실행형 메뉴로 기입하지 않고 1단계 메뉴에만 적용"
+      }
+    },
+    "magicData": {
+      "name": "큐브 데이터"
+    },
+    "magicManage": {
+      "name": "데이터 큐브"
+    },
+    "magicSource": {
+      "name": "데이터 소스 관리",
+      "fields": {
+        "name": "이름",
+        "type": "데이터 유형",
+        "data": "로컬 데이터",
+        "remote": "원격 데이터",
+        "source": "시스템 데이터",
+        "maps": "데이터 매핑",
+        "url": "요청 주소",
+        "cache": "캐시 시간 (초)",
+        "header": "요청 헤더",
+        "method": "요청 방법",
+        "params_name": "매개변수 이름",
+        "params_value": "매개변수 값",
+        "req_type": "컨텐트 형식",
+        "req_data": "요청 데이터",
+        "req_filed": "데이터 필드"
       }
     },
     "magicGroup": {
@@ -77,7 +106,7 @@
     "file": {
       "name": "첨부 관리",
       "fields": {
-        "dir": "카탈로그",
+        "dir": "목차",
         "addDir": "디렉토리 추가",
         "editDir": "디렉토리 편집",
         "name": "파일",
@@ -89,16 +118,6 @@
       },
       "placeholder": {
         "dir": "디렉토리를 선택하십시오."
-      }
-    },
-    "poster": {
-      "name": "포스터 템플릿",
-      "fields": {
-        "title": "제목",
-        "data": "포스터 디자인"
-      },
-      "validate": {
-        "title": "포스터 제목을 입력하세요"
       }
     },
     "backup": {

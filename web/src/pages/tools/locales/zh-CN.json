@@ -19,6 +19,7 @@
       "name": "数据魔方",
       "fields": {
         "group": "数据分组",
+        "parent": "上级分组",
         "unknown": "未知",
         "name": "数据名称",
         "nameDesc": "数据调用名",
@@ -49,7 +50,8 @@
         "groupLabel": "分组标签",
         "groupIcon": "分组图标",
         "addGroup": "添加分组",
-        "editGroup": "编辑分组"
+        "editGroup": "编辑分组",
+        "res": "所属资源"
       },
       "external": {
         "read": "读取",
@@ -68,7 +70,34 @@
         "group": "数据菜单分组",
         "groupName": "名称只能字母数字或下划线",
         "groupIcon": "图标名参考",
-        "groupIconDoc": "参考文档"
+        "groupIconDoc": "参考文档",
+        "res": "不填写为独立菜单，且只对一级菜单生效"
+      }
+    },
+    "magicData": {
+      "name": "魔方数据"
+    },
+    "magicManage": {
+      "name": "数据魔方"
+    },
+    "magicSource": {
+      "name": "数据源管理",
+      "fields": {
+        "name": "名称",
+        "type": "数据类型",
+        "data": "本地数据",
+        "remote": "远程数据",
+        "source": "系统数据",
+        "maps": "数据映射",
+        "url": "请求地址",
+        "cache": "缓存时间 (秒)",
+        "header": "请求头",
+        "method": "请求方法",
+        "params_name": "参数名",
+        "params_value": "参数值",
+        "req_type": "内容格式",
+        "req_data": "请求数据",
+        "req_filed": "数据字段"
       }
     },
     "magicGroup": {
@@ -89,16 +118,6 @@
       },
       "placeholder": {
         "dir": "请选择目录"
-      }
-    },
-    "poster": {
-      "name": "海报模板",
-      "fields": {
-        "title": "标题",
-        "data": "海报设计"
-      },
-      "validate": {
-        "title": "请输入海报标题"
       }
     },
     "backup": {

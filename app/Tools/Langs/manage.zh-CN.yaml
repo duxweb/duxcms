@@ -6,6 +6,8 @@ tools:
       name: 导入
     cascade:
       name: 选择
+  magicData:
+    name: 魔方数据
   magicGroup:
     name: 数据分组
     validator:
@@ -28,6 +30,11 @@ tools:
       name: 配置
     sourceData:
       name: 数据
+  magicSource:
+    name: 数据源
+    validator:
+      name: 请输入名称
+      data: 数据格式不正确
   file:
     name: 附件管理
   fileDir:

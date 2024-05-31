@@ -2,20 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Tools\Admin;
+namespace App\Poster\Admin;
 
-use App\Tools\Models\ToolsFileDir;
-use App\Tools\Models\ToolsPoster;
 use Dux\Resources\Action\Resources;
 use Dux\Resources\Attribute\Resource;
 use Dux\Validator\Data;
-use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\ServerRequestInterface;
 
-#[Resource(app: 'admin',  route: '/tools/poster', name: 'tools.poster')]
+#[Resource(app: 'admin',  route: '/poster/design', name: 'poster.design')]
 class Poster extends Resources
 {
-	protected string $model = ToolsPoster::class;
+	protected string $model = \App\Poster\Models\Poster::class;
 
     public function transform(object $item): array
     {

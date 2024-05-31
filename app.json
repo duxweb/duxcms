@@ -5,14 +5,16 @@
         "duxweb/cms": "0.2.6",
         "duxweb/content": "0.2.7",
         "duxweb/install": "0.0.5",
-        "duxweb/base": "0.2.10",
-        "duxweb/tools": "0.2.3",
+        "duxweb/base": "0.2.12",
+        "duxweb/tools": "0.3.0",
         "duxweb/cloud": "0.0.4",
-        "duxweb/contentExtend": "0.0.1"
+        "duxweb/contentExtend": "0.0.1",
+        "duxweb/poster": "0.0.1"
     },
     "apps": {
         "dux/cms": 1716344296,
-        "dux/base": 1714878109,
-        "dux/contentExtend": 1712583383
+        "dux/base": 1717138128,
+        "dux/contentExtend": 1712583383,
+        "dux/poster": 1717049159
     }
 }

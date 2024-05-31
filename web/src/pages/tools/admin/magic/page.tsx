@@ -1,16 +1,11 @@
-import { useTranslate, useResource } from '@refinedev/core'
-import { FormPage, FormPageItem, useSelect } from '@duxweb/dux-refine'
-import { Form, Input, Radio, Select, Checkbox } from 'tdesign-react/esm'
+import { useTranslate, useResourceParams } from '@refinedev/core'
+import { CascaderAsync, FormPage, FormPageItem } from '@duxweb/dux-refine'
+import { Form, Input, Radio, Checkbox } from 'tdesign-react/esm'
 import { MagicEditor } from '@duxweb/dux-extend'
 
 const Page = () => {
   const translate = useTranslate()
-  const { id } = useResource()
-  const { options, onSearch, queryResult } = useSelect({
-    resource: 'tools.magicGroup',
-    optionLabel: 'label',
-    optionValue: 'id',
-  })
+  const { id } = useResourceParams()
 
   return (
     <FormPage
@@ -25,13 +20,15 @@ const Page = () => {
         label={translate('tools.magic.fields.group')}
         help={translate('tools.magic.help.group')}
       >
-        <Select
-          filterable
-          clearable
-          onSearch={onSearch}
-          options={options}
+        <CascaderAsync
+          checkStrictly
+          url='tools.magicGroup'
+          keys={{
+            label: 'label',
+            value: 'id',
+          }}
           placeholder={translate('tools.magic.placeholder.group')}
-          loading={queryResult.isLoading}
+          clearable
         />
       </FormPageItem>
       <FormPageItem

@@ -5,7 +5,7 @@ import {
   CreateButton,
   DeleteLink,
   EditLink,
-  FilterEdit,
+  FilterSider,
   PageTable,
   TableRef,
 } from '@duxweb/dux-refine'
@@ -134,19 +134,15 @@ const List = () => {
       columns={columns}
       filterForm={form}
       actionRender={() => <CreateButton />}
-      filterRender={() => (
-        <>
-          <FilterEdit
-            title={translate('tools.magic.placeholder.group')}
-            resource='tools.magicGroup'
-            form={form}
-            field='group_id'
-            defaultSelect
-            optionLabel='label'
-            optionValue='id'
-            component={() => import('./group')}
-          />
-        </>
+      siderRender={() => (
+        <FilterSider
+          title={translate('tools.magic.fields.group')}
+          component={() => import('./group')}
+          resource='tools.magicGroup'
+          field='group_id'
+          optionLabel='label'
+          optionValue='id'
+        />
       )}
     />
   )

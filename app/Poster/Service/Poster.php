@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Tools\Service;
+namespace App\Poster\Service;
 
-use App\Tools\Models\ToolsPoster;
 use Dux\Handlers\ExceptionBusiness;
 use Intervention\Image\Geometry\Factories\CircleFactory;
 use Intervention\Image\Geometry\Factories\RectangleFactory;
@@ -20,7 +19,7 @@ class Poster
         if (!$fontPath || !is_file($fontPath)) {
             throw new ExceptionBusiness('Font file does not exist');
         }
-        $info = ToolsPoster::query()->find($id);
+        $info = \App\Poster\Models\Poster::query()->find($id);
         if (!$info) {
             throw new ExceptionBusiness('Template does not exist');
         }

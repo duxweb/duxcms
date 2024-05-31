@@ -1,0 +1,16 @@
+{
+  "poster": {
+    "name": "포스터",
+    
+    "design": {
+      "name": "포스터 템플릿",
+      "fields": {
+        "title": "제목",
+        "data": "포스터 디자인"
+      },
+      "validate": {
+        "title": "포스터 제목을 입력하세요"
+      }
+    } 
+  }
+}

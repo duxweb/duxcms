@@ -6,6 +6,8 @@ tools:
       name: インポート＃インポート＃
     cascade:
       name: せんたく
+  magicData:
+    name: キューブデータ
   magicGroup:
     name: データのグループ化
     validator:
@@ -28,6 +30,11 @@ tools:
       name: 構成
     sourceData:
       name: データ＃データ＃
+  magicSource:
+    name: データソース
+    validator:
+      name: 名前を入力してください
+      data: データフォーマットが正しくありません
   file:
     name: 添付ファイルの管理
   fileDir:

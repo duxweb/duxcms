@@ -26,7 +26,7 @@ const List = () => {
       },
       {
         colKey: 'title',
-        title: translate('tools.poster.fields.title'),
+        title: translate('poster.design.fields.title'),
         minWidth: 200,
         cell: ({ row }) => {
           return (
@@ -69,7 +69,7 @@ const List = () => {
         return (
           <>
             <FilterItem name='keyword'>
-              <Input placeholder={translate('tools.poster.validate.title')} />
+              <Input placeholder={translate('poster.design.validate.title')} />
             </FilterItem>
           </>
         )

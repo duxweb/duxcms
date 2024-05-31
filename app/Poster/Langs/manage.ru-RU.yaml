@@ -1,0 +1,6 @@
+poster:
+  name: Плакаты
+  design:
+    name: Дизайн плакатов
+    validator:
+      title: Заполните заголовок.

@@ -1,0 +1,6 @@
+poster:
+  name: 포스터
+  design:
+    name: 포스터 디자인
+    validator:
+      title: 제목을 입력하십시오.

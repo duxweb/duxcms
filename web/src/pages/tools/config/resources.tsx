@@ -45,6 +45,15 @@ export const adminResources = (app: App) => {
       },
     },
     {
+      name: 'tools.magicManage',
+      meta: {
+        label: 'tools.magicManage',
+        sort: 800,
+        icon: 'i-tabler:template',
+        parent: 'system',
+      },
+    },
+    {
       name: 'tools.magic',
       list: 'tools/magic',
       create: 'tools/magic/page',
@@ -55,8 +64,7 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'tools.magic',
         icon: 'i-tabler:template',
-        parent: 'data',
-        sort: 0,
+        parent: 'tools.magicManage',
       },
     },
     {
@@ -65,6 +73,17 @@ export const adminResources = (app: App) => {
         label: 'tools.magicGroup',
         icon: 'i-tabler:database',
         parent: 'data',
+      },
+    },
+    {
+      name: 'tools.magicSource',
+      list: 'tools/magicSource',
+      listElenemt: lazyComponent(() => import('../admin/magicSource/list')),
+      meta: {
+        label: 'tools.magicSource',
+        icon: 'i-tabler:template',
+        parent: 'tools.magicManage',
+        sort: 0,
       },
     },
     {
@@ -93,20 +112,6 @@ export const adminResources = (app: App) => {
       meta: {
         label: 'tools.file',
         icon: 'i-tabler:link',
-        parent: 'tools',
-      },
-    },
-    {
-      name: 'tools.poster',
-      list: 'tools/poster',
-      create: 'tools/poster/page',
-      edit: 'tools/poster/page/:id',
-      listElenemt: lazyComponent(() => import('../admin/poster/list')),
-      createElenemt: lazyComponent(() => import('../admin/poster/page')),
-      editElenemt: lazyComponent(() => import('../admin/poster/page')),
-      meta: {
-        label: 'tools.poster',
-        icon: 'i-tabler:photo',
         parent: 'tools',
       },
     },

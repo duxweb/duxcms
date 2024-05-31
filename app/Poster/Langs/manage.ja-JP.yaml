@@ -1,0 +1,6 @@
+poster:
+  name: ポスター枚
+  design:
+    name: ポスターデザイン
+    validator:
+      title: タイトルを記入してください

@@ -19,6 +19,7 @@
       "name": "データキューブ",
       "fields": {
         "group": "データのグループ化",
+        "parent": "親グループ",
         "unknown": "不明",
         "name": "データ名",
         "nameDesc": "データ呼び出し名",
@@ -49,7 +50,8 @@
         "groupLabel": "グループ化ラベル",
         "groupIcon": "グループ化アイコン",
         "addGroup": "グループの追加",
-        "editGroup": "グループの編集"
+        "editGroup": "グループの編集",
+        "res": "所属リソース"
       },
       "external": {
         "read": "読み取り",
@@ -68,7 +70,34 @@
         "group": "データメニューのグループ化",
         "groupName": "名前は英数字またはアンダースコアのみです",
         "groupIcon": "アイコン名リファレンス",
-        "groupIconDoc": "参照ドキュメント"
+        "groupIconDoc": "参照ドキュメント",
+        "res": "スタンドアロンしたメニューとして記入せず、1レベルのメニューにのみ有効"
+      }
+    },
+    "magicData": {
+      "name": "キューブデータ"
+    },
+    "magicManage": {
+      "name": "データキューブ"
+    },
+    "magicSource": {
+      "name": "データソース管理",
+      "fields": {
+        "name": "の名前をあげる",
+        "type": "データ型",
+        "data": "ローカルデータ",
+        "remote": "リモートデータ",
+        "source": "システムデータ",
+        "maps": "データマッピング",
+        "url": "リクエストアドレス",
+        "cache": "キャッシュ時間（秒）",
+        "header": "リクエストヘッダ",
+        "method": "要求方法",
+        "params_name": "パラメータ名",
+        "params_value": "パラメータ値",
+        "req_type": "コンテンツフォーマット",
+        "req_data": "要求データ",
+        "req_filed": "データフィールド"
       }
     },
     "magicGroup": {
@@ -89,16 +118,6 @@
       },
       "placeholder": {
         "dir": "ディレクトリを選択してください"
-      }
-    },
-    "poster": {
-      "name": "ポスターテンプレート",
-      "fields": {
-        "title": "タイトル",
-        "data": "ポスターデザイン"
-      },
-      "validate": {
-        "title": "ポスターのタイトルを入力してください"
       }
     },
     "backup": {

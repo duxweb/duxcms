@@ -37,7 +37,6 @@ export const adminResources = (app: App, context: appContext) => {
         label: 'system.api',
         parent: 'system',
         icon: 'i-tabler:api',
-        sort: 100,
       },
     },
     {
@@ -46,7 +45,6 @@ export const adminResources = (app: App, context: appContext) => {
         label: 'system.userGroup',
         parent: 'system',
         icon: 'i-tabler:users',
-        sort: 101,
       },
     },
     {

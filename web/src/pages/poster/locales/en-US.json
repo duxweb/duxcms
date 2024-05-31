@@ -1,0 +1,16 @@
+{
+  "poster": {
+    "name": "poster",
+    
+    "design": {
+      "name": "Poster template",
+      "fields": {
+        "title": "title",
+        "data": "Poster Design "
+      },
+      "validate": {
+        "title": "Please enter the poster title"
+      }
+    } 
+  }
+}

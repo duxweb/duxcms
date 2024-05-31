@@ -5,12 +5,6 @@
     ],
     "packages": [
         {
-            "name": "duxweb/tools",
-            "description": "System Tools Applications",
-            "version": "0.2.3",
-            "app": "tools"
-        },
-        {
             "name": "duxweb/cloud",
             "description": "CMS Cloud Application",
             "version": "0.0.4",
@@ -49,18 +43,30 @@
             "app": "content"
         },
         {
+            "name": "duxweb/poster",
+            "description": "Poster Designer",
+            "version": "0.0.1",
+            "app": "poster"
+        },
+        {
             "name": "duxweb/base",
             "description": "System Base Applications",
-            "version": "0.2.10",
+            "version": "0.2.12",
             "phpDependencies": {
                 "duxweb/dux-lite": "main-dev"
             },
             "jsDependencies": {
-                "@duxweb/dux-extend": "^0.1.1",
+                "@duxweb/dux-extend": "^0.2.1",
                 "@duxweb/dux-plugin": "^0.0.8",
-                "@duxweb/dux-refine": "^0.12.0"
+                "@duxweb/dux-refine": "^0.15.2"
             },
             "app": "system"
+        },
+        {
+            "name": "duxweb/tools",
+            "description": "System Tools Applications",
+            "version": "0.3.0",
+            "app": "tools"
         }
     ]
 }

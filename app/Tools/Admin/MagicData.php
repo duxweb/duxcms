@@ -7,6 +7,7 @@ namespace App\Tools\Admin;
 use App\System\Models\SystemUser;
 use App\Tools\Models\ToolsMagic;
 use App\Tools\Models\ToolsMagicData;
+use App\Tools\Service\Source;
 use Dux\Handlers\ExceptionBusiness;
 use Dux\Permission\Can;
 use Dux\Resources\Action\Resources;
@@ -75,40 +76,39 @@ class MagicData extends Resources
     public function transformData(Model|LengthAwarePaginator|Collection|null $data, callable $callback): array
     {
         $fields = $this->info->fields;
+
+        if ($this->action != 'show') {
+            return format_data($data, function ($item) {
+                return $this->transform($item);
+            });
+        }
+
         if ($data instanceof LengthAwarePaginator) {
             $list = $data->getCollection();
-            if ($this->action == 'show') {
-                $array = \App\Tools\Service\Magic::showData($fields, $data->pluck('data')->toArray());
-                $list = $list->map(function ($item, $key) use ($array) {
-                    $item->data = $array[$key];
-                    return $item;
-                });
-            }
-            $data->setCollection($list);
+            $data->setCollection($this->getModalData($list, $fields));
             return format_data($data, function ($item) {
-                return $this->transform($item);
+                return $item;
             });
-        }
-        if ($data instanceof Model) {
-            if ($this->action == 'show') {
-                $data->data = \App\Tools\Service\Magic::showData($fields, [$data->data])[0];
-            }
+        } else if ($data instanceof Model) {
+            return [
+                'data' => $this->getModalData([$data], $fields)[0],
+                'meta' => []
+            ];
+        } else {
+            $data = $this->getModalData($data, $fields);
             return format_data($data, function ($item) {
-                return $this->transform($item);
-            });
-        }
-
-
-        if ($this->action == 'show') {
-            $array = \App\Tools\Service\Magic::showData($fields, $data->pluck('data')->toArray());
-            $data = $data->map(function ($item, $key) use ($array) {
-                $item->data = $array[$key];
                 return $item;
             });
         }
-        return format_data($data, function ($item) {
-            return $this->transform($item);
-        });
+
+    }
+
+    private function getModalData(mixed $list, array $fields): Collection
+    {
+        $modelData = Source::getModelData($list);
+        $sourceData = Source::getSourceMapsData($modelData, $fields);
+        $modelData = Source::mergeSourceData($modelData, $fields, $sourceData);
+        return collect($modelData);
     }
 
     public function transform(object $item): array

@@ -6,6 +6,8 @@ tools:
       name: 導入
     cascade:
       name: 選擇
+  magicData:
+    name: 魔方數據
   magicGroup:
     name: 數據分組
     validator:
@@ -28,6 +30,11 @@ tools:
       name: 配寘
     sourceData:
       name: 數據
+  magicSource:
+    name: 資料來源
+    validator:
+      name: 請輸入名稱
+      data: 數據格式不正確
   file:
     name: 附件管理
   fileDir:

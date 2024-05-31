@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Tools\Admin;
 
 use App\Tools\Models\ToolsMagic;
+use App\Tools\Models\ToolsMagicSource;
+use App\Tools\Service\Source;
 use Dux\App;
 use Dux\Handlers\ExceptionBusiness;
 use Dux\Resources\Action\Resources;
@@ -122,13 +124,16 @@ class Magic extends Resources
     #[Action(methods: 'GET', route: '/source')]
     public function source(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $list = array_map(function ($item) {
-            return [
-                'label' => $item['label'],
-                'value' => $item['name']
-            ];
-        }, \App\Tools\Service\Magic::source());
-        return send($response, 'ok', array_values($list));
+
+        $source = ToolsMagicSource::query()->get();
+
+        $list = $source->map(function ($item) {
+           return [
+             'value' => $item->id,
+             'label' => $item->name
+           ];
+        })->toArray();
+        return send($response, 'ok', $list);
     }
 
     #[Action(methods: 'GET', route: '/sourceData')]
@@ -138,12 +143,7 @@ class Magic extends Resources
         $name = $params['name'];
         $keyword = $params['keyword'];
         $ids = $params['ids'] ? explode(',', $params['ids']) : null;
-        $sources = \App\Tools\Service\Magic::source();
-        $list = [];
-        $source = $sources[$name];
-        if ($source) {
-            $list = $source['data'](keyword: $keyword, ids: $ids);
-        }
+        $list = Source::getSourceData($name, $ids, $keyword);
         return send($response, 'ok', $list);
     }
 

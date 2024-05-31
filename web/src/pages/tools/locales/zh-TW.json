@@ -19,6 +19,7 @@
       "name": "數據魔方",
       "fields": {
         "group": "數據分組",
+        "parent": "上級分組",
         "unknown": "未知",
         "name": "數據名稱",
         "nameDesc": "數據調用名",
@@ -49,7 +50,8 @@
         "groupLabel": "分組標籤",
         "groupIcon": "分組圖示",
         "addGroup": "添加分組",
-        "editGroup": "編輯分組"
+        "editGroup": "編輯分組",
+        "res": "所屬資源"
       },
       "external": {
         "read": "讀取",
@@ -68,7 +70,34 @@
         "group": "數據選單分組",
         "groupName": "名稱只能字母數位或底線",
         "groupIcon": "圖標名參攷",
-        "groupIconDoc": "參攷檔案"
+        "groupIconDoc": "參攷檔案",
+        "res": "不填寫為獨立選單，且只對一級選單生效"
+      }
+    },
+    "magicData": {
+      "name": "魔方數據"
+    },
+    "magicManage": {
+      "name": "數據魔方"
+    },
+    "magicSource": {
+      "name": "資料來源管理",
+      "fields": {
+        "name": "名稱",
+        "type": "資料類型",
+        "data": "本地數據",
+        "remote": "遠程數據",
+        "source": "系統數據",
+        "maps": "數據映射",
+        "url": "請求地址",
+        "cache": "緩存時間（秒）",
+        "header": "請求頭",
+        "method": "請求方法",
+        "params_name": "參數名",
+        "params_value": "參數值",
+        "req_type": "內容格式",
+        "req_data": "請求數據",
+        "req_filed": "數據欄位"
       }
     },
     "magicGroup": {
@@ -89,16 +118,6 @@
       },
       "placeholder": {
         "dir": "請選擇目錄"
-      }
-    },
-    "poster": {
-      "name": "海報範本",
-      "fields": {
-        "title": "標題",
-        "data": "海報設計"
-      },
-      "validate": {
-        "title": "請輸入海報標題"
       }
     },
     "backup": {

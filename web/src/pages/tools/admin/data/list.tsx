@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useTranslate, useNavigation, useParsed, useCustom, useResource } from '@refinedev/core'
 import { Button, EnhancedTableProps } from 'tdesign-react/esm'
-import { PageTable, Modal, FormPage, useMenu } from '@duxweb/dux-refine'
+import { PageTable, Modal, FormPage } from '@duxweb/dux-refine'
 import { useMagicTableRender, MagicFormRender } from '@duxweb/dux-extend'
 
 const RenderList = ({ data }: any) => {
@@ -16,6 +16,7 @@ const RenderList = ({ data }: any) => {
     editResource: data?.data?.page ? 'tools.data' : undefined,
     componentShow: () => import('./show'),
     componentEdit: () => import('./modal'),
+    sourceUrl: '',
   })
 
   useEffect(() => {
@@ -97,7 +98,7 @@ const RenderPage = () => {
       },
     },
     queryOptions: {
-      cacheTime: 0
+      cacheTime: 0,
     },
   })
 
@@ -119,20 +120,17 @@ const RenderPage = () => {
           mode: 'page',
         },
         queryOptions: {
-          cacheTime: 0
-        }
+          cacheTime: 0,
+        },
       }}
       queryParams={{
         magic: params?.name,
       }}
     >
-      <div>
-        {data?.data?.fields && <MagicFormRender fields={data?.data?.fields} />}
-      </div>
+      <div>{data?.data?.fields && <MagicFormRender fields={data?.data?.fields} />}</div>
     </FormPage>
   )
 }
-
 
 const ListData = () => {
   const { params } = useParsed()
@@ -144,7 +142,7 @@ const ListData = () => {
       params: {
         magic: params?.name,
       },
-    }
+    },
   })
 
   if (data?.code !== 200) {

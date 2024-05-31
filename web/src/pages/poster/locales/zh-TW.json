@@ -1,0 +1,16 @@
+{
+  "poster": {
+    "name": "海報",
+    
+    "design": {
+      "name": "海報範本",
+      "fields": {
+        "title": "標題",
+        "data": "海報設計"
+      },
+      "validate": {
+        "title": "請輸入海報標題"
+      }
+    } 
+  }
+}

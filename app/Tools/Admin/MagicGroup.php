@@ -15,13 +15,25 @@ class MagicGroup extends Resources
 {
 	protected string $model = ToolsMagicGroup::class;
 
+
+    protected bool $tree = true;
+    protected array $pagination = [
+        'status' => false,
+    ];
+
     public function transform(object $item): array
     {
         return [
             "id" => $item->id,
+            "parent_id" => $item->parent_id,
             "name" => $item->name,
             "label" => $item->label,
             "icon" => $item->icon,
+            "res" => $item->res,
+            "sort" => $item->sort,
+            "children" => $item->children ? $item->children->map(function ($vo) {
+                return $this->transform($vo);
+            }) : []
         ];
     }
 
@@ -40,6 +52,9 @@ class MagicGroup extends Resources
 		    "name" => $data->name,
             "label" => $data->label,
             "icon" => $data->icon,
+            "parent_id" => $data->parent_id,
+            "res" => $data->res,
+            "sort" => $data->sort,
 		];
 	}
 

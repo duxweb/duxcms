@@ -30,9 +30,6 @@ class SourceListener
                 route: 'tools/data?magic=' . $item->name,
                 data: function ($ids = null, $keyword = null) use ($fields, $item) {
                     $query = ToolsMagicData::query()->where('magic_id', $item->id);
-                    if (isset($ids)) {
-                        $query->whereIn('id', $ids);
-                    }
                     if (isset($keyword)) {
                         foreach ($fields as $key) {
                             $query->where("data->$key", 'like', '%' . $keyword . '%');
@@ -41,6 +38,9 @@ class SourceListener
                     if ($item->type === 'tree') {
                         $data = $query->get()->toTree();
                     }else {
+                        if (isset($ids)) {
+                            $query->whereIn('id', $ids);
+                        }
                         $data = $query->get();
                     }
                     return $this->formatData($data);

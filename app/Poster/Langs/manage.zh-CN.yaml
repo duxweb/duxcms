@@ -1,0 +1,6 @@
+poster:
+  name: 海报
+  design:
+    name: 海报设计
+    validator:
+      title: 请填写标题

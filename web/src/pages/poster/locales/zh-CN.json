@@ -1,0 +1,16 @@
+{
+  "poster": {
+    "name": "海报",
+    
+    "design": {
+      "name": "海报模板",
+      "fields": {
+        "title": "标题",
+        "data": "海报设计"
+      },
+      "validate": {
+        "title": "请输入海报标题"
+      }
+    } 
+  }
+}
