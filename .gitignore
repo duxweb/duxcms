@@ -5,6 +5,7 @@
 /config/geo
 /public/theme
 /tmp
+/vendor
 
 # duxweb
 dist
