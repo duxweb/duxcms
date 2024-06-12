@@ -1,8 +1,0 @@
-languages:
-  PHP: true
-
-exclude_paths:
-  - mime.types.php
-  - build/**/*
-  - tests/**/*
-  - vendor/**/*

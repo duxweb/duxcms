@@ -1,8 +1,0 @@
-vendor/
-test/
-composer.lock
-.phpunit.result.cache
-.nova/
-index.php
-test.md
-
