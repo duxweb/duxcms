@@ -1,4 +1,14 @@
 type: local
-ext: {  }
+ext:
+    - jpg
+    - jpeg
+    - png
+    - bmp
+    - webp
+    - mp4
+    - xsl
+    - xslx
+    - doc
+    - docx
 drivers:
-    local: { type: local, public_url: 'http://duxcms.test/uploads/', path: public/uploads }
+    local: { type: local, public_url: 'http://localhost/uploads/', path: public/uploads }
