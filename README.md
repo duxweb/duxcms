@@ -46,9 +46,13 @@ composer create-project duxweb/duxcms
 * Github: [@duxweb](https://github.com/duxweb)
 * Gitee: [@duxphp](https://gitee.com/duxphp/)
 
-## 🤝 反馈
+## 反馈
 
 如果有开发疑问，请提交 issues <br />请查看 [github](https://github.com/duxweb/duxcms/issues) 或 [gitee](https://gitee.com/duxphp/duxcms-next/issues).
+
+## 声明
+
+dux 产品不属于公司性质产品，自 2013年起版权为团队和作者本人所有，我们没有任何商业性质的资金支持和补贴，用爱发电
 
 ## 支持
 

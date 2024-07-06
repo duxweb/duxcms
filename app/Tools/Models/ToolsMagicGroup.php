@@ -25,7 +25,7 @@ class ToolsMagicGroup extends \Dux\Database\Model
         $table->string("label")->comment('分类标签')->nullable();
         $table->string("name")->comment('分类名')->nullable();
         $table->string("icon")->comment('图标')->nullable();
-        $table->string("res")->comment('资源名')->index();
+        $table->string("res")->comment('资源名')->nullable();
         $table->integer("sort")->comment('顺序')->nullable();
         NestedSet::columns($table);
         $table->timestamps();

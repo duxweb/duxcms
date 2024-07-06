@@ -6,6 +6,7 @@ use App\System\App;
 use App\System\Models\LogOperate;
 use donatj\UserAgent\UserAgentParser;
 use Dux\Handlers\ExceptionBusiness;
+use Illuminate\Support\Str;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
@@ -52,7 +53,7 @@ class OperateMiddleware {
             "request_params" => $request->getParsedBody(),
             "route_name" => $route->getName(),
             "route_title" => $route->getArgument("route:title"),
-            "client_ua" => $useragent,
+            "client_ua" => Str::limit($useragent, 200),
             "client_ip" => get_ip(),
             "client_browser" => $ua->browser() . " " . $ua->browserVersion(),
             "client_device" => $ua->platform(),

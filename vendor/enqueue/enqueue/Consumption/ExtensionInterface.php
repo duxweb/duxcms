@@ -1,7 +1,0 @@
-<?php
-
-namespace Enqueue\Consumption;
-
-interface ExtensionInterface extends StartExtensionInterface, PreSubscribeExtensionInterface, PreConsumeExtensionInterface, MessageReceivedExtensionInterface, PostMessageReceivedExtensionInterface, MessageResultExtensionInterface, ProcessorExceptionExtensionInterface, PostConsumeExtensionInterface, EndExtensionInterface, InitLoggerExtensionInterface
-{
-}
