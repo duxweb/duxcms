@@ -42,7 +42,6 @@ class MagicGroup extends Resources
 		return [
 		    "name" => ["required", __('tools.magicGroup.validator.name', 'manage')],
             "label" => ["required",__('tools.magicGroup.validator.label', 'manage')],
-            "icon" => ["required", __('tools.magicGroup.validator.icon', 'manage')],
 		];
 	}
 

@@ -15,8 +15,8 @@ use Dux\Bootstrap;
 use Dux\Handlers\ExceptionBusiness;
 use Dux\Menu\Menu as DuxMenu;
 use Dux\Permission\PermissionMiddleware;
-use Dux\Route\Route as DuxRoute;
 use Dux\Resources\Resource as DuxResource;
+use Dux\Route\Route as DuxRoute;
 
 class App extends AppExtend
 {
@@ -59,6 +59,7 @@ class App extends AppExtend
 
         $commonRoute = $app->getRoute()->get("admin")->group('', ...$middleware);
         $commonRoute->post('/upload', Upload::class . ':upload', 'admin.upload');
+        $commonRoute->post('/qiniu', Upload::class . ':qiniu', 'admin.qiniu');
         $commonRoute->map(['GET', 'POST', 'DELETE'],'/upload/manage', Upload::class . ':manage', 'admin.upload.manage');
         $commonRoute->post('/upload/remote', Upload::class . ':remote', 'admin.upload.remote');
     }

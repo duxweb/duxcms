@@ -8,26 +8,31 @@ use App\Tools\Models\ToolsFile;
 use App\Tools\Models\ToolsFileDir;
 use Dux\App;
 use Dux\Handlers\ExceptionBusiness;
+use Dux\Utils\Content;
 use Mimey\MimeTypes;
 use Overtrue\Flysystem\Qiniu\QiniuAdapter;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UploadedFileInterface;
-use Dux\Utils\Content;
 
 class Upload
 {
 
-    private string $hasType = '';
+    protected string $hasType = '';
+
+    protected function init(ServerRequestInterface $request, ResponseInterface $response, array $args): void
+    {
+        $this->hasType = $request->getAttribute('app');
+    }
 
     public function upload(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        $this->init($request, $response, $args);
         /**
          * @var $uploads UploadedFileInterface[]
          */
         $body = $request->getParsedBody();
         $uploads = $request->getUploadedFiles();
-        $app = $request->getAttribute('app');
         $list = [];
         $mimes = new MimeTypes;
         $type = App::config("storage")->get("type");
@@ -48,7 +53,7 @@ class Upload
             App::storage()->write($path, $content);
             $item = [
                 'dir_id' => $body['dir_id'],
-                'has_type' => $app,
+                'has_type' => $this->hasType,
                 'driver' => $type,
                 'url' => App::storage()->publicUrl($path),
                 'path' => $path,
@@ -81,7 +86,7 @@ class Upload
     public function qiniu(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $params = $request->getParsedBody();
-        $config = App::config("storage")->get('drivers.default');
+        $config = App::config("storage")->get('drivers.qiniu');
         $adapter = new QiniuAdapter($config["accessKey"], $config["secretKey"], $config["bucket"], $config["domain"]);
         $token = $adapter->getAuthManager()->uploadToken($config["bucket"]);
         return send($response, 'ok', [
@@ -94,7 +99,7 @@ class Upload
 
     public function manage(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $this->hasType = $request->getAttribute('app');
+        $this->init($request, $response, $args);
         $query = $request->getQueryParams();
         $params = $request->getParsedBody();
         $type = $query['type'];

@@ -2,7 +2,6 @@
 
 namespace App\Content\Api;
 
-use App\Member\Service\Foot;
 use Dux\App;
 use Dux\Auth\AuthService;
 use Dux\Handlers\ExceptionNotFound;
@@ -84,6 +83,18 @@ class Article
             'praise' => $info->praise,
             'extend' => $info->extend
         ], $meta);
+    }
+
+
+    #[Route(methods: 'GET', pattern: '/{id}/poster')]
+    public function qrcode(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $id = (int)$args['id'];
+        $userId = (new AuthService('member'))->id($request);
+        $url = \App\Content\Service\Article::genQrcode($id, (int)$userId, $request);
+        return send($response, 'ok', [
+            'image' => $url,
+        ]);
     }
 
 }

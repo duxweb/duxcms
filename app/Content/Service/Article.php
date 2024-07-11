@@ -3,11 +3,13 @@
 namespace App\Content\Service;
 
 use App\Content\Models\ArticleClass;
-use App\Content\Models\ArticleRecommend;
-use App\Tools\Models\ToolsMagicData;
+use App\System\Enum\PlatformEnum;
+use App\System\Service\Config;
+use App\Tools\Service\Qrcode;
 use Dux\App;
+use Dux\Handlers\ExceptionBusiness;
 use Dux\Handlers\ExceptionNotFound;
-use Illuminate\Support\Collection;
+use Psr\Http\Message\ServerRequestInterface;
 
 class Article
 {
@@ -149,5 +151,49 @@ class Article
         return $list;
     }
 
+
+    public static function genQrcode(int $id, int $userId, ServerRequestInterface $request)
+    {
+        $info = \App\Content\Models\Article::query()->find($id);
+        $event = new \App\Content\Event\QrcodeEvent($info, $userId);
+        App::event()->dispatch($event, 'content.qrcode');
+
+        $params = $event->getParams();
+
+        $platform = PlatformEnum::from($request->getHeaderLine('platform') ?: 'web');
+        $refererUrl = $platform->url();
+        if (!$refererUrl) {
+            $uri = $request->getUri();
+            $refererUrl = sprintf('%s://%s', $uri->getScheme(), $uri->getHost());
+        }
+        $qrcode = Qrcode::generate($platform, $refererUrl, '/duxcmsContent/pages/article/detail?id=' . $info->id, $params);
+
+        $cacheKeyStr = 'poster.' . sha1(json_encode($params));
+        if (App::cache()->has($cacheKeyStr)) {
+            return App::cache()->get($cacheKeyStr);
+        }
+
+        $config = Config::getJsonValue('content', []);
+
+        $poster = $config['article_poster'];
+        if (!$poster) {
+            throw new ExceptionBusiness('请联系管理员设置模板');
+        }
+
+        $content = \App\Poster\Service\Poster::generate($poster, [
+            'image' => $info->images[0],
+            'qrcode' => $qrcode,
+            'title' => $info->title,
+            'source' => $info->source,
+            'date' => $info->created_at?->toDateString(),
+        ]);
+        $basename = bin2hex(random_bytes(10));
+        $filename = sprintf('article-%s.%0.8s', $basename, 'png');
+        $publicUrl = "/poster/$filename";
+        App::storage()->write($publicUrl, $content);
+        $url = App::storage()->publicUrl($publicUrl);
+        App::cache()->set($cacheKeyStr, $url, 14400);
+        return $url;
+    }
 
 }

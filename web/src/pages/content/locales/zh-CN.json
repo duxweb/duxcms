@@ -4,7 +4,6 @@
     "articleGroup": {
       "name": "文章管理"
     },
-
     "articleExtend": {
       "name": "文章扩展"
     },
@@ -136,11 +135,13 @@
         "parent": "上级菜单",
         "groupName": "菜单组名",
         "groupTitle": "菜单组描述"
-
       },
       "placeholder": {
         "group": "请选择菜单组"
       }
+    },
+    "setting": {
+      "name": "内容配置"
     }
   }
   

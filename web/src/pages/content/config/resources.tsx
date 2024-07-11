@@ -135,5 +135,16 @@ export const adminResources = (app: App) => {
     {
       name: 'content.menu',
     },
+    {
+      name: 'content.setting',
+      list: 'content/setting',
+      listElenemt: lazyComponent(() => import('../admin/setting/page')),
+      meta: {
+        parent: 'content',
+        label: 'content.setting',
+        icon: 'i-tabler:settings',
+        sort: 100,
+      },
+    },
   ])
 }

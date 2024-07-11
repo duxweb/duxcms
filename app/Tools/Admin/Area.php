@@ -6,15 +6,16 @@ namespace App\Tools\Admin;
 
 use App\Tools\Models\ToolsArea;
 use Dux\App;
-use Dux\Manage\Manage;
 use Dux\Resources\Action\Resources;
-use Dux\Resources\Attribute\Resource;
 use Dux\Resources\Attribute\Action;
+use Dux\Resources\Attribute\Resource;
 use Dux\Utils\Excel;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+
+ini_set('memory_limit', '1024M');
 
 #[Resource(app: 'admin',  route: '/tools/area',  name: 'tools.area', actions: ['list'])]
 class Area extends Resources
