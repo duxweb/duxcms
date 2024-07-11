@@ -12,7 +12,8 @@
         "duxweb/dux-lite": "main-dev",
         "pelago/emogrifier": "^7.1",
         "erusev/parsedown": "^1.7",
-        "benjaminhoegh/parsedown-toc": "^1.5"
+        "benjaminhoegh/parsedown-toc": "^1.5",
+        "chillerlan/php-qrcode": "^4.3"
     },
     "autoload": {
         "psr-4": {
