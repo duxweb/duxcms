@@ -6,8 +6,8 @@ ext:
     - bmp
     - webp
     - mp4
-    - xsl
-    - xslx
+    - xls
+    - xlsx
     - doc
     - docx
 drivers:
