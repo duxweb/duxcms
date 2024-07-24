@@ -34,21 +34,6 @@
             "app": "cms"
         },
         {
-            "name": "duxweb/poster",
-            "description": "Poster Designer",
-            "version": "0.0.1",
-            "app": "poster"
-        },
-        {
-            "name": "duxweb/content",
-            "description": "Content Management Applications",
-            "version": "0.2.8",
-            "phpDependencies": {
-                "pelago/emogrifier": "^7.1"
-            },
-            "app": "content"
-        },
-        {
             "name": "duxweb/base",
             "description": "System Base Applications",
             "version": "0.8.2",
@@ -63,13 +48,29 @@
             "app": "system"
         },
         {
+            "name": "duxweb/content",
+            "description": "Content Management Applications",
+            "version": "0.3.2",
+            "phpDependencies": {
+                "pelago/emogrifier": "^7.1"
+            },
+            "app": "content"
+        },
+        {
             "name": "duxweb/tools",
             "description": "System Tools Applications",
-            "version": "0.3.5",
+            "version": "0.3.6",
             "phpDependencies": {
-                "chillerlan/php-qrcode": "^4.3"
+                "chillerlan/php-qrcode": "^4.3",
+                "pelago/emogrifier": "^7.1"
             },
             "app": "tools"
+        },
+        {
+            "name": "duxweb/poster",
+            "description": "Poster Designer",
+            "version": "0.0.4",
+            "app": "poster"
         }
     ]
 }

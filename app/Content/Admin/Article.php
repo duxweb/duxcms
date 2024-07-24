@@ -5,19 +5,13 @@ declare(strict_types=1);
 namespace App\Content\Admin;
 
 use App\Content\Models\ArticleClass;
-use App\System\Service\Config;
 use App\Tools\Models\ToolsMagic;
-use Dux\Handlers\ExceptionBusiness;
-use Dux\Package\Package;
 use Dux\Resources\Action\Resources;
-use Dux\Resources\Attribute\Action;
 use Dux\Resources\Attribute\Resource;
 use Dux\Utils\Content;
 use Dux\Validator\Data;
 use Dux\Validator\Validator;
-use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Builder;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 #[Resource(app: 'admin', route: '/content/article', name: 'content.article')]
@@ -80,6 +74,8 @@ class Article extends Resources
             'keywords' => $item->keywords ? explode(',', $item->keywords) : [],
             'descriptions' => $item->descriptions,
             'attrs' => $item->attrs?->pluck('id')->toArray(),
+            'push_at' => $item->push_at?->format('Y-m-d H:i'),
+            'url' => $item->url,
             'extend' => $item->extend
         ];
     }
@@ -120,6 +116,8 @@ class Article extends Resources
             'virtual_view' => $data->virtual_view ?: 0,
             'keywords' => $data->keywords ? implode(',', $data->keywords) : '',
             'descriptions' => $data->descriptions,
+            'url' => $data->url,
+            'push_at' => $data->push_at,
             'extend' => $data->extend,
         ];
 

@@ -36,7 +36,9 @@
         "virtualView": "虚拟浏览量",
         "recommend": "推荐",
         "attrs": "属性",
-        "createdAt": "创建时间"
+        "createdAt": "创建时间",
+        "pushAt": "发布时间",
+        "url": "自定义url"
       }
     },
     "source": {

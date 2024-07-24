@@ -33,6 +33,8 @@ class Article extends \Dux\Database\Model
         $table->bigInteger('praise')->comment('点赞')->default(0);
         $table->string('keywords')->comment('关键词')->nullable();
         $table->string('descriptions')->comment('描述')->nullable();
+        $table->string('url')->comment('自定义 url')->nullable();
+        $table->timestamp('push_at')->comment('发布时间')->nullable();
         $table->json('extend')->nullable()->comment('扩展数据');
         $table->timestamps();
     }
@@ -45,7 +47,8 @@ class Article extends \Dux\Database\Model
 
     protected $casts = [
         'extend' => 'array',
-        'images' => 'array'
+        'images' => 'array',
+        'push_at' => 'datetime'
     ];
 
     public function seed(Connection $db)

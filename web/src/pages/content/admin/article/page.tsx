@@ -1,22 +1,23 @@
-import { useTranslate, useList, useResource } from '@refinedev/core'
+import { useList, useResource, useTranslate } from '@refinedev/core'
 import {
+  appHook,
   FormPage,
-  useClient,
-  useSelect,
   FormPageItem,
   UploadImageManage,
-  appHook,
+  useClient,
   useModuleContext,
+  useSelect,
 } from '@duxweb/dux-refine'
 import {
+  AutoComplete,
+  Cascader,
+  Checkbox,
+  DatePicker,
   Form,
   Input,
-  TagInput,
   Radio,
-  Cascader,
-  AutoComplete,
+  TagInput,
   Textarea,
-  Checkbox,
 } from 'tdesign-react/esm'
 import { useEffect, useState } from 'react'
 import { MagicFormRender } from '@duxweb/dux-extend'
@@ -94,6 +95,14 @@ const Page = () => {
 
           <Form.FormItem label={translate('content.article.fields.source')} name='source'>
             <AutoComplete options={sourceData} highlightKeyword filterable={false} clearable />
+          </Form.FormItem>
+
+          <Form.FormItem label={translate('content.article.fields.url')} name='url'>
+            <Input />
+          </Form.FormItem>
+
+          <Form.FormItem label={translate('content.article.fields.pushAt')} name='push_at'>
+            <DatePicker enableTimePicker />
           </Form.FormItem>
 
           {magic?.fields && <MagicFormRender fields={magic?.fields} prefix='extend' />}

@@ -4,7 +4,6 @@
     "articleGroup": {
       "name": "記事の管理"
     },
-
     "articleExtend": {
       "name": "記事の拡張"
     },
@@ -37,7 +36,9 @@
         "virtualView": "仮想ブラウズ",
         "recommend": "推奨",
         "attrs": "属性＃ゾクセイ＃",
-        "createdAt": "作成時間"
+        "createdAt": "作成時間",
+        "pushAt": "リリース時間",
+        "url": "カスタムurl"
       }
     },
     "source": {
@@ -136,11 +137,13 @@
         "parent": "親メニュー",
         "groupName": "メニューグループ名",
         "groupTitle": "メニューグループの説明"
-
       },
       "placeholder": {
         "group": "メニューグループを選択してください"
       }
+    },
+    "setting": {
+      "name": "コンテンツ構成"
     }
   }
   

@@ -3,10 +3,10 @@
 namespace App\Poster\Service;
 
 use Dux\Handlers\ExceptionBusiness;
+use Intervention\Image\Drivers\Imagick\Driver;
 use Intervention\Image\Geometry\Factories\CircleFactory;
 use Intervention\Image\Geometry\Factories\RectangleFactory;
 use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Imagick\Driver;
 use Intervention\Image\Typography\FontFactory;
 
 class Poster
@@ -25,7 +25,11 @@ class Poster
         }
         $data = $info->data;
         $manager = new ImageManager(Driver::class);
-        $canvas = $manager->create($data['config']['width'], $data['config']['height'])->fill($data['config']['color']);
+        $canvas = $manager->create($data['config']['width'], $data['config']['height']);
+
+        if ($data['config']['color']) {
+            $canvas = $canvas->fill($data['config']['color']);
+        }
 
         // 插入背景图
         if ($data['config']['image']) {
@@ -37,8 +41,8 @@ class Poster
         // 插入图层
         foreach ($data['data']['objects'] as $object) {
 
-            $width = $object['width'] * ($object['scaleX'] ?: 1);
-            $height = $object['height'] * ($object['scaleY'] ?: 1);
+            $width = $object['width'] * ($object['scaleX'] ?? 1);
+            $height = $object['height'] * ($object['scaleY'] ?? 1);
 
             switch ($object['type']) {
                 case 'circle':
@@ -67,16 +71,20 @@ class Poster
                     }
                     break;
                 case 'textbox':
-                    $left = $object['angle'] > 0 ? $object['left'] : $object['left'] + $width / 2;
-                    $top = $object['angle'] > 0 ? $object['top'] : $object['top'] + $height / 2;
+                    $left = $object['angle'] >= 0 && $object['textAlign'] != 'center' ? $object['left'] : $object['left'] + $width / 2;
+                    $top = $object['angle'] >= 0 ? $object['top'] : $object['top'] + $height / 2;
                     $text = $object['text'];
+
                     foreach ($params as $key => $vo) {
                         $text = str_replace('{' . $key . '}', $vo, $text);
                     }
                     $canvas->text($text, $left, $top, function (FontFactory $font) use ($object, $width, $height, $fontPath) {
                         $font->file($fontPath);
                         $font->wrap($width);
-                        $font->size($object['fontSize']);
+                        if ($object['fill']) {
+                            $font->color($object['fill']);
+                        }
+                        $font->size($object['fontSize'] * ($object['scaleX'] ?: 1));
                         $font->align($object['textAlign'] ?: 'left');
                         $font->lineHeight(1.8);
                         $font->angle($object['angle'] ?: 0);

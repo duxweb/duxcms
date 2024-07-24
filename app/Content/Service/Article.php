@@ -16,7 +16,9 @@ class Article
     // 查询
     public static function query(array $where = [], $classId = null, $recId = null, $top = false, $image = null, ?string $keyword = null, ?string $tag = null, ?string  $order = 'id desc'): \Illuminate\Database\Eloquent\Builder
     {
-        $query = \App\Content\Models\Article::query()->with(['attrs', 'tags', 'recommend']);
+        $query = \App\Content\Models\Article::query()->with(['attrs', 'tags', 'recommend'])->where(function ($query) {
+            $query->whereNull('push_at')->orWhere('push_at', '>=', now()->toDateTimeString());
+        });
 
         if ($where) {
             $query->where($where);
@@ -97,9 +99,11 @@ class Article
     }
 
     // 详情
-    public static function info(int $id, array $where = []): object
+    public static function info(int|string $id, array $where = []): object
     {
-        $info = self::query($where)->find($id);
+        $info = self::query($where)->where(function ($query) use ($id) {
+            $query->where('id', $id)->orwhere('url', $id);
+        })->first();
         if (!$info) {
             throw new ExceptionNotFound();
         }
@@ -185,7 +189,7 @@ class Article
             'qrcode' => $qrcode,
             'title' => $info->title,
             'source' => $info->source,
-            'date' => $info->created_at?->toDateString(),
+            'time' => $info->created_at?->toDateString(),
         ]);
         $basename = bin2hex(random_bytes(10));
         $filename = sprintf('article-%s.%0.8s', $basename, 'png');

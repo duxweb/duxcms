@@ -1,8 +1,9 @@
 {
     "name": "duxweb/tools",
     "description": "System Tools Applications",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "phpDependencies": {
-        "chillerlan/php-qrcode": "^4.3"
+        "chillerlan/php-qrcode": "^4.3",
+        "pelago/emogrifier": "^7.1"
     }
 }

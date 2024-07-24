@@ -4,7 +4,6 @@
     "articleGroup": {
       "name": "文章管理"
     },
-
     "articleExtend": {
       "name": "文章擴展"
     },
@@ -37,7 +36,9 @@
         "virtualView": "虛擬流覽量",
         "recommend": "推薦",
         "attrs": "內容",
-        "createdAt": "創建時間"
+        "createdAt": "創建時間",
+        "pushAt": "發佈時間",
+        "url": "自定義url"
       }
     },
     "source": {
@@ -136,11 +137,13 @@
         "parent": "上級選單",
         "groupName": "選單組名",
         "groupTitle": "選單組描述"
-
       },
       "placeholder": {
         "group": "請選擇功能表組"
       }
+    },
+    "setting": {
+      "name": "內容配寘"
     }
   }
   

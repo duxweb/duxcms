@@ -2,12 +2,12 @@
 
 namespace App\Content\Api;
 
+use App\Tools\Service\Content;
 use Dux\App;
 use Dux\Auth\AuthService;
 use Dux\Handlers\ExceptionNotFound;
 use Dux\Route\Attribute\Route;
 use Dux\Route\Attribute\RouteGroup;
-use Pelago\Emogrifier\CssInliner;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -59,22 +59,17 @@ class Article
         $info->view++;
         $info->save();
 
-        $content = $info->content;
-        $css = file_get_contents(__DIR__ . '/../Other/style.css');
-
-        $visualHtml = CssInliner::fromHtml('<div class="typo">'.$content.'</div>')->inlineCss($css)->renderBodyContent();
-
         $meta = App::apiEvent(self::class)->get('info.meta', $info, $request, $response, $args);
-
-
+        
         return send($response, 'ok', [
             'id' => $info->id,
+            'class_id' => $info->class_id,
             'source' => $info->sources?->name ?: $info->source,
             'source_avatar' => $info->sources?->avatar,
             'title' => $info->title,
             'keywords' => $info->keywords,
             'descriptions' => $info->descriptions,
-            'content' => $visualHtml,
+            'content' => Content::fromHtml($info->content),
             'images' => $info->images,
             'view' => $info->view + $info->virtual_view,
             'time' => $info->created_at->format('Y-m-d H:i:s'),
