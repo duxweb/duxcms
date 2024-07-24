@@ -1,0 +1,1 @@
+import{j as o}from"./vendor-map-DjDVTs0N.js";import{d as n,c as i,S as r,E as a}from"./action-CcBf9P9h.js";import{w as s}from"./vendor-tdesign-BxQoi5Mo.js";const p=({...t})=>o.jsx(n,{Cp:s,...t}),m=({...t})=>o.jsx(i,{Cp:s,...t}),x=({...t})=>o.jsx(r,{Cp:s,...t}),E=({...t})=>o.jsx(a,{Cp:s,...t});export{m as D,p as E,x as S,E as a};
