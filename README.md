@@ -6,7 +6,7 @@
 <h1 align="center">Dux Next</h1>
 
 <p align="center">
-<a href="https://www.dux.cn" target="_blank">中文文档</a>
+<a href="https://next.dux.cn" target="_blank">开发文档</a>
 <p>
 
 
