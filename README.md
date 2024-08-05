@@ -3,7 +3,7 @@
   <img src="https://cdn.jsdelivr.net/gh/duxweb/duxweb/logo.svg" width="150">
 <p>
 
-<h1 align="center">DuxCMS Next</h1>
+<h1 align="center">Dux Next</h1>
 
 <p align="center">
 <a href="https://www.dux.cn" target="_blank">中文文档</a>
@@ -17,7 +17,7 @@
   </a>
 </p>
 
->️ DuxCMS Next 内容管理系统是一款基于 PHP & React 的简单、易用的基础系统。
+>️ Dux Next 后台管理系统，基于php8 + typescript + react + vite 的开源后台管理系统
 
 <p align="center">
     <img src="https://www.dux.cn/theme/images/hero-photo-light.png" width="500">
