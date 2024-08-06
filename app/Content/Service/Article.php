@@ -17,7 +17,7 @@ class Article
     public static function query(array $where = [], $classId = null, $recId = null, $top = false, $image = null, ?string $keyword = null, ?string $tag = null, ?string  $order = 'id desc'): \Illuminate\Database\Eloquent\Builder
     {
         $query = \App\Content\Models\Article::query()->with(['attrs', 'tags', 'recommend'])->where(function ($query) {
-            $query->whereNull('push_at')->orWhere('push_at', '>=', now()->toDateTimeString());
+            $query->whereNull('push_at')->orWhere('push_at', '<=', now()->toDateTimeString());
         });
 
         if ($where) {

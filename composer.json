@@ -9,7 +9,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "duxweb/dux-lite": "main-dev",
+        "duxweb/dux-lite": "^1.0",
         "pelago/emogrifier": "^7.1",
         "erusev/parsedown": "^1.7",
         "benjaminhoegh/parsedown-toc": "^1.5",

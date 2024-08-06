@@ -117,7 +117,7 @@ class Article extends Resources
             'keywords' => $data->keywords ? implode(',', $data->keywords) : '',
             'descriptions' => $data->descriptions,
             'url' => $data->url,
-            'push_at' => $data->push_at,
+            'push_at' => $data->push_at ?: null,
             'extend' => $data->extend,
         ];
 

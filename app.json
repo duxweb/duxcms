@@ -3,17 +3,17 @@
     "description": "This is the dux application dependency configuration",
     "dependencies": {
         "duxweb/cms": "0.2.6",
-        "duxweb/content": "0.3.2",
+        "duxweb/content": "0.3.3",
         "duxweb/install": "0.0.5",
-        "duxweb/base": "0.8.2",
+        "duxweb/base": "0.8.3",
         "duxweb/tools": "0.3.6",
         "duxweb/cloud": "0.0.4",
         "duxweb/contentExtend": "0.0.1",
         "duxweb/poster": "0.0.4"
     },
     "apps": {
-        "dux/cms": 1721397069,
-        "dux/base": 1721368661,
+        "dux/cms": 1722908122,
+        "dux/base": 1722908180,
         "dux/contentExtend": 1712583383,
         "dux/poster": 1721139228
     }
